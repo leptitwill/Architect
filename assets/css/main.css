@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Avenir Next Regular";
   font-weight: normal;
@@ -64,11 +65,11 @@ header {
         color: white;
         font-size: 14px;
         text-align: center;
-        padding: 29px 20px;
+        padding: 30px 20px;
         line-height: 50px;
         font-weight: normal; }
         header nav ul a li:hover {
-          background: rgba(0, 0, 0, 0.3); }
+          background: rgba(0, 0, 0, 0.2); }
 
 footer {
   text-align: center;
@@ -79,6 +80,13 @@ footer {
   position: fixed;
   bottom: 0; }
 
+.cover {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-color: #eeeeee; }
+
 .content {
   width: 800px;
   margin: 50px auto;
@@ -86,3 +94,75 @@ footer {
   .content .titre {
     font-size: 2rem;
     margin-bottom: 2rem; }
+
+form.creer input, form.creer textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  outline: none; }
+
+form.creer textarea {
+  height: 100px; }
+
+form.creer input[type="submit"] {
+  background: #f35f47;
+  color: white;
+  cursor: pointer; }
+
+/* styles de base si JS est activé */
+.js .input-file-container {
+  position: relative;
+  width: 100%; }
+
+.js .input-file-trigger {
+  display: block;
+  padding: 1rem;
+  background: white;
+  color: #f35f47;
+  border: 1px solid #eeeeee;
+  font-size: 1rem;
+  cursor: pointer; }
+
+.js .input-file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  opacity: 0;
+  cursor: pointer; }
+
+/* quelques styles d'interactions */
+.js .input-file:hover + .input-file-trigger,
+.js .input-file:focus + .input-file-trigger,
+.js .input-file-trigger:hover,
+.js .input-file-trigger:focus {
+  border-color: #f35f47; }
+
+/* styles du retour visuel */
+.file-return {
+  margin: 0; }
+
+.file-return:not(:empty) {
+  margin: 1rem 0; }
+
+.js .file-return {
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: bold; }
+
+/* on complète l'information d'un contenu textuel
+   uniquement lorsque le paragraphe n'est pas vide */
+.js .file-return:not(:empty):before {
+  content: "Fichier importé : ";
+  font-style: normal;
+  font-weight: normal; }
+
+.erreur p {
+  padding: 1rem;
+  margin: 1rem;
+  background: rgba(243, 95, 71, 0.3);
+  color: #f35f47; }

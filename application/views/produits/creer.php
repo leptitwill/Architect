@@ -1,16 +1,28 @@
-			<?php echo validation_errors(); ?>
-			<?php echo $error;?>
-<?php echo form_open_multipart('produits/upload'); ?>
+		<section class="content">
 
-    <label for="nom">nom</label>
-    <input type="input" name="nom" /><br />
+			<h1 class="titre"><?= $titre ?></h1>
+			
+			<div class="erreur">
+				<?php echo validation_errors(); ?>
+				<?php echo $error;?>
+			</div>
+				
+			<?php echo form_open_multipart('produits/upload', $attributs); ?>
 
-    <label for="description">description</label>
-    <textarea name="description"></textarea><br />
+				<label for="nom">Nom</label>
+				<input type="input" name="nom" placeholder="Nom du produit"/><br />
 
-	<label for="userfile">userfile</label>
-    <input type="file" name="userfile" size="20" />
+				<label for="description">Description</label>
+				<textarea name="description" placeholder="Description du produit"></textarea><br />
 
-    <input type="submit" name="submit" value="Create news item" />
+				<div class="input-file-container">
+					<input class="input-file" id="my-file" type="file" name="userfile">
+					<label for="my-file" class="input-file-trigger" tabindex="0">Importer une image ...</label>
+				</div>
+				<p class="file-return"></p>
 
-</form>
+				<input type="submit" name="submit" value="Créer un nouveau produit" />
+
+			</form>
+
+		</section>

@@ -22,17 +22,20 @@ class Produits extends CI_Controller
 		$this->load->view('themes/footer', $data);
 	}
 
-	public function studioDeJardin()
-
+	public function studio_de_jardin()
 	{
-		$this->load->view('produits/studio-jardin');
+		$titre = 'Studio de jardin';
+		$data['titre'] = $titre;
+
+		$this->load->view('themes/header', $data);
+		$this->load->view('produits/bureau-de-jardin');
+		$this->load->view('themes/footer');
 	}
 
-	public function bureauDeJardin()
+	public function bureau_de_jardin()
 	{
-		$titre = 'bureau de jardin';
+		$titre = 'Bureau de jardin';
 		$data['titre'] = $titre;
-		$url_title = url_title($titre, '-', TRUE);
 
 		$this->load->view('themes/header', $data);
 		$this->load->view('produits/bureau-de-jardin');
@@ -41,7 +44,8 @@ class Produits extends CI_Controller
 
 	public function creer()
 	{
-		$data['titre'] = 'Les produits conceptcub';
+		$data['titre'] = 'Ajouter un nouveau produit';
+		$data['attributs'] = array('class' => 'creer');
 
 		$this->load->view('themes/header', $data);
 		$this->load->view('produits/creer', array('error' => ' ' ));
@@ -51,9 +55,15 @@ class Produits extends CI_Controller
 	public function upload()
 	{
 		$data['titre'] = 'Ajouter un produit';
+		$data['attributs'] = array('class' => 'creer');
+
+		$nom = $this->input->post('nom');
+		$description = $this->input->post('description');
+		$miniature_nom = str_replace("_"," ",$nom);
 
 		$config['upload_path'] = './assets/img/produits';
 		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = strtolower($miniature_nom);
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
@@ -65,17 +75,29 @@ class Produits extends CI_Controller
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
 
-		if ($this->form_validation->run() === FALSE)
+		if ($this->form_validation->run() === FALSE && $this->upload->do_upload())
 		{
 			$this->load->view('themes/header', $data);
 			$this->load->view('produits/creer', array('error' => ' ' ));
 			$this->load->view('themes/footer');
 		}
 
-		if ( ! $this->upload->do_upload())
+		elseif ( ! $this->upload->do_upload() && $this->form_validation->run() === TRUE)
 		{
 			$error = array('error' => $this->upload->display_errors());
+
+			$this->load->view('themes/header', $data);
 			$this->load->view('produits/creer', $error);
+			$this->load->view('themes/footer');
+		}
+
+		elseif ( ! $this->upload->do_upload() && $this->form_validation->run() === FALSE)
+		{
+			$error = array('error' => $this->upload->display_errors());
+
+			$this->load->view('themes/header', $data);
+			$this->load->view('produits/creer', $error);
+			$this->load->view('themes/footer');
 		}
 
 		else
@@ -84,8 +106,6 @@ class Produits extends CI_Controller
 			$this->thumb($data);
 
 			$couverture = $data['file_name'];
-			$nom = $this->input->post('nom');
-			$description = $this->input->post('description');
 
 			$this->produits_model->ajouter_produit($nom, $description, $couverture);
 
@@ -100,7 +120,6 @@ class Produits extends CI_Controller
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = 1920;
-		$config['height'] = 400;
 		$config['quality'] = 100;
 		$this->load->library('image_lib', $config);
 		$this->image_lib->resize();

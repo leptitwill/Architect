@@ -1,0 +1,50 @@
+/* styles de base si JS est activé */
+.js .input-file-container {
+	position: relative;
+	width: 100%;
+}
+.js .input-file-trigger {
+	display: block;
+	padding: 1rem;
+	background: white;
+	color: $rouge;
+	border: 1px solid $gris;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.js .input-file {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	padding: 1rem;
+	opacity: 0;
+	cursor: pointer;
+}
+ 
+/* quelques styles d'interactions */
+.js .input-file:hover + .input-file-trigger,
+.js .input-file:focus + .input-file-trigger,
+.js .input-file-trigger:hover,
+.js .input-file-trigger:focus {
+	border-color: $rouge;
+}
+ 
+/* styles du retour visuel */
+.file-return {
+	margin: 0;
+}
+.file-return:not(:empty) {
+	margin: 1rem 0;
+}
+.js .file-return {
+	font-style: italic;
+	font-size: 1rem;
+	font-weight: bold;
+}
+/* on complète l'information d'un contenu textuel
+   uniquement lorsque le paragraphe n'est pas vide */
+.js .file-return:not(:empty):before {
+	content: "Fichier importé : ";
+	font-style: normal;
+	font-weight: normal;
+}

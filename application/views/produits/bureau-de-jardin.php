@@ -1,3 +1,5 @@
+		<section class="cover" style="background-image: url('<?=img_url()?>produits/bureau_de_jardin.jpg')"></section>
+
 		<section class="content">
 
 			<h1 class="titre"><?= $titre ?></h1>

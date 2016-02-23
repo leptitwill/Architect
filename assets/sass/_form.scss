@@ -1,0 +1,22 @@
+form.creer {
+	
+	input, textarea {
+		width: 100%;
+		font-size: 1rem;
+		padding: 1rem;
+		margin: 1rem 0;
+		border: 1px solid $gris;
+		border-radius: 5px;
+		outline: none;
+	}
+
+	textarea {
+		height: 100px;
+	}
+
+	input[type="submit"] {
+		background: $rouge;
+		color: white;
+		cursor: pointer;
+	}
+}
