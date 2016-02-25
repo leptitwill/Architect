@@ -75,23 +75,14 @@ class Produits extends CI_Controller
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
 
-		if ($this->form_validation->run() === FALSE && $this->upload->do_upload())
+		if ($this->form_validation->run() === FALSE )
 		{
 			$this->load->view('themes/header', $data);
 			$this->load->view('produits/creer', array('error' => ' ' ));
 			$this->load->view('themes/footer');
 		}
 
-		elseif ( ! $this->upload->do_upload() && $this->form_validation->run() === TRUE)
-		{
-			$error = array('error' => $this->upload->display_errors());
-
-			$this->load->view('themes/header', $data);
-			$this->load->view('produits/creer', $error);
-			$this->load->view('themes/footer');
-		}
-
-		elseif ( ! $this->upload->do_upload() && $this->form_validation->run() === FALSE)
+		elseif ( ! $this->upload->do_upload())
 		{
 			$error = array('error' => $this->upload->display_errors());
 
