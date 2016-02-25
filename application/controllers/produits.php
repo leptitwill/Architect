@@ -54,7 +54,7 @@ class Produits extends CI_Controller
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un produit';
+		$data['titre'] = 'Ajouter un produit !';
 		$data['attributs'] = array('class' => 'creer');
 
 		$nom = $this->input->post('nom');
