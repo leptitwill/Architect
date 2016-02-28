@@ -15,7 +15,7 @@ class Membre extends CI_Controller
 	
 	public function index()
 	{
-		$data['titre'] = 'Les membres conceptcub';
+		$data['titre'] = 'Les membres Conceptcub';
 		$data['membres'] = $this->membre_model->lister_membre();
 
 		$this->load->view('theme/header', $data);
@@ -31,6 +31,17 @@ class Membre extends CI_Controller
 
 		$this->load->view('theme/header', $data);
 		$this->load->view('membre/creer', array('error' => ' ' ));
+		$this->load->view('theme/footer');
+	}
+
+	public function modifier($id)
+	{
+		$data['titre'] = 'Modifier un membre';
+		$data['attributs'] = array('class' => 'creer');
+		$data['membre'] = $this->membre_model->selectionner_membre($id);
+
+		$this->load->view('theme/header', $data);
+		$this->load->view('membre/modifier', array('error' => ' ' ));
 		$this->load->view('theme/footer');
 	}
 

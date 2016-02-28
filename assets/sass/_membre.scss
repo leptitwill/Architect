@@ -2,6 +2,7 @@
 	width: 100%;
 	margin: 4rem 0;
 	overflow: auto;
+	position: relative;
 
 	.membre_photo {
 		border-radius: 50%;
@@ -27,5 +28,11 @@
 		.membre_description {
 
 		}
+	}
+
+	.modifier_membre {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}	
 }

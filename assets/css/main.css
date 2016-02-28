@@ -48,9 +48,7 @@ footer {
   background: #eeeeee;
   color: rgba(0, 0, 0, 0.4);
   padding: 20px;
-  width: 100%;
-  position: fixed;
-  bottom: 0; }
+  width: 100%; }
 
 .cover {
   width: 100%;
@@ -142,7 +140,8 @@ form.creer input[type="submit"] {
 .membre {
   width: 100%;
   margin: 4rem 0;
-  overflow: auto; }
+  overflow: auto;
+  position: relative; }
   .membre .membre_photo {
     border-radius: 50%;
     width: 150px;
@@ -157,3 +156,7 @@ form.creer input[type="submit"] {
       font-style: italic;
       color: #aaaaaa;
       margin-bottom: 1rem; }
+  .membre .modifier_membre {
+    position: absolute;
+    top: 0;
+    right: 0; }

@@ -10,6 +10,13 @@ class Membre_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function selectionner_membre($id)
+	{
+		$this->db->where('idMembre',$id);
+		$query = $this->db->get($this->table);
+		return $query->result_array();
+	}
+
 	public function ajouter_membre($nom, $prenom, $role, $description, $mot_de_passe, $profil, $photo_profil)
 	{
 		$this->db->set('nom',  $nom);
