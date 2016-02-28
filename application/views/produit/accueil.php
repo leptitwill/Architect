@@ -10,7 +10,7 @@
 			<?php foreach ($produits as $produit): ?>
 
 				<ul>
-					<li><img src="<?=img_url()?>produits/<?= $produit['couverture']; ?>"><h1><?= $produit['nom']; ?></h1><p><?= $produit['description']; ?></p></li>
+					<li><img src="<?=img_url()?>produit/<?= $produit['couverture']; ?>"><h1><?= $produit['nom']; ?></h1><p><?= $produit['description']; ?></p></li>
 				</ul>
 			
 			<?php endforeach; ?>

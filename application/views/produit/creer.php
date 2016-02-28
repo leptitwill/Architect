@@ -7,7 +7,7 @@
 				<?php echo $error;?>
 			</div>
 				
-			<?php echo form_open_multipart('produits/upload', $attributs); ?>
+			<?php echo form_open_multipart('produit/upload', $attributs); ?>
 
 				<label for="nom">Nom</label>
 				<input type="input" name="nom" placeholder="Nom du produit"/><br />
@@ -17,7 +17,7 @@
 
 				<div class="input-file-container">
 					<input class="input-file" id="my-file" type="file" name="userfile">
-					<label for="my-file" class="input-file-trigger" tabindex="0">Importer une image ...</label>
+					<label for="my-file" class="input-file-trigger" tabindex="0">Importer une photo de couverture</label>
 				</div>
 				<p class="file-return"></p>
 

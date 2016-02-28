@@ -1,12 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Produits_model extends CI_Model
+class Produit_model extends CI_Model
 {
-	protected $table = 'produits';
+	protected $table = 'produit';
 
 	public function lister_produit()
 	{
-		$query = $this->db->get('produits');
+		$query = $this->db->get($this->table);
                 return $query->result_array();
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-class Produits extends CI_Controller
+class Produit extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class Produits extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('produits_model');  
+		$this->load->model('produit_model');  
 	}
 	
 	public function index()
@@ -17,9 +17,9 @@ class Produits extends CI_Controller
 		$data['titre'] = 'Les produits conceptcub';
 		$data['produits'] = $this->produits_model->lister_produit();
 
-		$this->load->view('themes/header', $data);
-		$this->load->view('produits/accueil', $data);
-		$this->load->view('themes/footer', $data);
+		$this->load->view('theme/header', $data);
+		$this->load->view('produit/accueil', $data);
+		$this->load->view('theme/footer', $data);
 	}
 
 	public function studio_de_jardin()
@@ -27,9 +27,9 @@ class Produits extends CI_Controller
 		$titre = 'Studio de jardin';
 		$data['titre'] = $titre;
 
-		$this->load->view('themes/header', $data);
-		$this->load->view('produits/bureau-de-jardin');
-		$this->load->view('themes/footer');
+		$this->load->view('theme/header', $data);
+		$this->load->view('produit/bureau-de-jardin');
+		$this->load->view('theme/footer');
 	}
 
 	public function bureau_de_jardin()
@@ -37,9 +37,9 @@ class Produits extends CI_Controller
 		$titre = 'Bureau de jardin';
 		$data['titre'] = $titre;
 
-		$this->load->view('themes/header', $data);
-		$this->load->view('produits/bureau-de-jardin');
-		$this->load->view('themes/footer');
+		$this->load->view('theme/header', $data);
+		$this->load->view('produit/bureau-de-jardin');
+		$this->load->view('theme/footer');
 	}
 
 	public function creer()
@@ -47,9 +47,9 @@ class Produits extends CI_Controller
 		$data['titre'] = 'Ajouter un nouveau produit';
 		$data['attributs'] = array('class' => 'creer');
 
-		$this->load->view('themes/header', $data);
-		$this->load->view('produits/creer', array('error' => ' ' ));
-		$this->load->view('themes/footer');
+		$this->load->view('theme/header', $data);
+		$this->load->view('produit/creer', array('error' => ' ' ));
+		$this->load->view('theme/footer');
 	}
 
 	public function upload()
@@ -59,11 +59,11 @@ class Produits extends CI_Controller
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
-		$miniature_nom = str_replace("_"," ",$nom);
+		$couverture_nom = str_replace("_"," ",$nom);
 
-		$config['upload_path'] = './assets/img/produits';
+		$config['upload_path'] = './assets/img/produit';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = strtolower($miniature_nom);
+		$config['file_name'] = strtolower($couverture_nom);
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
@@ -77,18 +77,18 @@ class Produits extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$this->load->view('themes/header', $data);
-			$this->load->view('produits/creer', array('error' => ' ' ));
-			$this->load->view('themes/footer');
+			$this->load->view('theme/header', $data);
+			$this->load->view('produit/creer', array('error' => ' ' ));
+			$this->load->view('theme/footer');
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
 			$error = array('error' => $this->upload->display_errors());
 
-			$this->load->view('themes/header', $data);
-			$this->load->view('produits/creer', $error);
-			$this->load->view('themes/footer');
+			$this->load->view('theme/header', $data);
+			$this->load->view('produit/creer', $error);
+			$this->load->view('theme/footer');
 		}
 
 		else
@@ -98,9 +98,9 @@ class Produits extends CI_Controller
 
 			$couverture = $data['file_name'];
 
-			$this->produits_model->ajouter_produit($nom, $description, $couverture);
+			$this->produit_model->ajouter_produit($nom, $description, $couverture);
 
-			redirect('/produits/', 'refresh');
+			redirect('/produit/', 'refresh');
 		}
 	}
 

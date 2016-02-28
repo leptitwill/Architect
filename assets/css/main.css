@@ -9,11 +9,7 @@
   font-weight: bold;
   src: url("../../fonts/Avenir Next Condensed/AvenirNextCondensed-bold.ttf"); }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,32 +18,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   box-sizing: border-box;
   font-family: "Avenir Next Regular", helvetica, arial, sans-serif;
-  text-decoration: none; }
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after {
-  content: '';
-  content: none; }
-
-q:before, q:after {
-  content: '';
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+  text-decoration: none;
+  outline: none; }
 
 header {
   padding: 10px 30px;
@@ -95,7 +67,7 @@ footer {
     font-size: 2rem;
     margin-bottom: 2rem; }
 
-form.creer input, form.creer textarea {
+form.creer input, form.creer textarea, form.creer select {
   width: 100%;
   font-size: 1rem;
   padding: 1rem;
@@ -166,3 +138,22 @@ form.creer input[type="submit"] {
   margin: 1rem;
   background: rgba(243, 95, 71, 0.3);
   color: #f35f47; }
+
+.membre {
+  width: 100%;
+  margin: 4rem 0;
+  overflow: auto; }
+  .membre .membre_photo {
+    border-radius: 50%;
+    width: 150px;
+    float: left; }
+  .membre .membre_info {
+    margin-left: 200px;
+    text-align: left; }
+    .membre .membre_info .membre_nom {
+      font-weight: bold;
+      color: #f35f47; }
+    .membre .membre_info .membre_role {
+      font-style: italic;
+      color: #aaaaaa;
+      margin-bottom: 1rem; }

@@ -1,0 +1,31 @@
+.membre {
+	width: 100%;
+	margin: 4rem 0;
+	overflow: auto;
+
+	.membre_photo {
+		border-radius: 50%;
+		width: 150px;
+		float: left;
+	}
+
+	.membre_info {
+		margin-left: 200px;
+		text-align: left;	
+
+		.membre_nom {
+			font-weight: bold;
+			color: $rouge;
+		}
+
+		.membre_role {
+			font-style: italic;
+			color: $gris-fonce;
+			margin-bottom: 1rem;
+		}
+
+		.membre_description {
+
+		}
+	}	
+}
