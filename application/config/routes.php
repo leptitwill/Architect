@@ -52,4 +52,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'accueil';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
-$route['media/(:any)'] = 'media/resize/$1';
+$route['produit/(:any)'] = 'produit/index/$1';

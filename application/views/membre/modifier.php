@@ -39,7 +39,7 @@
 				</div>
 				<p class="file-return"></p>
 
-				<input type="submit" name="submit" value="Créer un nouveau membre" />
+				<input type="submit" name="submit" value="Mettre à jour le membre" />
 
 			</form>
 

@@ -9,37 +9,30 @@ class Produit extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('produit_model');  
+		$this->load->model('produit_model');
 	}
 	
-	public function index()
+	public function index($url = NULL)
 	{
-		$data['titre'] = 'Les produits conceptcub';
-		$data['produits'] = $this->produits_model->lister_produit();
+		if ($url == NULL)
+		{
+			$data['titre'] = 'Les produits conceptcub';
+			$data['produits'] = $this->produit_model->lister_produit();
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('produit/accueil', $data);
-		$this->load->view('theme/footer', $data);
-	}
+			$this->load->view('theme/header', $data);
+			$this->load->view('produit/accueil', $data);
+			$this->load->view('theme/footer', $data);
+		}
 
-	public function studio_de_jardin()
-	{
-		$titre = 'Studio de jardin';
-		$data['titre'] = $titre;
+		else
+		{
+			$data['titre'] = 'Les produits conceptcub';
+			$data['produit'] = $this->produit_model->selectionner_produit($url);
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('produit/bureau-de-jardin');
-		$this->load->view('theme/footer');
-	}
-
-	public function bureau_de_jardin()
-	{
-		$titre = 'Bureau de jardin';
-		$data['titre'] = $titre;
-
-		$this->load->view('theme/header', $data);
-		$this->load->view('produit/bureau-de-jardin');
-		$this->load->view('theme/footer');
+			$this->load->view('theme/header', $data);
+			$this->load->view('produit/modele', $data);
+			$this->load->view('theme/footer', $data);
+		}
 	}
 
 	public function creer()
@@ -59,11 +52,12 @@ class Produit extends CI_Controller
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
-		$couverture_nom = str_replace("_"," ",$nom);
+		$url = str_replace(" ","_",$nom);
+		$url = strtolower($url);
 
 		$config['upload_path'] = './assets/img/produit';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = strtolower($couverture_nom);
+		$config['file_name'] = $url;
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
@@ -98,7 +92,7 @@ class Produit extends CI_Controller
 
 			$couverture = $data['file_name'];
 
-			$this->produit_model->ajouter_produit($nom, $description, $couverture);
+			$this->produit_model->ajouter_produit($nom, $description, $couverture, $url);
 
 			redirect('/produit/', 'refresh');
 		}

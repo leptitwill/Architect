@@ -29,8 +29,10 @@
 
 			<nav>
 				<ul>
-					<a href="<?= base_url("produit/bureau-de-jardin"); ?>"><li>Bureaux de jardin</li></a>
-					<a href="<?= base_url("produit/studio-de-jardin"); ?>"><li>Studio de jardin</li></a>
+					<?php foreach ($produits as $produit): ?>
+						<?php $produit_url = $produit['url']; ?>
+						<a href="<?= base_url("produit/$produit_url"); ?>"><li><?= $produit['nom'] ?></li></a>
+					<?php endforeach ?>
 					<a href=""><li>Concept</li></a>
 					<a href=""><li>Qui sommes nous ?</li></a>
 					<a href=""><li>Blog</li></a>
