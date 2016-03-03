@@ -28,9 +28,12 @@ class Membre extends CI_Controller
 		$data['titre'] = 'Ajouter un nouveau membre';
 		$data['attributs'] = array('class' => 'creer');
 		$data['profils'] = $this->profil_model->lister_profil();
+		$data['error'] = '';
+		$data['succes'] = $this->session->flashdata('succes');
+
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('membre/creer', array('error' => ' ' ));
+		$this->load->view('membre/creer', $data);
 		$this->load->view('theme/footer');
 	}
 
@@ -39,6 +42,8 @@ class Membre extends CI_Controller
 		$data['titre'] = 'Modifier un membre';
 		$data['attributs'] = array('class' => 'creer');
 		$data['membre'] = $this->membre_model->selectionner_membre($id);
+		$data['error'] = '';
+		$data['succes'] = '';
 
 		$this->load->view('theme/header', $data);
 		$this->load->view('membre/modifier', array('error' => ' ' ));
@@ -49,13 +54,14 @@ class Membre extends CI_Controller
 	{
 		$data['titre'] = 'Ajouter un membre !';
 		$data['attributs'] = array('class' => 'creer');
+		$data['profils'] = $this->profil_model->lister_profil();
 
 		$nom = $this->input->post('nom');
 		$prenom = $this->input->post('prenom');
 		$role = $this->input->post('role');
 		$description = $this->input->post('description');
 		$mot_de_passe = $this->input->post('mot_de_passe');
-		$profil = $this->input->post('profil');
+		$profil = (int)$this->input->post('profil');
 		$photo = $nom . '_' . $prenom;
 		$nom_photo = $this->supprimer_accent($photo);
 
@@ -74,22 +80,26 @@ class Membre extends CI_Controller
 		$this->form_validation->set_rules('prenom', 'prenom', 'required');
 		$this->form_validation->set_rules('role', 'role', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
-		$this->form_validation->set_rules('mot_de_passe', 'mot_de_passe', 'required');
+		$this->form_validation->set_rules('mot_de_passe', 'mot de passe', 'required');
 		$this->form_validation->set_rules('profil', 'profil', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
+			$data['error'] = '';
+			$data['succes'] = '';
+
 			$this->load->view('theme/header', $data);
-			$this->load->view('membre/creer', array('error' => ' ' ));
+			$this->load->view('membre/creer', $data);
 			$this->load->view('theme/footer');
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
-			$error = array('error' => $this->upload->display_errors());
+			$data['error'] = $this->upload->display_errors();
+			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('membre/creer', $error);
+			$this->load->view('membre/creer', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -103,7 +113,8 @@ class Membre extends CI_Controller
 
 			$this->membre_model->ajouter_membre($nom, $prenom, $role, $description, $mot_de_passe, $profil, $photo_profil);
 
-			redirect('/membre/', 'refresh');
+			$this->session->set_flashdata('succes','<p>Le membre "' . $prenom . ' ' . $nom . '" à bien était ajouté</p>');
+			redirect("membre/creer");
 		}
 	}
 

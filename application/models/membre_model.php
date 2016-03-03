@@ -25,6 +25,7 @@ class Membre_model extends CI_Model
 		$this->db->set('description',  $description);
 		$this->db->set('photo',  $photo_profil);
 		$this->db->set('motDePasse',  $mot_de_passe);
+		$this->db->set('profil',  $profil);
 		$this->db->set('dateAjout', 'NOW()', false);
 		
 		return $this->db->insert($this->table);

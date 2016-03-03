@@ -1,6 +1,10 @@
 		<section class="content">
 
 			<h1 class="titre"><?= $titre ?></h1>
+
+			<div class="succes">
+				<?php echo $succes;?>
+			</div>
 			
 			<div class="erreur">
 				<?php echo validation_errors(); ?>
@@ -27,7 +31,7 @@
 				<label for="profil">Profil</label>
 				<select name="profil">
 					<?php foreach ($profils as $profil): ?>
-						<option>
+						<option value="<?= $profil['idProfil'] ?>">
 							<?= $profil['nom'] ?>
 						</option>
 					<?php endforeach ?>

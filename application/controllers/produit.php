@@ -26,8 +26,8 @@ class Produit extends CI_Controller
 
 		else
 		{
-			$data['titre'] = 'Les produits conceptcub';
 			$data['produit'] = $this->produit_model->selectionner_produit($url);
+			$data['titre'] = str_replace("-"," ",$url); ;
 
 			$this->load->view('theme/header', $data);
 			$this->load->view('produit/modele', $data);
@@ -52,13 +52,14 @@ class Produit extends CI_Controller
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
-		$url = str_replace(" ","_",$nom);
+		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
+		$nomImage = str_replace("-","_",$url);
 
 		$config['upload_path'] = './assets/img/produit';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = $url;
-		$config['max_size']    = '3000';
+		$config['file_name'] = $nomImage;
+		$config['max_size']    = '9000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
 		$config['min_width']  = '1920';
