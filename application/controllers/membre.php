@@ -17,6 +17,7 @@ class Membre extends CI_Controller
 	{
 		$data['titre'] = 'Les membres Conceptcub';
 		$data['membres'] = $this->membre_model->lister_membre();
+		$data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header', $data);
 		$this->load->view('membre/accueil', $data);
@@ -41,23 +42,38 @@ class Membre extends CI_Controller
 	{
 		$data['titre'] = 'Modifier un membre';
 		$data['attributs'] = array('class' => 'creer');
+		$data['profils'] = $this->profil_model->lister_profil();
 		$data['membre'] = $this->membre_model->selectionner_membre($id);
 		$data['error'] = '';
 		$data['succes'] = '';
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('membre/modifier', array('error' => ' ' ));
+		$this->load->view('membre/modifier', $data);
 		$this->load->view('theme/footer');
+	}
+
+	public function supprimer($id)
+	{
+		$data['titre'] = 'Modifier un membre';
+		$data['attributs'] = array('class' => 'creer');
+		$data['profils'] = $this->profil_model->lister_profil();
+		$data['membre'] = $this->membre_model->selectionner_membre($id);
+
+		$this->membre_model->supprimer_membre($id);
+
+		$this->session->set_flashdata('succes','<p>Le membre à bien était supprimé</p>');
+		redirect("membre");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un membre !';
+		$data['titre'] = 'Ajouter un nouveau membre';
 		$data['attributs'] = array('class' => 'creer');
 		$data['profils'] = $this->profil_model->lister_profil();
 
 		$nom = $this->input->post('nom');
 		$prenom = $this->input->post('prenom');
+		$email = $this->input->post('email');
 		$role = $this->input->post('role');
 		$description = $this->input->post('description');
 		$mot_de_passe = $this->input->post('mot_de_passe');
@@ -78,6 +94,7 @@ class Membre extends CI_Controller
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('prenom', 'prenom', 'required');
+		$this->form_validation->set_rules('email', 'email', 'required');
 		$this->form_validation->set_rules('role', 'role', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
 		$this->form_validation->set_rules('mot_de_passe', 'mot de passe', 'required');
@@ -111,10 +128,88 @@ class Membre extends CI_Controller
 
 			$photo_profil = $data['file_name'];
 
-			$this->membre_model->ajouter_membre($nom, $prenom, $role, $description, $mot_de_passe, $profil, $photo_profil);
+			$this->membre_model->ajouter_membre($nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);
 
-			$this->session->set_flashdata('succes','<p>Le membre "' . $prenom . ' ' . $nom . '" à bien était ajouté</p>');
-			redirect("membre/creer");
+			$this->session->set_flashdata('succes','<p>Le membre à bien était ajouté</p>');
+			redirect("membre");
+		}
+	}
+
+	public function update($id)
+	{
+		$data['titre'] = 'Ajouter un nouveau membre';
+		$data['attributs'] = array('class' => 'creer');
+		$data['profils'] = $this->profil_model->lister_profil();
+		$membre = $this->membre_model->selectionner_membre($id);
+
+
+		$nom = $this->input->post('nom');
+		$prenom = $this->input->post('prenom');
+		$email = $this->input->post('email');
+		$role = $this->input->post('role');
+		$description = $this->input->post('description');
+		$mot_de_passe = $this->input->post('mot_de_passe');
+		$profil = (int)$this->input->post('profil');
+		$photo = $nom . '_' . $prenom;
+		$nom_photo = $this->supprimer_accent($photo);
+		$fichier_envoye = $_FILES['userfile']['name'];
+
+		$config['upload_path'] = './assets/img/membre';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = strtolower($nom_photo);
+		$config['max_size']    = '3000';
+		$config['max_width']  = '3000';
+		$config['max_height']  = '5000';
+		$config['min_width']  = '200';
+		$config['min_height']  = '200';
+		$config['overwrite']  = TRUE;
+
+		$this->load->library('upload', $config);
+
+		$this->form_validation->set_rules('nom', 'nom', 'required');
+		$this->form_validation->set_rules('prenom', 'prenom', 'required');
+		$this->form_validation->set_rules('email', 'email', 'required');
+		$this->form_validation->set_rules('role', 'role', 'required');
+		$this->form_validation->set_rules('description', 'description', 'required');
+		$this->form_validation->set_rules('mot_de_passe', 'mot de passe', 'required');
+		$this->form_validation->set_rules('profil', 'profil', 'required');
+
+		if ($this->form_validation->run() === FALSE )
+		{
+			$data['error'] = '';
+			$data['succes'] = '';
+
+			$this->load->view('theme/header', $data);
+			$this->load->view('membre/modifier', $data);
+			$this->load->view('theme/footer');
+		}
+
+		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
+		{
+			$data['error'] = $this->upload->display_errors();
+			$data['succes'] = '';
+
+			$this->load->view('theme/header', $data);
+			$this->load->view('membre/modifier', $data);
+			$this->load->view('theme/footer');
+		}
+
+		else
+		{
+			if ($fichier_envoye != "") {
+				$data = $this->upload->data();
+				$this->redimensionner($data);
+				$this->recadrer($data);
+
+				$photo_profil = $data['file_name'];
+			} else {
+				$photo_profil = $membre[0]['photo'];
+			}
+
+			$this->membre_model->modifier_membre($id, $nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);
+
+			$this->session->set_flashdata('succes','<p>Le membre à bien était modifié</p>');
+			redirect("membre");
 		}
 	}
 

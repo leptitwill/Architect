@@ -67,22 +67,25 @@ footer {
     font-size: 2rem;
     margin-bottom: 2rem; }
 
-form.creer input, form.creer textarea, form.creer select {
-  width: 100%;
-  font-size: 1rem;
-  padding: 1rem;
-  margin: 1rem 0;
-  border: 1px solid #eeeeee;
-  border-radius: 5px;
-  outline: none; }
-
-form.creer textarea {
-  height: 100px; }
-
-form.creer input[type="submit"] {
-  background: #329899;
-  color: white;
-  cursor: pointer; }
+form.creer {
+  text-align: left; }
+  form.creer input, form.creer textarea, form.creer select {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+    margin: 0.5rem 0 1rem 0;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    outline: none; }
+  form.creer textarea {
+    height: 100px; }
+  form.creer input[type="submit"] {
+    background: #329899;
+    color: white;
+    cursor: pointer; }
+  form.creer select {
+    background: white;
+    height: 52px; }
 
 /* styles de base si JS est activé */
 .js .input-file-container {
@@ -169,3 +172,7 @@ form.creer input[type="submit"] {
     position: absolute;
     top: 0;
     right: 0; }
+  .membre .supprimer_membre {
+    position: absolute;
+    top: 0;
+    right: 40px; }

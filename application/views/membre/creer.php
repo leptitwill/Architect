@@ -19,6 +19,9 @@
 				<label for="nom">Nom</label>
 				<input type="input" name="nom" placeholder="Votre nom"/><br />
 
+				<label for="email">Email</label>
+				<input type="mail" name="email" placeholder="Votre email"/><br />
+
 				<label for="role">Rôle</label>
 				<input type="input" name="role" placeholder="Rôle du membre"/><br />
 
