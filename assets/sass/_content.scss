@@ -17,4 +17,12 @@
 		font-size: 2rem;
 		margin-bottom: 2rem;
 	}
+
+	.button {
+		padding: 1rem 2rem;
+		border-radius: 5px;
+		background: $vert;
+		color: white;
+		cursor: pointer;
+	}
 }

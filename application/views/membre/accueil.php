@@ -6,6 +6,8 @@
 				<?php echo $succes;?>
 			</div>
 
+			<a href="<?= base_url("membre/creer"); ?>"><input type="button" class="button" value="Ajouter un membre"></a>
+
 			<?php foreach ($membres as $membre): ?>
 				
 				<?php
@@ -27,7 +29,7 @@
 					</div>
 
 					<div class="supprimer_membre">
-						<a href="<?= base_url("membre/supprimer/$membre_id"); ?>" id="<?= $membre['idMembre'] ?>">
+						<a href="<?= base_url("membre/supprimer/$membre_id"); ?>" id="<?= $membre['idMembre'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce membre ?'));">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
 								<path fill="#9FA8DA" d="M11,13v25c0,2.209,1.791,4,4,4h16c2.209,0,4-1.791,4-4V13H11z"></path>
 								<g>

@@ -1,0 +1,43 @@
+.produit {
+	width: 100%;
+	margin: 4rem 0;
+	overflow: auto;
+	position: relative;
+
+	.produit_photo {
+		width: 150px;
+		float: left;
+	}
+
+	.produit_info {
+		margin-left: 200px;
+		text-align: left;	
+
+		.produit_nom {
+			font-weight: bold;
+			color: $vert;
+		}
+
+		.produit_role {
+			font-style: italic;
+			color: $gris-fonce;
+			margin-bottom: 1rem;
+		}
+
+		.produit_description {
+
+		}
+	}
+
+	.modifier_produit {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.supprimer_produit {
+		position: absolute;
+		top: 0;
+		right: 40px;
+	}	
+}

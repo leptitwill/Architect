@@ -1,1 +1,0 @@
-<h1>Studio de jardin</h1>

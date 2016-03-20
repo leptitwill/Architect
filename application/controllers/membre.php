@@ -54,7 +54,7 @@ class Membre extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['titre'] = 'Modifier un membre';
+		$data['titre'] = 'Supprimer un membre';
 		$data['attributs'] = array('class' => 'creer');
 		$data['profils'] = $this->profil_model->lister_profil();
 		$data['membre'] = $this->membre_model->selectionner_membre($id);
@@ -196,13 +196,17 @@ class Membre extends CI_Controller
 
 		else
 		{
-			if ($fichier_envoye != "") {
+			if ($fichier_envoye != "")
+			{
 				$data = $this->upload->data();
 				$this->redimensionner($data);
 				$this->recadrer($data);
 
 				$photo_profil = $data['file_name'];
-			} else {
+			}
+
+			else 
+			{
 				$photo_profil = $membre[0]['photo'];
 			}
 

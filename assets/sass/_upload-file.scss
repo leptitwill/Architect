@@ -11,6 +11,7 @@
 	font-size: 1rem;
 	cursor: pointer;
 	transition: all .4s;
+	text-align: center;
 }
 .js .input-file {
 	position: absolute;
@@ -33,6 +34,7 @@
 /* styles du retour visuel */
 .file-return {
 	margin: 0;
+	text-align: center;
 }
 .file-return:not(:empty) {
 	margin: 1rem 0;

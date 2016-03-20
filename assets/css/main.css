@@ -66,6 +66,12 @@ footer {
   .content .titre {
     font-size: 2rem;
     margin-bottom: 2rem; }
+  .content .button {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background: #329899;
+    color: white;
+    cursor: pointer; }
 
 form.creer {
   text-align: left; }
@@ -99,7 +105,8 @@ form.creer {
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: all .4s; }
+  transition: all .4s;
+  text-align: center; }
 
 .js .input-file {
   position: absolute;
@@ -120,7 +127,8 @@ form.creer {
 
 /* styles du retour visuel */
 .file-return {
-  margin: 0; }
+  margin: 0;
+  text-align: center; }
 
 .file-return:not(:empty) {
   margin: 1rem 0; }
@@ -173,6 +181,33 @@ form.creer {
     top: 0;
     right: 0; }
   .membre .supprimer_membre {
+    position: absolute;
+    top: 0;
+    right: 40px; }
+
+.produit {
+  width: 100%;
+  margin: 4rem 0;
+  overflow: auto;
+  position: relative; }
+  .produit .produit_photo {
+    width: 150px;
+    float: left; }
+  .produit .produit_info {
+    margin-left: 200px;
+    text-align: left; }
+    .produit .produit_info .produit_nom {
+      font-weight: bold;
+      color: #329899; }
+    .produit .produit_info .produit_role {
+      font-style: italic;
+      color: #aaaaaa;
+      margin-bottom: 1rem; }
+  .produit .modifier_produit {
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .produit .supprimer_produit {
     position: absolute;
     top: 0;
     right: 40px; }

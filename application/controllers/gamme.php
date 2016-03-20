@@ -1,6 +1,6 @@
 <?php
 
-class Produit extends CI_Controller
+class Gamme extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,6 +9,7 @@ class Produit extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
+		$this->load->model('gamme_model');
 		$this->load->model('produit_model');
 	}
 	
@@ -16,76 +17,79 @@ class Produit extends CI_Controller
 	{
 		if ($url == NULL)
 		{
-			$data['titre'] = 'Les produits conceptcub';
-			$data['produits'] = $this->produit_model->lister_produit();
+			$data['titre'] = 'Les gammes conceptcub';
+			$data['gammes'] = $this->gamme_model->lister_gamme();
 			$data['succes'] = $this->session->flashdata('succes');
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('produit/accueil', $data);
+			$this->load->view('gamme/accueil', $data);
 			$this->load->view('theme/footer', $data);
 		}
 
 		else
 		{
-			$data['produit'] = $this->produit_model->selectionner_produit($url);
+			$data['gamme'] = $this->gamme_model->selectionner_gamme($url);
 			$data['titre'] = str_replace("-"," ",$url); ;
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modele', $data);
+			$this->load->view('gamme/modele', $data);
 			$this->load->view('theme/footer', $data);
 		}
 	}
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter un nouveau produit';
+		$data['titre'] = 'Ajouter une nouvelle gamme';
 		$data['attributs'] = array('class' => 'creer');
+		$data['produits'] = $this->produit_model->lister_produit();
 		$data['error'] = '';
 		$data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('produit/creer', $data);
+		$this->load->view('gamme/creer', $data);
 		$this->load->view('theme/footer');
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un produit';
+		$data['titre'] = 'Modifier une gamme';
 		$data['attributs'] = array('class' => 'creer');
-		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
 		$data['error'] = '';
 		$data['succes'] = '';
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('produit/modifier', $data);
+		$this->load->view('gamme/modifier', $data);
 		$this->load->view('theme/footer');
 	}
 
 	public function supprimer($id)
 	{
-		$data['titre'] = 'Supprimer un produit';
+		$data['titre'] = 'Supprimer une gamme';
 		$data['attributs'] = array('class' => 'creer');
-		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
 
-		$this->produit_model->supprimer_produit($id);
+		$this->gamme_model->supprimer_gamme($id);
 
-		$this->session->set_flashdata('succes','<p>Le produit à bien était supprimé</p>');
-		redirect("produit");
+		$this->session->set_flashdata('succes','<p>La gamme à bien était supprimé</p>');
+		redirect("gamme");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un produit !';
+		$data['titre'] = 'Ajouter une gamme !';
 		$data['attributs'] = array('class' => 'creer');
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
+		$specification = $this->input->post('specification');
+		$produit = (int)$this->input->post('produit');
 		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
 		$nom_image = str_replace("-","_",$url);
 		$nom_image = $this->supprimer_accent($nom_image);
 
-		$config['upload_path'] = './assets/img/produit';
+		$config['upload_path'] = './assets/img/gamme';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = $nom_image;
 		$config['max_size']    = '9000';
@@ -98,6 +102,7 @@ class Produit extends CI_Controller
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
+		$this->form_validation->set_rules('specification', 'specification', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
@@ -105,7 +110,7 @@ class Produit extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('produit/creer', $data);
+			$this->load->view('gamme/creer', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -115,7 +120,7 @@ class Produit extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('produit/creer', $data);
+			$this->load->view('gamme/creer', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -123,21 +128,23 @@ class Produit extends CI_Controller
 		{
 			$data = $this->upload->data();
 			$this->redimensionner($data);
+			$this->recadrer($data);
 
 			$couverture = $data['file_name'];
+			$miniature = $data['raw_name'].'_miniature'.$data['file_ext'];
 
-			$this->produit_model->ajouter_produit($nom, $description, $couverture, $url);
+			$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $url, $produit);
 
-			$this->session->set_flashdata('succes','<p>Le produit à bien était ajouté</p>');
-			redirect("produit");
+			$this->session->set_flashdata('succes','<p>Le gamme à bien était ajouté</p>');
+			redirect("gamme");
 		}
 	}
 
 	public function update($id)
 	{
-		$data['titre'] = 'Ajouter un nouveau produit';
+		$data['titre'] = 'Ajouter un nouveau gamme';
 		$data['attributs'] = array('class' => 'creer');
-		$produit = $this->produit_model->selectionner_produit_par_id($id);
+		$gamme = $this->gamme_model->selectionner_gamme_par_id($id);
 
 
 		$nom = $this->input->post('nom');
@@ -148,7 +155,7 @@ class Produit extends CI_Controller
 		$nom_image = $this->supprimer_accent($nom_image);
 		$fichier_envoye = $_FILES['userfile']['name'];
 
-		$config['upload_path'] = './assets/img/produit';
+		$config['upload_path'] = './assets/img/gamme';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = $nom_image;
 		$config['max_size']    = '9000';
@@ -169,7 +176,7 @@ class Produit extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modifier', $data);
+			$this->load->view('gamme/modifier', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -179,7 +186,7 @@ class Produit extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modifier', $data);
+			$this->load->view('gamme/modifier', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -195,13 +202,13 @@ class Produit extends CI_Controller
 
 			else 
 			{
-				$couverture = $produit[0]['couverture'];
+				$couverture = $gamme[0]['couverture'];
 			}
 
-			$this->produit_model->modifier_produit($id, $nom, $description, $couverture, $url);
+			$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $url);
 
-			$this->session->set_flashdata('succes','<p>Le produit à bien était modifié</p>');
-			redirect("produit");
+			$this->session->set_flashdata('succes','<p>Le gamme à bien était modifié</p>');
+			redirect("gamme");
 		}
 	}
 
@@ -215,6 +222,23 @@ class Produit extends CI_Controller
 		$config['quality'] = 100;
 		$this->load->library('image_lib', $config);
 		$this->image_lib->resize();
+	}
+
+	function recadrer($data)
+	{
+		$dimensions = getimagesize($data['full_path']);
+		$config['image_library'] = 'gd2';
+		$config['source_image'] =$data['full_path'];
+		$config['maintain_ratio'] = FALSE;
+		$config['create_thumb'] = TRUE;
+		$config['thumb_marker'] = '_miniature';
+		$config['width'] = 400;
+		$config['height'] = 400;
+		$config['quality'] = 100;
+		$config['x_axis'] = ($dimensions[0] / 2) - (400 / 2);
+		$config['y_axis'] = ($dimensions[1] / 2) - (400 / 2);
+		$this->image_lib->initialize($config);
+		$this->image_lib->crop();
 	}
 
 	function supprimer_accent($mot)
