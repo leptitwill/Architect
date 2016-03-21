@@ -100,6 +100,8 @@ class Gamme extends CI_Controller
 
 		$this->load->library('upload', $config);
 
+
+
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
 		$this->form_validation->set_rules('specification', 'specification', 'required');
@@ -114,7 +116,17 @@ class Gamme extends CI_Controller
 			$this->load->view('theme/footer');
 		}
 
-		elseif ( ! $this->upload->do_upload())
+		elseif ( ! $this->upload->do_upload('plan'))
+		{
+			$data['error'] = $this->upload->display_errors();
+			$data['succes'] = '';
+
+			$this->load->view('theme/header', $data);
+			$this->load->view('gamme/creer', $data);
+			$this->load->view('theme/footer');
+		}
+
+		elseif ( ! $this->upload->do_upload('couverture'))
 		{
 			$data['error'] = $this->upload->display_errors();
 			$data['succes'] = '';
@@ -127,13 +139,15 @@ class Gamme extends CI_Controller
 		else
 		{
 			$data = $this->upload->data();
+			var_dump($data);
+			die();
 			$this->redimensionner($data);
 			$this->recadrer($data);
 
 			$couverture = $data['file_name'];
 			$miniature = $data['raw_name'].'_miniature'.$data['file_ext'];
 
-			$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $url, $produit);
+			$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $plan, $url, $produit);
 
 			$this->session->set_flashdata('succes','<p>Le gamme à bien était ajouté</p>');
 			redirect("gamme");
