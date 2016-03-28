@@ -1,0 +1,43 @@
+.gamme {
+	width: 100%;
+	margin: 4rem 0;
+	overflow: auto;
+	position: relative;
+
+	.gamme_photo {
+		width: 150px;
+		float: left;
+	}
+
+	.gamme_info {
+		margin-left: 200px;
+		text-align: left;	
+
+		.gamme_nom {
+			font-weight: bold;
+			color: $vert;
+		}
+
+		.gamme_role {
+			font-style: italic;
+			color: $gris-fonce;
+			margin-bottom: 1rem;
+		}
+
+		.gamme_description {
+
+		}
+	}
+
+	.modifier_gamme {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.supprimer_gamme {
+		position: absolute;
+		top: 0;
+		right: 40px;
+	}	
+}

@@ -1,0 +1,29 @@
+.faq {
+	width: 100%;
+	margin: 4rem 0;
+	overflow: auto;
+	position: relative;
+	text-align: left;
+
+	.faq_question {
+		font-weight: bold;
+		color: $vert;
+		margin-bottom: 1rem;
+	}
+
+	.faq_reponse {
+		
+	}
+
+	.modifier_faq {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.supprimer_faq {
+		position: absolute;
+		top: 0;
+		right: 40px;
+	}	
+}

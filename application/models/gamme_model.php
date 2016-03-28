@@ -25,14 +25,13 @@ class Gamme_model extends CI_Model
 		return $query->result_array();
 	}
 
-	public function ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $plan, $url, $produit)
+	public function ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $url, $produit)
 	{
 		$this->db->set('nom', $nom);
 		$this->db->set('description', $description);
 		$this->db->set('couverture', $couverture);
 		$this->db->set('miniature', $miniature);
 		$this->db->set('specification', $specification);
-		$this->db->set('plan-studio', $plan);
 		$this->db->set('url', $url);
 		$this->db->set('produit_idProduit', $produit);
 		$this->db->set('dateAjout', 'NOW()', false);
@@ -41,7 +40,7 @@ class Gamme_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_gamme($id, $nom, $description, $couverture, $url)
+	public function modifier_gamme($id, $description, $couverture, $miniature, $specification, $url, $produit)
 	{
 		$data = array(
 					'nom' => $nom,

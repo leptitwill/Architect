@@ -211,3 +211,99 @@ form.creer {
     position: absolute;
     top: 0;
     right: 40px; }
+
+.gamme {
+  width: 100%;
+  margin: 4rem 0;
+  overflow: auto;
+  position: relative; }
+  .gamme .gamme_photo {
+    width: 150px;
+    float: left; }
+  .gamme .gamme_info {
+    margin-left: 200px;
+    text-align: left; }
+    .gamme .gamme_info .gamme_nom {
+      font-weight: bold;
+      color: #329899; }
+    .gamme .gamme_info .gamme_role {
+      font-style: italic;
+      color: #aaaaaa;
+      margin-bottom: 1rem; }
+  .gamme .modifier_gamme {
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .gamme .supprimer_gamme {
+    position: absolute;
+    top: 0;
+    right: 40px; }
+
+.faq {
+  width: 100%;
+  margin: 4rem 0;
+  overflow: auto;
+  position: relative;
+  text-align: left; }
+  .faq .faq_question {
+    font-weight: bold;
+    color: #329899;
+    margin-bottom: 1rem; }
+  .faq .modifier_faq {
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .faq .supprimer_faq {
+    position: absolute;
+    top: 0;
+    right: 40px; }
+
+.partenaire {
+  margin: 2rem;
+  overflow: auto;
+  padding-top: 2rem;
+  position: relative;
+  display: inline-block;
+  height: 200px; }
+  .partenaire .partenaire_logo {
+    display: inline-block;
+    height: 120px;
+    vertical-align: middle; }
+  .partenaire img {
+    vertical-align: middle;
+    width: 100px; }
+  .partenaire .partenaire_nom {
+    font-weight: bold; }
+  .partenaire .modifier_partenaire {
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .partenaire .supprimer_partenaire {
+    position: absolute;
+    top: 0;
+    right: 40px; }
+
+.partenaire {
+  margin: 2rem;
+  overflow: auto;
+  padding-top: 2rem;
+  position: relative;
+  display: inline-block;
+  height: 200px; }
+  .partenaire .partenaire_logo {
+    display: inline-block;
+    height: 120px;
+    vertical-align: middle; }
+  .partenaire img {
+    vertical-align: middle;
+    width: 100px; }
+  .partenaire .partenaire_nom {
+    font-weight: bold; }
+  .partenaire .modifier_partenaire {
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .partenaire .supprimer_partenaire {
+    position: absolute;
+    top: 0;
+    right: 40px; }

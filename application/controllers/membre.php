@@ -54,9 +54,6 @@ class Membre extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['titre'] = 'Supprimer un membre';
-		$data['attributs'] = array('class' => 'creer');
-		$data['profils'] = $this->profil_model->lister_profil();
 		$data['membre'] = $this->membre_model->selectionner_membre($id);
 
 		$this->membre_model->supprimer_membre($id);

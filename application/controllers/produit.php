@@ -63,8 +63,6 @@ class Produit extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['titre'] = 'Supprimer un produit';
-		$data['attributs'] = array('class' => 'creer');
 		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
 
 		$this->produit_model->supprimer_produit($id);

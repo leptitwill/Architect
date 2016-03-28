@@ -1,0 +1,35 @@
+.partenaire {
+	margin: 2rem;
+	overflow: auto;
+	padding-top: 2rem;
+	position: relative;
+	display: inline-block;
+	height: 200px;
+
+	.partenaire_logo {
+		display: inline-block;
+		height: 120px;
+		vertical-align: middle;
+	}
+
+	img {
+		vertical-align: middle;
+		width: 100px;
+	}
+
+	.partenaire_nom {
+		font-weight: bold;
+	}
+
+	.modifier_partenaire {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.supprimer_partenaire {
+		position: absolute;
+		top: 0;
+		right: 40px;
+	}	
+}

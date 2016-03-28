@@ -65,8 +65,6 @@ class Gamme extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['titre'] = 'Supprimer une gamme';
-		$data['attributs'] = array('class' => 'creer');
 		$data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
 
 		$this->gamme_model->supprimer_gamme($id);
@@ -89,6 +87,17 @@ class Gamme extends CI_Controller
 		$nom_image = str_replace("-","_",$url);
 		$nom_image = $this->supprimer_accent($nom_image);
 
+		$config['upload_path'] = './assets/img/gamme';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $nom_image;
+		$config['max_size']    = '9000';
+		$config['max_width']  = '3000';
+		$config['max_height']  = '5000';
+		$config['min_width']  = '1920';
+		$config['min_height']  = '400';
+
+		$this->load->library('upload', $config);
+
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
 		$this->form_validation->set_rules('specification', 'specification', 'required');
@@ -103,69 +112,26 @@ class Gamme extends CI_Controller
 			$this->load->view('theme/footer');
 		}
 
+		elseif ( ! $this->upload->do_upload())
+		{
+			$data['error'] = $this->upload->display_errors();
+			$data['succes'] = '';
+
+			$this->load->view('theme/header', $data);
+			$this->load->view('gamme/creer', $data);
+			$this->load->view('theme/footer');
+		}
+
 		else
 		{
-			$config['upload_path'] = './assets/img/gamme';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['file_name'] = $nom_image . '_plan';
-			$config['max_size']    = '9000';
-			$config['max_width']  = '3000';
-			$config['max_height']  = '5000';
-			$config['min_width']  = '1000';
-			$config['min_height']  = '400';
+			$data = $this->upload->data();
+			$this->redimensionner($data);
+			$this->recadrer($data);
 
-			$this->load->library('upload', $config);
+			$couverture = $data['file_name'];
+			$miniature = $data['raw_name'] . '_miniature' . $data['file_ext'];
 
-			if ( ! $this->upload->do_upload('plan'))
-			{
-				$data['error'] = $this->upload->display_errors();
-				$data['succes'] = '';
-
-				$this->load->view('theme/header', $data);
-				$this->load->view('gamme/creer', $data);
-				$this->load->view('theme/footer');
-			}
-
-			else
-			{
-				$data = $this->upload->data();
-				$plan = $data['file_name'];
-
-			}
-
-			$config2['upload_path'] = './assets/img/gamme';
-			$config2['allowed_types'] = 'gif|jpg|png';
-			$config2['file_name'] = $nom_image;
-			$config2['max_size']    = '9000';
-			$config2['max_width']  = '3000';
-			$config2['max_height']  = '5000';
-			$config2['min_width']  = '1920';
-			$config2['min_height']  = '400';
-
-			$this->upload->initialize($config2);
-
-			if ( ! $this->upload->do_upload('couverture'))
-			{
-				$data['error'] = $this->upload->display_errors();
-				$data['succes'] = '';
-
-				$this->load->view('theme/header', $data);
-				$this->load->view('gamme/creer', $data);
-				$this->load->view('theme/footer');
-			}
-
-			else
-			{
-				$data = $this->upload->data();
-
-				$this->redimensionner($data);
-				$this->recadrer($data);
-
-				$couverture = $data['file_name'];
-				$miniature = $data['raw_name'].'_miniature'.$data['file_ext'];
-			}
-
-			$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $plan, $url, $produit);
+			$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $url, $produit);
 
 			$this->session->set_flashdata('succes','<p>Le gamme à bien était ajouté</p>');
 			redirect("gamme");
@@ -258,19 +224,21 @@ class Gamme extends CI_Controller
 
 	function recadrer($data)
 	{
-		$dimensions = getimagesize($data['full_path']);
 		$config['image_library'] = 'gd2';
 		$config['source_image'] =$data['full_path'];
-		$config['maintain_ratio'] = FALSE;
 		$config['create_thumb'] = TRUE;
 		$config['thumb_marker'] = '_miniature';
+		if ($data["image_height"] >= $data["image_width"]) {
+			$config['master_dim'] = 'width';
+		} else {
+			$config['master_dim'] = 'height';
+		}
 		$config['width'] = 400;
 		$config['height'] = 400;
 		$config['quality'] = 100;
-		$config['x_axis'] = ($dimensions[0] / 2) - (400 / 2);
-		$config['y_axis'] = ($dimensions[1] / 2) - (400 / 2);
+
 		$this->image_lib->initialize($config);
-		$this->image_lib->crop();
+		$this->image_lib->resize();
 	}
 
 	function supprimer_accent($mot)

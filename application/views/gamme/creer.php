@@ -23,8 +23,8 @@
 				<textarea name="specification" placeholder="Specification technique de la gamme"></textarea><br />
 
 				<div class="input-file-container">
-					<input class="input-file" id="my-file" type="file" name="plan">
-					<label for="my-file" class="input-file-trigger" tabindex="0">Importer un plan</label>
+					<input class="input-file" id="my-file" type="file" name="userfile">
+					<label for="my-file" class="input-file-trigger" tabindex="0">Importer une image de couverture</label>
 				</div>
 				<p class="file-return"></p><br />
 
@@ -37,13 +37,7 @@
 					<?php endforeach ?>
 				</select><br />
 
-				<div class="input-file-container">
-					<input class="input-file" id="my-file2" type="file" name="couverture">
-					<label for="my-file2" class="input-file-trigger" tabindex="0">Importer une photo de couverture</label>
-				</div>
-				<p class="file-return"></p>
-
-				<input type="submit" name="submit" value="Créer un nouveau gamme" />
+				<input type="submit" name="submit" value="Créer une nouvelle gamme" />
 
 			</form>
 
