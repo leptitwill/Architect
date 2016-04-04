@@ -1,33 +1,37 @@
-.partenaire {
+.reseaux_sociaux {
 	margin: 2rem;
 	overflow: auto;
 	padding-top: 2rem;
 	position: relative;
 	display: inline-block;
-	height: 200px;
+	height: 150px;
 
-	.partenaire_logo {
+	.reseaux_sociaux_logo {
 		display: inline-block;
-		height: 120px;
+		height: 75px;
 		vertical-align: middle;
 	}
 
 	img {
 		vertical-align: middle;
-		width: 100px;
+		width: 50px;
 	}
 
-	.partenaire_nom {
+	.reseaux_sociaux_nom {
 		font-weight: bold;
 	}
 
-	.modifier_partenaire {
+	.reseaux_sociaux_lien {
+		font-size: 0.8rem;
+	}
+
+	.modifier_reseaux_sociaux {
 		position: absolute;
 		top: 0;
 		right: 0;
 	}
 
-	.supprimer_partenaire {
+	.supprimer_reseaux_sociaux {
 		position: absolute;
 		top: 0;
 		right: 40px;

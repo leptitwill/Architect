@@ -54,6 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 $route['produit/creer'] = 'produit/creer';
 $route['produit/upload'] = 'produit/upload';
-$route['produit/thumb'] = 'produit/thumb';
+// $route['produit/thumb'] = 'produit/thumb';
 $route['produit/(:any)'] = 'produit/index/$1';
+//$route['gamme/thumb'] = 'gamme/thumb';
+$route['gamme/(:any)'] = 'gamme/index/$1';
 

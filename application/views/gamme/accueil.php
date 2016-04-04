@@ -12,6 +12,7 @@
 
 				<?php
 					$gamme_id = $gamme['idGamme'];
+					$gamme_url = $gamme['url'];
 				?>
 
 				<article class="gamme">
@@ -48,9 +49,10 @@
 
 					<img class="gamme_photo" src="<?=img_url()?>gamme/<?= $gamme['miniature']; ?>">
 					<div class="gamme_info">
-						<p class="gamme_nom"><?= $gamme['nom'] ?></p>
+						<a href="<?= base_url("gamme/$gamme_url") ?>" class="gamme_nom"><?= $gamme['nom'] ?></a>
 						<p class="gamme_role"><?= $gamme['url'] ?></p>
-						<p class="gamme_description"><?= $gamme['description'] ?></p>	
+						<p class="gamme_description"><?= $gamme['description'] ?></p><br>
+						<p class="gamme_description"><?= $gamme['specification'] ?></p>	
 					</div>
 
 				</article>

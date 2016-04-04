@@ -73,7 +73,7 @@ class Partenaire extends CI_Controller
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
-		$config['min_height']  = '200';
+		$config['min_width']  = '100';
 
 		$this->load->library('upload', $config);
 
@@ -129,7 +129,7 @@ class Partenaire extends CI_Controller
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
-		$config['min_height']  = '200';
+		$config['min_width']  = '100';
 		$config['overwrite']  = TRUE;
 
 		$this->load->library('upload', $config);
@@ -184,7 +184,7 @@ class Partenaire extends CI_Controller
 		$config['source_image'] =$data['full_path'];
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
-		$config['width'] = 200;
+		$config['width'] = 100;
 		$config['master_dim'] = 'width';
 		$config['quality'] = 100;
 		$this->image_lib->initialize($config);

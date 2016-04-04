@@ -6,18 +6,18 @@
 				<?php echo $succes;?>
 			</div>
 
-			<a style="display: block;" href="<?= base_url("Partenaire/creer"); ?>"><input type="button" class="button" value="Ajouter une partenaire"></a>
+			<a style="display: block;" href="<?= base_url("reseaux_sociaux/creer"); ?>"><input type="button" class="button" value="Ajouter un reseau social"></a>
 
-			<?php foreach ($partenaires as $partenaire): ?>
+			<?php foreach ($reseaux_sociaux as $reseau_social): ?>
 
 				<?php
-					$partenaire_id = $partenaire['idPartenaire'];
+					$reseaux_sociaux_id = $reseau_social['idReseauxSociaux'];
 				?>
 
-				<article class="partenaire">
+				<article class="reseaux_sociaux">
 
-					<div class="modifier_partenaire">
-						<a href="<?= base_url("partenaire/modifier/$partenaire_id"); ?>" id="<?= $partenaire['idPartenaire'] ?>">
+					<div class="modifier_reseaux_sociaux">
+						<a href="<?= base_url("reseaux_sociaux/modifier/$reseaux_sociaux_id"); ?>" id="<?= $reseaux_sociaux_id ?>">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
 								<path fill="#E57373" d="M42.583,9.067l-3.651-3.65c-0.555-0.556-1.459-0.556-2.015,0l-1.718,1.72l5.664,5.664l1.72-1.718C43.139,10.526,43.139,9.625,42.583,9.067"></path>
 								<rect x="4.465" y="21.524" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 56.4088 27.6943)" fill="#FF9800" width="36.007" height="8.011"></rect>
@@ -28,8 +28,8 @@
 						</a>
 					</div>
 
-					<div class="supprimer_partenaire">
-						<a href="<?= base_url("partenaire/supprimer/$partenaire_id"); ?>" id="<?= $partenaire['idPartenaire'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce partenaire ?'));">
+					<div class="supprimer_reseaux_sociaux">
+						<a href="<?= base_url("reseaux_sociaux/supprimer/$reseaux_sociaux_id"); ?>" id="<?= $reseaux_sociaux_id ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce reseau social ?'));">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
 								<path fill="#9FA8DA" d="M11,13v25c0,2.209,1.791,4,4,4h16c2.209,0,4-1.791,4-4V13H11z"></path>
 								<g>
@@ -46,10 +46,11 @@
 						</a>
 					</div>
 
-					<span class="partenaire_logo"></span>
-						<img src="<?=img_url()?>partenaire/<?= $partenaire['logo']; ?>">
+					<span class="reseaux_sociaux_logo"></span>
+						<img src="<?=img_url()?>reseaux_sociaux/<?= $reseau_social['logo']; ?>">
 					
-					<p class="partenaire_nom"><?= $partenaire['nom'] ?></p>
+					<p class="reseaux_sociaux_nom"><?= $reseau_social['nom'] ?></p>
+					<a href="<?= $reseau_social['lien'] ?>" class="reseaux_sociaux_lien"><?= $reseau_social['lien'] ?></a>
 
 				</article>
 			

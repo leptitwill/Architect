@@ -59,6 +59,9 @@ footer {
   background-attachment: fixed;
   background-color: #eeeeee; }
 
+a {
+  color: #329899; }
+
 .content {
   width: 800px;
   margin: 50px auto;
@@ -283,27 +286,29 @@ form.creer {
     top: 0;
     right: 40px; }
 
-.partenaire {
+.reseaux_sociaux {
   margin: 2rem;
   overflow: auto;
   padding-top: 2rem;
   position: relative;
   display: inline-block;
-  height: 200px; }
-  .partenaire .partenaire_logo {
+  height: 150px; }
+  .reseaux_sociaux .reseaux_sociaux_logo {
     display: inline-block;
-    height: 120px;
+    height: 75px;
     vertical-align: middle; }
-  .partenaire img {
+  .reseaux_sociaux img {
     vertical-align: middle;
-    width: 100px; }
-  .partenaire .partenaire_nom {
+    width: 50px; }
+  .reseaux_sociaux .reseaux_sociaux_nom {
     font-weight: bold; }
-  .partenaire .modifier_partenaire {
+  .reseaux_sociaux .reseaux_sociaux_lien {
+    font-size: 0.8rem; }
+  .reseaux_sociaux .modifier_reseaux_sociaux {
     position: absolute;
     top: 0;
     right: 0; }
-  .partenaire .supprimer_partenaire {
+  .reseaux_sociaux .supprimer_reseaux_sociaux {
     position: absolute;
     top: 0;
     right: 40px; }

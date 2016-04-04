@@ -1,6 +1,6 @@
 <?php
 
-class Partenaire extends CI_Controller
+class Reseaux_sociaux extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,75 +9,77 @@ class Partenaire extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('partenaire_model'); 
+		$this->load->model('reseaux_sociaux_model'); 
 	}
 	
 	public function index()
 	{
-		$data['titre'] = 'Les partenaires Conceptcub';
-		$data['partenaires'] = $this->partenaire_model->lister_partenaire();
+		$data['titre'] = 'Les reseaux sociaux Conceptcub';
+		$data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
 		$data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('partenaire/accueil', $data);
+		$this->load->view('reseaux_sociaux/accueil', $data);
 		$this->load->view('theme/footer', $data);
 	}
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter un nouveau partenaire';
+		$data['titre'] = 'Ajouter un nouveau reseau social';
 		$data['attributs'] = array('class' => 'creer');
 		$data['error'] = '';
 		$data['succes'] = $this->session->flashdata('succes');
 
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('partenaire/creer', $data);
+		$this->load->view('reseaux_sociaux/creer', $data);
 		$this->load->view('theme/footer');
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un partenaire';
+		$data['titre'] = 'Modifier un reseau social';
 		$data['attributs'] = array('class' => 'creer');
-		$data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
+		$data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
 		$data['error'] = '';
 		$data['succes'] = '';
 
 		$this->load->view('theme/header', $data);
-		$this->load->view('partenaire/modifier', $data);
+		$this->load->view('reseaux_sociaux/modifier', $data);
 		$this->load->view('theme/footer');
 	}
 
 	public function supprimer($id)
 	{
-		$data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
+		$data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
 
-		$this->partenaire_model->supprimer_partenaire($id);
+		$this->reseaux_sociaux_model->supprimer_reseaux_sociaux($id);
 
-		$this->session->set_flashdata('succes','<p>Le partenaire à bien était supprimé</p>');
-		redirect("partenaire");
+		$this->session->set_flashdata('succes','<p>Le reseau social à bien était supprimé</p>');
+		redirect("reseaux_sociaux");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un nouveau partenaire';
+		$data['titre'] = 'Ajouter un nouveau reseau social';
 		$data['attributs'] = array('class' => 'creer');
 
 		$nom = $this->input->post('nom');
+		$lien = $this->input->post('lien');
 		$nom_logo = $this->supprimer_accent($nom);
 
-		$config['upload_path'] = './assets/img/partenaire';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['upload_path'] = './assets/img/reseaux_sociaux';
+		$config['allowed_types'] = 'svg|gif|png|jpg';
 		$config['file_name'] = strtolower($nom_logo);
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
-		$config['min_height']  = '200';
+		$config['min_width']  = '40';
 
 		$this->load->library('upload', $config);
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
+		$this->form_validation->set_rules('lien', 'lien', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
@@ -85,7 +87,7 @@ class Partenaire extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/creer', $data);
+			$this->load->view('reseaux_sociaux/creer', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -95,7 +97,7 @@ class Partenaire extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/creer', $data);
+			$this->load->view('reseaux_sociaux/creer', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -106,35 +108,36 @@ class Partenaire extends CI_Controller
 
 			$logo = $data['file_name'];
 
-			$this->partenaire_model->ajouter_partenaire($nom, $logo);
+			$this->reseaux_sociaux_model->ajouter_reseaux_sociaux($nom, $lien, $logo);
 
-			$this->session->set_flashdata('succes','<p>Le partenaire à bien était ajouté</p>');
-			redirect("partenaire");
+			$this->session->set_flashdata('succes','<p>Le reseau social à bien était ajouté</p>');
+			redirect("reseaux_sociaux");
 		}
 	}
 
 	public function update($id)
 	{
-		$data['titre'] = 'Mettre à jour le partenaire';
+		$data['titre'] = 'Mettre à jour le reseau social';
 		$data['attributs'] = array('class' => 'creer');
-		$partenaire = $this->partenaire_model->selectionner_partenaire($id);
+		$reseaux_sociaux = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
 
 		$nom = $this->input->post('nom');
+		$lien = $this->input->post('lien');
 		$nom_logo = $this->supprimer_accent($nom);
 		$fichier_envoye = $_FILES['userfile']['name'];
 
-		$config['upload_path'] = './assets/img/partenaire';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['upload_path'] = './assets/img/reseaux_sociaux';
+		$config['allowed_types'] = 'svg|gif|png|jpg';
 		$config['file_name'] = strtolower($nom_logo);
 		$config['max_size']    = '3000';
 		$config['max_width']  = '3000';
 		$config['max_height']  = '5000';
-		$config['min_height']  = '200';
-		$config['overwrite']  = TRUE;
+		$config['min_width']  = '40';
 
 		$this->load->library('upload', $config);
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
+		$this->form_validation->set_rules('lien', 'lien', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
@@ -142,7 +145,7 @@ class Partenaire extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/modifier', $data);
+			$this->load->view('reseaux_sociaux/modifier', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -152,7 +155,7 @@ class Partenaire extends CI_Controller
 			$data['succes'] = '';
 
 			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/modifier', $data);
+			$this->load->view('reseaux_sociaux/modifier', $data);
 			$this->load->view('theme/footer');
 		}
 
@@ -168,13 +171,13 @@ class Partenaire extends CI_Controller
 
 			else 
 			{
-				$logo = $partenaire[0]['logo'];
+				$logo = $reseaux_sociaux[0]['logo'];
 			}
 
-			$this->partenaire_model->modifier_partenaire($id, $nom, $logo);
+			$this->reseaux_sociaux_model->modifier_reseaux_sociaux($id, $nom, $lien, $logo);
 
-			$this->session->set_flashdata('succes','<p>Le partenaire à bien était modifié</p>');
-			redirect("partenaire");
+			$this->session->set_flashdata('succes','<p>Le reseau social à bien était modifié</p>');
+			redirect("reseaux_sociaux");
 		}
 	}
 
@@ -184,7 +187,7 @@ class Partenaire extends CI_Controller
 		$config['source_image'] =$data['full_path'];
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
-		$config['width'] = 200;
+		$config['width'] = 40;
 		$config['master_dim'] = 'width';
 		$config['quality'] = 100;
 		$this->image_lib->initialize($config);

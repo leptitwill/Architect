@@ -14,10 +14,10 @@
 			<?php echo form_open_multipart('gamme/upload', $attributs); ?>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nom du gamme"/><br />
+				<input type="input" name="nom" placeholder="Nom de la gamme"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Description du gamme"></textarea><br />
+				<textarea name="description" placeholder="Description de la gamme"></textarea><br />
 
 				<label for="specification">Specification</label>
 				<textarea name="specification" placeholder="Specification technique de la gamme"></textarea><br />
@@ -28,7 +28,7 @@
 				</div>
 				<p class="file-return"></p><br />
 
-				<label for="produit">produit</label>
+				<label for="produit">Produit</label>
 				<select name="produit">
 					<?php foreach ($produits as $produit): ?>
 						<option value="<?= $produit['idProduit'] ?>">

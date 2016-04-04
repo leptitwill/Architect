@@ -54,6 +54,7 @@ class Gamme extends CI_Controller
 	{
 		$data['titre'] = 'Modifier une gamme';
 		$data['attributs'] = array('class' => 'creer');
+		$data['produits'] = $this->produit_model->lister_produit();
 		$data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
 		$data['error'] = '';
 		$data['succes'] = '';
@@ -140,13 +141,14 @@ class Gamme extends CI_Controller
 
 	public function update($id)
 	{
-		$data['titre'] = 'Ajouter un nouveau gamme';
+		$data['titre'] = 'Mettre à jour la gamme';
 		$data['attributs'] = array('class' => 'creer');
 		$gamme = $this->gamme_model->selectionner_gamme_par_id($id);
 
-
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
+		$specification = $this->input->post('specification');
+		$produit = (int)$this->input->post('produit');
 		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
 		$nom_image = str_replace("-","_",$url);
@@ -161,12 +163,12 @@ class Gamme extends CI_Controller
 		$config['max_height']  = '5000';
 		$config['min_width']  = '1920';
 		$config['min_height']  = '400';
-		$config['overwrite']  = TRUE;
 
 		$this->load->library('upload', $config);
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
+		$this->form_validation->set_rules('specification', 'specification', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
@@ -196,16 +198,18 @@ class Gamme extends CI_Controller
 				$this->redimensionner($data);
 				
 				$couverture = $data['file_name'];
+				$miniature = $data['raw_name'] . '_miniature' . $data['file_ext'];
 			}
 
 			else 
 			{
 				$couverture = $gamme[0]['couverture'];
+				$miniature = $gamme[0]['miniature'];
 			}
 
-			$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $url);
+			$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $miniature, $specification, $url, $produit);
 
-			$this->session->set_flashdata('succes','<p>Le gamme à bien était modifié</p>');
+			$this->session->set_flashdata('succes','<p>La gamme à bien était modifié</p>');
 			redirect("gamme");
 		}
 	}

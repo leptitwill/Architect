@@ -40,13 +40,17 @@ class Gamme_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_gamme($id, $description, $couverture, $miniature, $specification, $url, $produit)
+	public function modifier_gamme($id,  $description, $couverture, $miniature, $specification, $url, $produit)
 	{
 		$data = array(
 					'nom' => $nom,
 					'description' => $description,
 					'couverture' => $couverture,
+					'miniature' => $miniature,
+					'specification' => $specification,
 					'url' => $url,
+					'produit_idProduit' => $produit,
+					'dateModification' => 'NOW()'
 				);
 
 		$this->db->where('idGamme',$id);
