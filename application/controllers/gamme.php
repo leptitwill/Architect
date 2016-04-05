@@ -217,19 +217,20 @@ class Gamme extends CI_Controller
 	function redimensionner($data)
 	{
 		$config['image_library'] = 'gd2';
-		$config['source_image'] =$data['full_path'];
+		$config['source_image'] = $data['full_path'];
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = 1920;
 		$config['quality'] = 100;
-		$this->load->library('image_lib', $config);
+		
+		$this->image_lib->initialize($config);
 		$this->image_lib->resize();
 	}
 
 	function recadrer($data)
 	{
 		$config['image_library'] = 'gd2';
-		$config['source_image'] =$data['full_path'];
+		$config['source_image'] = $data['full_path'];
 		$config['create_thumb'] = TRUE;
 		$config['thumb_marker'] = '_miniature';
 		if ($data["image_height"] >= $data["image_width"]) {

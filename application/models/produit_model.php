@@ -25,6 +25,23 @@ class Produit_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function selectionner_gamme_par_produit($url)
+	{
+		$this->db->select('idProduit');
+		$this->db->where('url', $url);
+		$query = $this->db->get($this->table);
+
+		$result = $query->row();
+		$id = $result->idProduit;
+
+		$this->db->select('gamme.nom, gamme.miniature, gamme.url');
+		$this->db->join('produit', 'gamme.produit_idProduit = produit.idProduit', 'left');
+		$this->db->where('produit.idProduit',$id);
+		$query = $this->db->get('gamme');
+
+		return $query->result_array();
+	}
+
 	public function ajouter_produit($nom, $description, $couverture, $url)
 	{
 		$this->db->set('nom', $nom);

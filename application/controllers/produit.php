@@ -28,7 +28,8 @@ class Produit extends CI_Controller
 		else
 		{
 			$data['produit'] = $this->produit_model->selectionner_produit($url);
-			$data['titre'] = str_replace("-"," ",$url); ;
+			$data['gammes'] = $this->produit_model->selectionner_gamme_par_produit($url);
+			$data['titre'] = str_replace("-"," ",$url);
 
 			$this->load->view('theme/header', $data);
 			$this->load->view('produit/modele', $data);
@@ -80,6 +81,7 @@ class Produit extends CI_Controller
 		$description = $this->input->post('description');
 		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
+		$url = $this->supprimer_accent($url);
 		$nom_image = str_replace("-","_",$url);
 		$nom_image = $this->supprimer_accent($nom_image);
 
@@ -142,6 +144,7 @@ class Produit extends CI_Controller
 		$description = $this->input->post('description');
 		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
+		$url = $this->supprimer_accent($url);
 		$nom_image = str_replace("-","_",$url);
 		$nom_image = $this->supprimer_accent($nom_image);
 		$fichier_envoye = $_FILES['userfile']['name'];
@@ -211,7 +214,8 @@ class Produit extends CI_Controller
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = 1920;
 		$config['quality'] = 100;
-		$this->load->library('image_lib', $config);
+
+		$this->image_lib->initialize($config);
 		$this->image_lib->resize();
 	}
 

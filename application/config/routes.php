@@ -54,8 +54,14 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 $route['produit/creer'] = 'produit/creer';
 $route['produit/upload'] = 'produit/upload';
-// $route['produit/thumb'] = 'produit/thumb';
+$route['produit/update'] = 'produit/update';
+$route['produit/redimensionner'] = 'produit/redimensionner';
+$route['produit/supprimer_accent'] = 'produit/supprimer_accent';
 $route['produit/(:any)'] = 'produit/index/$1';
-//$route['gamme/thumb'] = 'gamme/thumb';
+$route['gamme/creer'] = 'gamme/creer';
+$route['gamme/upload'] = 'gamme/upload';
+$route['gamme/update'] = 'gamme/update';
+$route['gamme/redimensionner'] = 'gamme/redimensionner';
+$route['gamme/supprimer_accent'] = 'gamme/supprimer_accent';
 $route['gamme/(:any)'] = 'gamme/index/$1';
 
