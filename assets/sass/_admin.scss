@@ -1,0 +1,60 @@
+.connexion {
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+    background-color: $gris;
+    background-image: url('../img/connexion.jpg');
+
+	.connexion_content {
+		width: 500px;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.connexion_logo {
+			width: 251px;
+			margin-bottom: 2rem;
+
+		}
+
+		form.connexion_form {
+			text-align: left;
+			color: white;
+			
+			input {
+				width: 100%;
+				font-size: 1rem;
+				padding: 1rem;
+				margin: 0.5rem 0 1rem 0;
+				background: rgba(0,0,0,0.1);
+				border: 1px solid rgba(255,255,255,0.4);
+				border-radius: 5px;
+				outline: none;
+				color: white;
+			}
+
+			input[type="submit"] {
+				border: 0;
+				color: white;
+				cursor: pointer;
+				background: rgba(255,255,255,0.2);
+				transition: .3s;
+
+				&:hover {
+					background: rgba(255,255,255,0.3);
+				}
+			}
+
+			.connexion_erreur p {
+				text-align: center;
+				padding: 1rem 0;
+				color: $rouge;
+			}
+
+		}
+	}
+}

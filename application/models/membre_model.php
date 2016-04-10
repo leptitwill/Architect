@@ -59,4 +59,11 @@ class Membre_model extends CI_Model
 		$this->db->where('idMembre',$id);
 		$this->db->update($this->table,  $data);
 	}
+
+	public function login($email, $mdp){
+		$this->db->where('email',$email);
+		$this->db->where('motDePasse',$mdp);
+		$query = $this->db->get($this->table);
+		return $query->result_array();
+	}
 }

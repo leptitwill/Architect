@@ -196,6 +196,7 @@ class Gamme extends CI_Controller
 			{
 				$data = $this->upload->data();
 				$this->redimensionner($data);
+				$this->recadrer($data);
 				
 				$couverture = $data['file_name'];
 				$miniature = $data['raw_name'] . '_miniature' . $data['file_ext'];

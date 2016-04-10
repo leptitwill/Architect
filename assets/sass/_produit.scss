@@ -41,3 +41,21 @@
 		right: 40px;
 	}	
 }
+
+.produit_gamme {
+	width: 30%;
+	height: 200px;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+    background-color: $gris;
+    display: inline-block;
+
+    span {
+    	color: white;
+    	line-height: 200px;
+    	vertical-align: middle;
+    	font-weight: bold;
+    	font-size: 1.5rem;
+    }
+}

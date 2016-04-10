@@ -9,14 +9,13 @@
 			</p>
 
 			<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
-				<article class="gamme">
+				
+				<a href="<?= base_url("gamme/$gamme_url") ?>" class="gamme_nom">
+					<article class="produit_gamme" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')">
+						<span><?= $gamme['nom'] ?></span>
+					</article>
+				</a>
 
-					<img class="gamme_photo" src="<?=img_url()?>gamme/<?= $gamme['miniature'] ?>">
-					<div class="gamme_info">
-						<a href="<?= base_url("gamme/$gamme_url") ?>" class="gamme_nom"><?= $gamme['nom'] ?></a>
-					</div>
-
-				</article>
 			<?php endforeach ?>
 
 		</section>

@@ -4,7 +4,6 @@
 	background-size: cover;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
     background-color: $gris;
 }
 
@@ -13,13 +12,29 @@ a {
 }
 
 .content {
-	width: 800px;
-	margin: 50px auto;
-	text-align: center;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	text-align: left;
 
 	.titre {
-		font-size: 2rem;
+		font-size: 1.5rem;
+		color: $vert;
 		margin-bottom: 2rem;
+		text-transform: uppercase;
+		font-weight: 600;
+		position: relative;
+
+		&:after {
+			content:url('../img/1.png');
+			position: absolute;
+			left: 0;
+			top: 1rem;
+		}
+	}
+
+	.description {
+
 	}
 
 	.button {

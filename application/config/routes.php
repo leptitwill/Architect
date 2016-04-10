@@ -62,6 +62,7 @@ $route['gamme/creer'] = 'gamme/creer';
 $route['gamme/upload'] = 'gamme/upload';
 $route['gamme/update'] = 'gamme/update';
 $route['gamme/redimensionner'] = 'gamme/redimensionner';
+$route['gamme/recadrer'] = 'gamme/recadrer';
 $route['gamme/supprimer_accent'] = 'gamme/supprimer_accent';
 $route['gamme/(:any)'] = 'gamme/index/$1';
 

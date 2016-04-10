@@ -12,6 +12,7 @@
 
 				<?php
 					$produit_id = $produit['idProduit'];
+					$produit_url = $produit['url'];
 				?>
 
 				<article class="produit">
@@ -48,8 +49,8 @@
 
 					<img class="produit_photo" src="<?=img_url()?>produit/<?= $produit['couverture']; ?>">
 					<div class="produit_info">
-						<p class="produit_nom"><?= $produit['nom'] ?></p>
-						<p class="produit_role"><?= $produit['url'] ?></p>
+						<a href="<?= base_url("produit/$produit_url") ?>" class="produit_nom"><?= $produit['nom'] ?></a>
+						<p class="produit_role"><?= $produit_url ?></p>
 						<p class="produit_description"><?= $produit['description'] ?></p>	
 					</div>
 

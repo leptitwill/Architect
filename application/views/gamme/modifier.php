@@ -41,7 +41,7 @@
 					<?php endforeach ?>
 				</select><br />
 
-				<input type="submit" name="submit" value="Mettre à jour le gamme" />
+				<input type="submit" name="submit" value="Mettre à jour la gamme" />
 
 			</form>
 
