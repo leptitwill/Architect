@@ -9,7 +9,7 @@ class Produit extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('produit_model');
+		$this->load->model('produit_model');$this->load->model('membre_model');
 	}
 	
 	public function index($url = NULL)
@@ -41,12 +41,13 @@ class Produit extends CI_Controller
 	{
 		$data['titre'] = 'Ajouter un nouveau produit';
 		$data['attributs'] = array('class' => 'creer');
+		$id = $this->session->userdata('idMembre');
+		$data['membre'] = $this->membre_model->selectionner_membre($id);
 		$data['error'] = '';
 		$data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
+		$this->load->view('theme/header-admin', $data);
 		$this->load->view('produit/creer', $data);
-		$this->load->view('theme/footer');
 	}
 
 	public function modifier($id)

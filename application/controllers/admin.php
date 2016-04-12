@@ -14,13 +14,34 @@ class Admin extends CI_Controller
 	
 	public function index()
 	{
+		if (!$this->session->userdata('idMembre'))
+		{
+			redirect("admin/connexion");
+		}
+
+		else
+		{
+			redirect("admin/accueil");
+		}
+	}
+
+	public function connexion()
+	{
 		$data['titre'] = 'Conceptcub - faite moi rêvé ....';
-		$data['titre_page'] = 'Notre concept de pièce à vivre';
 		$data['attributs'] = array('class' => 'connexion_form');
-		$data['succes'] = $this->session->flashdata('succes');
 		$data['error'] = $this->session->flashdata('error');
 
 		$this->load->view('admin/connexion', $data);
+	}
+
+	public function accueil()
+	{
+		$data['titre'] = 'Conceptcub - faite moi rêvé ....';
+		$id = $this->session->userdata('idMembre');
+		$data['membre'] = $this->membre_model->selectionner_membre($id);
+
+		$this->load->view('theme/header-admin', $data);
+		$this->load->view('admin/accueil', $data);
 	}
 
 	public function login()
@@ -38,20 +59,27 @@ class Admin extends CI_Controller
 			$data['error'] = '';
 
 			$this->session->set_flashdata('error','<p>Merci de remplir tous les champs</p>');
-			redirect("admin");
+			redirect("admin/connexion");
 		}
 
 		elseif ($this->form_validation->run() == true && empty($result))
 		{
 			$this->session->set_flashdata('error', '<p>Adresse email ou mot de passe incorrect</p>');
-			redirect('admin');
+			redirect('admin/connexion');
 		}
 		
 		else
 		{
+			$this->session->set_userdata('idMembre', $result[0]['idMembre']);
 			$this->session->set_flashdata('error', '<p>bravo</p>');
-			redirect('admin');        
+
+			redirect('admin');
 		}
+	}
+
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect('admin');
 	}
 
 }
