@@ -1,4 +1,4 @@
-		<section class="content">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -15,7 +15,7 @@
 				$membre_id = $membre[0]['idMembre'];
 			?>
 				
-			<?php echo form_open_multipart('membre/update/'.$membre_id, $attributs); ?>
+			<?php echo form_open_multipart('admin/membre/update/'.$membre_id, $attributs); ?>
 
 				<label for="prenom">Prénom</label>
 				<input type="input" name="prenom" placeholder="Votre prénom" value="<?= $membre[0]['prenom'] ?>"/><br />

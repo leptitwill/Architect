@@ -10,7 +10,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body class="body_admin">
 	
 		<header class="connexion_header">
 			
@@ -80,7 +80,7 @@
 					</li>
 				</a>
 
-				<a href="<?= base_url(); ?>">
+				<a href="<?= base_url('admin/membre'); ?>">
 					<li>
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24">

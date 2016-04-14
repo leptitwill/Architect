@@ -10,6 +10,9 @@ class Admin extends CI_Controller
 		$this->load->library('form_validation');
 
 		$this->load->model('membre_model');
+
+		$this->id = $this->session->userdata('idMembre');
+		$this->data['membre'] = $this->membre_model->selectionner_membre($this->id);
 	}
 	
 	public function index()
@@ -36,12 +39,10 @@ class Admin extends CI_Controller
 
 	public function accueil()
 	{
-		$data['titre'] = 'Conceptcub - faite moi rêvé ....';
-		$id = $this->session->userdata('idMembre');
-		$data['membre'] = $this->membre_model->selectionner_membre($id);
+		$this->data['titre'] = 'Conceptcub - faite moi rêvé ....';
 
-		$this->load->view('theme/header-admin', $data);
-		$this->load->view('admin/accueil', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('admin/accueil', $this->data);
 	}
 
 	public function login()

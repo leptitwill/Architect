@@ -1,4 +1,4 @@
-		<section class="content">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -11,7 +11,7 @@
 				<?php echo $error;?>
 			</div>
 				
-			<?php echo form_open_multipart('membre/upload', $attributs); ?>
+			<?php echo form_open_multipart('admin/membre/upload', $attributs); ?>
 
 				<label for="prenom">Prénom</label>
 				<input type="input" name="prenom" placeholder="Votre prénom"/><br />

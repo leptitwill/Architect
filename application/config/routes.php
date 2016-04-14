@@ -52,8 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'accueil';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
-$route['produit/creer'] = 'produit/creer';
+
 $route['produit/upload'] = 'produit/upload';
+$route['produit/creer'] = 'produit/creer';
 $route['produit/update'] = 'produit/update';
 $route['produit/redimensionner'] = 'produit/redimensionner';
 $route['produit/supprimer_accent'] = 'produit/supprimer_accent';
@@ -65,4 +66,12 @@ $route['gamme/redimensionner'] = 'gamme/redimensionner';
 $route['gamme/recadrer'] = 'gamme/recadrer';
 $route['gamme/supprimer_accent'] = 'gamme/supprimer_accent';
 $route['gamme/(:any)'] = 'gamme/index/$1';
+
+// Routes admin
+$route['admin'] = 'admin/admin';
+$route['admin/connexion'] = 'admin/admin/connexion';
+$route['admin/accueil'] = 'admin/admin/accueil';
+$route['admin/login'] = 'admin/admin/login';
+$route['admin/logout'] = 'admin/admin/logout';
+$route['admin/(:any)'] = 'admin/$1';
 

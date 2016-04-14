@@ -10,32 +10,33 @@ class Membre extends CI_Controller
 		$this->load->library('form_validation');
 
 		$this->load->model('membre_model');
-		$this->load->model('profil_model'); 
+		$this->load->model('profil_model');
+
+		$this->id = $this->session->userdata('idMembre');
+		$this->data['membre'] = $this->membre_model->selectionner_membre($this->id);
 	}
 	
 	public function index()
 	{
-		$data['titre'] = 'Les membres Conceptcub';
-		$data['membres'] = $this->membre_model->lister_membre();
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Gestion des membres';
+		$this->data['membres'] = $this->membre_model->lister_membre();
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('membre/accueil', $data);
-		$this->load->view('theme/footer', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('membre/accueil', $this->data);
 	}
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter un nouveau membre';
-		$data['attributs'] = array('class' => 'creer');
-		$data['profils'] = $this->profil_model->lister_profil();
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Ajouter un nouveau membre';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['profils'] = $this->profil_model->lister_profil();
+		$this->data['error'] = '';
+		$this->data['succes'] = $this->session->flashdata('succes');
 
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('membre/creer', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('membre/creer', $this->data);
 	}
 
 	public function modifier($id)
@@ -47,9 +48,8 @@ class Membre extends CI_Controller
 		$data['error'] = '';
 		$data['succes'] = '';
 
-		$this->load->view('theme/header', $data);
+		$this->load->view('theme/header-admin', $data);
 		$this->load->view('membre/modifier', $data);
-		$this->load->view('theme/footer');
 	}
 
 	public function supprimer($id)
@@ -102,9 +102,8 @@ class Membre extends CI_Controller
 			$data['error'] = '';
 			$data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('membre/creer', $data);
-			$this->load->view('theme/footer');
+			$this->load->view('theme/header-admin', $data);
+			$this->load->view('membre/creer', $data);;
 		}
 
 		elseif ( ! $this->upload->do_upload())
@@ -112,9 +111,8 @@ class Membre extends CI_Controller
 			$data['error'] = $this->upload->display_errors();
 			$data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('membre/creer', $data);
-			$this->load->view('theme/footer');
+			$this->load->view('theme/header-admin', $data);
+			$this->load->view('membre/creer', $data);;
 		}
 
 		else
@@ -128,7 +126,7 @@ class Membre extends CI_Controller
 			$this->membre_model->ajouter_membre($nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);
 
 			$this->session->set_flashdata('succes','<p>Le membre à bien était ajouté</p>');
-			redirect("membre");
+			redirect("admin/membre");
 		}
 	}
 
@@ -176,9 +174,8 @@ class Membre extends CI_Controller
 			$data['error'] = '';
 			$data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('membre/modifier', $data);
-			$this->load->view('theme/footer');
+			$this->load->view('theme/header-admin', $data);
+			$this->load->view('membre/modifier', $data);;
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
@@ -186,9 +183,8 @@ class Membre extends CI_Controller
 			$data['error'] = $this->upload->display_errors();
 			$data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('membre/modifier', $data);
-			$this->load->view('theme/footer');
+			$this->load->view('theme/header-admin', $data);
+			$this->load->view('membre/modifier', $data);;
 		}
 
 		else
@@ -210,7 +206,7 @@ class Membre extends CI_Controller
 			$this->membre_model->modifier_membre($id, $nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);
 
 			$this->session->set_flashdata('succes','<p>Le membre à bien était modifié</p>');
-			redirect("membre");
+			redirect("admin/membre");
 		}
 	}
 

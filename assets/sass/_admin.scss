@@ -1,3 +1,7 @@
+.body_admin {
+	background: $gris;
+}
+
 .connexion_header {
 	background: darken($admin, 5%);
 	padding: 0 2rem;
@@ -21,14 +25,17 @@
 }
 
 .connexion_sidebar {
+	position: fixed;
 	width: 250px;
 	height: 100vh;
 	background: $admin;
-	padding: 92px 2rem 1rem;
+	padding: 92px 0 1rem;
 
 	.connexion_sidebar_membre {
+		margin: 0 2rem;
 		overflow: auto;
-		margin-bottom: 2rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid #777F86;
 
 		.connexion_sidebar_membre_photo {
 			float: left;
@@ -51,12 +58,17 @@
 	}
 
 	ul {
+		padding-top: 1rem;
 
 		a {
 
 			li {
 				color: white;
-				padding: 1rem 0;
+				padding: 1rem 2rem;
+
+				&:hover {
+					background: lighten($admin, 5%)
+				}
 
 				svg {
 					fill: white;

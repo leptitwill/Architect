@@ -1,8 +1,12 @@
 .membre {
 	width: 100%;
-	margin: 4rem 0;
+	margin: 1rem 0;
 	overflow: auto;
 	position: relative;
+	background: white;
+	padding: 1rem;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
 	.membre_photo {
 		border-radius: 50%;
@@ -15,7 +19,6 @@
 		text-align: left;	
 
 		.membre_nom {
-			font-weight: bold;
 			color: $vert;
 		}
 
@@ -32,13 +35,31 @@
 
 	.modifier_membre {
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 1rem;
+		right: 1rem;
+
+		svg {
+			width: 30px;
+			fill: $vert;
+
+			&:hover {
+				fill: darken($vert, 10%);
+			}
+		}
 	}
 
 	.supprimer_membre {
 		position: absolute;
-		top: 0;
-		right: 40px;
+		top: 1rem;
+		right: 3.5rem;
+
+		svg {
+			width: 30px;
+			fill: $vert;
+
+			&:hover {
+				fill: darken($vert, 10%);
+			}
+		}
 	}	
 }

@@ -63,6 +63,29 @@ footer {
 a {
   color: #329899; }
 
+.content-admin {
+  padding: 110px 50px 50px 300px;
+  width: 100%;
+  text-align: left; }
+  .content-admin .titre {
+    font-size: 1.5rem;
+    color: #283a47;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative; }
+  .content-admin .button {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background: #329899;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s, color 0.3s; }
+    .content-admin .button:hover {
+      background: #283a47;
+      color: #329899; }
+
 .content {
   width: 100%;
   max-width: 1000px;
@@ -173,9 +196,13 @@ form.creer {
 
 .membre {
   width: 100%;
-  margin: 4rem 0;
+  margin: 1rem 0;
   overflow: auto;
-  position: relative; }
+  position: relative;
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); }
   .membre .membre_photo {
     border-radius: 50%;
     width: 150px;
@@ -184,7 +211,6 @@ form.creer {
     margin-left: 200px;
     text-align: left; }
     .membre .membre_info .membre_nom {
-      font-weight: bold;
       color: #329899; }
     .membre .membre_info .membre_role {
       font-style: italic;
@@ -192,12 +218,22 @@ form.creer {
       margin-bottom: 1rem; }
   .membre .modifier_membre {
     position: absolute;
-    top: 0;
-    right: 0; }
+    top: 1rem;
+    right: 1rem; }
+    .membre .modifier_membre svg {
+      width: 30px;
+      fill: #329899; }
+      .membre .modifier_membre svg:hover {
+        fill: #257273; }
   .membre .supprimer_membre {
     position: absolute;
-    top: 0;
-    right: 40px; }
+    top: 1rem;
+    right: 3.5rem; }
+    .membre .supprimer_membre svg {
+      width: 30px;
+      fill: #329899; }
+      .membre .supprimer_membre svg:hover {
+        fill: #257273; }
 
 .cover--home {
   width: 100%;
@@ -398,6 +434,9 @@ form.creer {
     top: 0;
     right: 40px; }
 
+.body_admin {
+  background: #eeeeee; }
+
 .connexion_header {
   background: #1f2d37;
   padding: 0 2rem; }
@@ -409,13 +448,16 @@ form.creer {
         color: #329899; }
 
 .connexion_sidebar {
+  position: fixed;
   width: 250px;
   height: 100vh;
   background: #283a47;
-  padding: 92px 2rem 1rem; }
+  padding: 92px 0 1rem; }
   .connexion_sidebar .connexion_sidebar_membre {
+    margin: 0 2rem;
     overflow: auto;
-    margin-bottom: 2rem; }
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #777F86; }
     .connexion_sidebar .connexion_sidebar_membre .connexion_sidebar_membre_photo {
       float: left;
       width: 50px;
@@ -429,17 +471,21 @@ form.creer {
       .connexion_sidebar .connexion_sidebar_membre .connexion_sidebar_membre_info .connexion_sidebar_membre_role {
         color: rgba(255, 255, 255, 0.6);
         font-style: italic; }
-  .connexion_sidebar ul a li {
-    color: white;
-    padding: 1rem 0; }
-    .connexion_sidebar ul a li svg {
-      fill: white;
-      width: 20px;
-      margin-right: 1rem; }
-    .connexion_sidebar ul a li span {
-      line-height: 20px;
-      display: inline-block;
-      vertical-align: middle; }
+  .connexion_sidebar ul {
+    padding-top: 1rem; }
+    .connexion_sidebar ul a li {
+      color: white;
+      padding: 1rem 2rem; }
+      .connexion_sidebar ul a li:hover {
+        background: #314757; }
+      .connexion_sidebar ul a li svg {
+        fill: white;
+        width: 20px;
+        margin-right: 1rem; }
+      .connexion_sidebar ul a li span {
+        line-height: 20px;
+        display: inline-block;
+        vertical-align: middle; }
 
 .connexion {
   width: 100%;
