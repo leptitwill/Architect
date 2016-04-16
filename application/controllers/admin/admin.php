@@ -12,7 +12,7 @@ class Admin extends CI_Controller
 		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
-		$this->data['membre'] = $this->membre_model->selectionner_membre($this->id);
+		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
 	}
 	
 	public function index()
@@ -43,15 +43,17 @@ class Admin extends CI_Controller
 
 		$this->load->view('theme/header-admin', $this->data);
 		$this->load->view('admin/accueil', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function login()
 	{
 		$email = $this->input->post('email');
 		$mdp = $this->input->post('mdp');
+		$mdp = sha1($mdp);
 
 		$this->form_validation->set_rules('email', 'email', 'required');
-		$this->form_validation->set_rules('mdp', 'mdp', 'required');
+		$this->form_validation->set_rules('mdp', 'mot de passe', 'required');
 
 		$result = $this->membre_model->login($email,$mdp);
 

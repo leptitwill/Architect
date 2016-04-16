@@ -23,14 +23,14 @@
 					</div>
 
 					<div class="supprimer_membre">
-						<a href="<?= base_url("admin/membre/supprimer/$membre_id"); ?>" id="<?= $membre['idMembre'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce membre ?'));">
+						<span id="<?= $membre['idMembre'] ?>" onclick="supprimerMembre()">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 							    <path style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Bitstream Vera Sans" d="M 15 4 C 14.477778 4 13.939531 4.1854695 13.5625 4.5625 C 13.185469 4.9395305 13 5.4777778 13 6 L 13 7 L 7 7 L 7 9 L 8 9 L 8 25 C 8 26.645455 9.3545455 28 11 28 L 23 28 C 24.645455 28 26 26.645455 26 25 L 26 9 L 27 9 L 27 7 L 21 7 L 21 6 C 21 5.4777778 20.814531 4.9395305 20.4375 4.5625 C 20.060469 4.1854695 19.522222 4 19 4 L 15 4 z M 15 6 L 19 6 L 19 7 L 15 7 L 15 6 z M 10 9 L 24 9 L 24 25 C 24 25.554545 23.554545 26 23 26 L 11 26 C 10.445455 26 10 25.554545 10 25 L 10 9 z M 12 12 L 12 23 L 14 23 L 14 12 L 12 12 z M 16 12 L 16 23 L 18 23 L 18 12 L 16 12 z M 20 12 L 20 23 L 22 23 L 22 12 L 20 12 z" color="#000" overflow="visible" font-family="Bitstream Vera Sans"></path>
 							</svg>
-						</a>
+						</span>
 					</div>
 
-					<img class="membre_photo" src="<?=img_url()?>membre/<?= $membre['photo']; ?>">
+					<div class="membre_photo" style=" background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>')"></div>
 					<div class="membre_info">
 						<p class="membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
 						<p class="membre_role"><?= $membre['role'] ?></p>
@@ -44,3 +44,23 @@
 			<a href="<?= base_url("admin/membre/creer"); ?>"><input type="button" class="button" value="Ajouter un membre"></a>
 
 		</section>
+
+		<script type="text/javascript">
+
+			function supprimerMembre(){
+				swal({
+					title: 'Supprimer le membre ?',
+					text: "Une fois supprimé le membre ne sera plus disponible.",
+					showCancelButton: true,
+					confirmButtonColor: '#6289a5',
+					cancelButtonColor: '#f35f47',
+					confirmButtonText: 'Oui, le supprimer',
+					animation: false
+				}).then(function(isConfirm) {
+					if (isConfirm) {
+				    	window.location.href = '<?= base_url("admin/membre/supprimer/$membre_id") ?>';
+					}
+				})
+			}
+
+		</script>

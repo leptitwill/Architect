@@ -8,12 +8,18 @@ class Membre extends CI_Controller
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+		$this->load->library('encrypt');
 
 		$this->load->model('membre_model');
 		$this->load->model('profil_model');
 
 		$this->id = $this->session->userdata('idMembre');
-		$this->data['membre'] = $this->membre_model->selectionner_membre($this->id);
+		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
+
+		if (!$this->session->userdata('idMembre'))
+		{
+			redirect("admin/connexion");
+		}
 	}
 	
 	public function index()
@@ -24,6 +30,7 @@ class Membre extends CI_Controller
 
 		$this->load->view('theme/header-admin', $this->data);
 		$this->load->view('membre/accueil', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()
@@ -31,25 +38,27 @@ class Membre extends CI_Controller
 		$this->data['titre'] = 'Ajouter un nouveau membre';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['profils'] = $this->profil_model->lister_profil();
-		$this->data['error'] = '';
+		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 
 		$this->load->view('theme/header-admin', $this->data);
 		$this->load->view('membre/creer', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un membre';
-		$data['attributs'] = array('class' => 'creer');
-		$data['profils'] = $this->profil_model->lister_profil();
-		$data['membre'] = $this->membre_model->selectionner_membre($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier un membre';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['profils'] = $this->profil_model->lister_profil();
+		$this->data['membre'] = $this->membre_model->selectionner_membre($id);
+		$this->data['error'] = '';
+		$this->data['succes'] = '';
 
-		$this->load->view('theme/header-admin', $data);
-		$this->load->view('membre/modifier', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('membre/modifier', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
@@ -59,21 +68,17 @@ class Membre extends CI_Controller
 		$this->membre_model->supprimer_membre($id);
 
 		$this->session->set_flashdata('succes','<p>Le membre à bien était supprimé</p>');
-		redirect("membre");
+		redirect("admin/membre");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un nouveau membre';
-		$data['attributs'] = array('class' => 'creer');
-		$data['profils'] = $this->profil_model->lister_profil();
-
 		$nom = $this->input->post('nom');
 		$prenom = $this->input->post('prenom');
 		$email = $this->input->post('email');
 		$role = $this->input->post('role');
 		$description = $this->input->post('description');
-		$mot_de_passe = $this->input->post('mot_de_passe');
+		$mdp = $this->input->post('mot_de_passe');
 		$profil = (int)$this->input->post('profil');
 		$photo = $nom . '_' . $prenom;
 		$nom_photo = $this->supprimer_accent($photo);
@@ -81,9 +86,6 @@ class Membre extends CI_Controller
 		$config['upload_path'] = './assets/img/membre';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = strtolower($nom_photo);
-		$config['max_size']    = '3000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
 		$config['min_width']  = '200';
 		$config['min_height']  = '200';
 
@@ -99,20 +101,18 @@ class Membre extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header-admin', $data);
-			$this->load->view('membre/creer', $data);;
+			redirect("admin/membre/creer");
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header-admin', $data);
-			$this->load->view('membre/creer', $data);;
+			redirect("admin/membre/creer");
 		}
 
 		else
@@ -123,6 +123,8 @@ class Membre extends CI_Controller
 
 			$photo_profil = $data['file_name'];
 
+			$mot_de_passe = sha1($mdp);
+
 			$this->membre_model->ajouter_membre($nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);
 
 			$this->session->set_flashdata('succes','<p>Le membre à bien était ajouté</p>');
@@ -132,18 +134,14 @@ class Membre extends CI_Controller
 
 	public function update($id)
 	{
-		$data['titre'] = 'Ajouter un nouveau membre';
-		$data['attributs'] = array('class' => 'creer');
-		$data['profils'] = $this->profil_model->lister_profil();
 		$membre = $this->membre_model->selectionner_membre($id);
-
 
 		$nom = $this->input->post('nom');
 		$prenom = $this->input->post('prenom');
 		$email = $this->input->post('email');
 		$role = $this->input->post('role');
 		$description = $this->input->post('description');
-		$mot_de_passe = $this->input->post('mot_de_passe');
+		$mdp = $this->input->post('mot_de_passe');
 		$profil = (int)$this->input->post('profil');
 		$photo = $nom . '_' . $prenom;
 		$nom_photo = $this->supprimer_accent($photo);
@@ -152,9 +150,6 @@ class Membre extends CI_Controller
 		$config['upload_path'] = './assets/img/membre';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = strtolower($nom_photo);
-		$config['max_size']    = '3000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
 		$config['min_width']  = '200';
 		$config['min_height']  = '200';
 		$config['overwrite']  = TRUE;
@@ -171,20 +166,18 @@ class Membre extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header-admin', $data);
-			$this->load->view('membre/modifier', $data);;
+			redirect("admin/membre/modifier/$id");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header-admin', $data);
-			$this->load->view('membre/modifier', $data);;
+			redirect("admin/membre/modifier/$id");
 		}
 
 		else
@@ -201,6 +194,16 @@ class Membre extends CI_Controller
 			else 
 			{
 				$photo_profil = $membre[0]['photo'];
+			}
+
+			if ($mdp != $membre[0]['motDePasse'])
+			{
+				$mot_de_passe = sha1($mdp);
+			}
+
+			else 
+			{
+				$mot_de_passe = $membre[0]['motDePasse'];
 			}
 
 			$this->membre_model->modifier_membre($id, $nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);

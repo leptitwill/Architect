@@ -1,4 +1,5 @@
-		<section class="content-admin">
+		
+	<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -12,6 +13,11 @@
 			</div>
 				
 			<?php echo form_open_multipart('admin/membre/upload', $attributs); ?>
+
+				<div class="membre_photo_preview">
+					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
+					<label id="preview" for="my-file" style="background-image: url('<?=img_url()?>membre/unknown.svg')" tabindex="0"></label>
+				</div><br>
 
 				<label for="prenom">Prénom</label>
 				<input type="input" name="prenom" placeholder="Votre prénom"/><br />
@@ -40,14 +46,22 @@
 					<?php endforeach ?>
 				</select><br />
 
-				<div class="input-file-container">
-					<input class="input-file" id="my-file" type="file" name="userfile">
-					<label for="my-file" class="input-file-trigger" tabindex="0">Importer une photo de profil</label>
-				</div>
-				<p class="file-return"></p>
-
-				<input type="submit" name="submit" value="Créer un nouveau membre" />
+				<input type="submit" class="button" name="submit" value="Créer un nouveau membre" />
 
 			</form>
 
 		</section>
+
+		<script type="text/javascript">
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						$('#preview').css('background-image','url("'+e.target.result+'")');
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+		</script>

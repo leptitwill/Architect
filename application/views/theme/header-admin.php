@@ -6,7 +6,7 @@
 		<title><?= $titre ?></title>
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
-		<?=css('unslider.css')?>
+		<?=css('sweetalert.css')?>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
 	</head>
 
@@ -38,10 +38,10 @@
 
 		<aside class="connexion_sidebar">
 			<div class="connexion_sidebar_membre">
-				<img class="connexion_sidebar_membre_photo" src="<?= img_url() ?>/membre/<?= $membre[0]['photo'] ?>">
+				<img class="connexion_sidebar_membre_photo" src="<?= img_url() ?>/membre/<?= $utilisateur[0]['photo'] ?>">
 				<div class="connexion_sidebar_membre_info">
-					<span class="connexion_sidebar_membre_nom"><?= $membre[0]['prenom'] . ' ' . $membre[0]['nom'] ?></span><br>
-					<span class="connexion_sidebar_membre_role"><?= $membre[0]['role'] ?></span>
+					<span class="connexion_sidebar_membre_nom"><?= $utilisateur[0]['prenom'] . ' ' . $utilisateur[0]['nom'] ?></span><br>
+					<span class="connexion_sidebar_membre_role"><?= $utilisateur[0]['role'] ?></span>
 				</div>
 				
 			</div>
