@@ -18,20 +18,22 @@ class Partenaire_model extends CI_Model
 		return $query->result_array();
 	}
 
-	public function ajouter_partenaire($nom, $logo)
+	public function ajouter_partenaire($nom, $logo, $type)
 	{
 		$this->db->set('nom', $nom);
 		$this->db->set('logo', $logo);
+		$this->db->set('type', $type);
 		$this->db->set('dateAjout', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_partenaire($id, $nom, $logo)
+	public function modifier_partenaire($id, $nom, $logo, $type)
 	{
 		$data = array(
 					'nom' => $nom,
 					'logo' => $logo,
+					'type' => $type
 				);
 
 		$this->db->where('idPartenaire',$id);

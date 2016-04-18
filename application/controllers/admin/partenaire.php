@@ -23,7 +23,7 @@ class Partenaire extends CI_Controller
 	
 	public function index()
 	{
-		$this->data['titre'] = 'Les partenaires Conceptcub';
+		$this->data['titre'] = 'Gestion des partenaires';
 		$this->data['partenaires'] = $this->partenaire_model->lister_partenaire();
 		$this->data['succes'] = $this->session->flashdata('succes');
 
@@ -34,78 +34,71 @@ class Partenaire extends CI_Controller
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter un nouveau partenaire';
-		$data['attributs'] = array('class' => 'creer');
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Ajouter un nouveau partenaire';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('partenaire/creer', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('partenaire/creer', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un partenaire';
-		$data['attributs'] = array('class' => 'creer');
-		$data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier un partenaire';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('partenaire/modifier', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('partenaire/modifier', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
 	{
-		$data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
+		$this->data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
 
 		$this->partenaire_model->supprimer_partenaire($id);
 
 		$this->session->set_flashdata('succes','<p>Le partenaire à bien était supprimé</p>');
-		redirect("partenaire");
+		redirect("admin/partenaire");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un nouveau partenaire';
-		$data['attributs'] = array('class' => 'creer');
-
 		$nom = $this->input->post('nom');
+		$type = $this->input->post('type');
 		$nom_logo = $this->supprimer_accent($nom);
 
 		$config['upload_path'] = './assets/img/partenaire';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = strtolower($nom_logo);
-		$config['max_size']    = '3000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
 		$config['min_width']  = '100';
+		$config['min_height']  = '40';
 
 		$this->load->library('upload', $config);
 
+		$this->form_validation->set_rules('type', 'type', 'required');
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/partenaire/creer");
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/partenaire/creer");
 		}
 
 		else
@@ -115,54 +108,44 @@ class Partenaire extends CI_Controller
 
 			$logo = $data['file_name'];
 
-			$this->partenaire_model->ajouter_partenaire($nom, $logo);
+			$this->partenaire_model->ajouter_partenaire($nom, $logo, $type);
 
 			$this->session->set_flashdata('succes','<p>Le partenaire à bien était ajouté</p>');
-			redirect("partenaire");
+			redirect("admin/partenaire");
 		}
 	}
 
 	public function update($id)
 	{
-		$data['titre'] = 'Mettre à jour le partenaire';
-		$data['attributs'] = array('class' => 'creer');
-		$partenaire = $this->partenaire_model->selectionner_partenaire($id);
-
 		$nom = $this->input->post('nom');
+		$type = $this->input->post('type');
 		$nom_logo = $this->supprimer_accent($nom);
-		$fichier_envoye = $_FILES['userfile']['name'];
 
 		$config['upload_path'] = './assets/img/partenaire';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = strtolower($nom_logo);
-		$config['max_size']    = '3000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
 		$config['min_width']  = '100';
-		$config['overwrite']  = TRUE;
+		$config['min_height']  = '40';
 
 		$this->load->library('upload', $config);
 
+		$this->form_validation->set_rules('type', 'type', 'required');
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/partenaire/modifier");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('partenaire/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/partenaire/modifier");
 		}
 
 		else
@@ -180,10 +163,10 @@ class Partenaire extends CI_Controller
 				$logo = $partenaire[0]['logo'];
 			}
 
-			$this->partenaire_model->modifier_partenaire($id, $nom, $logo);
+			$this->partenaire_model->modifier_partenaire($id, $nom, $logo, $type);
 
 			$this->session->set_flashdata('succes','<p>Le partenaire à bien était modifié</p>');
-			redirect("partenaire");
+			redirect("admin/partenaire");
 		}
 	}
 

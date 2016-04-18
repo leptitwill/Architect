@@ -11,7 +11,7 @@
 				<?php echo $error;?>
 			</div>
 				
-			<?php echo form_open_multipart('reseaux_sociaux/upload', $attributs); ?>
+			<?php echo form_open_multipart('admin/reseaux_sociaux/upload', $attributs); ?>
 
 				<div class="reseau_social_logo_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">

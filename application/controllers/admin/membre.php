@@ -53,8 +53,8 @@ class Membre extends CI_Controller
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['profils'] = $this->profil_model->lister_profil();
 		$this->data['membre'] = $this->membre_model->selectionner_membre($id);
-		$this->data['error'] = '';
-		$this->data['succes'] = '';
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
 		$this->load->view('membre/modifier', $this->data);

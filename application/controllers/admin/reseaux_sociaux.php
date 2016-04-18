@@ -34,9 +34,9 @@ class Reseaux_sociaux extends CI_Controller
 
 	public function creer()
 	{
-		$this->data['titre'] = 'Ajouter un nouveau reseau social';
+		$this->data['titre'] = 'Ajouter un nouveau réseau social';
 		$this->data['attributs'] = array('class' => 'creer');
-		$this->data['error'] = '';
+		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 
@@ -47,32 +47,29 @@ class Reseaux_sociaux extends CI_Controller
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un reseau social';
-		$data['attributs'] = array('class' => 'creer');
-		$data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier un réseau social';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('reseaux_sociaux/modifier', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('reseaux_sociaux/modifier', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
 	{
-		$data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
+		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
 
 		$this->reseaux_sociaux_model->supprimer_reseaux_sociaux($id);
 
-		$this->session->set_flashdata('succes','<p>Le reseau social à bien était supprimé</p>');
-		redirect("reseaux_sociaux");
+		$this->session->set_flashdata('succes','<p>Le réseau social à bien était supprimé</p>');
+		redirect("admin/reseaux_sociaux");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un nouveau reseau social';
-		$data['attributs'] = array('class' => 'creer');
-
 		$nom = $this->input->post('nom');
 		$lien = $this->input->post('lien');
 		$nom_logo = $this->supprimer_accent($nom);
@@ -80,10 +77,7 @@ class Reseaux_sociaux extends CI_Controller
 		$config['upload_path'] = './assets/img/reseaux_sociaux';
 		$config['allowed_types'] = 'svg|gif|png|jpg';
 		$config['file_name'] = strtolower($nom_logo);
-		$config['max_size']    = '3000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
-		$config['min_width']  = '40';
+		$config['min_height']  = '40';
 
 		$this->load->library('upload', $config);
 
@@ -92,22 +86,18 @@ class Reseaux_sociaux extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('reseaux_sociaux/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/reseaux_sociaux/creer");
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('reseaux_sociaux/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/reseaux_sociaux/creer");
 		}
 
 		else
@@ -120,14 +110,12 @@ class Reseaux_sociaux extends CI_Controller
 			$this->reseaux_sociaux_model->ajouter_reseaux_sociaux($nom, $lien, $logo);
 
 			$this->session->set_flashdata('succes','<p>Le reseau social à bien était ajouté</p>');
-			redirect("reseaux_sociaux");
+			redirect("admin/reseaux_sociaux");
 		}
 	}
 
 	public function update($id)
 	{
-		$data['titre'] = 'Mettre à jour le reseau social';
-		$data['attributs'] = array('class' => 'creer');
 		$reseaux_sociaux = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
 
 		$nom = $this->input->post('nom');
@@ -138,10 +126,7 @@ class Reseaux_sociaux extends CI_Controller
 		$config['upload_path'] = './assets/img/reseaux_sociaux';
 		$config['allowed_types'] = 'svg|gif|png|jpg';
 		$config['file_name'] = strtolower($nom_logo);
-		$config['max_size']    = '3000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
-		$config['min_width']  = '40';
+		$config['min_height']  = '40';
 
 		$this->load->library('upload', $config);
 
@@ -150,22 +135,18 @@ class Reseaux_sociaux extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('reseaux_sociaux/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/reseaux_sociaux/modifier/$id");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('reseaux_sociaux/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/reseaux_sociaux/modifier/$id");
 		}
 
 		else
@@ -185,8 +166,8 @@ class Reseaux_sociaux extends CI_Controller
 
 			$this->reseaux_sociaux_model->modifier_reseaux_sociaux($id, $nom, $lien, $logo);
 
-			$this->session->set_flashdata('succes','<p>Le reseau social à bien était modifié</p>');
-			redirect("reseaux_sociaux");
+			$this->session->set_flashdata('succes','<p>Le réseau social à bien était modifié</p>');
+			redirect("admin/reseaux_sociaux");
 		}
 	}
 
@@ -197,7 +178,7 @@ class Reseaux_sociaux extends CI_Controller
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = 40;
-		$config['master_dim'] = 'width';
+		$config['master_dim'] = 'height';
 		$config['quality'] = 100;
 		$this->image_lib->initialize($config);
 		$this->image_lib->resize();
