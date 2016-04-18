@@ -1,29 +1,25 @@
 .membre {
 	width: 100%;
 	margin: 1rem 0;
-	display: table;
 	position: relative;
-	background: white;
-	border-radius: 5px;
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
 	.membre_photo {
-		width: 150px;
-		height: 100%;
-		display: table-cell;
-		background-size: cover;
-		background-position: 50% 50%;
-		background-repeat: no-repeat;
-		background-color: $gris;
+		margin-top: 1rem;
+		width: 80px;
+		border-radius: 50%;
+		float: left;
 	}
 
 	.membre_info {
-		display: table-cell;
+		
+		margin-left: 100px;
 		text-align: left;
-		padding: 1rem;	
+		padding: 1rem 0;
+		border-bottom: 1px solid lighten($gris-fonce, 15%);	
 
 		.membre_nom {
-			color: $vert;
+			color: $admin;
+			font-weight: 500;
 		}
 
 		.membre_role {
@@ -33,46 +29,59 @@
 		}
 
 		.membre_description {
-
+			text-align: justify;
 		}
 	}
 
 	.modifier_membre {
 		position: absolute;
-		top: 1rem;
-		right: 1rem;
+		top: 0;
+		right: 0;
+		text-align: center;
+		width: 50px;
 
 		svg {
 			width: 30px;
-			fill: $vert;
+			fill: $gris-fonce;
 
 			&:hover {
-				fill: darken($vert, 10%);
+				fill: $admin;
 			}
+		}
+
+		p {
+			font-size: 10px;
+			color: $gris-fonce;
 		}
 	}
 
 	.supprimer_membre {
 		position: absolute;
-		top: 1rem;
-		right: 3.5rem;
+		top: 0;
+		right: 4rem;
 		cursor: pointer;
+		text-align: center;
+		width: 50px;
 
 		svg {
 			width: 30px;
-			fill: $vert;
+			fill: $gris-fonce;
 
 			&:hover {
-				fill: darken($vert, 10%);
+				fill: $admin;
 			}
+		}
+
+		p {
+			font-size: 10px;
+			color: $gris-fonce;
 		}
 	}	
 }
 
 .membre_photo_preview {
 	position: relative;
-	width: 150px;
-	margin: auto;
+	text-align: center;
 
 	input[type="file"] {
 		position: absolute;
@@ -83,6 +92,7 @@
 	}
 
 	label {
+		margin: auto;
 		display: block;
 		width: 150px;
 		height: 150px;
@@ -91,7 +101,11 @@
 		background-size: cover;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
-		background-color: darken($gris, 10%);
+	}
+
+	p {
+		color: $gris-fonce;
+		font-size: 0.8rem;
 	}
 
 }

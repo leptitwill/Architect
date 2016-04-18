@@ -20,6 +20,7 @@
 				<div class="membre_photo_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
 					<label id="preview" for="my-file" style="background-image: url('<?=img_url()?>membre/<?= $membre[0]['photo'] ?>')" tabindex="0"></label>
+					<br><p>Cliquer ci-dessus pour ajouter une image</p>
 				</div><br>
 
 				<label for="prenom">Prénom</label>

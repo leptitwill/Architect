@@ -16,23 +16,24 @@
 
 				<div class="membre_photo_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
-					<label id="preview" for="my-file" style="background-image: url('<?=img_url()?>membre/unknown.svg')" tabindex="0"></label>
+					<label id="preview" for="my-file" style="background-image: url('<?=img_url()?>unknown.svg')" tabindex="0"></label>
+					<br><p>Cliquer ci-dessus pour ajouter une image</p>
 				</div><br>
 
 				<label for="prenom">Prénom</label>
-				<input type="input" name="prenom" placeholder="Votre prénom"/><br />
+				<input type="input" name="prenom" placeholder="Alain"/><br />
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Votre nom"/><br />
+				<input type="input" name="nom" placeholder="Delon"/><br />
 
 				<label for="email">Email</label>
-				<input type="mail" name="email" placeholder="Votre email"/><br />
+				<input type="mail" name="email" placeholder="alain.delon@gmail.com"/><br />
 
 				<label for="role">Rôle</label>
-				<input type="input" name="role" placeholder="Rôle du membre"/><br />
+				<input type="input" name="role" placeholder="Acteur et réalisateur"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Description du membre"></textarea><br />
+				<textarea name="description" placeholder="Alain Delon, né le 8 novembre 1935 à Sceaux, est un acteur et homme d'affaires français ..."></textarea><br />
 
 				<label for="mot_de_passe">Mot de passe</label>
 				<input type="password" name="mot_de_passe" placeholder="Mot de passe"/><br />

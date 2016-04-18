@@ -58,8 +58,8 @@
 					</li>
 				</a>
 
-				<a href="<?= base_url(); ?>">
-					<li>
+				<span>
+					<li id="produits" class="<?php if($this->uri->segment(2)=="produit" || $this->uri->segment(2)=="gamme"){echo "active";}?>">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
 							    <path d="M 6.09375 4 C 5.39375 4 4.80625 4.4 4.40625 5 L 2.1875 8.59375 C 2.0875 8.79375 2 9.2 2 9.5 L 2 20 C 2 21.1 2.9 22 4 22 L 20 22 C 21.1 22 22 21.1 22 20 L 22 16 L 22 9.5 C 22 9.2 21.9125 8.79375 21.8125 8.59375 L 19.59375 5 C 19.19375 4.4 18.60625 4 17.90625 4 L 6.09375 4 z M 5.90625 6 L 11 6 L 11 9 L 4.1875 9 L 5.90625 6 z M 13 6 L 18.09375 6 L 19.8125 9 L 13 9 L 13 6 z M 9 11 L 15 11 C 15.6 11 16 11.4 16 12 C 16 12.6 15.6 13 15 13 L 9 13 C 8.4 13 8 12.6 8 12 C 8 11.4 8.4 11 9 11 z"></path>
@@ -67,10 +67,25 @@
 						</span>
 						<span>Produits</span>
 					</li>
-				</a>
+					<li id="menu_produits" class="sous-menu" style="<?php if($this->uri->segment(2)=="produit" || $this->uri->segment(2)=="gamme"){echo "display: block";}else{echo "display:none";}?>">
+						<ul>
+							<a href="<?= base_url('admin/produit'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="produit"){echo "active";}?>">
+									<span>Produits</span>
+								</li>
+							</a>
 
-				<a href="<?= base_url(); ?>">
-					<li>
+							<a href="<?= base_url('admin/gamme'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="gamme"){echo "active";}?>">
+									<span>Gammes</span>
+								</li>
+							</a>
+						</ul>
+					</li>
+				</span>
+
+				<span>
+					<li id="social" class="<?php if($this->uri->segment(2)=="reseaux_sociaux" || $this->uri->segment(2)=="partenaire"){echo "active";}?>">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
  								<path d="M22,6.9v6.3c0,0-1.3,0.3-1.6,0.3c-0.3,0-1.1,0.3-1.7-0.3c-0.9-0.9-4.3-4.4-4.3-4.4S13.9,8.2,13,8.7l-1.5,0.9 C11,9.9,10.2,9.7,9.9,9.2l0,0c-0.4-0.6-0.2-1.4,0.4-1.7c1.2-0.7,3.1-1.8,3.8-2.2c0.6-0.4,1.1-0.4,2,0.4c1.1,0.9,2,1.8,2,1.8 s0.4,0.2,0.8,0.2C19.6,7.5,22,6.9,22,6.9z M9.9,17.8c-0.3-0.3-3.7-4-4-4.3c-0.4-0.5-1.1-0.4-1.7,0c-0.6,0.5-0.8,1.4-0.4,1.9 c0.4,0.5,3.5,3.8,4,4.3c0.4,0.5,1.5,0.3,2-0.2C10.3,19,10.4,18.2,9.9,17.8z M17.6,15.7c0.5-0.5,0.4-1.4-0.1-1.9 c-2.7-2.8-1.7-1.7-3.5-3.6c0,0-0.6-0.7-1.3-0.3c-0.2,0.1-0.5,0.3-0.9,0.5c-0.9,0.6-1.9,0.5-2.8-0.9C8,8.3,8.5,7.3,9.4,6.7l1.7-1.1 c0,0-0.4-0.6-1.6-0.6C8.3,5,5.8,6.8,5.8,6.8S5,7.3,4,6.9L2,6.2v7.2c0,0,0.6,0.2,1.1,0.4c0.1-0.3,0.3-0.7,0.6-0.9 c0.8-0.8,2.3-0.9,3,0c0.5,0.5,3.7,4,4,4.3c0.5,0.5,0.6,1.2,0.5,1.8C11.4,19.2,15.7,17.8,17.6,15.7z"></path>
@@ -78,10 +93,25 @@
 						</span>
 						<span>Social</span>
 					</li>
-				</a>
+					<li id="menu_social" class="sous-menu" style="<?php if($this->uri->segment(2)=="reseaux_sociaux" || $this->uri->segment(2)=="partenaire"){echo "display: block";}else{echo "display:none";}?>">
+						<ul>
+							<a href="<?= base_url('admin/reseaux_sociaux'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="reseaux_sociaux"){echo "active";}?>">
+									<span>Réseaux sociaux</span>
+								</li>
+							</a>
+
+							<a href="<?= base_url('admin/partenaire'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="partenaire"){echo "active";}?>">
+									<span>Partenaires</span>
+								</li>
+							</a>
+						</ul>
+					</li>
+				</span>
 
 				<a href="<?= base_url('admin/membre'); ?>">
-					<li>
+					<li class="<?php if($this->uri->segment(2)=="membre"){echo "active";}?>">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
 							    <path d="M 7.5 5 C 5.6 5 4 6.6 4 8.5 C 4 10.4 5.6 12 7.5 12 C 9.4 12 11 10.4 11 8.5 C 11 6.6 9.4 5 7.5 5 z M 16.5 5 C 14.567003 5 13 6.5670034 13 8.5 C 13 10.432997 14.567003 12 16.5 12 C 18.432997 12 20 10.432997 20 8.5 C 20 6.5670034 18.432997 5 16.5 5 z M 7.5 14 C 2.6 14 1 18 1 18 L 1 20 L 14 20 L 14 18 C 14 18 12.4 14 7.5 14 z M 16.5 14 C 15 14 13.80625 14.40625 12.90625 14.90625 C 14.30625 16.10625 14.9 17.49375 15 17.59375 L 15.09375 17.8125 L 15.09375 20 L 23.09375 20 L 23.09375 18 C 22.99375 18 21.4 14 16.5 14 z"></path>

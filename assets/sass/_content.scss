@@ -32,15 +32,14 @@ a {
 	.button {
 		padding: 1rem 2rem;
 		border-radius: 5px;
-		background: $vert;
+		background: lighten($admin, 10%);
 		color: white;
 		cursor: pointer;
 		width: 100%;
-		transition: background 0.3s, color 0.3s;
+		transition: background 0.3s;
 
 		&:hover {
 			background: $admin;
-			color: $vert;
 		}
 	}
 }

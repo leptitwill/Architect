@@ -1,4 +1,4 @@
-		<section class="content">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 

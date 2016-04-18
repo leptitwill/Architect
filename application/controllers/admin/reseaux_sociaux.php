@@ -9,31 +9,40 @@ class Reseaux_sociaux extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('reseaux_sociaux_model'); 
+		$this->load->model('reseaux_sociaux_model');
+		$this->load->model('membre_model');
+
+		$this->id = $this->session->userdata('idMembre');
+		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
+
+		if (!$this->session->userdata('idMembre'))
+		{
+			redirect("admin/connexion");
+		}
 	}
 	
 	public function index()
 	{
-		$data['titre'] = 'Les reseaux sociaux Conceptcub';
-		$data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Gestion des réseaux sociaux';
+		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('reseaux_sociaux/accueil', $data);
-		$this->load->view('theme/footer', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('reseaux_sociaux/accueil', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter un nouveau reseau social';
-		$data['attributs'] = array('class' => 'creer');
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Ajouter un nouveau reseau social';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['error'] = '';
+		$this->data['succes'] = $this->session->flashdata('succes');
 
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('reseaux_sociaux/creer', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('reseaux_sociaux/creer', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)

@@ -9,18 +9,27 @@ class Partenaire extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('partenaire_model'); 
+		$this->load->model('partenaire_model');
+		$this->load->model('membre_model');
+
+		$this->id = $this->session->userdata('idMembre');
+		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
+
+		if (!$this->session->userdata('idMembre'))
+		{
+			redirect("admin/connexion");
+		}
 	}
 	
 	public function index()
 	{
-		$data['titre'] = 'Les partenaires Conceptcub';
-		$data['partenaires'] = $this->partenaire_model->lister_partenaire();
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Les partenaires Conceptcub';
+		$this->data['partenaires'] = $this->partenaire_model->lister_partenaire();
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('partenaire/accueil', $data);
-		$this->load->view('theme/footer', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('partenaire/accueil', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()

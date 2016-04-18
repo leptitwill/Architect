@@ -77,14 +77,13 @@ a {
   .content-admin .button {
     padding: 1rem 2rem;
     border-radius: 5px;
-    background: #329899;
+    background: #3a5568;
     color: white;
     cursor: pointer;
     width: 100%;
-    transition: background 0.3s, color 0.3s; }
+    transition: background 0.3s; }
     .content-admin .button:hover {
-      background: #283a47;
-      color: #329899; }
+      background: #283a47; }
 
 .content {
   width: 100%;
@@ -123,7 +122,6 @@ form.creer {
   form.creer textarea {
     height: 100px; }
   form.creer input[type="submit"] {
-    background: #329899;
     color: white;
     cursor: pointer; }
   form.creer select {
@@ -201,53 +199,59 @@ form.creer {
 .membre {
   width: 100%;
   margin: 1rem 0;
-  display: table;
-  position: relative;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); }
+  position: relative; }
   .membre .membre_photo {
-    width: 150px;
-    height: 100%;
-    display: table-cell;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-color: #eeeeee; }
+    margin-top: 1rem;
+    width: 80px;
+    border-radius: 50%;
+    float: left; }
   .membre .membre_info {
-    display: table-cell;
+    margin-left: 100px;
     text-align: left;
-    padding: 1rem; }
+    padding: 1rem 0;
+    border-bottom: 1px solid #d0d0d0; }
     .membre .membre_info .membre_nom {
-      color: #329899; }
+      color: #283a47;
+      font-weight: 500; }
     .membre .membre_info .membre_role {
       font-style: italic;
       color: #aaaaaa;
       margin-bottom: 1rem; }
+    .membre .membre_info .membre_description {
+      text-align: justify; }
   .membre .modifier_membre {
     position: absolute;
-    top: 1rem;
-    right: 1rem; }
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 50px; }
     .membre .modifier_membre svg {
       width: 30px;
-      fill: #329899; }
+      fill: #aaaaaa; }
       .membre .modifier_membre svg:hover {
-        fill: #257273; }
+        fill: #283a47; }
+    .membre .modifier_membre p {
+      font-size: 10px;
+      color: #aaaaaa; }
   .membre .supprimer_membre {
     position: absolute;
-    top: 1rem;
-    right: 3.5rem;
-    cursor: pointer; }
+    top: 0;
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
     .membre .supprimer_membre svg {
       width: 30px;
-      fill: #329899; }
+      fill: #aaaaaa; }
       .membre .supprimer_membre svg:hover {
-        fill: #257273; }
+        fill: #283a47; }
+    .membre .supprimer_membre p {
+      font-size: 10px;
+      color: #aaaaaa; }
 
 .membre_photo_preview {
   position: relative;
-  width: 150px;
-  margin: auto; }
+  text-align: center; }
   .membre_photo_preview input[type="file"] {
     position: absolute;
     top: 0;
@@ -255,6 +259,7 @@ form.creer {
     opacity: 0;
     z-index: -1; }
   .membre_photo_preview label {
+    margin: auto;
     display: block;
     width: 150px;
     height: 150px;
@@ -262,8 +267,10 @@ form.creer {
     border-radius: 50%;
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-color: #d5d5d5; }
+    background-repeat: no-repeat; }
+  .membre_photo_preview p {
+    color: #aaaaaa;
+    font-size: 0.8rem; }
 
 .cover--home {
   width: 100%;
@@ -438,34 +445,77 @@ form.creer {
     right: 40px; }
 
 .reseaux_sociaux {
-  margin: 2rem;
-  overflow: auto;
-  padding-top: 2rem;
-  position: relative;
-  display: inline-block;
-  height: 150px; }
+  width: 100%;
+  margin: 1rem 0;
+  position: relative; }
   .reseaux_sociaux .reseaux_sociaux_logo {
-    display: inline-block;
-    height: 75px;
-    vertical-align: middle; }
-  .reseaux_sociaux img {
-    vertical-align: middle;
-    width: 50px; }
-  .reseaux_sociaux .reseaux_sociaux_nom {
-    font-weight: bold; }
-  .reseaux_sociaux .reseaux_sociaux_lien {
-    font-size: 0.8rem; }
+    margin-top: 1rem;
+    width: 40px;
+    float: left; }
+  .reseaux_sociaux .reseaux_sociaux_info {
+    margin-left: 60px;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d0d0d0; }
+    .reseaux_sociaux .reseaux_sociaux_info .reseaux_sociaux_nom {
+      color: #283a47;
+      font-weight: 500; }
+    .reseaux_sociaux .reseaux_sociaux_info .reseaux_sociaux_lien {
+      font-style: italic;
+      color: #aaaaaa;
+      font-size: 0.8rem; }
   .reseaux_sociaux .modifier_reseaux_sociaux {
     position: absolute;
-    top: 0;
-    right: 0; }
+    bottom: 1rem;
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .reseaux_sociaux .modifier_reseaux_sociaux svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .reseaux_sociaux .modifier_reseaux_sociaux svg:hover {
+        fill: #283a47; }
+    .reseaux_sociaux .modifier_reseaux_sociaux p {
+      font-size: 10px;
+      color: #aaaaaa; }
   .reseaux_sociaux .supprimer_reseaux_sociaux {
     position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .reseaux_sociaux .supprimer_reseaux_sociaux svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .reseaux_sociaux .supprimer_reseaux_sociaux svg:hover {
+        fill: #283a47; }
+    .reseaux_sociaux .supprimer_reseaux_sociaux p {
+      font-size: 10px;
+      color: #aaaaaa; }
+
+.reseau_social_logo_preview {
+  position: relative;
+  margin: auto;
+  text-align: center; }
+  .reseau_social_logo_preview input[type="file"] {
+    position: absolute;
     top: 0;
-    right: 40px; }
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .reseau_social_logo_preview label {
+    cursor: pointer;
+    display: block; }
+    .reseau_social_logo_preview label img {
+      height: 100px; }
+  .reseau_social_logo_preview p {
+    color: #aaaaaa;
+    font-size: 0.8rem; }
 
 .body_admin {
-  background: #eeeeee; }
+  background: #eeeeee;
+  min-width: 1000px; }
 
 .connexion_header {
   background: #1f2d37;
@@ -503,19 +553,32 @@ form.creer {
         font-style: italic; }
   .connexion_sidebar ul {
     padding-top: 1rem; }
-    .connexion_sidebar ul a li {
-      color: white;
-      padding: 1rem 2rem; }
-      .connexion_sidebar ul a li:hover {
-        background: #314757; }
-      .connexion_sidebar ul a li svg {
-        fill: white;
-        width: 20px;
-        margin-right: 1rem; }
-      .connexion_sidebar ul a li span {
-        line-height: 20px;
-        display: inline-block;
-        vertical-align: middle; }
+    .connexion_sidebar ul a, .connexion_sidebar ul span {
+      cursor: pointer; }
+      .connexion_sidebar ul a li, .connexion_sidebar ul span li {
+        color: white;
+        padding: 1rem 2rem; }
+        .connexion_sidebar ul a li:hover, .connexion_sidebar ul a li.active, .connexion_sidebar ul span li:hover, .connexion_sidebar ul span li.active {
+          background: #314757; }
+        .connexion_sidebar ul a li.sous-menu, .connexion_sidebar ul span li.sous-menu {
+          display: none;
+          padding: 0;
+          background: #3a5568; }
+          .connexion_sidebar ul a li.sous-menu ul, .connexion_sidebar ul span li.sous-menu ul {
+            padding: 0; }
+            .connexion_sidebar ul a li.sous-menu ul a li, .connexion_sidebar ul span li.sous-menu ul a li {
+              color: rgba(255, 255, 255, 0.6); }
+              .connexion_sidebar ul a li.sous-menu ul a li:hover, .connexion_sidebar ul a li.sous-menu ul a li.active, .connexion_sidebar ul span li.sous-menu ul a li:hover, .connexion_sidebar ul span li.sous-menu ul a li.active {
+                background: #3a5568;
+                color: white; }
+        .connexion_sidebar ul a li svg, .connexion_sidebar ul span li svg {
+          fill: white;
+          width: 20px;
+          margin-right: 1rem; }
+        .connexion_sidebar ul a li span, .connexion_sidebar ul span li span {
+          line-height: 20px;
+          display: inline-block;
+          vertical-align: middle; }
 
 .connexion {
   width: 100%;

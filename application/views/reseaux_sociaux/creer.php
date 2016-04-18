@@ -1,4 +1,4 @@
-		<section class="content">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -13,20 +13,36 @@
 				
 			<?php echo form_open_multipart('reseaux_sociaux/upload', $attributs); ?>
 
+				<div class="reseau_social_logo_preview">
+					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
+					<label for="my-file" tabindex="0">
+						<img id="preview" src="<?=img_url()?>unknown.svg">
+					</label>
+					<br><p>Cliquer ci-dessus pour ajouter une image</p>
+				</div><br>
+
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nom du reseau social"/><br />
+				<input type="input" name="nom" placeholder="Facebook"/><br />
 
 				<label for="lien">Lien</label>
-				<input type="input" name="lien" placeholder="Lien du reseau social"/><br />
+				<input type="input" name="lien" placeholder="www.facebook.com/conceptcub"/><br />
 
-				<div class="input-file-container">
-					<input class="input-file" id="my-file" type="file" name="userfile">
-					<label for="my-file" class="input-file-trigger" tabindex="0">Importer un logo</label>
-				</div>
-				<p class="file-return"></p><br />
-
-				<input type="submit" name="submit" value="Créer un nouveau reseau social" />
+				<input type="submit" class="button" name="submit" value="Créer un nouveau reseau social" />
 
 			</form>
 
 		</section>
+
+		<script type="text/javascript">
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						$('#preview').attr('src',e.target.result);
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+		</script>

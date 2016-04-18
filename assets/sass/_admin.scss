@@ -1,5 +1,6 @@
 .body_admin {
 	background: $gris;
+	min-width: 1000px;
 }
 
 .connexion_header {
@@ -60,14 +61,37 @@
 	ul {
 		padding-top: 1rem;
 
-		a {
+		a, span {
+			cursor: pointer;
 
 			li {
 				color: white;
 				padding: 1rem 2rem;
 
-				&:hover {
-					background: lighten($admin, 5%)
+				&:hover, &.active {
+					background: lighten($admin, 5%);
+				}
+
+				&.sous-menu {
+					display: none;
+					padding: 0;
+					background: lighten($admin, 10%);
+
+					ul {
+						padding: 0;
+
+						a {
+
+							li {
+								color: rgba(white, 0.6);
+
+								&:hover, &.active {
+									background: lighten($admin, 10%);
+									color: white;
+								}
+							}
+						}
+					}
 				}
 
 				svg {
