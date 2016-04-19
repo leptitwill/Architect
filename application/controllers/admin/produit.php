@@ -10,75 +10,66 @@ class Produit extends CI_Controller
 		$this->load->library('form_validation');
 
 		$this->load->model('produit_model');$this->load->model('membre_model');
+
+		$this->id = $this->session->userdata('idMembre');
+		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
+
+		if (!$this->session->userdata('idMembre'))
+		{
+			redirect("admin/connexion");
+		}
 	}
 	
-	public function index($url = NULL)
+	public function index()
 	{
-		if ($url == NULL)
-		{
-			$data['titre'] = 'Les produits conceptcub';
-			$data['produits'] = $this->produit_model->lister_produit();
-			$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Gestion des produits';
+		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/accueil', $data);
-			$this->load->view('theme/footer', $data);
-		}
-
-		else
-		{
-			$data['produit'] = $this->produit_model->selectionner_produit($url);
-			$data['gammes'] = $this->produit_model->selectionner_gamme_par_produit($url);
-			$data['titre'] = str_replace("-"," ",$url);
-
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modele', $data);
-			$this->load->view('theme/footer', $data);
-		}
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('produit/accueil', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()
 	{
-		if(!$this->session->userdata('idMembre')) redirect('gamme');
-		$data['titre'] = 'Ajouter un nouveau produit';
-		$data['attributs'] = array('class' => 'creer');
+		$this->data['titre'] = 'Ajouter un nouveau produit';
+		$this->data['attributs'] = array('class' => 'creer');
 		$id = $this->session->userdata('idMembre');
-		$data['membre'] = $this->membre_model->selectionner_membre($id);
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['membre'] = $this->membre_model->selectionner_membre($id);
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header-admin', $data);
-		$this->load->view('produit/creer', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('produit/creer', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un produit';
-		$data['attributs'] = array('class' => 'creer');
-		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier un produit';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('produit/modifier', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('produit/modifier', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
 	{
-		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
 
 		$this->produit_model->supprimer_produit($id);
 
 		$this->session->set_flashdata('succes','<p>Le produit à bien était supprimé</p>');
-		redirect("produit");
+		redirect("admin/produit");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un produit !';
-		$data['attributs'] = array('class' => 'creer');
-
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
 		$url = str_replace(" ","-",$nom);
@@ -90,9 +81,6 @@ class Produit extends CI_Controller
 		$config['upload_path'] = './assets/img/produit';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = $nom_image;
-		$config['max_size']    = '9000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
 		$config['min_width']  = '1920';
 		$config['min_height']  = '400';
 
@@ -103,22 +91,18 @@ class Produit extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/produit/creer");
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/produit/creer");
 		}
 
 		else
@@ -131,16 +115,13 @@ class Produit extends CI_Controller
 			$this->produit_model->ajouter_produit($nom, $description, $couverture, $url);
 
 			$this->session->set_flashdata('succes','<p>Le produit à bien était ajouté</p>');
-			redirect("produit");
+			redirect("admin/produit");
 		}
 	}
 
 	public function update($id)
 	{
-		$data['titre'] = 'Ajouter un nouveau produit';
-		$data['attributs'] = array('class' => 'creer');
 		$produit = $this->produit_model->selectionner_produit_par_id($id);
-
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
@@ -154,9 +135,6 @@ class Produit extends CI_Controller
 		$config['upload_path'] = './assets/img/produit';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = $nom_image;
-		$config['max_size']    = '9000';
-		$config['max_width']  = '3000';
-		$config['max_height']  = '5000';
 		$config['min_width']  = '1920';
 		$config['min_height']  = '400';
 		$config['overwrite']  = TRUE;
@@ -168,22 +146,18 @@ class Produit extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/produit/modifier/$id");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/produit/modifier/$id");
 		}
 
 		else
@@ -204,7 +178,7 @@ class Produit extends CI_Controller
 			$this->produit_model->modifier_produit($id, $nom, $description, $couverture, $url);
 
 			$this->session->set_flashdata('succes','<p>Le produit à bien était modifié</p>');
-			redirect("produit");
+			redirect("admin/produit");
 		}
 	}
 

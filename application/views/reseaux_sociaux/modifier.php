@@ -26,10 +26,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nom du reseaux_sociaux" value="<?= $reseaux_sociaux[0]['nom'] ?>"/><br />
+				<input type="input" name="nom" placeholder="Facebook" value="<?= $reseaux_sociaux[0]['nom'] ?>"/><br />
 
 				<label for="lien">Lien</label>
-				<input type="input" name="lien" placeholder="lien du reseaux_sociaux" value="<?= $reseaux_sociaux[0]['lien'] ?>"/><br />
+				<input type="input" name="lien" placeholder="www.facebook.com/conceptcub" value="<?= $reseaux_sociaux[0]['lien'] ?>"/><br />
 
 				<input type="submit" class="button" name="submit" value="Mettre à jour le reseau social" />
 

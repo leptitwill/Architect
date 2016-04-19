@@ -24,22 +24,22 @@
 				</div><br>
 
 				<label for="prenom">Prénom</label>
-				<input type="input" name="prenom" placeholder="Votre prénom" value="<?= $membre[0]['prenom'] ?>"/><br />
+				<input type="input" name="prenom" placeholder="Alain" value="<?= $membre[0]['prenom'] ?>"/><br />
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Votre nom" value="<?= $membre[0]['nom'] ?>"/><br />
+				<input type="input" name="nom" placeholder="Alain Delon" value="<?= $membre[0]['nom'] ?>"/><br />
 
 				<label for="email">Email</label>
-				<input type="mail" name="email" placeholder="Votre email" value="<?= $membre[0]['email'] ?>"/><br />
+				<input type="mail" name="email" placeholder="alain.delon@gmail.com" value="<?= $membre[0]['email'] ?>"/><br />
 
 				<label for="role">Rôle</label>
-				<input type="input" name="role" placeholder="Rôle du membre" value="<?= $membre[0]['role'] ?>"/><br />
+				<input type="input" name="role" placeholder="Acteur et réalisateur" value="<?= $membre[0]['role'] ?>"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Description du membre"><?= $membre[0]['description'] ?></textarea><br />
+				<textarea name="description" placeholder="lain Delon, né le 8 novembre 1935 à Sceaux, est un acteur et homme d'affaires français ..."><?= $membre[0]['description'] ?></textarea><br />
 
 				<label for="mot_de_passe">Mot de passe</label>
-				<input type="password" name="mot_de_passe" placeholder="Mot de passe" value="<?= $membre[0]['motDePasse'] ?>"/><br />
+				<input type="password" name="mot_de_passe" value="<?= $membre[0]['motDePasse'] ?>"/><br />
 
 				<label for="profil">Profil</label>
 				<select name="profil">

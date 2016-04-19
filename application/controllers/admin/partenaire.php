@@ -82,7 +82,7 @@ class Partenaire extends CI_Controller
 
 		$this->load->library('upload', $config);
 
-		$this->form_validation->set_rules('type', 'type', 'required');
+		$this->form_validation->set_rules('type', 'domaine d\'activité', 'required');
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 
 		if ($this->form_validation->run() === FALSE )
@@ -117,9 +117,12 @@ class Partenaire extends CI_Controller
 
 	public function update($id)
 	{
+		$partenaire = $this->partenaire_model->selectionner_partenaire($id);
+
 		$nom = $this->input->post('nom');
 		$type = $this->input->post('type');
 		$nom_logo = $this->supprimer_accent($nom);
+		$fichier_envoye = $_FILES['userfile']['name'];
 
 		$config['upload_path'] = './assets/img/partenaire';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -137,7 +140,7 @@ class Partenaire extends CI_Controller
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/partenaire/modifier");
+			redirect("admin/partenaire/modifier/$id");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
@@ -145,7 +148,7 @@ class Partenaire extends CI_Controller
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/partenaire/modifier");
+			redirect("admin/partenaire/modifier/$id");
 		}
 
 		else

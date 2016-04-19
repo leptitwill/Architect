@@ -216,7 +216,8 @@ form.creer {
     .membre .membre_info .membre_role {
       font-style: italic;
       color: #aaaaaa;
-      margin-bottom: 1rem; }
+      margin-bottom: 1rem;
+      font-size: 0.8rem; }
     .membre .membre_info .membre_description {
       text-align: justify; }
   .membre .modifier_membre {
@@ -333,45 +334,81 @@ form.creer {
 
 .produit {
   width: 100%;
-  margin: 4rem 0;
-  overflow: auto;
+  margin: 1rem 0;
   position: relative; }
   .produit .produit_photo {
+    margin-top: 1rem;
     width: 150px;
-    float: left; }
+    height: 100px;
+    float: left;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
   .produit .produit_info {
-    margin-left: 200px;
-    text-align: left; }
+    margin-left: 170px;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d0d0d0; }
     .produit .produit_info .produit_nom {
-      font-weight: bold;
-      color: #329899; }
-    .produit .produit_info .produit_role {
+      color: #283a47;
+      font-weight: 500; }
+    .produit .produit_info .produit_lien {
       font-style: italic;
       color: #aaaaaa;
+      font-size: 0.8rem;
+      display: inline-block;
       margin-bottom: 1rem; }
   .produit .modifier_produit {
     position: absolute;
     top: 0;
-    right: 0; }
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .produit .modifier_produit svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .produit .modifier_produit svg:hover {
+        fill: #283a47; }
+    .produit .modifier_produit p {
+      font-size: 10px;
+      color: #aaaaaa; }
   .produit .supprimer_produit {
     position: absolute;
     top: 0;
-    right: 40px; }
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .produit .supprimer_produit svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .produit .supprimer_produit svg:hover {
+        fill: #283a47; }
+    .produit .supprimer_produit p {
+      font-size: 10px;
+      color: #aaaaaa; }
 
-.produit_gamme {
-  width: 30%;
-  height: 200px;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-color: #eeeeee;
-  display: inline-block; }
-  .produit_gamme span {
-    color: white;
-    line-height: 200px;
-    vertical-align: middle;
-    font-weight: bold;
-    font-size: 1.5rem; }
+.produit_couverture_preview {
+  position: relative;
+  text-align: center; }
+  .produit_couverture_preview input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .produit_couverture_preview label {
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: 400px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+  .produit_couverture_preview p {
+    color: #aaaaaa;
+    font-size: 0.8rem; }
 
 .gamme {
   width: 100%;

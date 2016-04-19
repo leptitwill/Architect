@@ -36,7 +36,7 @@
 				<textarea name="description" placeholder="Alain Delon, né le 8 novembre 1935 à Sceaux, est un acteur et homme d'affaires français ..."></textarea><br />
 
 				<label for="mot_de_passe">Mot de passe</label>
-				<input type="password" name="mot_de_passe" placeholder="Mot de passe"/><br />
+				<input type="password" name="mot_de_passe"/><br />
 
 				<label for="profil">Profil</label>
 				<select name="profil">
