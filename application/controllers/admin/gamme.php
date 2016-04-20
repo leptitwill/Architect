@@ -11,30 +11,26 @@ class Gamme extends CI_Controller
 
 		$this->load->model('gamme_model');
 		$this->load->model('produit_model');
+		$this->load->model('membre_model');
+
+		$this->id = $this->session->userdata('idMembre');
+		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
+
+		if (!$this->session->userdata('idMembre'))
+		{
+			redirect("admin/connexion");
+		}
 	}
 	
-	public function index($url = NULL)
+	public function index()
 	{
-		if ($url == NULL)
-		{
-			$data['titre'] = 'Les gammes conceptcub';
-			$data['gammes'] = $this->gamme_model->lister_gamme();
-			$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Gestion des gammes';
+		$this->data['gammes'] = $this->gamme_model->lister_gamme();
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('gamme/accueil', $data);
-			$this->load->view('theme/footer', $data);
-		}
-
-		else
-		{
-			$data['gamme'] = $this->gamme_model->selectionner_gamme($url);
-			$data['titre'] = str_replace("-"," ",$url); ;
-
-			$this->load->view('theme/header', $data);
-			$this->load->view('gamme/modele', $data);
-			$this->load->view('theme/footer', $data);
-		}
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('gamme/accueil', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()

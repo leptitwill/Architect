@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
 		<?=css('sweetalert.css')?>
+		<?=css('unslider.css')?>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
 	</head>
 
@@ -47,7 +48,7 @@
 			</div>
 			
 			<ul>
-				<a href="<?= base_url(); ?>">
+				<a href="<?= base_url('admin/home-page'); ?>">
 					<li>
 						<span>
 							<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24">

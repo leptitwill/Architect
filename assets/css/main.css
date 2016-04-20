@@ -273,63 +273,121 @@ form.creer {
     color: #aaaaaa;
     font-size: 0.8rem; }
 
-.cover--home {
+.body .cover--home {
   width: 100%;
   height: 400px;
   margin-top: 60px; }
-  .cover--home ul li {
+  .body .cover--home ul li {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-color: #eeeeee;
     position: relative; }
-    .cover--home ul li .cover_texte {
+    .body .cover--home ul li .cover_texte {
       padding-right: 4rem;
       float: right;
       text-align: right;
       position: absolute;
       right: 2rem;
       top: 50%; }
-      .cover--home ul li .cover_texte h3 {
+      .body .cover--home ul li .cover_texte h3 {
         color: white;
         text-transform: uppercase;
         background: rgba(0, 0, 0, 0.8);
         padding: 1rem;
         margin-bottom: 1.5rem;
         display: inline-block; }
-      .cover--home ul li .cover_texte span {
+      .body .cover--home ul li .cover_texte span {
         color: white;
         background: rgba(51, 153, 153, 0.8);
         padding: 1rem; }
 
-.accueil_introduction {
+.body .accueil_introduction {
   margin-top: 3rem;
   width: 800px;
   margin: 3rem auto; }
 
-.accueil_produits {
+.body .accueil_produits {
   font-size: 0px;
   padding: 3rem; }
-  .accueil_produits .accueil_produit {
+  .body .accueil_produits .accueil_produit {
     width: 50%;
     display: inline-block;
     font-size: 1rem; }
-    .accueil_produits .accueil_produit:nth-child(odd) {
+    .body .accueil_produits .accueil_produit:nth-child(odd) {
       padding-right: 1rem; }
-    .accueil_produits .accueil_produit .accueil_produit_photo {
+    .body .accueil_produits .accueil_produit .accueil_produit_photo {
       width: 100%;
       height: 230px;
       background-size: cover;
       background-position: 50% 50%;
       background-repeat: no-repeat;
       background-color: #eeeeee; }
-    .accueil_produits .accueil_produit .accueil_produit_info {
+    .body .accueil_produits .accueil_produit .accueil_produit_info {
       padding: 1rem 0; }
-      .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_nom {
+      .body .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_nom {
         text-transform: uppercase;
         color: #329899;
         margin-bottom: 1rem; }
-      .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_description {
+      .body .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_description {
+        color: #333333; }
+
+.body_admin .cover--home {
+  width: 100%;
+  height: 400px; }
+  .body_admin .cover--home ul li {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: #eeeeee;
+    position: relative; }
+    .body_admin .cover--home ul li .cover_texte {
+      padding-right: 4rem;
+      float: right;
+      text-align: right;
+      position: absolute;
+      right: 2rem;
+      top: 50%; }
+      .body_admin .cover--home ul li .cover_texte h3 {
+        color: white;
+        text-transform: uppercase;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        display: inline-block; }
+      .body_admin .cover--home ul li .cover_texte span {
+        color: white;
+        background: rgba(51, 153, 153, 0.8);
+        padding: 1rem; }
+
+.body_admin .accueil_introduction {
+  margin-top: 3rem;
+  width: 800px;
+  margin: 3rem auto; }
+
+.body_admin .accueil_produits {
+  font-size: 0px;
+  padding: 3rem; }
+  .body_admin .accueil_produits .accueil_produit {
+    width: 50%;
+    display: inline-block;
+    font-size: 1rem; }
+    .body_admin .accueil_produits .accueil_produit:nth-child(odd) {
+      padding-right: 1rem; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_photo {
+      width: 100%;
+      height: 230px;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-color: #eeeeee; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_info {
+      padding: 1rem 0; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_nom {
+        text-transform: uppercase;
+        color: #329899;
+        margin-bottom: 1rem; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_description {
         color: #333333; }
 
 .produit {
@@ -412,30 +470,81 @@ form.creer {
 
 .gamme {
   width: 100%;
-  margin: 4rem 0;
-  overflow: auto;
+  margin: 1rem 0;
   position: relative; }
   .gamme .gamme_photo {
+    margin-top: 1rem;
     width: 150px;
-    float: left; }
+    height: 100px;
+    float: left;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
   .gamme .gamme_info {
-    margin-left: 200px;
-    text-align: left; }
+    margin-left: 170px;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid #d0d0d0; }
     .gamme .gamme_info .gamme_nom {
-      font-weight: bold;
-      color: #329899; }
-    .gamme .gamme_info .gamme_role {
+      color: #283a47;
+      font-weight: 500; }
+    .gamme .gamme_info .gamme_lien {
       font-style: italic;
       color: #aaaaaa;
+      font-size: 0.8rem;
+      display: inline-block;
       margin-bottom: 1rem; }
   .gamme .modifier_gamme {
     position: absolute;
     top: 0;
-    right: 0; }
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .gamme .modifier_gamme svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .gamme .modifier_gamme svg:hover {
+        fill: #283a47; }
+    .gamme .modifier_gamme p {
+      font-size: 10px;
+      color: #aaaaaa; }
   .gamme .supprimer_gamme {
     position: absolute;
     top: 0;
-    right: 40px; }
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .gamme .supprimer_gamme svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .gamme .supprimer_gamme svg:hover {
+        fill: #283a47; }
+    .gamme .supprimer_gamme p {
+      font-size: 10px;
+      color: #aaaaaa; }
+
+.gamme_couverture_preview {
+  position: relative;
+  text-align: center; }
+  .gamme_couverture_preview input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .gamme_couverture_preview label {
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: 400px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+  .gamme_couverture_preview p {
+    color: #aaaaaa;
+    font-size: 0.8rem; }
 
 .faq {
   width: 100%;

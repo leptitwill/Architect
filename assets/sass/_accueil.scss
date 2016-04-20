@@ -1,88 +1,177 @@
-.cover--home {
-	width: 100%;
-	height: 400px;
-	margin-top: 60px;
+.body {
+	.cover--home {
+		width: 100%;
+		height: 400px;
+		margin-top: 60px;
 
-	ul {
+		ul {
 
-		li {
-			background-size: cover;
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-color: $gris;
-			position: relative;
+			li {
+				background-size: cover;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-color: $gris;
+				position: relative;
 
-			.cover_texte {
-				padding-right: 4rem;
-				float: right;
-				text-align: right;
-				position: absolute;
-				right: 2rem;
-				top: 50%;
+				.cover_texte {
+					padding-right: 4rem;
+					float: right;
+					text-align: right;
+					position: absolute;
+					right: 2rem;
+					top: 50%;
 
-				h3 {
-					color: white;
+					h3 {
+						color: white;
+						text-transform: uppercase;
+						background: rgba(0,0,0,0.8);
+						padding: 1rem;
+						margin-bottom: 1.5rem;
+						display: inline-block;
+					}
+
+					span {
+						color: white;
+						background: rgba(51,153,153,0.8);
+						padding: 1rem;
+					}
+
+				}
+			}
+		}
+
+	}
+
+	.accueil_introduction {
+		margin-top: 3rem;
+		width: 800px;
+		margin:3rem auto;
+	}
+
+	.accueil_produits {
+		font-size: 0px;
+		padding: 3rem;
+
+		.accueil_produit {
+			width: 50%;
+			display: inline-block;
+			font-size: 1rem;
+
+			&:nth-child(odd) {
+				padding-right: 1rem;
+			}
+
+			.accueil_produit_photo {
+				width: 100%;
+				height: 230px;
+				background-size: cover;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-color: $gris;
+			}
+
+			.accueil_produit_info {
+				padding: 1rem 0;	
+
+				.accueil_produit_nom {
 					text-transform: uppercase;
-					background: rgba(0,0,0,0.8);
-					padding: 1rem;
-					margin-bottom: 1.5rem;
-					display: inline-block;
+					color: $vert;
+					margin-bottom: 1rem;
 				}
 
-				span {
-					color: white;
-					background: rgba(51,153,153,0.8);
-					padding: 1rem;
+				.accueil_produit_description {
+					color: $noir;
 				}
-
 			}
 		}
 	}
-
 }
 
-.accueil_introduction {
-	margin-top: 3rem;
-	width: 800px;
-	margin:3rem auto;
-}
+.body_admin {
+	
+	.cover--home {
+		width: 100%;
+		height: 400px;
 
-.accueil_produits {
-	font-size: 0px;
-	padding: 3rem;
+		ul {
 
-	.accueil_produit {
-		width: 50%;
-		display: inline-block;
-		font-size: 1rem;
+			li {
+				background-size: cover;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-color: $gris;
+				position: relative;
 
-		&:nth-child(odd) {
-			padding-right: 1rem;
-		}
+				.cover_texte {
+					padding-right: 4rem;
+					float: right;
+					text-align: right;
+					position: absolute;
+					right: 2rem;
+					top: 50%;
 
-		.accueil_produit_photo {
-			width: 100%;
-			height: 230px;
-			background-size: cover;
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-color: $gris;
-		}
+					h3 {
+						color: white;
+						text-transform: uppercase;
+						background: rgba(0,0,0,0.8);
+						padding: 1rem;
+						margin-bottom: 1.5rem;
+						display: inline-block;
+					}
 
-		.accueil_produit_info {
-			padding: 1rem 0;	
+					span {
+						color: white;
+						background: rgba(51,153,153,0.8);
+						padding: 1rem;
+					}
 
-			.accueil_produit_nom {
-				text-transform: uppercase;
-				color: $vert;
-				margin-bottom: 1rem;
-			}
-
-			.accueil_produit_description {
-				color: $noir;
+				}
 			}
 		}
 
 	}
 
+	.accueil_introduction {
+		margin-top: 3rem;
+		width: 800px;
+		margin:3rem auto;
+	}
+
+	.accueil_produits {
+		font-size: 0px;
+		padding: 3rem;
+
+		.accueil_produit {
+			width: 50%;
+			display: inline-block;
+			font-size: 1rem;
+
+			&:nth-child(odd) {
+				padding-right: 1rem;
+			}
+
+			.accueil_produit_photo {
+				width: 100%;
+				height: 230px;
+				background-size: cover;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-color: $gris;
+			}
+
+			.accueil_produit_info {
+				padding: 1rem 0;	
+
+				.accueil_produit_nom {
+					text-transform: uppercase;
+					color: $vert;
+					margin-bottom: 1rem;
+				}
+
+				.accueil_produit_description {
+					color: $noir;
+				}
+			}
+		}
+	}
 }

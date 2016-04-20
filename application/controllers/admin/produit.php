@@ -9,7 +9,8 @@ class Produit extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('produit_model');$this->load->model('membre_model');
+		$this->load->model('produit_model');
+		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
 		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);

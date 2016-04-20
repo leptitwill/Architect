@@ -7,6 +7,8 @@
 
 		<?=js('sweetalert.min.js')?>
 
+		<?=js('unslider.min.js')?>
+
 		<script type="text/javascript">
 
 			$("#social").click(function(){
@@ -17,6 +19,14 @@
 			$("#produits").click(function(){
 				$("#produits").addClass("active");
 				$('#menu_produits').slideToggle("ease");
+			});
+
+			jQuery(document).ready(function($) {
+				$('.my-slider').unslider({
+					autoplay: true,
+					infinite: true,
+					nav: false
+				});
 			});
 
 		</script>
