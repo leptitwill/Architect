@@ -4,7 +4,7 @@
 	background-size: cover;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
-    background-color: $gris;
+	background-color: $gris;
 }
 
 a {
@@ -23,6 +23,14 @@ a {
 		text-transform: uppercase;
 		font-weight: 600;
 		position: relative;
+
+		span {
+			font-size: 1rem;
+			text-transform: initial;
+			color: $gris-fonce;
+			font-weight: 300;
+			font-style: italic;
+		}
 	}
 
 	.description {

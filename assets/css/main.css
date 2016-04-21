@@ -4,7 +4,6 @@
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
   font-family: "Raleway", helvetica, arial, sans-serif;
@@ -74,6 +73,12 @@ a {
     text-transform: uppercase;
     font-weight: 600;
     position: relative; }
+    .content-admin .titre span {
+      font-size: 1rem;
+      text-transform: initial;
+      color: #aaaaaa;
+      font-weight: 300;
+      font-style: italic; }
   .content-admin .button {
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -361,9 +366,8 @@ form.creer {
         padding: 1rem; }
 
 .body_admin .accueil_introduction {
-  margin-top: 3rem;
-  width: 800px;
-  margin: 3rem auto; }
+  margin: 2rem;
+  padding: 1rem; }
 
 .body_admin .accueil_produits {
   font-size: 0px;
@@ -710,7 +714,8 @@ form.creer {
 
 .connexion_header {
   background: #1f2d37;
-  padding: 0 2rem; }
+  padding: 0 2rem;
+  z-index: 3; }
   .connexion_header .connexion_nav ul {
     color: white; }
     .connexion_header .connexion_nav ul a li {

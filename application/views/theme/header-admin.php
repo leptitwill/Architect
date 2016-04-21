@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta charset="UTF-8">
-		<title><?= $titre ?></title>
+		<title><?= $titre ?> - Conceptcub</title>
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
 		<?=css('sweetalert.css')?>
@@ -105,6 +105,12 @@
 							<a href="<?= base_url('admin/partenaire'); ?>">
 								<li class="<?php if($this->uri->segment(2)=="partenaire"){echo "active";}?>">
 									<span>Partenaires</span>
+								</li>
+							</a>
+
+							<a href="<?= base_url('admin/faq'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="faq"){echo "active";}?>">
+									<span>FAQ</span>
 								</li>
 							</a>
 						</ul>

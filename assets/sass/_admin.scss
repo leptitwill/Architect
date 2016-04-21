@@ -6,6 +6,7 @@
 .connexion_header {
 	background: darken($admin, 5%);
 	padding: 0 2rem;
+	z-index: 3;
 
 	.connexion_nav {
 		ul {
