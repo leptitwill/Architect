@@ -11,6 +11,9 @@
   outline: none;
   list-style: none; }
 
+.mce-tinymce {
+  z-index: 10 !important; }
+
 header {
   width: 100%;
   height: 60px;
@@ -66,6 +69,13 @@ a {
   padding: 110px 50px 50px 300px;
   width: 100%;
   text-align: left; }
+  .content-admin h1 {
+    font-size: 1.5rem;
+    color: #329899;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative; }
   .content-admin .titre {
     font-size: 1.5rem;
     color: #283a47;
@@ -371,28 +381,67 @@ form.creer {
 
 .body_admin .accueil_produits {
   font-size: 0px;
-  padding: 3rem; }
+  padding-bottom: 3rem; }
   .body_admin .accueil_produits .accueil_produit {
-    width: 50%;
-    display: inline-block;
-    font-size: 1rem; }
-    .body_admin .accueil_produits .accueil_produit:nth-child(odd) {
-      padding-right: 1rem; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_photo {
-      width: 100%;
-      height: 230px;
-      background-size: cover;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-color: #eeeeee; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_info {
-      padding: 1rem 0; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_nom {
-        text-transform: uppercase;
-        color: #329899;
-        margin-bottom: 1rem; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_info .accueil_produit_description {
-        color: #333333; }
+    width: 100%;
+    font-size: 1rem;
+    overflow: auto;
+    display: table; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu {
+      width: 50%;
+      float: left; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
+        width: 100%;
+        height: 230px;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-color: #eeeeee; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
+        padding: 1rem; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
+          text-transform: uppercase;
+          color: #329899;
+          margin-bottom: 1rem; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
+          color: #333333; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_atout {
+      width: 50%;
+      height: 100%;
+      float: right;
+      overflow: auto;
+      display: inline-block; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout {
+        width: 50%;
+        height: 50%;
+        float: left;
+        position: relative;
+        text-align: center;
+        background: #fbfbfb; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
+          vertical-align: middle;
+          position: absolute;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%; }
+          .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div svg {
+            width: 50px;
+            fill: #329899; }
+          .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div p {
+            padding: 1rem 1rem 0rem; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
+        border-right: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child {
+        background: #329899;
+        color: white; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
+          fill: white; }
+  .body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
+    float: right; }
+  .body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
+    float: left; }
 
 .produit {
   width: 100%;
@@ -552,22 +601,73 @@ form.creer {
 
 .faq {
   width: 100%;
-  margin: 4rem 0;
-  overflow: auto;
+  margin: 2rem 0;
   position: relative;
-  text-align: left; }
+  border-bottom: 1px solid #d0d0d0; }
   .faq .faq_question {
-    font-weight: bold;
-    color: #329899;
+    color: #283a47;
+    font-weight: 500;
+    margin-bottom: 1rem; }
+  .faq .faq_separation {
+    font-style: italic;
+    color: #aaaaaa;
+    margin-bottom: 1rem;
+    font-size: 0.8rem; }
+  .faq .faq_reponse {
+    text-align: justify;
     margin-bottom: 1rem; }
   .faq .modifier_faq {
     position: absolute;
     top: 0;
-    right: 0; }
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .faq .modifier_faq svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .faq .modifier_faq svg:hover {
+        fill: #283a47; }
+    .faq .modifier_faq p {
+      font-size: 10px;
+      color: #aaaaaa; }
   .faq .supprimer_faq {
     position: absolute;
     top: 0;
-    right: 40px; }
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .faq .supprimer_faq svg {
+      width: 30px;
+      fill: #aaaaaa; }
+      .faq .supprimer_faq svg:hover {
+        fill: #283a47; }
+    .faq .supprimer_faq p {
+      font-size: 10px;
+      color: #aaaaaa; }
+
+.faq_photo_preview {
+  position: relative;
+  text-align: center; }
+  .faq_photo_preview input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .faq_photo_preview label {
+    margin: auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+  .faq_photo_preview p {
+    color: #aaaaaa;
+    font-size: 0.8rem; }
 
 .partenaire {
   width: 100%;

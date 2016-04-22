@@ -1,29 +1,100 @@
 .faq {
 	width: 100%;
-	margin: 4rem 0;
-	overflow: auto;
+	margin: 2rem 0;
 	position: relative;
-	text-align: left;
+	border-bottom: 1px solid lighten($gris-fonce, 15%);	
 
 	.faq_question {
-		font-weight: bold;
-		color: $vert;
+		color: $admin;
+		font-weight: 500;
 		margin-bottom: 1rem;
 	}
 
+	.faq_separation {
+		font-style: italic;
+		color: $gris-fonce;
+		margin-bottom: 1rem;
+		font-size: 0.8rem;
+	}
+
 	.faq_reponse {
-		
+		text-align: justify;
+		margin-bottom: 1rem;
 	}
 
 	.modifier_faq {
 		position: absolute;
 		top: 0;
 		right: 0;
+		text-align: center;
+		width: 50px;
+
+		svg {
+			width: 30px;
+			fill: $gris-fonce;
+
+			&:hover {
+				fill: $admin;
+			}
+		}
+
+		p {
+			font-size: 10px;
+			color: $gris-fonce;
+		}
 	}
 
 	.supprimer_faq {
 		position: absolute;
 		top: 0;
-		right: 40px;
+		right: 4rem;
+		cursor: pointer;
+		text-align: center;
+		width: 50px;
+
+		svg {
+			width: 30px;
+			fill: $gris-fonce;
+
+			&:hover {
+				fill: $admin;
+			}
+		}
+
+		p {
+			font-size: 10px;
+			color: $gris-fonce;
+		}
 	}	
+}
+
+.faq_photo_preview {
+	position: relative;
+	text-align: center;
+
+	input[type="file"] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	label {
+		margin: auto;
+		display: block;
+		width: 150px;
+		height: 150px;
+		cursor: pointer;
+		border-radius: 50%;
+		background-size: cover;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+
+	p {
+		color: $gris-fonce;
+		font-size: 0.8rem;
+	}
+
 }

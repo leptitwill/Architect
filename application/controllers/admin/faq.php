@@ -35,28 +35,28 @@ class faq extends CI_Controller
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter une nouvelle question';
-		$data['attributs'] = array('class' => 'creer');
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Ajouter une nouvelle question';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('faq/creer', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('faq/creer', $this->data);
+		$this->load->view('theme/footer-admin');
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier une question';
-		$data['attributs'] = array('class' => 'creer');
-		$data['faq'] = $this->faq_model->selectionner_faq($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier une question';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['faq'] = $this->faq_model->selectionner_faq($id);
+		$this->data['error'] = $this->session->flashdata('error');
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('faq/modifier', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('faq/modifier', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
@@ -66,14 +66,11 @@ class faq extends CI_Controller
 		$this->faq_model->supprimer_faq($id);
 
 		$this->session->set_flashdata('succes','<p>La question à bien était supprimé</p>');
-		redirect("faq");
+		redirect("admin/faq");
 	}
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter une nouvelle question';
-		$data['attributs'] = array('class' => 'creer');
-
 		$question = $this->input->post('question');
 		$reponse = $this->input->post('reponse');
 
@@ -82,12 +79,10 @@ class faq extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('faq/creer', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/faq/creer");
 		}
 
 		else
@@ -95,15 +90,12 @@ class faq extends CI_Controller
 			$this->faq_model->ajouter_faq($question, $reponse);
 
 			$this->session->set_flashdata('succes','<p>La question à bien était ajouté</p>');
-			redirect("faq");
+			redirect("admin/faq");
 		}
 	}
 
 	public function update($id)
 	{
-		$data['titre'] = 'Mettre à jour la question';
-		$data['attributs'] = array('class' => 'creer');
-
 		$question = $this->input->post('question');
 		$reponse = $this->input->post('reponse');
 
@@ -112,12 +104,10 @@ class faq extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$error = validation_errors();
+			$this->session->set_flashdata('error', $error);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('faq/modifier', $data);
-			$this->load->view('theme/footer');
+			redirect("admin/faq/creer");
 		}
 
 		else
@@ -125,7 +115,7 @@ class faq extends CI_Controller
 			$this->faq_model->modifier_faq($id, $question, $reponse);
 
 			$this->session->set_flashdata('succes','<p>La question à bien était modifié</p>');
-			redirect("faq");
+			redirect("admin/faq");
 		}
 	}
 

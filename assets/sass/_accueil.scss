@@ -138,39 +138,102 @@
 
 	.accueil_produits {
 		font-size: 0px;
-		padding: 3rem;
+		padding-bottom: 3rem;
 
 		.accueil_produit {
-			width: 50%;
-			display: inline-block;
+			width: 100%;
 			font-size: 1rem;
+			overflow: auto;
+			display: table;
 
-			&:nth-child(odd) {
-				padding-right: 1rem;
-			}
+			.accueil_produit_contenu {
+				width: 50%;
+				float: left;
 
-			.accueil_produit_photo {
-				width: 100%;
-				height: 230px;
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-				background-color: $gris;
-			}
-
-			.accueil_produit_info {
-				padding: 1rem 0;	
-
-				.accueil_produit_nom {
-					text-transform: uppercase;
-					color: $vert;
-					margin-bottom: 1rem;
+				.accueil_produit_photo {
+					width: 100%;
+					height: 230px;
+					background-size: cover;
+					background-position: 50% 50%;
+					background-repeat: no-repeat;
+					background-color: $gris;
 				}
 
-				.accueil_produit_description {
-					color: $noir;
+				.accueil_produit_info {
+					padding: 1rem;	
+
+					.accueil_produit_nom {
+						text-transform: uppercase;
+						color: $vert;
+						margin-bottom: 1rem;
+					}
+
+					.accueil_produit_description {
+						color: $noir;
+					}
 				}
 			}
+
+			.accueil_produit_atout {
+				width: 50%;
+				height: 100%;
+				float: right;
+				overflow: auto;
+				display: inline-block;
+
+				.atout {
+					width: 50%;
+					height: 50%;
+					float: left;
+					position: relative;
+					text-align: center;
+					background: lighten($gris, 5%);
+
+					div {
+						vertical-align: middle;
+						position: absolute;
+						transform: translate(-50%, -50%);
+						top: 50%;
+						left: 50%;
+
+						svg {
+							width: 50px;
+							fill: $vert;
+						}
+
+						p {
+							padding: 1rem 1rem 0rem;
+						}
+					}
+				}
+
+				.atout:first-child {
+					border-right: 1px solid $gris;
+					border-bottom: 1px solid $gris;
+				}
+
+				.atout:last-child {
+					background: $vert;
+					color: white;
+
+					svg {
+						fill: white;
+					}
+				}
+			}
+
+		}
+
+		.accueil_produit:nth-child(even) {
+
+			.accueil_produit_contenu {
+				float: right;
+			}
+
+			.accueil_produit_atout {
+				float: left;
+			}
+
 		}
 	}
 }

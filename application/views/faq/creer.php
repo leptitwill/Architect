@@ -1,4 +1,4 @@
-		<section class="content">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -11,15 +11,15 @@
 				<?php echo $error;?>
 			</div>
 				
-			<?php echo form_open_multipart('faq/upload', $attributs); ?>
+			<?php echo form_open_multipart('admin/faq/upload', $attributs); ?>
 
 				<label for="question">Question</label>
-				<input type="input" name="question" placeholder="Votre question"/><br />
+				<input type="input" name="question" placeholder="Quel est la couleur du cheval blanc d'Henry IV"/><br />
 
 				<label for="reponse">Réponse</label>
-				<textarea name="reponse" placeholder="Réponse à la question"></textarea><br />
+				<textarea name="reponse" placeholder="La couleur du cheval est blanche"></textarea><br />
 
-				<input type="submit" name="submit" value="Ajouter une question" />
+				<input type="submit" class="button" name="submit" value="Ajouter une question" />
 
 			</form>
 
