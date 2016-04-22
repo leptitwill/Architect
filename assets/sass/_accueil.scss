@@ -1,8 +1,8 @@
 .body {
 	.cover--home {
 		width: 100%;
-		height: 400px;
-		margin-top: 60px;
+		height: 500px;
+		margin-top: 0px;
 
 		ul {
 
@@ -43,44 +43,222 @@
 	}
 
 	.accueil_introduction {
-		margin-top: 3rem;
-		width: 800px;
-		margin:3rem auto;
+		width: 100%;
+		max-width: 1000px;
+		margin: 5rem auto;
+	}
+
+	.accueil_baseline {
+		color: white;
+		text-align: center;
+		font-size: 1.5rem;
+		background-image: url('../img/cover-1.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+
+		.overlay {
+			background: rgba($vert, 0.9);
+			width: 100%;
+			padding: 3rem 1rem;
+		}
+
+		blockquote {
+			font-family: initial;
+			quotes: "\201C""\201D""\2018""\2019";
+			display: inline-block;
+			position: relative;
+
+			&:before {
+				position: absolute;
+				color: white;
+				content: open-quote;
+				font-size: 4rem;
+				line-height: 1rem;
+				left: -3rem;
+			}
+
+			&:after {
+				position: absolute;
+				color: white;
+				content: close-quote;
+				font-size: 4rem;
+				line-height: 1rem;
+				vertical-align: middle;
+				margin-left: 0.5rem;
+				right: -3rem;
+				bottom: -28px;
+			}
+		}
+
+		blockquote p {
+			display: inline;
+		}
 	}
 
 	.accueil_produits {
-		font-size: 0px;
-		padding: 3rem;
 
 		.accueil_produit {
-			width: 50%;
-			display: inline-block;
+			width: 100%;
 			font-size: 1rem;
+			overflow: auto;
+			display: table;
 
-			&:nth-child(odd) {
-				padding-right: 1rem;
-			}
+			.accueil_produit_contenu {
+				width: 50%;
+				float: left;
+				position: relative;
 
-			.accueil_produit_photo {
-				width: 100%;
-				height: 230px;
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-				background-color: $gris;
-			}
-
-			.accueil_produit_info {
-				padding: 1rem 0;	
-
-				.accueil_produit_nom {
-					text-transform: uppercase;
-					color: $vert;
-					margin-bottom: 1rem;
+				.accueil_produit_photo {
+					width: 100%;
+					height: 500px;
+					background-size: cover;
+					background-position: 50% 50%;
+					background-repeat: no-repeat;
+					background-color: $gris;
 				}
 
-				.accueil_produit_description {
-					color: $noir;
+				.accueil_produit_info {
+					padding: 2rem;
+					width: 100%;
+					background: rgba($noir, 0.8);
+					position: absolute;
+					bottom: 0;
+					left: 0;
+
+					.accueil_produit_nom {
+						text-transform: uppercase;
+						color: $vert;
+						margin-bottom: 1rem;
+					}
+
+					.accueil_produit_description {
+						color: white;
+						font-size: 0.8rem;
+						text-align: justify;
+					}
+				}
+			}
+
+			.accueil_produit_atout {
+				width: 50%;
+				height: 100%;
+				float: right;
+				overflow: auto;
+				display: inline-block;
+
+				.atout {
+					width: 50%;
+					height: 50%;
+					float: left;
+					position: relative;
+					text-align: center;
+
+					div {
+						width: 100%;
+						vertical-align: middle;
+						position: absolute;
+						transform: translate(-50%, -50%);
+						top: 50%;
+						left: 50%;
+
+						svg {
+							width: 50px;
+							fill: $vert;
+						}
+
+						p {
+							padding: 1rem 1rem 0rem;
+						}
+					}
+				}
+
+				.atout:first-child {
+					border-right: 1px solid $gris;
+					border-bottom: 1px solid $gris;
+				}
+
+				.atout:last-child {
+					background: $vert;
+					color: white;
+
+					svg {
+						fill: white;
+					}
+				}
+			}
+
+		}
+
+		.accueil_produit:nth-child(even) {
+
+			.accueil_produit_contenu {
+				float: right;
+			}
+
+			.accueil_produit_atout {
+				float: left;
+			}
+
+		}
+	}
+
+	.accueil_avis {
+		color: white;
+		text-align: center;
+		background-image: url('../img/cover-1.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+
+		.overlay {
+			background: rgba(black, 0.8);
+			width: 100%;
+			height: 100%;
+			padding: 5rem 0rem;
+			overflow: auto;
+			text-align: center;
+
+			li {
+				padding: 0 15rem;
+
+				blockquote {
+					font-family: initial;
+					quotes: "\201C""\201D""\2018""\2019";
+					display: inline-block;
+					position: relative;
+
+					&:before {
+						position: absolute;
+						color: white;
+						content: open-quote;
+						font-size: 4rem;
+						line-height: 1rem;
+						left: -3rem;
+					}
+
+					&:after {
+						position: absolute;
+						color: white;
+						content: close-quote;
+						font-size: 4rem;
+						line-height: 1rem;
+						vertical-align: middle;
+						margin-left: 0.5rem;
+						right: -3rem;
+						bottom: -28px;
+					}
+				}
+
+				p {
+					display: inline;
+					font-size: 1.5rem;
+				}
+
+				span {
+					display: block;
+					margin-top: 2rem;
+					color: $vert;
 				}
 			}
 		}
@@ -136,6 +314,48 @@
 		padding: 1rem;
 	}
 
+	.accueil_baseline {
+		color: white;
+		text-align: center;
+		font-size: 1.5rem;
+		background-image: url('../img/cover-1.jpg');
+		background-size: cover;
+		background-position: center;
+
+		.overlay {
+			background: rgba($vert, 0.9);
+			width: 100%;
+			padding: 3rem 1rem;
+		}
+
+		blockquote {
+			font-family: initial;
+			quotes: "\201C""\201D""\2018""\2019";
+
+			&:before {
+				color: white;
+				content: open-quote;
+				font-size: 4rem;
+				line-height: 1rem;
+				vertical-align: middle;
+				margin-right: 0.5rem;
+			}
+
+			&:after {
+				color: white;
+				content: close-quote;
+				font-size: 4rem;
+				line-height: 1rem;
+				vertical-align: middle;
+				margin-left: 0.5rem;
+			}
+		}
+
+		blockquote p {
+			display: inline;
+		}
+	}
+
 	.accueil_produits {
 		font-size: 0px;
 		padding-bottom: 3rem;
@@ -149,10 +369,11 @@
 			.accueil_produit_contenu {
 				width: 50%;
 				float: left;
+				position: relative;
 
 				.accueil_produit_photo {
 					width: 100%;
-					height: 230px;
+					height: 400px;
 					background-size: cover;
 					background-position: 50% 50%;
 					background-repeat: no-repeat;
@@ -160,7 +381,12 @@
 				}
 
 				.accueil_produit_info {
-					padding: 1rem;	
+					padding: 1rem;
+					width: 100%;
+					background: rgba($noir, 0.8);
+					position: absolute;
+					bottom: 0;
+					left: 0;
 
 					.accueil_produit_nom {
 						text-transform: uppercase;
@@ -169,7 +395,9 @@
 					}
 
 					.accueil_produit_description {
-						color: $noir;
+						color: white;
+						font-size: 0.8rem;
+						text-align: justify;
 					}
 				}
 			}
@@ -190,6 +418,7 @@
 					background: lighten($gris, 5%);
 
 					div {
+						width: 100%;
 						vertical-align: middle;
 						position: absolute;
 						transform: translate(-50%, -50%);

@@ -18,7 +18,7 @@
 		<script>
 			jQuery(document).ready(function($) {
 				$('.my-slider').unslider({
-					autoplay: true,
+					autoplay: false,
 					infinite: true,
 					nav: false
 				});

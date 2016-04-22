@@ -18,7 +18,7 @@ a {
 
 	h1 {
 		font-size: 1.5rem;
-		color: $vert;
+		color: $noir;
 		margin-bottom: 2rem;
 		text-transform: uppercase;
 		font-weight: 600;
@@ -63,23 +63,22 @@ a {
 
 .content {
 	width: 100%;
-	max-width: 1000px;
-	margin: auto;
 	text-align: left;
 
-	.titre {
+	h1 {
 		font-size: 1.5rem;
-		color: $vert;
-		margin-bottom: 2rem;
+		color: $noir;
+		margin-bottom: 3rem;
 		text-transform: uppercase;
 		font-weight: 600;
 		position: relative;
 
 		&:after {
-			content:url('../img/1.png');
+			content:url('../img/title_bottom.svg');
 			position: absolute;
 			left: 0;
-			top: 1rem;
+			top: 1.5rem;
+			width: 110px;
 		}
 	}
 

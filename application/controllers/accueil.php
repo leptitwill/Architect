@@ -8,18 +8,19 @@ class Accueil extends CI_Controller
 
 		$this->load->model('produit_model');
 		$this->load->model('membre_model');
+		$this->load->model('accueil_model');
 	}
 	
 	public function index()
 	{
-		$data['titre'] = 'Conceptcub - faite moi rêvé ....';
-		$data['titre_page'] = 'Notre concept de pièce à vivre';
-		$data['produits'] = $this->produit_model->lister_produit();
-		$data['membres'] = $this->membre_model->lister_membre();
+		$this->data['titre'] = 'Gestion de la page d\'accueil';
+		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['membres'] = $this->membre_model->lister_membre();
+		$this->data['accueil'] = $this->accueil_model->contenu_accueil();
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('accueil', $data);
-		$this->load->view('theme/footer', $data);
+		$this->load->view('theme/header', $this->data);
+		$this->load->view('accueil', $this->data);
+		$this->load->view('theme/footer', $this->data);
 	}
 
 }
