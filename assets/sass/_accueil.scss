@@ -302,6 +302,73 @@
 			}
 		}
 	}
+
+	.accueil_validation {
+		padding: 4rem;
+		font-size: 1.5rem;
+		background: $vert;
+		color: white;
+		overflow: auto;
+
+		svg {
+			fill: white;
+			height: 85px;
+			float: left;
+		}
+
+		p {
+			margin-left: 140px;
+		}
+	}
+
+	.accueil_membres {
+		width: 100%;
+		max-width: 1000px;
+		margin: 4rem auto;
+		overflow: auto;
+
+		.accueil_membre {
+			width: 45%;
+			float: left;
+			padding: 2rem;
+			border: 1px solid $gris;
+			text-align: center;
+
+			&:first-child {
+				margin-right: 10%;
+			}
+
+			.accueil_membre_photo {
+				width: 150px;
+				border-radius: 50%;
+				margin-bottom: 1rem;
+			}
+
+			.accueil_membre_nom {
+				text-transform: uppercase;
+			}
+
+			.accueil_membre_role {
+				color: $gris-fonce;
+				font-style: italic;
+				margin-bottom: 3rem;
+				position: relative;
+
+				&:after {
+					content:url('../img/title_bottom.svg');
+					position: absolute;
+					left: 50%;
+					margin-left: -40px;
+					top: 1.5rem;
+					width: 80px;
+				}
+			}
+
+			.accueil_membre_description {
+				text-align: justify;
+			}
+		}
+	}
 }
 
 

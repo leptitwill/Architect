@@ -502,6 +502,53 @@ form.creer {
         font-size: 4rem;
         color: #329899; }
 
+.body .accueil_validation {
+  padding: 4rem;
+  font-size: 1.5rem;
+  background: #329899;
+  color: white;
+  overflow: auto; }
+  .body .accueil_validation svg {
+    fill: white;
+    height: 85px;
+    float: left; }
+  .body .accueil_validation p {
+    margin-left: 140px; }
+
+.body .accueil_membres {
+  width: 100%;
+  max-width: 1000px;
+  margin: 4rem auto;
+  overflow: auto; }
+  .body .accueil_membres .accueil_membre {
+    width: 45%;
+    float: left;
+    padding: 2rem;
+    border: 1px solid #eeeeee;
+    text-align: center; }
+    .body .accueil_membres .accueil_membre:first-child {
+      margin-right: 10%; }
+    .body .accueil_membres .accueil_membre .accueil_membre_photo {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem; }
+    .body .accueil_membres .accueil_membre .accueil_membre_nom {
+      text-transform: uppercase; }
+    .body .accueil_membres .accueil_membre .accueil_membre_role {
+      color: #aaaaaa;
+      font-style: italic;
+      margin-bottom: 3rem;
+      position: relative; }
+      .body .accueil_membres .accueil_membre .accueil_membre_role:after {
+        content: url("../img/title_bottom.svg");
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
+        top: 1.5rem;
+        width: 80px; }
+    .body .accueil_membres .accueil_membre .accueil_membre_description {
+      text-align: justify; }
+
 .body_admin .cover--home {
   width: 100%;
   height: 400px; }
