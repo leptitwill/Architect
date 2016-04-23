@@ -23,13 +23,13 @@
 
 		<section class="content">
 
-			<section id="introduction" class="accueil_introduction tiny-inline">
+			<section class="accueil_introduction">
 						
 				<?= $accueil[0]['introduction'] ?>
 
 			</section>
 
-			<section id="baseline" class="accueil_baseline tiny-inline">
+			<section class="accueil_baseline">
 						
 				<div class="overlay">
 					<?= $accueil[0]['baseline'] ?>
@@ -91,6 +91,48 @@
 
 			</section>
 
+			<section class="accueil_etapes">
+						
+				<h2>Les étapes clées pour menez à bien votre projet</h2>
+
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">01<span>.</span></p>
+					<p class="accueil_etape_texte">
+						PREMIER RENDEZ-VOUS TELEPHONIQUE<br><br>
+						En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.
+					</p>
+				</div>
+
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">02<span>.</span></p>
+					<p class="accueil_etape_texte">
+						PREMIER RENDEZ-VOUS TELEPHONIQUE<br><br>
+						En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.
+					</p>
+				</div>
+
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">03<span>.</span></p>
+					<p class="accueil_etape_texte">
+						PREMIER RENDEZ-VOUS TELEPHONIQUE<br><br>
+						En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.
+					</p>
+				</div>
+
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">04<span>.</span></p>
+					<p class="accueil_etape_texte">
+						PREMIER RENDEZ-VOUS TELEPHONIQUE<br><br>
+						En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.
+					</p>
+				</div>
+
+			</section>
+
 			<section class="accueil_avis my-slider">
 				<ul class="overlay">
 					<li>
@@ -106,31 +148,6 @@
 						<span>Le bon, la brute et le truand</span>
 					</li>
 				</ul>
-			</section>
-
-			<section class="accueil_membres">
-
-				<h2 class="titre">Les membres</h2>
-
-				<?php foreach ($membres as $membre): ?>
-				
-					<?php
-						$membre_id = $membre['idMembre'];
-					?>
-
-					<article class="membre">
-
-						<img class="membre_photo" src="<?=img_url()?>membre/<?= $membre['photo']; ?>">
-						<div class="membre_info">
-							<p class="membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-							<p class="membre_role"><?= $membre['role'] ?></p>
-							<p class="membre_description"><?= $membre['description'] ?></p>	
-						</div>
-
-					</article>
-				
-				<?php endforeach; ?>
-
 			</section>
 
 		</section>

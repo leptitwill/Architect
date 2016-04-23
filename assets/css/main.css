@@ -23,7 +23,7 @@ header {
   padding: 0 50px;
   background: #333333;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-  z-index: 2; }
+  z-index: 10; }
   header .logo {
     height: 60px;
     padding: 10px 0; }
@@ -69,7 +69,7 @@ a {
   padding: 110px 50px 50px 300px;
   width: 100%;
   text-align: left; }
-  .content-admin h1 {
+  .content-admin h1, .content-admin h2 {
     font-size: 1.5rem;
     color: #333333;
     margin-bottom: 2rem;
@@ -103,14 +103,14 @@ a {
 .content {
   width: 100%;
   text-align: left; }
-  .content h1 {
-    font-size: 1.5rem;
+  .content h1, .content h2 {
+    font-size: 2rem;
     color: #333333;
     margin-bottom: 3rem;
     text-transform: uppercase;
     font-weight: 600;
     position: relative; }
-    .content h1:after {
+    .content h1:after, .content h2:after {
       content: url("../img/title_bottom.svg");
       position: absolute;
       left: 0;
@@ -332,7 +332,7 @@ form.creer {
   .body .accueil_baseline .overlay {
     background: rgba(50, 152, 153, 0.9);
     width: 100%;
-    padding: 3rem 1rem; }
+    padding: 4rem 1rem; }
   .body .accueil_baseline blockquote {
     font-family: initial;
     quotes: "“" "”" "‘" "’";
@@ -369,7 +369,7 @@ form.creer {
     position: relative; }
     .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
       width: 100%;
-      height: 500px;
+      height: 600px;
       background-size: cover;
       background-position: 50% 50%;
       background-repeat: no-repeat;
@@ -387,7 +387,6 @@ form.creer {
         margin-bottom: 1rem; }
       .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
         color: white;
-        font-size: 0.8rem;
         text-align: justify; }
   .body .accueil_produits .accueil_produit .accueil_produit_atout {
     width: 50%;
@@ -440,11 +439,11 @@ form.creer {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
-    padding: 5rem 0rem;
+    padding: 4rem 0rem;
     overflow: auto;
     text-align: center; }
     .body .accueil_avis .overlay li {
-      padding: 0 15rem; }
+      padding: 0 14rem; }
       .body .accueil_avis .overlay li blockquote {
         font-family: initial;
         quotes: "“" "”" "‘" "’";
@@ -473,6 +472,34 @@ form.creer {
       .body .accueil_avis .overlay li span {
         display: block;
         margin-top: 2rem;
+        color: #329899; }
+
+.body .accueil_etapes {
+  padding: 4rem 2rem;
+  background: #333333;
+  color: white;
+  overflow: auto; }
+  .body .accueil_etapes h2 {
+    color: white;
+    text-align: center; }
+    .body .accueil_etapes h2:after {
+      left: 50%;
+      margin-left: -55px; }
+  .body .accueil_etapes .accueil_etape {
+    margin-top: 2rem;
+    width: 25%;
+    float: left;
+    padding: 0 2rem; }
+    .body .accueil_etapes .accueil_etape span {
+      font-size: 1.5rem; }
+    .body .accueil_etapes .accueil_etape .number {
+      font-size: 6rem;
+      font-weight: 600;
+      line-height: 4.5rem;
+      margin-bottom: 2rem; }
+      .body .accueil_etapes .accueil_etape .number span {
+        font-family: initial;
+        font-size: 4rem;
         color: #329899; }
 
 .body_admin .cover--home {

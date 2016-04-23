@@ -20,7 +20,7 @@
 				$('.my-slider').unslider({
 					autoplay: false,
 					infinite: true,
-					nav: false
+					nav: false,
 				});
 			});
 		</script>
