@@ -13,7 +13,7 @@ class Accueil extends CI_Controller
 	
 	public function index()
 	{
-		$this->data['titre'] = 'Gestion de la page d\'accueil';
+		$this->data['titre'] = 'Pièce à vivre, bureau de jardin et studio de jardin';
 		$this->data['produits'] = $this->produit_model->lister_produit();
 		$this->data['membres'] = $this->membre_model->lister_membre();
 		$this->data['accueil'] = $this->accueil_model->contenu_accueil();

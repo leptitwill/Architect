@@ -1,7 +1,7 @@
 .body {
 	.cover--home {
 		width: 100%;
-		height: 500px;
+		height: 100vh;
 		margin-top: 0px;
 
 		ul {
@@ -44,8 +44,11 @@
 
 	.accueil_introduction {
 		width: 100%;
-		max-width: 1000px;
+		max-width: 800px;
 		margin: 5rem auto;
+		text-align: center;
+		color: $faux-noir;
+		font-size: 1.1rem;
 	}
 
 	.accueil_baseline {
@@ -111,7 +114,7 @@
 
 				.accueil_produit_photo {
 					width: 100%;
-					height: 600px;
+					height: 100vh;
 					background-size: cover;
 					background-position: 50% 50%;
 					background-repeat: no-repeat;
@@ -121,7 +124,7 @@
 				.accueil_produit_info {
 					padding: 2rem;
 					width: 100%;
-					background: rgba($noir, 0.8);
+					background: rgba(black, 0.4);
 					position: absolute;
 					bottom: 0;
 					left: 0;
@@ -211,7 +214,7 @@
 		background-attachment: fixed;
 
 		.overlay {
-			background: rgba(black, 0.8);
+			background: rgba(black, 0.6);
 			width: 100%;
 			height: 100%;
 			padding: 4rem 0rem;
@@ -284,15 +287,17 @@
 			width: 25%;
 			float: left;
 			padding: 0 2rem;
+
 			span {
-				font-size: 1.5rem;
+				
 			}
 
 			.number {
-				font-size: 6rem;
-				font-weight: 600;
-				line-height: 4.5rem;
+				font-size: 5rem;
+				font-weight: 700;
+				line-height: 6rem;
 				margin-bottom: 2rem;
+				font-family: Montserrat;
 
 				span {
 					font-family: initial;
@@ -300,25 +305,28 @@
 					color: $vert;
 				}
 			}
+
+			.accueil_etape_texte {
+
+				.accueil_etape_titre {
+					color: white;
+					text-transform: uppercase;
+				}
+
+				.etape_contenu {
+					color: lighten($gris-fonce, 10%);
+				}
+			}
 		}
 	}
 
 	.accueil_validation {
-		padding: 4rem;
-		font-size: 1.5rem;
+		padding: 2rem 4rem;
+		text-align: center;
+		font-size: 1.2rem;
 		background: $vert;
 		color: white;
 		overflow: auto;
-
-		svg {
-			fill: white;
-			height: 85px;
-			float: left;
-		}
-
-		p {
-			margin-left: 140px;
-		}
 	}
 
 	.accueil_membres {
@@ -327,20 +335,32 @@
 		margin: 4rem auto;
 		overflow: auto;
 
-		.accueil_membre {
-			width: 45%;
-			float: left;
-			padding: 2rem;
-			border: 1px solid $gris;
+		h2 {
 			text-align: center;
 
-			&:first-child {
-				margin-right: 10%;
+			&:after {
+				left: 50%;
+				margin-left: -55px;
+			}
+		}
+
+		.accueil_membre {
+			width: 30%;
+			height: 100%;
+			float: left;
+			border: 1px solid $gris;
+			text-align: center;
+			display: inline-block;
+
+			&:nth-child(3) {
+				margin: 0 5%;
 			}
 
 			.accueil_membre_photo {
-				width: 150px;
-				border-radius: 50%;
+				width: 100%;
+				height: 300px;
+				background-size: cover;
+				background-position: center;
 				margin-bottom: 1rem;
 			}
 
@@ -351,21 +371,13 @@
 			.accueil_membre_role {
 				color: $gris-fonce;
 				font-style: italic;
-				margin-bottom: 3rem;
+				margin-bottom: 1rem;
 				position: relative;
-
-				&:after {
-					content:url('../img/title_bottom.svg');
-					position: absolute;
-					left: 50%;
-					margin-left: -40px;
-					top: 1.5rem;
-					width: 80px;
-				}
 			}
 
 			.accueil_membre_description {
 				text-align: justify;
+				padding: 2rem;
 			}
 		}
 	}

@@ -67,17 +67,18 @@ a {
 
 	h1, h2 {
 		font-size: 2rem;
-		color: $noir;
-		margin-bottom: 3rem;
+		color: black;
+		margin-bottom: 5rem;
 		text-transform: uppercase;
-		font-weight: 600;
+		font-weight: 700;
 		position: relative;
 
 		&:after {
 			content:url('../img/title_bottom.svg');
 			position: absolute;
-			left: 0;
-			top: 1.5rem;
+			left: 50%;
+			margin-left: -55px;
+			top: 3rem;
 			width: 110px;
 		}
 	}

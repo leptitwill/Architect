@@ -86,8 +86,8 @@ class Membre extends CI_Controller
 		$config['upload_path'] = './assets/img/membre';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = strtolower($nom_photo);
-		$config['min_width']  = '200';
-		$config['min_height']  = '200';
+		$config['min_width']  = '500';
+		$config['min_height']  = '500';
 
 		$this->load->library('upload', $config);
 
@@ -150,8 +150,8 @@ class Membre extends CI_Controller
 		$config['upload_path'] = './assets/img/membre';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = strtolower($nom_photo);
-		$config['min_width']  = '200';
-		$config['min_height']  = '200';
+		$config['min_width']  = '500';
+		$config['min_height']  = '500';
 		$config['overwrite']  = TRUE;
 
 		$this->load->library('upload', $config);
@@ -219,8 +219,8 @@ class Membre extends CI_Controller
 		$config['source_image'] =$data['full_path'];
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
-		$config['width'] = 200;
-		$config['height'] = 200;
+		$config['width'] = 500;
+		$config['height'] = 500;
 		if ($data["image_height"] >= $data["image_width"]) {
 			$config['master_dim'] = 'width';
 		} else {
@@ -237,11 +237,11 @@ class Membre extends CI_Controller
 		$config['image_library'] = 'gd2';
 		$config['source_image'] =$data['full_path'];
 		$config['maintain_ratio'] = FALSE;
-		$config['width'] = 200;
-		$config['height'] = 200;
+		$config['width'] = 500;
+		$config['height'] = 500;
 		$config['quality'] = 100;
-		$config['x_axis'] = ($dimensions[0] / 2) - (200 / 2);
-		$config['y_axis'] = ($dimensions[1] / 2) - (200 / 2);
+		$config['x_axis'] = ($dimensions[0] / 2) - (500 / 2);
+		$config['y_axis'] = ($dimensions[1] / 2) - (500 / 2);
 		$this->image_lib->initialize($config);
 		$this->image_lib->crop();
 	}

@@ -3,11 +3,12 @@
 	
 	<head>
 		<meta charset="UTF-8">
-		<title><?= $titre ?></title>
+		<title><?= $titre ?> - Conceptcub</title>
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
 		<?=css('unslider.css')?>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700"' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body class="body">
