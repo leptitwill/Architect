@@ -1,7 +1,167 @@
 footer {
-	text-align: center;
-	background: $gris;
-	color: rgba(0,0,0,0.4);
+	text-align: left;
+	background: $noir;
+	color: white;
 	padding: 20px;
 	width: 100%;
+	font-size: 0;
+	padding: 3rem;
+
+	.footer_bloc {
+		color: $gris-fonce;
+		width: 30%;
+		display: inline-block;
+		font-size: 0.8rem;
+		line-height: 1.2rem;
+		min-height: 111px;
+		vertical-align: top;
+
+		ul.texte {
+
+			li {
+				font-family: "Open sans" !important;
+
+				&:first-child {
+					font-weight: 600;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+
+	.footer_bloc_newsletter {
+		color: $gris-fonce;
+		width: 40%;
+		display: inline-block;
+		font-size: 0.8rem;
+		line-height: 1.2rem;
+		min-height: 120px;
+		vertical-align: top;
+
+		ul.texte {
+
+			li {
+				font-family: "Open sans" !important;
+
+				&:first-child {
+					font-weight: 600;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+
+		form {
+			margin-top: 1rem;
+
+			input {
+				padding: 1rem 1.5rem;
+				border: 0;
+			}
+
+			span {
+				margin-left: -4px;
+
+				button {
+					padding: 1rem 1.5rem;
+					color: white;
+					background: $vert;
+				}
+			}
+		}
+	}
+
+	.footer_bloc_bas {
+		width: 100%;
+		font-size: 0;
+		padding-top: 3rem;
+		margin-top: 3rem;
+		border-top: 1px solid darken($gris-fonce, 20%);
+
+		div {
+			width: 40%;
+			display: inline-block;
+			font-size: 0.8rem;
+			color: $gris-fonce;
+
+			&:first-child, &:last-child {
+				width: 30%;
+			}
+
+			ul.reseau_social {
+				font-size: 0;
+				margin: 1rem 0;
+				text-align: right;
+
+				a {
+					margin-right: 2rem;
+					width: 18px;
+					display: inline-block;
+
+					li {
+						
+
+						img {
+							width: 100%;
+							opacity: 0.6;
+
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+
+			ul.footer_menu {
+				font-size: 0;
+				margin: 1rem 0;
+				text-align: center;
+
+				li {
+					padding-right: 2rem;
+					display: inline-block;
+					position: relative;
+
+					a {
+						font-size: 0.8rem;
+						color: $gris-fonce;
+
+						&:hover {
+							color: white;
+						}
+					}
+
+					&:after {
+						content: "·";
+						color: $vert;
+						font-size: 25px;
+						position: absolute;
+						top: 50%;
+						right: 12px;
+						height: 10px;
+						line-height: 10px;
+						margin-top: -5px;
+						font-family: sans-serif;
+					}
+
+					&:last-child {
+						padding-right: 0;
+					}
+
+					&:last-child:after {
+						content: "";
+					}
+				}
+
+			}
+		}
+	}
 }

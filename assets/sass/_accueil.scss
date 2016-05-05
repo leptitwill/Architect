@@ -115,6 +115,7 @@
 				.accueil_produit_photo {
 					width: 100%;
 					height: 100vh;
+					min-height: 400px;
 					background-size: cover;
 					background-position: 50% 50%;
 					background-repeat: no-repeat;
@@ -124,20 +125,23 @@
 				.accueil_produit_info {
 					padding: 2rem;
 					width: 100%;
-					background: rgba(black, 0.4);
+					background: rgba($noir, 0.7);
 					position: absolute;
 					bottom: 0;
 					left: 0;
 
 					.accueil_produit_nom {
 						text-transform: uppercase;
-						color: $vert;
+						color: white;
 						margin-bottom: 1rem;
+						font-weight: 400;
+						font-size: 1.5rem;
 					}
 
 					.accueil_produit_description {
 						color: white;
 						text-align: justify;
+						font-weight: 300;
 					}
 				}
 			}
@@ -166,28 +170,42 @@
 
 						svg {
 							width: 50px;
-							fill: $vert;
+							fill: $noir;
 						}
 
 						p {
+							color: $faux-noir;
 							padding: 1rem 1rem 0rem;
+						}
+					}
+
+					&:first-child {
+						border-right: 1px solid $gris;
+						border-bottom: 1px solid $gris;
+					}
+
+					&:nth-child(2) {
+						border-bottom: 1px solid $gris;
+					}
+
+					&:nth-child(3) {
+						border-right: 1px solid $gris;
+					}
+
+					&:hover {
+						background: $vert;
+						color: white;
+
+						svg {
+							fill: white;
+						}
+
+						p {
+							color: white;
 						}
 					}
 				}
 
-				.atout:first-child {
-					border-right: 1px solid $gris;
-					border-bottom: 1px solid $gris;
-				}
-
-				.atout:last-child {
-					background: $vert;
-					color: white;
-
-					svg {
-						fill: white;
-					}
-				}
 			}
 
 		}
@@ -213,6 +231,10 @@
 		background-position: center;
 		background-attachment: fixed;
 
+		h2 {
+			color: white;
+		}
+
 		.overlay {
 			background: rgba(black, 0.6);
 			width: 100%;
@@ -222,7 +244,7 @@
 			text-align: center;
 
 			li {
-				padding: 0 14rem;
+				padding: 2rem 14rem;
 
 				blockquote {
 					font-family: initial;
@@ -268,7 +290,7 @@
 
 	.accueil_etapes {
 		padding: 4rem 2rem;
-		background: $noir;
+		background: $faux-noir;
 		color: white;
 		overflow: auto;
 
@@ -297,7 +319,7 @@
 				font-weight: 700;
 				line-height: 6rem;
 				margin-bottom: 2rem;
-				font-family: Montserrat;
+				font-family: "Open sans";
 
 				span {
 					font-family: initial;
@@ -308,13 +330,15 @@
 
 			.accueil_etape_texte {
 
-				.accueil_etape_titre {
+				.etape_titre {
 					color: white;
 					text-transform: uppercase;
+					font-weight: 500;
 				}
 
 				.etape_contenu {
-					color: lighten($gris-fonce, 10%);
+					color: white;
+					font-weight: 300;
 				}
 			}
 		}
@@ -345,7 +369,7 @@
 		}
 
 		.accueil_membre {
-			width: 30%;
+			width: 300px;
 			height: 100%;
 			float: left;
 			border: 1px solid $gris;
@@ -431,8 +455,13 @@
 	}
 
 	.accueil_introduction {
-		margin:2rem;
+		width: 100%;
+		max-width: 800px;
+		margin:2rem auto;
 		padding: 1rem;
+		text-align: center;
+		color: $faux-noir;
+		font-size: 1.1rem;
 	}
 
 	.accueil_baseline {
@@ -584,6 +613,183 @@
 				float: left;
 			}
 
+		}
+	}
+
+	.accueil_avis {
+		color: white;
+		text-align: center;
+		background-image: url('../img/cover-1.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+
+		.overlay {
+			background: rgba(black, 0.6);
+			width: 100%;
+			height: 100%;
+			padding: 4rem 0rem;
+			overflow: auto;
+			text-align: center;
+
+			li {
+				padding: 0 14rem;
+
+				blockquote {
+					font-family: initial;
+					quotes: "\201C""\201D""\2018""\2019";
+					display: inline-block;
+					position: relative;
+
+					&:before {
+						position: absolute;
+						color: white;
+						content: open-quote;
+						font-size: 4rem;
+						line-height: 1rem;
+						left: -3rem;
+					}
+
+					&:after {
+						position: absolute;
+						color: white;
+						content: close-quote;
+						font-size: 4rem;
+						line-height: 1rem;
+						vertical-align: middle;
+						margin-left: 0.5rem;
+						right: -3rem;
+						bottom: -28px;
+					}
+				}
+
+				p {
+					display: inline;
+					font-size: 1.5rem;
+				}
+
+				span {
+					display: block;
+					margin-top: 2rem;
+					color: $vert;
+				}
+			}
+		}
+	}
+
+	.accueil_etapes {
+		padding: 4rem 2rem;
+		background: $noir;
+		color: white;
+		overflow: auto;
+
+		h2 {
+			color: white;
+			text-align: center;
+
+			&:after {
+				left: 50%;
+				margin-left: -55px;
+			}
+		}
+
+		.accueil_etape {
+			margin-top: 2rem;
+			width: 25%;
+			float: left;
+			padding: 0 2rem;
+
+			span {
+				
+			}
+
+			.number {
+				font-size: 5rem;
+				font-weight: 700;
+				line-height: 6rem;
+				margin-bottom: 2rem;
+				font-family: "Open sans";
+
+				span {
+					font-family: initial;
+					font-size: 4rem;
+					color: $vert;
+				}
+			}
+
+			.accueil_etape_texte {
+
+				.accueil_etape_titre {
+					color: white;
+					text-transform: uppercase;
+				}
+
+				.etape_contenu {
+					color: lighten($gris-fonce, 10%);
+				}
+			}
+		}
+	}
+
+	.accueil_validation {
+		padding: 2rem 4rem;
+		text-align: center;
+		font-size: 1.2rem;
+		background: $vert;
+		color: white;
+		overflow: auto;
+	}
+
+	.accueil_membres {
+		width: 100%;
+		max-width: 1000px;
+		margin: 4rem auto;
+		overflow: auto;
+
+		h2 {
+			text-align: center;
+
+			&:after {
+				left: 50%;
+				margin-left: -55px;
+			}
+		}
+
+		.accueil_membre {
+			width: 300px;
+			height: 100%;
+			float: left;
+			border: 1px solid $gris;
+			text-align: center;
+			display: inline-block;
+
+			&:nth-child(3) {
+				margin: 0 5%;
+			}
+
+			.accueil_membre_photo {
+				width: 100%;
+				height: 300px;
+				background-size: cover;
+				background-position: center;
+				margin-bottom: 1rem;
+			}
+
+			.accueil_membre_nom {
+				text-transform: uppercase;
+			}
+
+			.accueil_membre_role {
+				color: $gris-fonce;
+				font-style: italic;
+				margin-bottom: 1rem;
+				position: relative;
+			}
+
+			.accueil_membre_description {
+				text-align: justify;
+				padding: 2rem;
+			}
 		}
 	}
 }

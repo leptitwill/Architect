@@ -7,8 +7,8 @@
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
 		<?=css('unslider.css')?>
-		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700"' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body class="body">
@@ -30,31 +30,12 @@
 
 			<nav>
 				<ul>
-					<a href="<?= base_url("produit/bureaux-de-jardin"); ?>"><li>Bureaux de jardin</li></a>
+					<a href="<?= base_url() ?>"><li class="<?php if($this->uri->segment(2)==""){echo "active";}?>">Accueil</li></a>
+					<a href="<?= base_url("produit/bureaux-de-jardin") ?>"><li class="<?php if($this->uri->segment(2)=="bureaux-de-jardin"){echo "active";}?>">Bureaux de jardin</li></a>
 					<a href="<?= base_url("produit/studio-de-jardin"); ?>"><li>Studio de jardin</li></a>
 					<a href=""><li>Concept</li></a>
-					<a href=""><li>Qui sommes nous ?</li></a>
 					<a href=""><li>Blog</li></a>
 				</ul>
 			</nav>
 
-			<!-- <article class="reseaux-sociaux">
-				<?php foreach ($reseaux_sociaux as $reseau_social): ?>
-
-				<?php
-					$reseaux_sociaux_id = $reseau_social['idReseauxSociaux'];
-				?>
-
-				<ul class="reseau_social">
-					
-					<a href="<?= $reseau_social['lien'] ?>">
-						<li>
-							<img src="<?=img_url()?>reseaux_sociaux/<?= $reseau_social['logo']; ?>">
-						</li>
-					</a>
-
-				</article>
-			
-			<?php endforeach; ?>
-			</article> -->
 		</header>

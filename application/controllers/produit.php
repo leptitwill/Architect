@@ -10,63 +10,66 @@ class Produit extends CI_Controller
 		$this->load->library('form_validation');
 
 		$this->load->model('produit_model');$this->load->model('membre_model');
+		$this->load->model('reseaux_sociaux_model');
+
+		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
 	}
 	
 	public function index($url = NULL)
 	{
 		if ($url == NULL)
 		{
-			$data['titre'] = 'Les produits conceptcub';
-			$data['produits'] = $this->produit_model->lister_produit();
-			$data['succes'] = $this->session->flashdata('succes');
+			$this->data['titre'] = 'Les produits conceptcub';
+			$this->data['produits'] = $this->produit_model->lister_produit();
+			$this->data['succes'] = $this->session->flashdata('succes');
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/accueil', $data);
-			$this->load->view('theme/footer', $data);
+			$this->load->view('theme/header', $this->data);
+			$this->load->view('produit/accueil', $this->data);
+			$this->load->view('theme/footer', $this->data);
 		}
 
 		else
 		{
-			$data['produit'] = $this->produit_model->selectionner_produit($url);
-			$data['gammes'] = $this->produit_model->selectionner_gamme_par_produit($url);
-			$data['titre'] = str_replace("-"," ",$url);
+			$this->data['produit'] = $this->produit_model->selectionner_produit($url);
+			$this->data['gammes'] = $this->produit_model->selectionner_gamme_par_produit($url);
+			$this->data['titre'] = str_replace("-"," ",$url);
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modele', $data);
-			$this->load->view('theme/footer', $data);
+			$this->load->view('theme/header', $this->data);
+			$this->load->view('produit/modele', $this->data);
+			$this->load->view('theme/footer', $this->data);
 		}
 	}
 
 	public function creer()
 	{
 		if(!$this->session->userdata('idMembre')) redirect('gamme');
-		$data['titre'] = 'Ajouter un nouveau produit';
-		$data['attributs'] = array('class' => 'creer');
+		$this->data['titre'] = 'Ajouter un nouveau produit';
+		$this->data['attributs'] = array('class' => 'creer');
 		$id = $this->session->userdata('idMembre');
-		$data['membre'] = $this->membre_model->selectionner_membre($id);
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['membre'] = $this->membre_model->selectionner_membre($id);
+		$this->data['error'] = '';
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header-admin', $data);
-		$this->load->view('produit/creer', $data);
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('produit/creer', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier un produit';
-		$data['attributs'] = array('class' => 'creer');
-		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier un produit';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$this->data['error'] = '';
+		$this->data['succes'] = '';
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('produit/modifier', $data);
+		$this->load->view('theme/header', $this->data);
+		$this->load->view('produit/modifier', $this->data);
 		$this->load->view('theme/footer');
 	}
 
 	public function supprimer($id)
 	{
-		$data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
 
 		$this->produit_model->supprimer_produit($id);
 
@@ -76,8 +79,8 @@ class Produit extends CI_Controller
 
 	public function upload()
 	{
-		$data['titre'] = 'Ajouter un produit !';
-		$data['attributs'] = array('class' => 'creer');
+		$this->data['titre'] = 'Ajouter un produit !';
+		$this->data['attributs'] = array('class' => 'creer');
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
@@ -103,30 +106,30 @@ class Produit extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$this->data['error'] = '';
+			$this->data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/creer', $data);
+			$this->load->view('theme/header', $this->data);
+			$this->load->view('produit/creer', $this->data);
 			$this->load->view('theme/footer');
 		}
 
 		elseif ( ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$this->data['error'] = $this->upload->display_errors();
+			$this->data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/creer', $data);
+			$this->load->view('theme/header', $this->data);
+			$this->load->view('produit/creer', $this->data);
 			$this->load->view('theme/footer');
 		}
 
 		else
 		{
-			$data = $this->upload->data();
-			$this->redimensionner($data);
+			$this->data = $this->upload->data();
+			$this->redimensionner($this->data);
 
-			$couverture = $data['file_name'];
+			$couverture = $this->data['file_name'];
 
 			$this->produit_model->ajouter_produit($nom, $description, $couverture, $url);
 
@@ -137,8 +140,8 @@ class Produit extends CI_Controller
 
 	public function update($id)
 	{
-		$data['titre'] = 'Ajouter un nouveau produit';
-		$data['attributs'] = array('class' => 'creer');
+		$this->data['titre'] = 'Ajouter un nouveau produit';
+		$this->data['attributs'] = array('class' => 'creer');
 		$produit = $this->produit_model->selectionner_produit_par_id($id);
 
 
@@ -168,21 +171,21 @@ class Produit extends CI_Controller
 
 		if ($this->form_validation->run() === FALSE )
 		{
-			$data['error'] = '';
-			$data['succes'] = '';
+			$this->data['error'] = '';
+			$this->data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modifier', $data);
+			$this->load->view('theme/header', $this->data);
+			$this->load->view('produit/modifier', $this->data);
 			$this->load->view('theme/footer');
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
 		{
-			$data['error'] = $this->upload->display_errors();
-			$data['succes'] = '';
+			$this->data['error'] = $this->upload->display_errors();
+			$this->data['succes'] = '';
 
-			$this->load->view('theme/header', $data);
-			$this->load->view('produit/modifier', $data);
+			$this->load->view('theme/header', $this->data);
+			$this->load->view('produit/modifier', $this->data);
 			$this->load->view('theme/footer');
 		}
 
@@ -190,10 +193,10 @@ class Produit extends CI_Controller
 		{
 			if ($fichier_envoye != "")
 			{
-				$data = $this->upload->data();
-				$this->redimensionner($data);
+				$this->data = $this->upload->data();
+				$this->redimensionner($this->data);
 				
-				$couverture = $data['file_name'];
+				$couverture = $this->data['file_name'];
 			}
 
 			else 
@@ -211,7 +214,7 @@ class Produit extends CI_Controller
 	function redimensionner($data)
 	{
 		$config['image_library'] = 'gd2';
-		$config['source_image'] =$data['full_path'];
+		$config['source_image'] =$this->data['full_path'];
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = 1920;

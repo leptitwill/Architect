@@ -31,14 +31,17 @@ header {
     float: right; }
     header nav ul a li {
       color: white;
-      font-size: 14px;
+      font-size: 0.8rem;
+      font-weight: 300;
       text-align: left;
       padding: 0 15px;
       font-weight: normal;
       display: inline-block;
-      line-height: 60px; }
-      header nav ul a li:hover {
-        color: #329899; }
+      line-height: 60px;
+      text-transform: uppercase;
+      color: #999999; }
+      header nav ul a li:hover, header nav ul a li.active {
+        color: white; }
 
 .reseaux-sociaux {
   position: fixed;
@@ -48,15 +51,120 @@ header {
   background: #329899; }
 
 footer {
-  text-align: center;
-  background: #eeeeee;
-  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  background: #222222;
+  color: white;
   padding: 20px;
-  width: 100%; }
+  width: 100%;
+  font-size: 0;
+  padding: 3rem; }
+  footer .footer_bloc {
+    color: #999999;
+    width: 30%;
+    display: inline-block;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    min-height: 111px;
+    vertical-align: top; }
+    footer .footer_bloc ul.texte li {
+      font-family: "Open sans" !important; }
+      footer .footer_bloc ul.texte li:first-child {
+        font-weight: 600;
+        margin-bottom: 1rem; }
+  footer .footer_bloc_newsletter {
+    color: #999999;
+    width: 40%;
+    display: inline-block;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    min-height: 120px;
+    vertical-align: top; }
+    footer .footer_bloc_newsletter ul.texte li {
+      font-family: "Open sans" !important; }
+      footer .footer_bloc_newsletter ul.texte li:first-child {
+        font-weight: 600;
+        margin-bottom: 1rem; }
+    footer .footer_bloc_newsletter form {
+      margin-top: 1rem; }
+      footer .footer_bloc_newsletter form input {
+        padding: 1rem 1.5rem;
+        border: 0; }
+      footer .footer_bloc_newsletter form span {
+        margin-left: -4px; }
+        footer .footer_bloc_newsletter form span button {
+          padding: 1rem 1.5rem;
+          color: white;
+          background: #329899; }
+  footer .footer_bloc_bas {
+    width: 100%;
+    font-size: 0;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: 1px solid #666666; }
+    footer .footer_bloc_bas div {
+      width: 40%;
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #999999; }
+      footer .footer_bloc_bas div:first-child, footer .footer_bloc_bas div:last-child {
+        width: 30%; }
+      footer .footer_bloc_bas div ul.reseau_social {
+        font-size: 0;
+        margin: 1rem 0;
+        text-align: right; }
+        footer .footer_bloc_bas div ul.reseau_social a {
+          margin-right: 2rem;
+          width: 18px;
+          display: inline-block; }
+          footer .footer_bloc_bas div ul.reseau_social a li img {
+            width: 100%;
+            opacity: 0.6; }
+            footer .footer_bloc_bas div ul.reseau_social a li img:hover {
+              opacity: 1; }
+          footer .footer_bloc_bas div ul.reseau_social a:last-child {
+            margin-right: 0; }
+        footer .footer_bloc_bas div ul.reseau_social:last-child {
+          padding-right: 0; }
+      footer .footer_bloc_bas div ul.footer_menu {
+        font-size: 0;
+        margin: 1rem 0;
+        text-align: center; }
+        footer .footer_bloc_bas div ul.footer_menu li {
+          padding-right: 2rem;
+          display: inline-block;
+          position: relative; }
+          footer .footer_bloc_bas div ul.footer_menu li a {
+            font-size: 0.8rem;
+            color: #999999; }
+            footer .footer_bloc_bas div ul.footer_menu li a:hover {
+              color: white; }
+          footer .footer_bloc_bas div ul.footer_menu li:after {
+            content: "·";
+            color: #329899;
+            font-size: 25px;
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            height: 10px;
+            line-height: 10px;
+            margin-top: -5px;
+            font-family: sans-serif; }
+          footer .footer_bloc_bas div ul.footer_menu li:last-child {
+            padding-right: 0; }
+          footer .footer_bloc_bas div ul.footer_menu li:last-child:after {
+            content: ""; }
+
+::-moz-selection {
+  color: white;
+  background: #329899; }
+
+::selection {
+  color: white;
+  background: #329899; }
 
 .cover {
   width: 100%;
-  height: 300px;
+  height: 500px;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -70,12 +178,19 @@ a {
   width: 100%;
   text-align: left; }
   .content-admin h1, .content-admin h2 {
-    font-size: 1.5rem;
-    color: #222222;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 5rem;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     position: relative; }
+    .content-admin h1:after, .content-admin h2:after {
+      content: url("../img/title_bottom.svg");
+      position: absolute;
+      left: 50%;
+      margin-left: -55px;
+      top: 3rem;
+      width: 110px; }
   .content-admin .titre {
     font-size: 1.5rem;
     color: #283a47;
@@ -86,7 +201,7 @@ a {
     .content-admin .titre span {
       font-size: 1rem;
       text-transform: initial;
-      color: #aaaaaa;
+      color: #999999;
       font-weight: 300;
       font-style: italic; }
   .content-admin .button {
@@ -108,7 +223,7 @@ a {
     color: black;
     margin-bottom: 5rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     position: relative; }
     .content h1:after, .content h2:after {
       content: url("../img/title_bottom.svg");
@@ -224,13 +339,13 @@ form.creer {
     margin-left: 100px;
     text-align: left;
     padding: 1rem 0;
-    border-bottom: 1px solid #d0d0d0; }
+    border-bottom: 1px solid #bfbfbf; }
     .membre .membre_info .membre_nom {
       color: #283a47;
       font-weight: 500; }
     .membre .membre_info .membre_role {
       font-style: italic;
-      color: #aaaaaa;
+      color: #999999;
       margin-bottom: 1rem;
       font-size: 0.8rem; }
     .membre .membre_info .membre_description {
@@ -243,12 +358,12 @@ form.creer {
     width: 50px; }
     .membre .modifier_membre svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .membre .modifier_membre svg:hover {
         fill: #283a47; }
     .membre .modifier_membre p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
   .membre .supprimer_membre {
     position: absolute;
     top: 0;
@@ -258,12 +373,12 @@ form.creer {
     width: 50px; }
     .membre .supprimer_membre svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .membre .supprimer_membre svg:hover {
         fill: #283a47; }
     .membre .supprimer_membre p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
 
 .membre_photo_preview {
   position: relative;
@@ -285,7 +400,7 @@ form.creer {
     background-position: 50% 50%;
     background-repeat: no-repeat; }
   .membre_photo_preview p {
-    color: #aaaaaa;
+    color: #999999;
     font-size: 0.8rem; }
 
 .body .cover--home {
@@ -322,7 +437,7 @@ form.creer {
   max-width: 800px;
   margin: 5rem auto;
   text-align: center;
-  color: #666666;
+  color: #333333;
   font-size: 1.1rem; }
 
 .body .accueil_baseline {
@@ -374,6 +489,7 @@ form.creer {
     .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
       width: 100%;
       height: 100vh;
+      min-height: 400px;
       background-size: cover;
       background-position: 50% 50%;
       background-repeat: no-repeat;
@@ -381,17 +497,20 @@ form.creer {
     .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
       padding: 2rem;
       width: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(34, 34, 34, 0.7);
       position: absolute;
       bottom: 0;
       left: 0; }
       .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
         text-transform: uppercase;
-        color: #329899;
-        margin-bottom: 1rem; }
+        color: white;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        font-size: 1.5rem; }
       .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
         color: white;
-        text-align: justify; }
+        text-align: justify;
+        font-weight: 300; }
   .body .accueil_produits .accueil_produit .accueil_produit_atout {
     width: 50%;
     height: 100%;
@@ -414,17 +533,24 @@ form.creer {
         left: 50%; }
         .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div svg {
           width: 50px;
-          fill: #329899; }
+          fill: #222222; }
         .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div p {
+          color: #333333;
           padding: 1rem 1rem 0rem; }
-    .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
-      border-right: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee; }
-    .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child {
-      background: #329899;
-      color: white; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
-        fill: white; }
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
+        border-right: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee; }
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(2) {
+        border-bottom: 1px solid #eeeeee; }
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
+        border-right: 1px solid #eeeeee; }
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:hover {
+        background: #329899;
+        color: white; }
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:hover svg {
+          fill: white; }
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:hover p {
+          color: white; }
 
 .body .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
   float: right; }
@@ -439,6 +565,8 @@ form.creer {
   background-size: cover;
   background-position: center;
   background-attachment: fixed; }
+  .body .accueil_avis h2 {
+    color: white; }
   .body .accueil_avis .overlay {
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
@@ -447,7 +575,7 @@ form.creer {
     overflow: auto;
     text-align: center; }
     .body .accueil_avis .overlay li {
-      padding: 0 14rem; }
+      padding: 2rem 14rem; }
       .body .accueil_avis .overlay li blockquote {
         font-family: initial;
         quotes: "“" "”" "‘" "’";
@@ -480,7 +608,7 @@ form.creer {
 
 .body .accueil_etapes {
   padding: 4rem 2rem;
-  background: #222222;
+  background: #333333;
   color: white;
   overflow: auto; }
   .body .accueil_etapes h2 {
@@ -499,16 +627,18 @@ form.creer {
       font-weight: 700;
       line-height: 6rem;
       margin-bottom: 2rem;
-      font-family: Montserrat; }
+      font-family: "Open sans"; }
       .body .accueil_etapes .accueil_etape .number span {
         font-family: initial;
         font-size: 4rem;
         color: #329899; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte .accueil_etape_titre {
+    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_titre {
       color: white;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      font-weight: 500; }
     .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
-      color: #c4c4c4; }
+      color: white;
+      font-weight: 300; }
 
 .body .accueil_validation {
   padding: 2rem 4rem;
@@ -529,7 +659,7 @@ form.creer {
       left: 50%;
       margin-left: -55px; }
   .body .accueil_membres .accueil_membre {
-    width: 30%;
+    width: 300px;
     height: 100%;
     float: left;
     border: 1px solid #eeeeee;
@@ -546,7 +676,7 @@ form.creer {
     .body .accueil_membres .accueil_membre .accueil_membre_nom {
       text-transform: uppercase; }
     .body .accueil_membres .accueil_membre .accueil_membre_role {
-      color: #aaaaaa;
+      color: #999999;
       font-style: italic;
       margin-bottom: 1rem;
       position: relative; }
@@ -583,8 +713,13 @@ form.creer {
         padding: 1rem; }
 
 .body_admin .accueil_introduction {
-  margin: 2rem;
-  padding: 1rem; }
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  color: #333333;
+  font-size: 1.1rem; }
 
 .body_admin .accueil_baseline {
   color: white;
@@ -690,6 +825,128 @@ form.creer {
   .body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
     float: left; }
 
+.body_admin .accueil_avis {
+  color: white;
+  text-align: center;
+  background-image: url("../img/cover-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; }
+  .body_admin .accueil_avis .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding: 4rem 0rem;
+    overflow: auto;
+    text-align: center; }
+    .body_admin .accueil_avis .overlay li {
+      padding: 0 14rem; }
+      .body_admin .accueil_avis .overlay li blockquote {
+        font-family: initial;
+        quotes: "“" "”" "‘" "’";
+        display: inline-block;
+        position: relative; }
+        .body_admin .accueil_avis .overlay li blockquote:before {
+          position: absolute;
+          color: white;
+          content: open-quote;
+          font-size: 4rem;
+          line-height: 1rem;
+          left: -3rem; }
+        .body_admin .accueil_avis .overlay li blockquote:after {
+          position: absolute;
+          color: white;
+          content: close-quote;
+          font-size: 4rem;
+          line-height: 1rem;
+          vertical-align: middle;
+          margin-left: 0.5rem;
+          right: -3rem;
+          bottom: -28px; }
+      .body_admin .accueil_avis .overlay li p {
+        display: inline;
+        font-size: 1.5rem; }
+      .body_admin .accueil_avis .overlay li span {
+        display: block;
+        margin-top: 2rem;
+        color: #329899; }
+
+.body_admin .accueil_etapes {
+  padding: 4rem 2rem;
+  background: #222222;
+  color: white;
+  overflow: auto; }
+  .body_admin .accueil_etapes h2 {
+    color: white;
+    text-align: center; }
+    .body_admin .accueil_etapes h2:after {
+      left: 50%;
+      margin-left: -55px; }
+  .body_admin .accueil_etapes .accueil_etape {
+    margin-top: 2rem;
+    width: 25%;
+    float: left;
+    padding: 0 2rem; }
+    .body_admin .accueil_etapes .accueil_etape .number {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 6rem;
+      margin-bottom: 2rem;
+      font-family: "Open sans"; }
+      .body_admin .accueil_etapes .accueil_etape .number span {
+        font-family: initial;
+        font-size: 4rem;
+        color: #329899; }
+    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .accueil_etape_titre {
+      color: white;
+      text-transform: uppercase; }
+    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
+      color: #b3b3b3; }
+
+.body_admin .accueil_validation {
+  padding: 2rem 4rem;
+  text-align: center;
+  font-size: 1.2rem;
+  background: #329899;
+  color: white;
+  overflow: auto; }
+
+.body_admin .accueil_membres {
+  width: 100%;
+  max-width: 1000px;
+  margin: 4rem auto;
+  overflow: auto; }
+  .body_admin .accueil_membres h2 {
+    text-align: center; }
+    .body_admin .accueil_membres h2:after {
+      left: 50%;
+      margin-left: -55px; }
+  .body_admin .accueil_membres .accueil_membre {
+    width: 300px;
+    height: 100%;
+    float: left;
+    border: 1px solid #eeeeee;
+    text-align: center;
+    display: inline-block; }
+    .body_admin .accueil_membres .accueil_membre:nth-child(3) {
+      margin: 0 5%; }
+    .body_admin .accueil_membres .accueil_membre .accueil_membre_photo {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 1rem; }
+    .body_admin .accueil_membres .accueil_membre .accueil_membre_nom {
+      text-transform: uppercase; }
+    .body_admin .accueil_membres .accueil_membre .accueil_membre_role {
+      color: #999999;
+      font-style: italic;
+      margin-bottom: 1rem;
+      position: relative; }
+    .body_admin .accueil_membres .accueil_membre .accueil_membre_description {
+      text-align: justify;
+      padding: 2rem; }
+
 .produit {
   width: 100%;
   margin: 1rem 0;
@@ -706,13 +963,13 @@ form.creer {
     margin-left: 170px;
     text-align: left;
     padding: 1rem 0;
-    border-bottom: 1px solid #d0d0d0; }
+    border-bottom: 1px solid #bfbfbf; }
     .produit .produit_info .produit_nom {
       color: #283a47;
       font-weight: 500; }
     .produit .produit_info .produit_lien {
       font-style: italic;
-      color: #aaaaaa;
+      color: #999999;
       font-size: 0.8rem;
       display: inline-block;
       margin-bottom: 1rem; }
@@ -724,12 +981,12 @@ form.creer {
     width: 50px; }
     .produit .modifier_produit svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .produit .modifier_produit svg:hover {
         fill: #283a47; }
     .produit .modifier_produit p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
   .produit .supprimer_produit {
     position: absolute;
     top: 0;
@@ -739,12 +996,12 @@ form.creer {
     width: 50px; }
     .produit .supprimer_produit svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .produit .supprimer_produit svg:hover {
         fill: #283a47; }
     .produit .supprimer_produit p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
 
 .produit_couverture_preview {
   position: relative;
@@ -765,7 +1022,7 @@ form.creer {
     background-position: 50% 50%;
     background-repeat: no-repeat; }
   .produit_couverture_preview p {
-    color: #aaaaaa;
+    color: #999999;
     font-size: 0.8rem; }
 
 .gamme {
@@ -784,13 +1041,13 @@ form.creer {
     margin-left: 170px;
     text-align: left;
     padding: 1rem 0;
-    border-bottom: 1px solid #d0d0d0; }
+    border-bottom: 1px solid #bfbfbf; }
     .gamme .gamme_info .gamme_nom {
       color: #283a47;
       font-weight: 500; }
     .gamme .gamme_info .gamme_lien {
       font-style: italic;
-      color: #aaaaaa;
+      color: #999999;
       font-size: 0.8rem;
       display: inline-block;
       margin-bottom: 1rem; }
@@ -802,12 +1059,12 @@ form.creer {
     width: 50px; }
     .gamme .modifier_gamme svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .gamme .modifier_gamme svg:hover {
         fill: #283a47; }
     .gamme .modifier_gamme p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
   .gamme .supprimer_gamme {
     position: absolute;
     top: 0;
@@ -817,12 +1074,12 @@ form.creer {
     width: 50px; }
     .gamme .supprimer_gamme svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .gamme .supprimer_gamme svg:hover {
         fill: #283a47; }
     .gamme .supprimer_gamme p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
 
 .gamme_couverture_preview {
   position: relative;
@@ -843,21 +1100,21 @@ form.creer {
     background-position: 50% 50%;
     background-repeat: no-repeat; }
   .gamme_couverture_preview p {
-    color: #aaaaaa;
+    color: #999999;
     font-size: 0.8rem; }
 
 .faq {
   width: 100%;
   margin: 2rem 0;
   position: relative;
-  border-bottom: 1px solid #d0d0d0; }
+  border-bottom: 1px solid #bfbfbf; }
   .faq .faq_question {
     color: #283a47;
     font-weight: 500;
     margin-bottom: 1rem; }
   .faq .faq_separation {
     font-style: italic;
-    color: #aaaaaa;
+    color: #999999;
     margin-bottom: 1rem;
     font-size: 0.8rem; }
   .faq .faq_reponse {
@@ -871,12 +1128,12 @@ form.creer {
     width: 50px; }
     .faq .modifier_faq svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .faq .modifier_faq svg:hover {
         fill: #283a47; }
     .faq .modifier_faq p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
   .faq .supprimer_faq {
     position: absolute;
     top: 0;
@@ -886,12 +1143,12 @@ form.creer {
     width: 50px; }
     .faq .supprimer_faq svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .faq .supprimer_faq svg:hover {
         fill: #283a47; }
     .faq .supprimer_faq p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
 
 .faq_photo_preview {
   position: relative;
@@ -913,7 +1170,7 @@ form.creer {
     background-position: 50% 50%;
     background-repeat: no-repeat; }
   .faq_photo_preview p {
-    color: #aaaaaa;
+    color: #999999;
     font-size: 0.8rem; }
 
 .partenaire {
@@ -929,13 +1186,13 @@ form.creer {
     margin-left: 90px;
     text-align: left;
     padding: 1rem 0;
-    border-bottom: 1px solid #d0d0d0; }
+    border-bottom: 1px solid #bfbfbf; }
     .partenaire .partenaire_info .partenaire_nom {
       color: #283a47;
       font-weight: 500; }
     .partenaire .partenaire_info .partenaire_type {
       font-style: italic;
-      color: #aaaaaa;
+      color: #999999;
       font-size: 0.8rem; }
   .partenaire .modifier_partenaire {
     position: absolute;
@@ -945,12 +1202,12 @@ form.creer {
     width: 50px; }
     .partenaire .modifier_partenaire svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .partenaire .modifier_partenaire svg:hover {
         fill: #283a47; }
     .partenaire .modifier_partenaire p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
   .partenaire .supprimer_partenaire {
     position: absolute;
     bottom: 1rem;
@@ -960,12 +1217,12 @@ form.creer {
     width: 50px; }
     .partenaire .supprimer_partenaire svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .partenaire .supprimer_partenaire svg:hover {
         fill: #283a47; }
     .partenaire .supprimer_partenaire p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
 
 .reseau_social_logo_preview {
   position: relative;
@@ -983,7 +1240,7 @@ form.creer {
     .reseau_social_logo_preview label img {
       height: 100px; }
   .reseau_social_logo_preview p {
-    color: #aaaaaa;
+    color: #999999;
     font-size: 0.8rem; }
 
 .reseaux_sociaux {
@@ -998,13 +1255,13 @@ form.creer {
     margin-left: 60px;
     text-align: left;
     padding: 1rem 0;
-    border-bottom: 1px solid #d0d0d0; }
+    border-bottom: 1px solid #bfbfbf; }
     .reseaux_sociaux .reseaux_sociaux_info .reseaux_sociaux_nom {
       color: #283a47;
       font-weight: 500; }
     .reseaux_sociaux .reseaux_sociaux_info .reseaux_sociaux_lien {
       font-style: italic;
-      color: #aaaaaa;
+      color: #999999;
       font-size: 0.8rem; }
   .reseaux_sociaux .modifier_reseaux_sociaux {
     position: absolute;
@@ -1014,12 +1271,12 @@ form.creer {
     width: 50px; }
     .reseaux_sociaux .modifier_reseaux_sociaux svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .reseaux_sociaux .modifier_reseaux_sociaux svg:hover {
         fill: #283a47; }
     .reseaux_sociaux .modifier_reseaux_sociaux p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
   .reseaux_sociaux .supprimer_reseaux_sociaux {
     position: absolute;
     bottom: 1rem;
@@ -1029,12 +1286,12 @@ form.creer {
     width: 50px; }
     .reseaux_sociaux .supprimer_reseaux_sociaux svg {
       width: 30px;
-      fill: #aaaaaa; }
+      fill: #999999; }
       .reseaux_sociaux .supprimer_reseaux_sociaux svg:hover {
         fill: #283a47; }
     .reseaux_sociaux .supprimer_reseaux_sociaux p {
       font-size: 10px;
-      color: #aaaaaa; }
+      color: #999999; }
 
 .reseau_social_logo_preview {
   position: relative;
@@ -1052,12 +1309,12 @@ form.creer {
     .reseau_social_logo_preview label img {
       height: 100px; }
   .reseau_social_logo_preview p {
-    color: #aaaaaa;
+    color: #999999;
     font-size: 0.8rem; }
 
 .body_admin {
   background: #eeeeee;
-  min-width: 1000px; }
+  min-width: 1100px; }
 
 .connexion_header {
   background: #1f2d37;

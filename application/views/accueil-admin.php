@@ -101,30 +101,172 @@
 
 				</section>
 
-				<section class="accueil_membres">
+				<section class="accueil_etapes">
+						
+				<h2>Les étapes clées pour mener à bien votre projet</h2>
 
-					<h2 class="titre">Les membres</h2>
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">01<span>.</span></p>
+					<p class="accueil_etape_texte">
+						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+					</p>
+				</div>
 
-					<?php foreach ($membres as $membre): ?>
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">02<span>.</span></p>
+					<p class="accueil_etape_texte">
+						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+					</p>
+				</div>
+
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">03<span>.</span></p>
+					<p class="accueil_etape_texte">
+						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+					</p>
+				</div>
+
+				<div class="accueil_etape">
+					<span>Étape n°</span><br>
+					<p class="number">04<span>.</span></p>
+					<p class="accueil_etape_texte">
+						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+					</p>
+				</div>
+
+			</section>
+
+			<section class="accueil_validation">
+
+				<p>
+				Une fois le feu vert de la Marie et le délai de recours des tiers passé, la fabrication est alors lancé.
+				Un contrat sera signé entre les 2 parties dans le but de clarifier les étapes à venir et les obligations de chacun.
+				</p>
+
+			</section>
+
+			<section class="accueil_membres">
+
+				<h2>Qui sommes nous ?</h2>
+
+				<?php foreach ($membres as $membre): ?>
+				
+					<div class="accueil_membre">
+						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
+						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
+						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
+					</div>
+
+				<?php endforeach; ?>
+
+			</section>
+
+			<section class="accueil_avis my-slider">
+				<ul class="overlay">
+					<li>
+						<blockquote><p>On est pas bien ? paisibles, à la fraiche, décontractés du gland. … et on bandera quand on aura envie de bander</p></blockquote><br>
+						<span>Les valseuses</span>
+					</li>
+					<li>
+						<blockquote><p>La capote, c’est le soulier de verre de notre génération. On l’enfile quand on rencontre une inconnue, on danse toute la nuit, et puis on la balance</p></blockquote><br>
+						<span>Fight Club</span>
+					</li>
+					<li>
+						<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un pistolet chargé et ceux qui creusent. Toi tu creuses</p></blockquote><br>
+						<span>Le bon, la brute et le truand</span>
+					</li>
+				</ul>
+			</section>
+
+			<section class="accueil_membres">
+
+				<h2>Les derniers articles</h2>
+
+				<?php foreach ($membres as $membre): ?>
+				
+					<div class="accueil_membre">
+						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
+						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
+						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
+					</div>
+
+				<?php endforeach; ?>
+
+			</section>
+
+				<footer>
+
+					<div class="footer_bloc">
+						<ul class="texte">
+							<li>Société</li>
+							<li>
+								<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+									Contact
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url("faq"); ?>">
+									Foire aux questions
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+									Mentions légales
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+									Conditions générales
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="footer_bloc">
+						<ul class="texte">
+							<li>Horaires</li>
+							<li>Du lundi au vendredi</li>
+							<li>9:00 - 12:00 - 14:00 - 18:00</li>
+							<li>Samedi</li>
+							<li>9:00 - 12:00</li>
+						</ul>
+					</div>
+
+					<div class="footer_bloc">
+						<ul class="texte">
+							<li>Contact</li>
+							<li>59 avenue de L'Union</li>
+							<li>59100 Tourcoing, France</li>
+							<li>+33 6 07 50 34 86</li>
+							<li>conceptcub@gmail.com</li>
+						</ul>
+					</div>
+
+					<div class="footer_bloc">
+						<p><b>Suivez nous</b></p>
+						<ul class="reseau_social">
+							<?php foreach ($reseaux_sociaux as $reseau_social): ?>
+								<?php
+									$reseaux_sociaux_id = $reseau_social['idReseauxSociaux'];
+								?>
+									<a target="_blank" href="<?= $reseau_social['lien'] ?>">
+										<li>
+											<img src="<?=img_url()?>reseaux_sociaux/<?= $reseau_social['logo']; ?>">
+										</li>
+									</a>
+							<?php endforeach; ?>
+						</ul>
+						<p>© Conceptcub - Tous droits réservés</p>
+					</div>
 					
-						<?php
-							$membre_id = $membre['idMembre'];
-						?>
-
-						<article class="membre">
-
-							<img class="membre_photo" src="<?=img_url()?>membre/<?= $membre['photo']; ?>">
-							<div class="membre_info">
-								<p class="membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-								<p class="membre_role"><?= $membre['role'] ?></p>
-								<p class="membre_description"><?= $membre['description'] ?></p>	
-							</div>
-
-						</article>
-					
-					<?php endforeach; ?>
-
-				</section>
+				</footer>
 
 			</div>
 

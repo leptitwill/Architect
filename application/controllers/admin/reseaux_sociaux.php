@@ -127,6 +127,7 @@ class Reseaux_sociaux extends CI_Controller
 		$config['allowed_types'] = 'svg|gif|png|jpg';
 		$config['file_name'] = strtolower($nom_logo);
 		$config['min_height']  = '40';
+		$config['overwrite']  = TRUE;
 
 		$this->load->library('upload', $config);
 

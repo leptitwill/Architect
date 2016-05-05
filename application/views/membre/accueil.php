@@ -36,6 +36,7 @@
 					<div class="membre_info">
 						<p class="membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
 						<p class="membre_role"><?= $membre['role'] ?></p>
+						<p class="membre_description"><?= $membre['description'] ?></p>
 					</div>
 
 				</article>

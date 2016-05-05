@@ -142,7 +142,7 @@
 
 			</section>
 
-			<section class="accueil_membres">
+			<!-- <section class="accueil_membres">
 
 				<h2>Qui sommes nous ?</h2>
 
@@ -156,23 +156,49 @@
 
 				<?php endforeach; ?>
 
+			</section> -->
+
+			<section class="accueil_avis">
+
+				<div class="overlay">
+
+					<h2>Les avis clients</h2>
+
+					<div class="my-slider">
+						<ul>
+							<li>
+								<blockquote><p>On est pas bien ? paisibles, à la fraiche, décontractés du gland. … et on bandera quand on aura envie de bander</p></blockquote><br>
+								<span>Les valseuses</span>
+							</li>
+							<li>
+								<blockquote><p>La capote, c’est le soulier de verre de notre génération. On l’enfile quand on rencontre une inconnue, on danse toute la nuit, et puis on la balance</p></blockquote><br>
+								<span>Fight Club</span>
+							</li>
+							<li>
+								<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un pistolet chargé et ceux qui creusent. Toi tu creuses</p></blockquote><br>
+								<span>Le bon, la brute et le truand</span>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+
 			</section>
 
-			<section class="accueil_avis my-slider">
-				<ul class="overlay">
-					<li>
-						<blockquote><p>On est pas bien ? paisibles, à la fraiche, décontractés du gland. … et on bandera quand on aura envie de bander</p></blockquote><br>
-						<span>Les valseuses</span>
-					</li>
-					<li>
-						<blockquote><p>La capote, c’est le soulier de verre de notre génération. On l’enfile quand on rencontre une inconnue, on danse toute la nuit, et puis on la balance</p></blockquote><br>
-						<span>Fight Club</span>
-					</li>
-					<li>
-						<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un pistolet chargé et ceux qui creusent. Toi tu creuses</p></blockquote><br>
-						<span>Le bon, la brute et le truand</span>
-					</li>
-				</ul>
+			<section class="accueil_membres">
+
+				<h2>Les derniers articles</h2>
+
+				<?php foreach ($membres as $membre): ?>
+				
+					<div class="accueil_membre">
+						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
+						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
+						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
+					</div>
+
+				<?php endforeach; ?>
+
 			</section>
 
 		</section>

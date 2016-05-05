@@ -9,6 +9,7 @@
 		<?=css('sweetalert.css')?>
 		<?=css('unslider.css')?>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body class="body_admin">

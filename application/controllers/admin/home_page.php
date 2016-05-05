@@ -9,6 +9,9 @@ class Home_page extends CI_Controller
 		$this->load->model('produit_model');
 		$this->load->model('membre_model');
 		$this->load->model('accueil_model');
+		$this->load->model('reseaux_sociaux_model');
+
+		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
 
 		$this->id = $this->session->userdata('idMembre');
 		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
