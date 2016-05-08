@@ -21,16 +21,16 @@
 				</div><br>
 
 				<label for="prenom">Prénom</label>
-				<input type="input" name="prenom" placeholder="Alain"/><br />
+				<input type="text" name="prenom" placeholder="Alain"/><br />
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Delon"/><br />
+				<input type="text" name="nom" placeholder="Delon"/><br />
 
 				<label for="email">Email</label>
 				<input type="mail" name="email" placeholder="alain.delon@gmail.com"/><br />
 
 				<label for="role">Rôle</label>
-				<input type="input" name="role" placeholder="Acteur et réalisateur"/><br />
+				<input type="text" name="role" placeholder="Acteur et réalisateur"/><br />
 
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Alain Delon, né le 8 novembre 1935 à Sceaux, est un acteur et homme d'affaires français ..."></textarea><br />

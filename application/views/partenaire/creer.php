@@ -22,10 +22,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nexity"/><br />
+				<input type="text" name="nom" placeholder="Nexity"/><br />
 
 				<label for="type">Domaine d'activité</label>
-				<input type="input" name="type" placeholder="Promoteur immobilier"/><br />
+				<input type="text" name="type" placeholder="Promoteur immobilier"/><br />
 
 				<input type="submit" class="button" name="submit" value="Créer un nouveau partenaire" />
 

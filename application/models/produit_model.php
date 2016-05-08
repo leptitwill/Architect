@@ -42,11 +42,13 @@ class Produit_model extends CI_Model
 		return $query->result_array();
 	}
 
-	public function ajouter_produit($nom, $description, $couverture, $url)
+	public function ajouter_produit($nom, $description, $couverture, $titre, $sous_titre, $url)
 	{
 		$this->db->set('nom', $nom);
 		$this->db->set('description', $description);
 		$this->db->set('couverture', $couverture);
+		$this->db->set('titre', $titre);
+		$this->db->set('sousTitre', $sous_titre);
 		$this->db->set('url', $url);
 		$this->db->set('dateAjout', 'NOW()', false);
 		$this->db->set('dateModification', 'NOW()', false);
@@ -54,12 +56,14 @@ class Produit_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_produit($id, $nom, $description, $couverture, $url)
+	public function modifier_produit($id, $nom, $description, $couverture, $titre, $sous_titre, $url)
 	{
 		$data = array(
 					'nom' => $nom,
 					'description' => $description,
 					'couverture' => $couverture,
+					'titre' => $titre,
+					'sousTitre' => $sous_titre,
 					'url' => $url,
 				);
 

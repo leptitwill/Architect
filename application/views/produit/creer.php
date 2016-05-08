@@ -20,10 +20,16 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Officecub 1"/><br />
+				<input type="text" name="nom" placeholder="Officecub 1"/><br />
 
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="​Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."></textarea><br />
+
+				<label for="titre">Titre</label>
+				<textarea name="titre" placeholder="​Nos studio de jardin"></textarea><br />
+
+				<label for="sous_titre">Sous titre</label>
+				<textarea name="sous_titre" placeholder="​Offrir une réponse efficace aux vraies problématiques sociétales"></textarea><br />
 
 				<input type="submit" class="button" name="submit" value="Créer un nouveau produit" />
 

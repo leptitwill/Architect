@@ -14,7 +14,7 @@
 			<?php echo form_open_multipart('galerie/upload', $attributs); ?>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nom de la galerie"/><br />
+				<input type="text" name="nom" placeholder="Nom de la galerie"/><br />
 
 				<div class="input-file-container">
 					<input class="input-file" id="my-file" type="file" name="userfile[]" multiple>

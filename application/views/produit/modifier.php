@@ -1,6 +1,6 @@
 		<section class="content-admin">
 
-			<h1 class="titre"><?= $titre ?></h1>
+			<h1 class="titre"><?= $titre ?><br><span>Pour modifier le contenu cliquez sur les paragraphes</span></h1>
 
 			<div class="succes">
 				<?php echo $succes;?>
@@ -24,10 +24,16 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Officecub 1" value="<?= $produit[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Officecub 1" value="<?= $produit[0]['nom'] ?>"/><br />
 
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."><?= $produit[0]['description'] ?></textarea><br />
+
+				<label for="titre">Titre</label>
+				<input type="text" name="titre" placeholder="Nos studio de jardin" value="<?= $produit[0]['titre'] ?>"/><br />
+
+				<label for="sous_titre">Sous titre</label>
+				<input type="text" name="sous_titre" placeholder="Offrir une réponse efficace aux vraies problématiques sociétales" value="<?= $produit[0]['sousTitre'] ?>"/><br />
 
 				<input type="submit" class="button" name="submit" value="Mettre à jour le produit" />
 

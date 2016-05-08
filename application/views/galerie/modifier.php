@@ -18,16 +18,16 @@
 			<?php echo form_open_multipart('membre/update/'.$membre_id, $attributs); ?>
 
 				<label for="prenom">Prénom</label>
-				<input type="input" name="prenom" placeholder="Votre prénom" value="<?= $membre[0]['prenom'] ?>"/><br />
+				<input type="text" name="prenom" placeholder="Votre prénom" value="<?= $membre[0]['prenom'] ?>"/><br />
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Votre nom" value="<?= $membre[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Votre nom" value="<?= $membre[0]['nom'] ?>"/><br />
 
 				<label for="email">Email</label>
 				<input type="mail" name="email" placeholder="Votre email" value="<?= $membre[0]['email'] ?>"/><br />
 
 				<label for="role">Rôle</label>
-				<input type="input" name="role" placeholder="Rôle du membre" value="<?= $membre[0]['role'] ?>"/><br />
+				<input type="text" name="role" placeholder="Rôle du membre" value="<?= $membre[0]['role'] ?>"/><br />
 
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Description du membre"><?= $membre[0]['description'] ?></textarea><br />

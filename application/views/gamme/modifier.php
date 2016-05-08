@@ -18,7 +18,7 @@
 			<?php echo form_open_multipart('gamme/update/'.$gamme_id, $attributs); ?>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nom de la gamme" value="<?= $gamme[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Nom de la gamme" value="<?= $gamme[0]['nom'] ?>"/><br />
 
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Description de la gamme"><?= $gamme[0]['description'] ?></textarea><br />

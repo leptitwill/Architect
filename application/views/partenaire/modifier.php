@@ -26,10 +26,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nexity" value="<?= $partenaire[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Nexity" value="<?= $partenaire[0]['nom'] ?>"/><br />
 
 				<label for="type">Domaine d'activité</label>
-				<input type="input" name="type" placeholder="Promoteur immobilier" value="<?= $partenaire[0]['type'] ?>"/><br />
+				<input type="text" name="type" placeholder="Promoteur immobilier" value="<?= $partenaire[0]['type'] ?>"/><br />
 
 				<input type="submit" class="button" name="submit" value="Mettre à jour le partenaire" />
 

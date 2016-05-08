@@ -29,7 +29,7 @@
 				<?php echo form_open('admin/login', $attributs); ?>
 
 					<label for="nom">Adresse email</label>
-					<input type="input" name="email"/><br />
+					<input type="mail" name="email"/><br />
 
 					<label for="nom">Mot de passe</label>
 					<input type="password" name="mdp"/><br />

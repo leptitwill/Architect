@@ -14,7 +14,7 @@
 			<?php echo form_open_multipart('gamme/upload', $attributs); ?>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Nom de la gamme"/><br />
+				<input type="text" name="nom" placeholder="Nom de la gamme"/><br />
 
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Description de la gamme"></textarea><br />

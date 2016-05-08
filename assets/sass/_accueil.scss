@@ -132,7 +132,7 @@
 
 					.accueil_produit_nom {
 						text-transform: uppercase;
-						color: white;
+						color: $vert;
 						margin-bottom: 1rem;
 						font-weight: 400;
 						font-size: 1.5rem;
@@ -159,6 +159,7 @@
 					float: left;
 					position: relative;
 					text-align: center;
+					transition: 0.3s;
 
 					div {
 						width: 100%;
@@ -244,7 +245,7 @@
 			text-align: center;
 
 			li {
-				padding: 2rem 14rem;
+				padding: 2rem 4rem;
 
 				blockquote {
 					font-family: initial;
@@ -283,6 +284,28 @@
 					display: block;
 					margin-top: 2rem;
 					color: $vert;
+				}
+			}
+
+			.unslider {
+				width: 100%;
+				max-width: 800px;
+				margin: auto;
+				overflow: visible;
+
+				.unslider-arrow {
+					top: 100%;
+					left: 50%;
+
+					&.next {
+						left: auto;
+						right: 50%;
+						margin-right: -50px;
+					}
+
+					&.prev {
+						margin-left: -50px;
+					}
 				}
 			}
 		}

@@ -1,12 +1,17 @@
-		<section class="cover" style="background-image: url('<?=img_url()?>produit/<?=$produit[0]['couverture']?>')"></section>
+		<section class="cover" style="background-image: url('<?=img_url()?>produit/<?=$produit[0]['couverture']?>')">
+			<div class="overlay">
+				<div class="cover_titre">
+					<h1><?= $produit[0]['titre'] ?></h1>
+					<h3><?= $produit[0]['sousTitre'] ?></h3>
+				</div>
+			</div>
+		</section>
 
 		<section class="content">
 
-			<h1 class="titre"><?= $produit[0]['nom'] ?></h1>
-
-			<p class="description">
-				<?= $produit[0]['description'] ?> 
-			</p>
+			<section class="produit_introduction">
+				<?= $produit[0]['description'] ?>
+			</section>
 
 			<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
 				
@@ -15,6 +20,15 @@
 						<span><?= $gamme['nom'] ?></span>
 					</article>
 				</a>
+
+			<?php endforeach ?>
+
+			<?php foreach ($avantages as $avantage): ?>	
+
+			<img src="<?= $avantage['icone'] ?>">
+
+				<span><?= $avantage['nom'] ?></span>
+				<span><?= $avantage['description'] ?></span>
 
 			<?php endforeach ?>
 

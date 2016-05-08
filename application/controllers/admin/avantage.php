@@ -1,6 +1,6 @@
 <?php
 
-class Produit extends CI_Controller
+class Avantage extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class Produit extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('produit_model');
+		$this->load->model('avantage_model');
 		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
@@ -23,83 +23,74 @@ class Produit extends CI_Controller
 	
 	public function index()
 	{
-		$this->data['titre'] = 'Gestion des produits';
-		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['titre'] = 'Gestion des avantages';
+		$this->data['avantages'] = $this->avantage_model->lister_avantage();
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('produit/accueil', $this->data);
+		$this->load->view('avantage/accueil', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()
 	{
-		$this->data['titre'] = 'Ajouter un nouveau produit';
+		$this->data['titre'] = 'Ajouter un nouvel avantage';
 		$this->data['attributs'] = array('class' => 'creer');
-		$id = $this->session->userdata('idMembre');
-		$this->data['membre'] = $this->membre_model->selectionner_membre($id);
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
+
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('produit/creer', $this->data);
+		$this->load->view('avantage/creer', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$this->data['titre'] = 'Modifier un produit';
+		$this->data['titre'] = 'Modifier un avantage';
 		$this->data['attributs'] = array('class' => 'creer');
-		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$this->data['profils'] = $this->profil_model->lister_profil();
+		$this->data['avantage'] = $this->avantage_model->selectionner_avantage($id);
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('produit/modifier', $this->data);
+		$this->load->view('avantage/modifier', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
 	{
-		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$data['avantage'] = $this->avantage_model->selectionner_avantage($id);
 
-		$this->produit_model->supprimer_produit($id);
+		$this->avantage_model->supprimer_avantage($id);
 
-		$this->session->set_flashdata('succes','<p>Le produit à bien était supprimé</p>');
-		redirect("admin/produit");
+		$this->session->set_flashdata('succes','<p>Le avantage à bien était supprimé</p>');
+		redirect("admin/avantage");
 	}
 
 	public function upload()
 	{
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
-		$titre = $this->input->post('titre');
-		$sous_titre = $this->input->post('sous_titre');
-		$url = str_replace(" ","-",$nom);
-		$url = strtolower($url);
-		$url = $this->supprimer_accent($url);
-		$nom_image = str_replace("-","_",$url);
-		$nom_image = $this->supprimer_accent($nom_image);
+		$nom_logo = $this->supprimer_accent($nom);
 
-		$config['upload_path'] = './assets/img/produit';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = $nom_image;
-		$config['min_width']  = '1920';
-		$config['min_height']  = '400';
+		$config['upload_path'] = './assets/img/avantage';
+		$config['allowed_types'] = 'svg|gif|jpg|png';
+		$config['file_name'] = strtolower($nom_logo);
+		$config['min_height']  = '50';
 
 		$this->load->library('upload', $config);
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
-		$this->form_validation->set_rules('titre', 'titre', 'required');
-		$this->form_validation->set_rules('sous_titre', 'sous titre', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/creer");
+			redirect("admin/avantage/creer");
 		}
 
 		elseif ( ! $this->upload->do_upload())
@@ -107,7 +98,7 @@ class Produit extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/creer");
+			redirect("admin/avantage/creer");
 		}
 
 		else
@@ -115,50 +106,53 @@ class Produit extends CI_Controller
 			$data = $this->upload->data();
 			$this->redimensionner($data);
 
-			$couverture = $data['file_name'];
+			$icone = $data['file_name'];
 
-			$this->produit_model->ajouter_produit($nom, $description, $couverture, $titre, $sous_titre, $url);
+			$this->avantage_model->ajouter_avantage($nom, $description, $icone);
 
-			$this->session->set_flashdata('succes','<p>Le produit à bien était ajouté</p>');
-			redirect("admin/produit");
+			$this->session->set_flashdata('succes','<p>L\'avantage à bien était ajouté</p>');
+			redirect("admin/avantage");
 		}
 	}
 
 	public function update($id)
 	{
-		$produit = $this->produit_model->selectionner_produit_par_id($id);
+		$avantage = $this->avantage_model->selectionner_avantage($id);
 
 		$nom = $this->input->post('nom');
+		$prenom = $this->input->post('prenom');
+		$email = $this->input->post('email');
+		$role = $this->input->post('role');
 		$description = $this->input->post('description');
-		$titre = $this->input->post('titre');
-		$sous_titre = $this->input->post('sous_titre');
-		$url = str_replace(" ","-",$nom);
-		$url = strtolower($url);
-		$url = $this->supprimer_accent($url);
-		$nom_image = str_replace("-","_",$url);
-		$nom_image = $this->supprimer_accent($nom_image);
+		$mdp = $this->input->post('mot_de_passe');
+		$profil = (int)$this->input->post('profil');
+		$photo = $nom . '_' . $prenom;
+		$nom_photo = $this->supprimer_accent($photo);
 		$fichier_envoye = $_FILES['userfile']['name'];
 
-		$config['upload_path'] = './assets/img/produit';
+		$config['upload_path'] = './assets/img/avantage';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = $nom_image;
-		$config['min_width']  = '1920';
-		$config['min_height']  = '400';
+		$config['file_name'] = strtolower($nom_photo);
+		$config['min_width']  = '500';
+		$config['min_height']  = '500';
 		$config['overwrite']  = TRUE;
 
 		$this->load->library('upload', $config);
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
+		$this->form_validation->set_rules('prenom', 'prenom', 'required');
+		$this->form_validation->set_rules('email', 'email', 'required');
+		$this->form_validation->set_rules('role', 'role', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
-		$this->form_validation->set_rules('titre', 'titre', 'required');
-		$this->form_validation->set_rules('sous_titre', 'sous titre', 'required');
+		$this->form_validation->set_rules('mot_de_passe', 'mot de passe', 'required');
+		$this->form_validation->set_rules('profil', 'profil', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/modifier/$id");
+			redirect("admin/avantage/modifier/$id");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
@@ -166,7 +160,7 @@ class Produit extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/modifier/$id");
+			redirect("admin/avantage/modifier/$id");
 		}
 
 		else
@@ -175,19 +169,30 @@ class Produit extends CI_Controller
 			{
 				$data = $this->upload->data();
 				$this->redimensionner($data);
-				
-				$couverture = $data['file_name'];
+				$this->recadrer($data);
+
+				$photo_profil = $data['file_name'];
 			}
 
 			else 
 			{
-				$couverture = $produit[0]['couverture'];
+				$photo_profil = $avantage[0]['photo'];
 			}
 
-			$this->produit_model->modifier_produit($id, $nom, $description, $couverture, $titre, $sous_titre, $url);
+			if ($mdp != $avantage[0]['motDePasse'])
+			{
+				$mot_de_passe = sha1($mdp);
+			}
 
-			$this->session->set_flashdata('succes','<p>Le produit à bien était modifié</p>');
-			redirect("admin/produit");
+			else 
+			{
+				$mot_de_passe = $avantage[0]['motDePasse'];
+			}
+
+			$this->avantage_model->modifier_avantage($id, $nom, $prenom, $email, $role, $description, $mot_de_passe, $profil, $photo_profil);
+
+			$this->session->set_flashdata('succes','<p>Le avantage à bien était modifié</p>');
+			redirect("admin/avantage");
 		}
 	}
 
@@ -197,12 +202,13 @@ class Produit extends CI_Controller
 		$config['source_image'] =$data['full_path'];
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
-		$config['width'] = 1920;
+		$config['width'] = 50;
+		$config['master_dim'] = 'height';
 		$config['quality'] = 100;
-
 		$this->image_lib->initialize($config);
 		$this->image_lib->resize();
 	}
+
 
 	function supprimer_accent($mot)
 	{

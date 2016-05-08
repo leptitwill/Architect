@@ -22,10 +22,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="input" name="nom" placeholder="Facebook"/><br />
+				<input type="text" name="nom" placeholder="Facebook"/><br />
 
 				<label for="lien">Lien</label>
-				<input type="input" name="lien" placeholder="www.facebook.com/conceptcub"/><br />
+				<input type="text" name="lien" placeholder="www.facebook.com/conceptcub"/><br />
 
 				<input type="submit" class="button" name="submit" value="Créer un nouveau reseau social" />
 

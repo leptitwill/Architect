@@ -64,7 +64,7 @@ footer {
     display: inline-block;
     font-size: 0.8rem;
     line-height: 1.2rem;
-    min-height: 111px;
+    min-height: 120px;
     vertical-align: top; }
     footer .footer_bloc ul.texte li {
       font-family: "Open sans" !important; }
@@ -73,7 +73,8 @@ footer {
         margin-bottom: 1rem; }
   footer .footer_bloc_newsletter {
     color: #999999;
-    width: 40%;
+    max-width: 40%;
+    float: right;
     display: inline-block;
     font-size: 0.8rem;
     line-height: 1.2rem;
@@ -88,7 +89,8 @@ footer {
       margin-top: 1rem; }
       footer .footer_bloc_newsletter form input {
         padding: 1rem 1.5rem;
-        border: 0; }
+        border: 0;
+        width: 250px; }
       footer .footer_bloc_newsletter form span {
         margin-left: -4px; }
         footer .footer_bloc_newsletter form span button {
@@ -169,6 +171,38 @@ footer {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-color: #eeeeee; }
+  .cover .overlay {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    z-index: 1;
+    background-color: rgba(34, 34, 34, 0.4);
+    color: white;
+    height: 100%;
+    width: 100%; }
+    .cover .overlay .cover_titre {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+      .cover .overlay .cover_titre h1 {
+        font-size: 2rem;
+        margin-bottom: 5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        position: relative; }
+        .cover .overlay .cover_titre h1:after {
+          content: url("../img/title_bottom.svg");
+          position: absolute;
+          left: 50%;
+          margin-left: -55px;
+          top: 3rem;
+          width: 110px; }
+      .cover .overlay .cover_titre h3 {
+        font-size: 1.2rem;
+        font-weight: 300; }
 
 a {
   color: #329899; }
@@ -184,7 +218,7 @@ a {
     text-transform: uppercase;
     font-weight: 700;
     position: relative; }
-    .content-admin h1:after, .content-admin h2:after {
+    .content-admin h1 h2:after, .content-admin h2 h2:after {
       content: url("../img/title_bottom.svg");
       position: absolute;
       left: 50%;
@@ -503,7 +537,7 @@ form.creer {
       left: 0; }
       .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
         text-transform: uppercase;
-        color: white;
+        color: #329899;
         margin-bottom: 1rem;
         font-weight: 400;
         font-size: 1.5rem; }
@@ -522,7 +556,8 @@ form.creer {
       height: 50%;
       float: left;
       position: relative;
-      text-align: center; }
+      text-align: center;
+      transition: 0.3s; }
       .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
         width: 100%;
         vertical-align: middle;
@@ -575,7 +610,7 @@ form.creer {
     overflow: auto;
     text-align: center; }
     .body .accueil_avis .overlay li {
-      padding: 2rem 14rem; }
+      padding: 2rem 4rem; }
       .body .accueil_avis .overlay li blockquote {
         font-family: initial;
         quotes: "“" "”" "‘" "’";
@@ -605,6 +640,20 @@ form.creer {
         display: block;
         margin-top: 2rem;
         color: #329899; }
+    .body .accueil_avis .overlay .unslider {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      overflow: visible; }
+      .body .accueil_avis .overlay .unslider .unslider-arrow {
+        top: 100%;
+        left: 50%; }
+        .body .accueil_avis .overlay .unslider .unslider-arrow.next {
+          left: auto;
+          right: 50%;
+          margin-right: -50px; }
+        .body .accueil_avis .overlay .unslider .unslider-arrow.prev {
+          margin-left: -50px; }
 
 .body .accueil_etapes {
   padding: 4rem 2rem;
@@ -946,6 +995,14 @@ form.creer {
     .body_admin .accueil_membres .accueil_membre .accueil_membre_description {
       text-align: justify;
       padding: 2rem; }
+
+.produit_introduction {
+  width: 100%;
+  max-width: 800px;
+  margin: 5rem auto;
+  text-align: center;
+  color: #333333;
+  font-size: 1.1rem; }
 
 .produit {
   width: 100%;

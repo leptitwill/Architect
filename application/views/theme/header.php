@@ -31,8 +31,15 @@
 			<nav>
 				<ul>
 					<a href="<?= base_url() ?>"><li class="<?php if($this->uri->segment(2)==""){echo "active";}?>">Accueil</li></a>
-					<a href="<?= base_url("produit/bureaux-de-jardin") ?>"><li class="<?php if($this->uri->segment(2)=="bureaux-de-jardin"){echo "active";}?>">Bureaux de jardin</li></a>
-					<a href="<?= base_url("produit/studio-de-jardin"); ?>"><li>Studio de jardin</li></a>
+					<?php foreach ($produits as $produit): ?>
+
+					<?php
+						$produit_url = $produit['url'];
+					?>
+
+						<a href="<?= base_url("produit/$produit_url") ?>"><li class="<?php if($this->uri->segment(2)=="$produit_url"){echo "active";}?>"><?= $produit['nom'] ?></li></a>
+
+					<?php endforeach; ?>
 					<a href=""><li>Concept</li></a>
 					<a href=""><li>Blog</li></a>
 				</ul>
