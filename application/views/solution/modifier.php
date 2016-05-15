@@ -12,26 +12,26 @@
 			</div>
 
 			<?php
-				$avantage_id = $avantage[0]['idAvantage'];
+				$solution_id = $solution[0]['idSolution'];
 			?>
 				
-			<?php echo form_open_multipart('admin/avantage/update/'.$avantage_id, $attributs); ?>
+			<?php echo form_open_multipart('admin/solution/update/'.$solution_id, $attributs); ?>
 
-				<div class="avantage_icone_preview">
+				<div class="solution_icone_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
 					<label for="my-file"tabindex="0">
-						<img id="preview" src="<?=img_url()?>avantage/<?= $avantage[0]['icone'] ?>">
+						<img id="preview" src="<?=img_url()?>solution/<?= $solution[0]['icone'] ?>">
 					</label>
 					<br><p>Cliquer ci-dessus pour ajouter une image</p>
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" placeholder="Confort de vie" value="<?= $avantage[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Solution pour les particuliers" value="<?= $solution[0]['nom'] ?>"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."><?= $avantage[0]['description'] ?></textarea><br />
+				<textarea name="description" placeholder="Au travailleurs indépendants/freelances travaillant à domicile, exerçant une profession libérale ..."><?= $solution[0]['description'] ?></textarea><br />
 
-				<input type="submit" class="button" name="submit" value="Modifier l'avantage" />
+				<input type="submit" class="button" name="submit" value="Modifier la solution" />
 
 			</form>
 

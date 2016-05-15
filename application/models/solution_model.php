@@ -1,24 +1,24 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Avantage_model extends CI_Model
+class Solution_model extends CI_Model
 {
-	protected $table = 'avantage';
+	protected $table = 'solution';
 
-	public function lister_avantage()
+	public function lister_solution()
 	{
 		$this->db->where('estSupprime', 0);
 		$query = $this->db->get($this->table);
 		return $query->result_array();
 	}
 
-	public function selectionner_avantage($id)
+	public function selectionner_solution($id)
 	{
-		$this->db->where('idAvantage',$id);
+		$this->db->where('idSolution',$id);
 		$query = $this->db->get($this->table);
 		return $query->result_array();
 	}
 
-	public function ajouter_avantage($nom, $description, $icone)
+	public function ajouter_solution($nom, $description, $icone)
 	{
 		$this->db->set('nom',  $nom);
 		$this->db->set('description',  $description);
@@ -28,7 +28,7 @@ class Avantage_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_avantage($id, $nom, $description, $icone)
+	public function modifier_solution($id, $nom, $description, $icone)
 	{
 		$data = array(
 					'nom' => $nom,
@@ -36,17 +36,17 @@ class Avantage_model extends CI_Model
 					'icone' => $icone,
 				);
 
-		$this->db->where('idAvantage',$id);
+		$this->db->where('idSolution',$id);
 		$this->db->update($this->table,  $data);
 	}
 
-	public function supprimer_avantage($id)
+	public function supprimer_solution($id)
 	{
 		$data = array(
 					'estSupprime' => 1
 				);
 
-		$this->db->where('idAvantage',$id);
+		$this->db->where('idSolution',$id);
 		$this->db->update($this->table,  $data);
 	}
 }

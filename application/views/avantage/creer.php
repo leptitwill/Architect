@@ -1,5 +1,4 @@
-		
-	<section class="content-admin">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -14,9 +13,11 @@
 				
 			<?php echo form_open_multipart('admin/avantage/upload', $attributs); ?>
 
-				<div class="membre_photo_preview">
+				<div class="avantage_icone_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
-					<label id="preview" for="my-file" style="background-image: url('<?=img_url()?>unknown.svg')" tabindex="0"></label>
+					<label for="my-file" tabindex="0">
+						<img id="preview" src="<?=img_url()?>unknown.svg">
+					</label>
 					<br><p>Cliquer ci-dessus pour ajouter une image</p>
 				</div><br>
 
@@ -38,7 +39,7 @@
 					var reader = new FileReader();
 
 					reader.onload = function (e) {
-						$('#preview').css('background-image','url("'+e.target.result+'")');
+						$('#preview').attr('src',e.target.result);
 					}
 
 					reader.readAsDataURL(input.files[0]);

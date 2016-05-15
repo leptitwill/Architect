@@ -47,7 +47,7 @@
 		max-width: 800px;
 		margin: 5rem auto;
 		text-align: center;
-		color: $faux-noir;
+		color: $gris-fonce;
 		font-size: 1.1rem;
 	}
 
@@ -168,15 +168,31 @@
 						transform: translate(-50%, -50%);
 						top: 50%;
 						left: 50%;
+						padding: 1.5rem;
 
-						svg {
+						img {
 							width: 50px;
-							fill: $noir;
+							margin-bottom: 1rem;
 						}
 
-						p {
-							color: $faux-noir;
-							padding: 1rem 1rem 0rem;
+						.atout_nom {
+							margin-bottom: 3rem;
+							text-transform: uppercase;
+							font-weight: 500;
+							position: relative;
+
+							&:after {
+								content:url('../img/title_bottom.svg');
+								position: absolute;
+								left: 50%;
+								margin-left: -40px;
+								top: 2rem;
+								width: 80px;
+							}
+						}
+
+						.atout_description {
+							color: $gris-fonce;
 						}
 					}
 
@@ -193,16 +209,31 @@
 						border-right: 1px solid $gris;
 					}
 
-					&:hover {
-						background: $vert;
-						color: white;
+					&:last-child {
 
 						svg {
-							fill: white;
+							fill: $noir;
+							width: 50px;
+							margin-bottom: 1rem;
 						}
 
 						p {
+							text-transform: uppercase;
+							font-weight: 500;
+							color: $noir;
+						}
+
+						&:hover {
+							background: $vert;
 							color: white;
+
+							svg {
+								fill: white;
+							}
+
+							p {
+								color: white;
+							}
 						}
 					}
 				}

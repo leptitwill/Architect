@@ -1,6 +1,6 @@
 <?php
 
-class Avantage extends CI_Controller
+class Solution extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class Avantage extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('avantage_model');
+		$this->load->model('solution_model');
 		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
@@ -23,49 +23,49 @@ class Avantage extends CI_Controller
 	
 	public function index()
 	{
-		$this->data['titre'] = 'Gestion des avantages';
-		$this->data['avantages'] = $this->avantage_model->lister_avantage();
+		$this->data['titre'] = 'Gestion des solutions';
+		$this->data['solutions'] = $this->solution_model->lister_solution();
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('avantage/accueil', $this->data);
+		$this->load->view('solution/accueil', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()
 	{
-		$this->data['titre'] = 'Ajouter un nouvel avantage';
+		$this->data['titre'] = 'Ajouter une nouvelle solution';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('avantage/creer', $this->data);
+		$this->load->view('solution/creer', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$this->data['titre'] = 'Modifier un avantage';
+		$this->data['titre'] = 'Modifier un solution';
 		$this->data['attributs'] = array('class' => 'creer');
-		$this->data['avantage'] = $this->avantage_model->selectionner_avantage($id);
+		$this->data['solution'] = $this->solution_model->selectionner_solution($id);
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('avantage/modifier', $this->data);
+		$this->load->view('solution/modifier', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
 	{
-		$data['avantage'] = $this->avantage_model->selectionner_avantage($id);
+		$data['solution'] = $this->solution_model->selectionner_solution($id);
 
-		$this->avantage_model->supprimer_avantage($id);
+		$this->solution_model->supprimer_solution($id);
 
-		$this->session->set_flashdata('succes','<p>L\'avantage à bien était supprimé</p>');
-		redirect("admin/avantage");
+		$this->session->set_flashdata('succes','<p>La solution à bien était supprimé</p>');
+		redirect("admin/solution");
 	}
 
 	public function upload()
@@ -74,7 +74,7 @@ class Avantage extends CI_Controller
 		$description = $this->input->post('description');
 		$nom_logo = $this->supprimer_accent($nom);
 
-		$config['upload_path'] = './assets/img/avantage';
+		$config['upload_path'] = './assets/img/solution';
 		$config['allowed_types'] = 'svg|gif|jpg|png';
 		$config['file_name'] = strtolower($nom_logo);
 		$config['min_height']  = '50';
@@ -89,7 +89,7 @@ class Avantage extends CI_Controller
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/creer");
+			redirect("admin/solution/creer");
 		}
 
 		elseif ( ! $this->upload->do_upload())
@@ -97,7 +97,7 @@ class Avantage extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/creer");
+			redirect("admin/solution/creer");
 		}
 
 		else
@@ -107,23 +107,23 @@ class Avantage extends CI_Controller
 
 			$icone = $data['file_name'];
 
-			$this->avantage_model->ajouter_avantage($nom, $description, $icone);
+			$this->solution_model->ajouter_solution($nom, $description, $icone);
 
-			$this->session->set_flashdata('succes','<p>L\'avantage à bien était ajouté</p>');
-			redirect("admin/avantage");
+			$this->session->set_flashdata('succes','<p>La solution à bien était ajouté</p>');
+			redirect("admin/solution");
 		}
 	}
 
 	public function update($id)
 	{
-		$avantage = $this->avantage_model->selectionner_avantage($id);
+		$solution = $this->solution_model->selectionner_solution($id);
 
 		$nom = $this->input->post('nom');
 		$description = $this->input->post('description');
 		$nom_logo = $this->supprimer_accent($nom);
 		$fichier_envoye = $_FILES['userfile']['name'];
 
-		$config['upload_path'] = './assets/img/avantage';
+		$config['upload_path'] = './assets/img/solution';
 		$config['allowed_types'] = 'svg|gif|jpg|png';
 		$config['file_name'] = strtolower($nom_logo);
 		$config['min_height']  = '50';
@@ -139,7 +139,7 @@ class Avantage extends CI_Controller
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/modifier/$id");
+			redirect("admin/solution/modifier/$id");
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
@@ -147,7 +147,7 @@ class Avantage extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/modifier/$id");
+			redirect("admin/solution/modifier/$id");
 		}
 
 		else
@@ -162,13 +162,13 @@ class Avantage extends CI_Controller
 
 			else 
 			{
-				$icone = $avantage[0]['icone'];
+				$icone = $solution[0]['icone'];
 			}
 
-			$this->avantage_model->modifier_avantage($id, $nom, $description, $icone);
+			$this->solution_model->modifier_solution($id, $nom, $description, $icone);
 
-			$this->session->set_flashdata('succes','<p>L\'avantage à bien était modifié</p>');
-			redirect("admin/avantage");
+			$this->session->set_flashdata('succes','<p>La solution à bien était modifié</p>');
+			redirect("admin/solution");
 		}
 	}
 

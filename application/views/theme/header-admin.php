@@ -61,7 +61,7 @@
 				</a>
 
 				<span>
-					<li id="produits" class="<?php if($this->uri->segment(2)=="produit" || $this->uri->segment(2)=="gamme" || $this->uri->segment(2)=="avantage"){echo "active";}?>">
+					<li id="produits" class="<?php if($this->uri->segment(2)=="produit" || $this->uri->segment(2)=="gamme" || $this->uri->segment(2)=="avantage" || $this->uri->segment(2)=="solution"){echo "active";}?>">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
 							    <path d="M 6.09375 4 C 5.39375 4 4.80625 4.4 4.40625 5 L 2.1875 8.59375 C 2.0875 8.79375 2 9.2 2 9.5 L 2 20 C 2 21.1 2.9 22 4 22 L 20 22 C 21.1 22 22 21.1 22 20 L 22 16 L 22 9.5 C 22 9.2 21.9125 8.79375 21.8125 8.59375 L 19.59375 5 C 19.19375 4.4 18.60625 4 17.90625 4 L 6.09375 4 z M 5.90625 6 L 11 6 L 11 9 L 4.1875 9 L 5.90625 6 z M 13 6 L 18.09375 6 L 19.8125 9 L 13 9 L 13 6 z M 9 11 L 15 11 C 15.6 11 16 11.4 16 12 C 16 12.6 15.6 13 15 13 L 9 13 C 8.4 13 8 12.6 8 12 C 8 11.4 8.4 11 9 11 z"></path>
@@ -69,7 +69,7 @@
 						</span>
 						<span>Produits</span>
 					</li>
-					<li id="menu_produits" class="sous-menu" style="<?php if($this->uri->segment(2)=="produit" || $this->uri->segment(2)=="gamme" || $this->uri->segment(2)=="avantage"){echo "display: block";}else{echo "display:none";}?>">
+					<li id="menu_produits" class="sous-menu" style="<?php if($this->uri->segment(2)=="produit" || $this->uri->segment(2)=="gamme" || $this->uri->segment(2)=="avantage" || $this->uri->segment(2)=="solution"){echo "display: block";}else{echo "display:none";}?>">
 						<ul>
 							<a href="<?= base_url('admin/produit'); ?>">
 								<li class="<?php if($this->uri->segment(2)=="produit"){echo "active";}?>">
@@ -82,9 +82,16 @@
 									<span>Gammes</span>
 								</li>
 							</a>
+
 							<a href="<?= base_url('admin/avantage'); ?>">
 								<li class="<?php if($this->uri->segment(2)=="avantage"){echo "active";}?>">
 									<span>Avantages</span>
+								</li>
+							</a>
+
+							<a href="<?= base_url('admin/solution'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="solution"){echo "active";}?>">
+									<span>Solutions</span>
 								</li>
 							</a>
 						</ul>

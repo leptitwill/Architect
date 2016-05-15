@@ -3,8 +3,221 @@
 	max-width: 800px;
 	margin: 5rem auto;
 	text-align: center;
-	color: $faux-noir;
+	color: $gris-fonce;
 	font-size: 1.1rem;
+}
+
+.produit_avantages {
+	width: 100%;
+	max-width: 1000px;
+	margin: 5rem auto;
+	text-align: center;
+	color: $faux-noir;
+	font-size: 0;
+
+	.produit_avantage {
+		width: 30%;
+		display: inline-block;
+		font-size: 1rem;
+		padding: 1.5rem;
+		text-align: center;
+		border: 1px solid $gris;
+		vertical-align: top;
+
+		&:nth-child(2) {
+			margin: 0 5%;
+		}
+
+		img {
+			width: 50px;
+			margin-bottom: 1rem;
+		}
+
+		.produit_avantage_nom {
+			margin-bottom: 3rem;
+			text-transform: uppercase;
+			font-weight: 500;
+			position: relative;
+
+			&:after {
+				content:url('../img/title_bottom.svg');
+				position: absolute;
+				left: 50%;
+				margin-left: -40px;
+				top: 2rem;
+				width: 80px;
+			}
+		}
+
+		.produit_avantage_description {
+			color: $gris-fonce;
+		}
+	}
+}
+
+.produit_solutions {
+	width: 100%;
+	max-width: 1000px;
+	margin: 5rem auto;
+	text-align: center;
+	color: $faux-noir;
+	font-size: 0;
+
+	.produit_solution {
+		width: 47.5%;
+		display: inline-block;
+		font-size: 1rem;
+		padding: 1.5rem;
+		text-align: center;
+		background: lighten($gris, 4%);
+		vertical-align: top;
+
+		&:first-of-type {
+			margin-right: 5%;
+		}
+
+		img {
+			width: 50px;
+			margin-bottom: 1rem;
+		}
+
+		.produit_solution_nom {
+			margin-bottom: 3rem;
+			text-transform: uppercase;
+			font-weight: 500;
+			position: relative;
+
+			&:after {
+				content:url('../img/title_bottom.svg');
+				position: absolute;
+				left: 50%;
+				margin-left: -40px;
+				top: 2rem;
+				width: 80px;
+			}
+		}
+
+		.produit_solution_description {
+			color: $gris-fonce;
+		}
+	}
+}
+
+.produit_gammes {
+	width: 100%;
+	max-width: 1000px;
+	margin: 5rem auto 3rem;
+	text-align: center;
+	color: $faux-noir;
+	font-size: 0;
+
+	.produit_gamme {
+		width: 47.5%;
+		display: inline-block;
+		font-size: 1rem;
+		text-align: center;
+		border: 1px solid $gris;
+		vertical-align: top;
+		margin-bottom: 2rem;
+
+		&:nth-child(odd) {
+			margin-right: 5%;
+		}
+
+		.produit_gamme_photo {
+			width: 100%;
+			height: 300px;
+			background-size: cover;
+		    background-position: 50% 50%;
+		    background-repeat: no-repeat;
+		    background-color: #eeeeee;
+
+		    .overlay {
+		    	position: relative;
+			    padding: 1.5rem;
+			    z-index: 1;
+			    background-color: rgba($noir, 0.4);
+			    color: white;
+			    height: 100%;
+			    width: 100%;
+
+			    .produit_gamme_nom {
+					position: absolute;
+					text-align: center;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+
+					h3 {
+						font-size: 2rem;
+						text-transform: uppercase;
+						font-weight: 500;
+						position: relative;
+					}
+				}
+		    }
+		}
+
+		.produit_atout {
+			width: 100%;
+			overflow: auto;
+
+			.atout {
+				width: 50%;
+				min-height: 200px;
+				float: left;
+				position: relative;
+				text-align: center;
+				transition: 0.3s;
+
+				div {
+					width: 100%;
+					vertical-align: middle;
+					position: absolute;
+					transform: translate(-50%, -50%);
+					top: 50%;
+					left: 50%;
+
+					svg {
+						width: 50px;
+						fill: $noir;
+					}
+
+					p {
+						color: $gris-fonce;
+						padding: 1rem 1rem 0rem;
+					}
+				}
+
+				&:first-child {
+					border-right: 1px solid $gris;
+					border-bottom: 1px solid $gris;
+				}
+
+				&:nth-child(2) {
+					border-bottom: 1px solid $gris;
+				}
+
+				&:nth-child(3) {
+					border-right: 1px solid $gris;
+				}
+
+				&:hover {
+					background: $vert;
+					color: white;
+
+					svg {
+						fill: white;
+					}
+
+					p {
+						color: white;
+					}
+				}
+			}
+
+		}
+	}
 }
 
 .produit {

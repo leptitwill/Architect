@@ -70,7 +70,7 @@ a {
 
 	h1, h2 {
 		font-size: 2rem;
-		color: black;
+		color: $noir;
 		margin-bottom: 5rem;
 		text-transform: uppercase;
 		font-weight: 700;
@@ -126,12 +126,24 @@ a {
 	width: 100%;
 	text-align: left;
 
+	.uptitle {
+		margin-bottom: 0.5rem;
+		font-size: 1rem;
+		color: $noir;
+	}
+
+	hr {
+		width: 100%;
+		height: 2px;
+		background: $gris;
+	}
+
 	h1, h2 {
 		font-size: 2rem;
-		color: black;
+		color: $noir;
 		margin-bottom: 5rem;
 		text-transform: uppercase;
-		font-weight: 500;
+		font-weight: 600;
 		position: relative;
 
 		&:after {

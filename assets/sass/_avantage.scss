@@ -1,0 +1,111 @@
+.avantage {
+	width: 100%;
+	margin: 1rem 0;
+	position: relative;
+
+	.avantage_icone {
+		margin-top: 1rem;
+		width: 40px;
+		float: left;
+	}
+
+	.avantage_info {
+		
+		margin-left: 60px;
+		text-align: left;
+		padding: 1rem 0;
+		border-bottom: 1px solid lighten($gris-fonce, 15%);	
+
+		.avantage_nom {
+			color: $admin;
+			font-weight: 500;
+			margin-bottom: 1rem;
+		}
+
+		.avantage_separation {
+			font-style: italic;
+			color: $gris-fonce;
+			margin-bottom: 1rem;
+			font-size: 0.8rem;
+		}
+
+		.avantage_description {
+			text-align: justify;
+		}
+	}
+
+	.modifier_avantage {
+		position: absolute;
+		top: 0;
+		right: 0;
+		text-align: center;
+		width: 50px;
+
+		svg {
+			width: 30px;
+			fill: $gris-fonce;
+
+			&:hover {
+				fill: $admin;
+			}
+		}
+
+		p {
+			font-size: 10px;
+			color: $gris-fonce;
+		}
+	}
+
+	.supprimer_avantage {
+		position: absolute;
+		top: 0;
+		right: 4rem;
+		cursor: pointer;
+		text-align: center;
+		width: 50px;
+
+		svg {
+			width: 30px;
+			fill: $gris-fonce;
+
+			&:hover {
+				fill: $admin;
+			}
+		}
+
+		p {
+			font-size: 10px;
+			color: $gris-fonce;
+		}
+	}	
+}
+
+.avantage_icone_preview {
+	position: relative;
+	margin: auto;
+	text-align: center;
+
+	input[type="file"] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	label {
+		cursor: pointer;
+		display: block;
+
+		img {
+			height: 100px;
+		}
+
+	}
+
+	p {
+		color: $gris-fonce;
+		font-size: 0.8rem;
+	}
+
+}

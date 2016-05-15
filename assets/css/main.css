@@ -213,7 +213,7 @@ a {
   text-align: left; }
   .content-admin h1, .content-admin h2 {
     font-size: 2rem;
-    color: black;
+    color: #222222;
     margin-bottom: 5rem;
     text-transform: uppercase;
     font-weight: 700;
@@ -252,12 +252,20 @@ a {
 .content {
   width: 100%;
   text-align: left; }
+  .content .uptitle {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #222222; }
+  .content hr {
+    width: 100%;
+    height: 2px;
+    background: #eeeeee; }
   .content h1, .content h2 {
     font-size: 2rem;
-    color: black;
+    color: #222222;
     margin-bottom: 5rem;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     position: relative; }
     .content h1:after, .content h2:after {
       content: url("../img/title_bottom.svg");
@@ -471,7 +479,7 @@ form.creer {
   max-width: 800px;
   margin: 5rem auto;
   text-align: center;
-  color: #333333;
+  color: #999999;
   font-size: 1.1rem; }
 
 .body .accueil_baseline {
@@ -565,13 +573,25 @@ form.creer {
         -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
         top: 50%;
-        left: 50%; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div svg {
+        left: 50%;
+        padding: 1.5rem; }
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div img {
           width: 50px;
-          fill: #222222; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div p {
-          color: #333333;
-          padding: 1rem 1rem 0rem; }
+          margin-bottom: 1rem; }
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
+          margin-bottom: 3rem;
+          text-transform: uppercase;
+          font-weight: 500;
+          position: relative; }
+          .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom:after {
+            content: url("../img/title_bottom.svg");
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            top: 2rem;
+            width: 80px; }
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
+          color: #999999; }
       .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
         border-right: 1px solid #eeeeee;
         border-bottom: 1px solid #eeeeee; }
@@ -579,12 +599,20 @@ form.creer {
         border-bottom: 1px solid #eeeeee; }
       .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
         border-right: 1px solid #eeeeee; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:hover {
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
+        fill: #222222;
+        width: 50px;
+        margin-bottom: 1rem; }
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child p {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #222222; }
+      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover {
         background: #329899;
         color: white; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:hover svg {
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover svg {
           fill: white; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:hover p {
+        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover p {
           color: white; }
 
 .body .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
@@ -1001,8 +1029,161 @@ form.creer {
   max-width: 800px;
   margin: 5rem auto;
   text-align: center;
-  color: #333333;
+  color: #999999;
   font-size: 1.1rem; }
+
+.produit_avantages {
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto;
+  text-align: center;
+  color: #333333;
+  font-size: 0; }
+  .produit_avantages .produit_avantage {
+    width: 30%;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    vertical-align: top; }
+    .produit_avantages .produit_avantage:nth-child(2) {
+      margin: 0 5%; }
+    .produit_avantages .produit_avantage img {
+      width: 50px;
+      margin-bottom: 1rem; }
+    .produit_avantages .produit_avantage .produit_avantage_nom {
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative; }
+      .produit_avantages .produit_avantage .produit_avantage_nom:after {
+        content: url("../img/title_bottom.svg");
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
+        top: 2rem;
+        width: 80px; }
+    .produit_avantages .produit_avantage .produit_avantage_description {
+      color: #999999; }
+
+.produit_solutions {
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto;
+  text-align: center;
+  color: #333333;
+  font-size: 0; }
+  .produit_solutions .produit_solution {
+    width: 47.5%;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    background: #f8f8f8;
+    vertical-align: top; }
+    .produit_solutions .produit_solution:first-of-type {
+      margin-right: 5%; }
+    .produit_solutions .produit_solution img {
+      width: 50px;
+      margin-bottom: 1rem; }
+    .produit_solutions .produit_solution .produit_solution_nom {
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative; }
+      .produit_solutions .produit_solution .produit_solution_nom:after {
+        content: url("../img/title_bottom.svg");
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
+        top: 2rem;
+        width: 80px; }
+    .produit_solutions .produit_solution .produit_solution_description {
+      color: #999999; }
+
+.produit_gammes {
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto 3rem;
+  text-align: center;
+  color: #333333;
+  font-size: 0; }
+  .produit_gammes .produit_gamme {
+    width: 47.5%;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    vertical-align: top;
+    margin-bottom: 2rem; }
+    .produit_gammes .produit_gamme:nth-child(odd) {
+      margin-right: 5%; }
+    .produit_gammes .produit_gamme .produit_gamme_photo {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-color: #eeeeee; }
+      .produit_gammes .produit_gamme .produit_gamme_photo .overlay {
+        position: relative;
+        padding: 1.5rem;
+        z-index: 1;
+        background-color: rgba(34, 34, 34, 0.4);
+        color: white;
+        height: 100%;
+        width: 100%; }
+        .produit_gammes .produit_gamme .produit_gamme_photo .overlay .produit_gamme_nom {
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%); }
+          .produit_gammes .produit_gamme .produit_gamme_photo .overlay .produit_gamme_nom h3 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative; }
+    .produit_gammes .produit_gamme .produit_atout {
+      width: 100%;
+      overflow: auto; }
+      .produit_gammes .produit_gamme .produit_atout .atout {
+        width: 50%;
+        min-height: 200px;
+        float: left;
+        position: relative;
+        text-align: center;
+        transition: 0.3s; }
+        .produit_gammes .produit_gamme .produit_atout .atout div {
+          width: 100%;
+          vertical-align: middle;
+          position: absolute;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%; }
+          .produit_gammes .produit_gamme .produit_atout .atout div svg {
+            width: 50px;
+            fill: #222222; }
+          .produit_gammes .produit_gamme .produit_atout .atout div p {
+            color: #999999;
+            padding: 1rem 1rem 0rem; }
+        .produit_gammes .produit_gamme .produit_atout .atout:first-child {
+          border-right: 1px solid #eeeeee;
+          border-bottom: 1px solid #eeeeee; }
+        .produit_gammes .produit_gamme .produit_atout .atout:nth-child(2) {
+          border-bottom: 1px solid #eeeeee; }
+        .produit_gammes .produit_gamme .produit_atout .atout:nth-child(3) {
+          border-right: 1px solid #eeeeee; }
+        .produit_gammes .produit_gamme .produit_atout .atout:hover {
+          background: #329899;
+          color: white; }
+          .produit_gammes .produit_gamme .produit_atout .atout:hover svg {
+            fill: white; }
+          .produit_gammes .produit_gamme .produit_atout .atout:hover p {
+            color: white; }
 
 .produit {
   width: 100%;
@@ -1366,6 +1547,152 @@ form.creer {
     .reseau_social_logo_preview label img {
       height: 100px; }
   .reseau_social_logo_preview p {
+    color: #999999;
+    font-size: 0.8rem; }
+
+.avantage {
+  width: 100%;
+  margin: 1rem 0;
+  position: relative; }
+  .avantage .avantage_icone {
+    margin-top: 1rem;
+    width: 40px;
+    float: left; }
+  .avantage .avantage_info {
+    margin-left: 60px;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid #bfbfbf; }
+    .avantage .avantage_info .avantage_nom {
+      color: #283a47;
+      font-weight: 500;
+      margin-bottom: 1rem; }
+    .avantage .avantage_info .avantage_separation {
+      font-style: italic;
+      color: #999999;
+      margin-bottom: 1rem;
+      font-size: 0.8rem; }
+    .avantage .avantage_info .avantage_description {
+      text-align: justify; }
+  .avantage .modifier_avantage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .avantage .modifier_avantage svg {
+      width: 30px;
+      fill: #999999; }
+      .avantage .modifier_avantage svg:hover {
+        fill: #283a47; }
+    .avantage .modifier_avantage p {
+      font-size: 10px;
+      color: #999999; }
+  .avantage .supprimer_avantage {
+    position: absolute;
+    top: 0;
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .avantage .supprimer_avantage svg {
+      width: 30px;
+      fill: #999999; }
+      .avantage .supprimer_avantage svg:hover {
+        fill: #283a47; }
+    .avantage .supprimer_avantage p {
+      font-size: 10px;
+      color: #999999; }
+
+.avantage_icone_preview {
+  position: relative;
+  margin: auto;
+  text-align: center; }
+  .avantage_icone_preview input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .avantage_icone_preview label {
+    cursor: pointer;
+    display: block; }
+    .avantage_icone_preview label img {
+      height: 100px; }
+  .avantage_icone_preview p {
+    color: #999999;
+    font-size: 0.8rem; }
+
+.solution {
+  width: 100%;
+  margin: 1rem 0;
+  position: relative; }
+  .solution .solution_icone {
+    margin-top: 1rem;
+    width: 40px;
+    float: left; }
+  .solution .solution_info {
+    margin-left: 60px;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid #bfbfbf; }
+    .solution .solution_info .solution_nom {
+      color: #283a47;
+      font-weight: 500;
+      margin-bottom: 1rem; }
+    .solution .solution_info .solution_separation {
+      font-style: italic;
+      color: #999999;
+      margin-bottom: 1rem;
+      font-size: 0.8rem; }
+    .solution .solution_info .solution_description {
+      text-align: justify; }
+  .solution .modifier_solution {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .solution .modifier_solution svg {
+      width: 30px;
+      fill: #999999; }
+      .solution .modifier_solution svg:hover {
+        fill: #283a47; }
+    .solution .modifier_solution p {
+      font-size: 10px;
+      color: #999999; }
+  .solution .supprimer_solution {
+    position: absolute;
+    top: 0;
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .solution .supprimer_solution svg {
+      width: 30px;
+      fill: #999999; }
+      .solution .supprimer_solution svg:hover {
+        fill: #283a47; }
+    .solution .supprimer_solution p {
+      font-size: 10px;
+      color: #999999; }
+
+.solution_icone_preview {
+  position: relative;
+  margin: auto;
+  text-align: center; }
+  .solution_icone_preview input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .solution_icone_preview label {
+    cursor: pointer;
+    display: block; }
+    .solution_icone_preview label img {
+      height: 100px; }
+  .solution_icone_preview p {
     color: #999999;
     font-size: 0.8rem; }
 

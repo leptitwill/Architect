@@ -9,6 +9,7 @@ class Produit extends CI_Controller
 		$this->load->model('produit_model');
 		$this->load->model('reseaux_sociaux_model');
 		$this->load->model('avantage_model');
+		$this->load->model('solution_model');
 
 		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
 		$this->data['produits'] = $this->produit_model->lister_produit();
@@ -32,6 +33,7 @@ class Produit extends CI_Controller
 			$this->data['produit'] = $this->produit_model->selectionner_produit($url);
 			$this->data['gammes'] = $this->produit_model->selectionner_gamme_par_produit($url);
 			$this->data['avantages'] = $this->avantage_model->lister_avantage();
+			$this->data['solutions'] = $this->solution_model->lister_solution();
 			$this->data['titre'] = str_replace("-"," ",$url);
 
 			$this->load->view('theme/header', $this->data);
