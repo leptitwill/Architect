@@ -1,100 +1,142 @@
-.faq {
-	width: 100%;
-	margin: 2rem 0;
-	position: relative;
-	border-bottom: 1px solid lighten($gris-fonce, 15%);	
+.content {
 
-	.faq_question {
-		color: $admin;
-		font-weight: 500;
-		margin-bottom: 1rem;
-	}
+	.faqs {
+		width: 100%;
+		max-width: 800px;
+		margin: 5rem auto;
 
-	.faq_separation {
-		font-style: italic;
-		color: $gris-fonce;
-		margin-bottom: 1rem;
-		font-size: 0.8rem;
-	}
+		.faq {
+			width: 100%;
+			margin: 2rem 0;
+			position: relative;
+			border-bottom: 1px solid $gris;	
 
-	.faq_reponse {
-		text-align: justify;
-		margin-bottom: 1rem;
-	}
+			.faq_question {
+				color: $noir;
+				font-weight: 500;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
 
-	.modifier_faq {
-		position: absolute;
-		top: 0;
-		right: 0;
-		text-align: center;
-		width: 50px;
+			.faq_separation {
+				width: 80px;
+				margin-bottom: 1rem;
+			}
 
-		svg {
-			width: 30px;
-			fill: $gris-fonce;
+			.faq_reponse {
+				color: $gris-fonce;
+				text-align: justify;
+				margin-bottom: 2rem;
+			}
 
-			&:hover {
-				fill: $admin;
+			&:last-of-type {
+				margin-bottom: 0;
+				border-bottom: 0;
 			}
 		}
-
-		p {
-			font-size: 10px;
-			color: $gris-fonce;
-		}
 	}
-
-	.supprimer_faq {
-		position: absolute;
-		top: 0;
-		right: 4rem;
-		cursor: pointer;
-		text-align: center;
-		width: 50px;
-
-		svg {
-			width: 30px;
-			fill: $gris-fonce;
-
-			&:hover {
-				fill: $admin;
-			}
-		}
-
-		p {
-			font-size: 10px;
-			color: $gris-fonce;
-		}
-	}	
 }
 
-.faq_photo_preview {
-	position: relative;
-	text-align: center;
+.content_admin {
 
-	input[type="file"] {
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0;
-		z-index: -1;
+	.faq {
+		width: 100%;
+		margin: 2rem 0;
+		position: relative;
+		border-bottom: 1px solid lighten($gris-fonce, 15%);	
+
+		.faq_question {
+			color: $admin;
+			font-weight: 500;
+			margin-bottom: 1rem;
+		}
+
+		.faq_separation {
+			font-style: italic;
+			color: $gris-fonce;
+			margin-bottom: 1rem;
+			font-size: 0.8rem;
+		}
+
+		.faq_reponse {
+			text-align: justify;
+			margin-bottom: 1rem;
+		}
+
+		.modifier_faq {
+			position: absolute;
+			top: 0;
+			right: 0;
+			text-align: center;
+			width: 50px;
+
+			svg {
+				width: 30px;
+				fill: $gris-fonce;
+
+				&:hover {
+					fill: $admin;
+				}
+			}
+
+			p {
+				font-size: 10px;
+				color: $gris-fonce;
+			}
+		}
+
+		.supprimer_faq {
+			position: absolute;
+			top: 0;
+			right: 4rem;
+			cursor: pointer;
+			text-align: center;
+			width: 50px;
+
+			svg {
+				width: 30px;
+				fill: $gris-fonce;
+
+				&:hover {
+					fill: $admin;
+				}
+			}
+
+			p {
+				font-size: 10px;
+				color: $gris-fonce;
+			}
+		}	
 	}
 
-	label {
-		margin: auto;
-		display: block;
-		width: 150px;
-		height: 150px;
-		cursor: pointer;
-		border-radius: 50%;
-		background-size: cover;
-		background-position: 50% 50%;
-		background-repeat: no-repeat;
-	}
+	.faq_photo_preview {
+		position: relative;
+		text-align: center;
 
-	p {
-		color: $gris-fonce;
-		font-size: 0.8rem;
-	}
+		input[type="file"] {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: -1;
+		}
 
+		label {
+			margin: auto;
+			display: block;
+			width: 150px;
+			height: 150px;
+			cursor: pointer;
+			border-radius: 50%;
+			background-size: cover;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+		}
+
+		p {
+			color: $gris-fonce;
+			font-size: 0.8rem;
+		}
+
+	}
 }

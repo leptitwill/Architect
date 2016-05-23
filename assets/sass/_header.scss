@@ -24,17 +24,18 @@ header {
 				li {
 					color: white;
 					font-size: 0.8rem;
-					font-weight: 300;
+					font-weight: 300 !important;
 					text-align: left;
 					padding: 0 15px;
 					font-weight: normal;
 					display: inline-block;
 					line-height: 60px;
 					text-transform: uppercase;
-					color: $gris-fonce;
+					color: white;
+					transition: all .3s ease;
 
 					&:hover, &.active {
-						color: white;
+						color: $vert;
 					}
 				}
 			}

@@ -29,7 +29,7 @@ class faq extends CI_Controller
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('faq/accueil', $this->data);
+		$this->load->view('faq/accueil-admin', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 

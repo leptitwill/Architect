@@ -178,19 +178,36 @@
 
 			</section>
 
-			<section class="accueil_membres">
+			<section class="accueil_articles">
 
 				<h2>Les derniers articles</h2>
-
-				<?php foreach ($membres as $membre): ?>
 				
-					<div class="accueil_membre">
-						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
-						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
-					</div>
+				<div class="accueil_article">
+					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-1.jpg');"></div>
+					<p class="accueil_article_titre">American Gothic</p>
+					<p class="accueil_article_description">
+						American Gothic est un tableau de Grant Wood faisant partie de la collection de l'Institut d'art de Chicago. Wood a été inspiré par un chalet conçu dans le style néogothique avec une fenêtre supérieure distinctive.
+					</p>
+					<a  class="accueil_article_lien" href="#">Lire plus</a>
+				</div>
 
-				<?php endforeach; ?>
+				<div class="accueil_article">
+					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-2.jpg');"></div>
+					<p class="accueil_article_titre">Le Désespéré</p>
+					<p class="accueil_article_description">
+						Le Désespéré est un tableau du peintre français Gustave Courbet réalisé entre 1843 et 1845. C'est un autoportrait de l'artiste sous les traits d'un jeune homme grand, beau et brun qui regarde avec désespoir vers moi. 							
+					</p>
+					<a  class="accueil_article_lien" href="#">Lire plus</a>
+				</div>
+
+				<div class="accueil_article">
+					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-3.jpg');"></div>
+					<p class="accueil_article_titre">La nevada</p>
+					<p class="accueil_article_description">
+						La nevada ou El invierno est une peinture réalisée par Francisco de Goya en 1786 et faisant partie de la cinquième série des cartons pour tapisserie destinée à la salle à manger du Prince des Asturies au Palais du Pardo.
+					</p>
+					<a  class="accueil_article_lien" href="#">Lire plus</a>
+				</div>
 
 			</section>
 

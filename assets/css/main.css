@@ -32,16 +32,17 @@ header {
     header nav ul a li {
       color: white;
       font-size: 0.8rem;
-      font-weight: 300;
+      font-weight: 300 !important;
       text-align: left;
       padding: 0 15px;
       font-weight: normal;
       display: inline-block;
       line-height: 60px;
       text-transform: uppercase;
-      color: #999999; }
+      color: white;
+      transition: all .3s ease; }
       header nav ul a li:hover, header nav ul a li.active {
-        color: white; }
+        color: #329899; }
 
 .reseaux-sociaux {
   position: fixed;
@@ -211,14 +212,22 @@ a {
   padding: 110px 50px 50px 300px;
   width: 100%;
   text-align: left; }
+  .content-admin .uptitle {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #222222; }
+  .content-admin hr {
+    width: 100%;
+    height: 2px;
+    background: #eeeeee; }
   .content-admin h1, .content-admin h2 {
     font-size: 2rem;
     color: #222222;
     margin-bottom: 5rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     position: relative; }
-    .content-admin h1 h2:after, .content-admin h2 h2:after {
+    .content-admin h1:after, .content-admin h2:after {
       content: url("../img/title_bottom.svg");
       position: absolute;
       left: 50%;
@@ -232,6 +241,8 @@ a {
     text-transform: uppercase;
     font-weight: 600;
     position: relative; }
+    .content-admin .titre:after {
+      content: ''; }
     .content-admin .titre span {
       font-size: 1rem;
       text-transform: initial;
@@ -621,6 +632,48 @@ form.creer {
 .body .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
   float: left; }
 
+.body .accueil_etapes {
+  padding: 4rem 2rem;
+  background: #333333;
+  color: white;
+  overflow: auto; }
+  .body .accueil_etapes h2 {
+    color: white;
+    text-align: center; }
+    .body .accueil_etapes h2:after {
+      left: 50%;
+      margin-left: -55px; }
+  .body .accueil_etapes .accueil_etape {
+    margin-top: 2rem;
+    width: 25%;
+    float: left;
+    padding: 0 2rem; }
+    .body .accueil_etapes .accueil_etape .number {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 6rem;
+      margin-bottom: 2rem;
+      font-family: "Open sans"; }
+      .body .accueil_etapes .accueil_etape .number span {
+        font-family: initial;
+        font-size: 4rem;
+        color: #329899; }
+    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_titre {
+      color: white;
+      text-transform: uppercase;
+      font-weight: 500; }
+    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
+      color: white;
+      font-weight: 300; }
+
+.body .accueil_validation {
+  padding: 2rem 4rem;
+  text-align: center;
+  font-size: 1.2rem;
+  background: #329899;
+  color: white;
+  overflow: auto; }
+
 .body .accueil_avis {
   color: white;
   text-align: center;
@@ -683,83 +736,56 @@ form.creer {
         .body .accueil_avis .overlay .unslider .unslider-arrow.prev {
           margin-left: -50px; }
 
-.body .accueil_etapes {
-  padding: 4rem 2rem;
-  background: #333333;
-  color: white;
-  overflow: auto; }
-  .body .accueil_etapes h2 {
-    color: white;
-    text-align: center; }
-    .body .accueil_etapes h2:after {
-      left: 50%;
-      margin-left: -55px; }
-  .body .accueil_etapes .accueil_etape {
-    margin-top: 2rem;
-    width: 25%;
-    float: left;
-    padding: 0 2rem; }
-    .body .accueil_etapes .accueil_etape .number {
-      font-size: 5rem;
-      font-weight: 700;
-      line-height: 6rem;
-      margin-bottom: 2rem;
-      font-family: "Open sans"; }
-      .body .accueil_etapes .accueil_etape .number span {
-        font-family: initial;
-        font-size: 4rem;
-        color: #329899; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_titre {
-      color: white;
-      text-transform: uppercase;
-      font-weight: 500; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
-      color: white;
-      font-weight: 300; }
-
-.body .accueil_validation {
-  padding: 2rem 4rem;
-  text-align: center;
-  font-size: 1.2rem;
-  background: #329899;
-  color: white;
-  overflow: auto; }
-
-.body .accueil_membres {
+.body .accueil_articles {
   width: 100%;
   max-width: 1000px;
+  padding: 0 1rem;
   margin: 4rem auto;
   overflow: auto; }
-  .body .accueil_membres h2 {
+  .body .accueil_articles h2 {
     text-align: center; }
-    .body .accueil_membres h2:after {
+    .body .accueil_articles h2:after {
       left: 50%;
       margin-left: -55px; }
-  .body .accueil_membres .accueil_membre {
-    width: 300px;
+  .body .accueil_articles .accueil_article {
+    width: 30%;
     height: 100%;
     float: left;
-    border: 1px solid #eeeeee;
-    text-align: center;
+    text-align: left;
     display: inline-block; }
-    .body .accueil_membres .accueil_membre:nth-child(3) {
+    .body .accueil_articles .accueil_article:nth-child(3) {
       margin: 0 5%; }
-    .body .accueil_membres .accueil_membre .accueil_membre_photo {
+    .body .accueil_articles .accueil_article .accueil_article_photo {
       width: 100%;
-      height: 300px;
+      height: 200px;
       background-size: cover;
-      background-position: center;
-      margin-bottom: 1rem; }
-    .body .accueil_membres .accueil_membre .accueil_membre_nom {
-      text-transform: uppercase; }
-    .body .accueil_membres .accueil_membre .accueil_membre_role {
-      color: #999999;
-      font-style: italic;
+      background-position: 50% 50%;
       margin-bottom: 1rem;
-      position: relative; }
-    .body .accueil_membres .accueil_membre .accueil_membre_description {
-      text-align: justify;
-      padding: 2rem; }
+      background-color: #eeeeee; }
+    .body .accueil_articles .accueil_article .accueil_article_titre {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      color: #329899;
+      margin-bottom: 1rem; }
+    .body .accueil_articles .accueil_article .accueil_article_description {
+      color: #999999; }
+    .body .accueil_articles .accueil_article .accueil_article_lien {
+      float: left;
+      padding-top: 2rem;
+      text-transform: uppercase;
+      font-size: 0.8rem; }
+      .body .accueil_articles .accueil_article .accueil_article_lien:before {
+        content: url("../img/title_bottom.svg");
+        width: 30px;
+        float: left;
+        margin-right: 0.5rem;
+        line-height: 0.8rem; }
+      .body .accueil_articles .accueil_article .accueil_article_lien:after {
+        content: url("../img/title_bottom.svg");
+        width: 30px;
+        float: right;
+        margin-left: 0.5rem;
+        line-height: 0.8rem; }
 
 .body_admin .cover--home {
   width: 100%;
@@ -792,10 +818,10 @@ form.creer {
 .body_admin .accueil_introduction {
   width: 100%;
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 5rem auto;
   padding: 1rem;
   text-align: center;
-  color: #333333;
+  color: #999999;
   font-size: 1.1rem; }
 
 .body_admin .accueil_baseline {
@@ -804,103 +830,180 @@ form.creer {
   font-size: 1.5rem;
   background-image: url("../img/cover-1.jpg");
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  background-attachment: fixed; }
   .body_admin .accueil_baseline .overlay {
     background: rgba(50, 152, 153, 0.9);
     width: 100%;
-    padding: 3rem 1rem; }
+    padding: 4rem 1rem; }
   .body_admin .accueil_baseline blockquote {
     font-family: initial;
-    quotes: "“" "”" "‘" "’"; }
+    quotes: "“" "”" "‘" "’";
+    display: inline-block;
+    position: relative; }
     .body_admin .accueil_baseline blockquote:before {
+      position: absolute;
       color: white;
       content: open-quote;
       font-size: 4rem;
       line-height: 1rem;
-      vertical-align: middle;
-      margin-right: 0.5rem; }
+      left: -3rem; }
     .body_admin .accueil_baseline blockquote:after {
+      position: absolute;
       color: white;
       content: close-quote;
       font-size: 4rem;
       line-height: 1rem;
       vertical-align: middle;
-      margin-left: 0.5rem; }
+      margin-left: 0.5rem;
+      right: -3rem;
+      bottom: -28px; }
   .body_admin .accueil_baseline blockquote p {
     display: inline; }
 
-.body_admin .accueil_produits {
-  font-size: 0px;
-  padding-bottom: 3rem; }
-  .body_admin .accueil_produits .accueil_produit {
-    width: 100%;
-    font-size: 1rem;
+.body_admin .accueil_produits .accueil_produit {
+  width: 100%;
+  font-size: 1rem;
+  overflow: auto;
+  display: table; }
+  .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu {
+    width: 50%;
+    float: left;
+    position: relative; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
+      width: 100%;
+      height: 600px;
+      min-height: 400px;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-color: #eeeeee; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
+      padding: 2rem;
+      width: 100%;
+      background: rgba(34, 34, 34, 0.7);
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
+        text-transform: uppercase;
+        color: #329899;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        font-size: 1.5rem; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
+        color: white;
+        text-align: justify;
+        font-weight: 300; }
+  .body_admin .accueil_produits .accueil_produit .accueil_produit_atout {
+    width: 50%;
+    height: 100%;
+    float: right;
     overflow: auto;
-    display: table; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu {
+    display: inline-block; }
+    .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout {
       width: 50%;
+      height: 50%;
       float: left;
-      position: relative; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
+      position: relative;
+      text-align: center;
+      transition: 0.3s; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
         width: 100%;
-        height: 400px;
-        background-size: cover;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-color: #eeeeee; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
-        padding: 1rem;
-        width: 100%;
-        background: rgba(34, 34, 34, 0.8);
+        vertical-align: middle;
         position: absolute;
-        bottom: 0;
-        left: 0; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
-          text-transform: uppercase;
-          color: #329899;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        padding: 1.5rem; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div img {
+          width: 50px;
           margin-bottom: 1rem; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
-          color: white;
-          font-size: 0.8rem;
-          text-align: justify; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_atout {
-      width: 50%;
-      height: 100%;
-      float: right;
-      overflow: auto;
-      display: inline-block; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout {
-        width: 50%;
-        height: 50%;
-        float: left;
-        position: relative;
-        text-align: center;
-        background: #fbfbfb; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
-          width: 100%;
-          vertical-align: middle;
-          position: absolute;
-          -webkit-transform: translate(-50%, -50%);
-                  transform: translate(-50%, -50%);
-          top: 50%;
-          left: 50%; }
-          .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div svg {
-            width: 50px;
-            fill: #329899; }
-          .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div p {
-            padding: 1rem 1rem 0rem; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
+          margin-bottom: 3rem;
+          text-transform: uppercase;
+          font-weight: 500;
+          position: relative; }
+          .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom:after {
+            content: url("../img/title_bottom.svg");
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            top: 2rem;
+            width: 80px; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
+          color: #999999; }
       .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
         border-right: 1px solid #eeeeee;
         border-bottom: 1px solid #eeeeee; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child {
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(2) {
+        border-bottom: 1px solid #eeeeee; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
+        border-right: 1px solid #eeeeee; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
+        fill: #222222;
+        width: 50px;
+        margin-bottom: 1rem; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child p {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #222222; }
+      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover {
         background: #329899;
         color: white; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover svg {
           fill: white; }
-  .body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
-    float: right; }
-  .body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
-    float: left; }
+        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover p {
+          color: white; }
+
+.body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
+  float: right; }
+
+.body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
+  float: left; }
+
+.body_admin .accueil_etapes {
+  padding: 4rem 2rem;
+  background: #333333;
+  color: white;
+  overflow: auto; }
+  .body_admin .accueil_etapes h2 {
+    color: white;
+    text-align: center; }
+    .body_admin .accueil_etapes h2:after {
+      left: 50%;
+      margin-left: -55px; }
+  .body_admin .accueil_etapes .accueil_etape {
+    margin-top: 2rem;
+    width: 25%;
+    float: left;
+    padding: 0 2rem; }
+    .body_admin .accueil_etapes .accueil_etape .number {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 6rem;
+      margin-bottom: 2rem;
+      font-family: "Open sans"; }
+      .body_admin .accueil_etapes .accueil_etape .number span {
+        font-family: initial;
+        font-size: 4rem;
+        color: #329899; }
+    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .etape_titre {
+      color: white;
+      text-transform: uppercase;
+      font-weight: 500; }
+    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
+      color: white;
+      font-weight: 300; }
+
+.body_admin .accueil_validation {
+  padding: 2rem 4rem;
+  text-align: center;
+  font-size: 1.2rem;
+  background: #329899;
+  color: white;
+  overflow: auto; }
 
 .body_admin .accueil_avis {
   color: white;
@@ -909,6 +1012,8 @@ form.creer {
   background-size: cover;
   background-position: center;
   background-attachment: fixed; }
+  .body_admin .accueil_avis h2 {
+    color: white; }
   .body_admin .accueil_avis .overlay {
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
@@ -917,7 +1022,7 @@ form.creer {
     overflow: auto;
     text-align: center; }
     .body_admin .accueil_avis .overlay li {
-      padding: 0 14rem; }
+      padding: 2rem 4rem; }
       .body_admin .accueil_avis .overlay li blockquote {
         font-family: initial;
         quotes: "“" "”" "‘" "’";
@@ -947,82 +1052,71 @@ form.creer {
         display: block;
         margin-top: 2rem;
         color: #329899; }
+    .body_admin .accueil_avis .overlay .unslider {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      overflow: visible; }
+      .body_admin .accueil_avis .overlay .unslider .unslider-arrow {
+        top: 100%;
+        left: 50%; }
+        .body_admin .accueil_avis .overlay .unslider .unslider-arrow.next {
+          left: auto;
+          right: 50%;
+          margin-right: -50px; }
+        .body_admin .accueil_avis .overlay .unslider .unslider-arrow.prev {
+          margin-left: -50px; }
 
-.body_admin .accueil_etapes {
-  padding: 4rem 2rem;
-  background: #222222;
-  color: white;
-  overflow: auto; }
-  .body_admin .accueil_etapes h2 {
-    color: white;
-    text-align: center; }
-    .body_admin .accueil_etapes h2:after {
-      left: 50%;
-      margin-left: -55px; }
-  .body_admin .accueil_etapes .accueil_etape {
-    margin-top: 2rem;
-    width: 25%;
-    float: left;
-    padding: 0 2rem; }
-    .body_admin .accueil_etapes .accueil_etape .number {
-      font-size: 5rem;
-      font-weight: 700;
-      line-height: 6rem;
-      margin-bottom: 2rem;
-      font-family: "Open sans"; }
-      .body_admin .accueil_etapes .accueil_etape .number span {
-        font-family: initial;
-        font-size: 4rem;
-        color: #329899; }
-    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .accueil_etape_titre {
-      color: white;
-      text-transform: uppercase; }
-    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
-      color: #b3b3b3; }
-
-.body_admin .accueil_validation {
-  padding: 2rem 4rem;
-  text-align: center;
-  font-size: 1.2rem;
-  background: #329899;
-  color: white;
-  overflow: auto; }
-
-.body_admin .accueil_membres {
+.body_admin .accueil_articles {
   width: 100%;
   max-width: 1000px;
   margin: 4rem auto;
+  padding: 0 1rem;
   overflow: auto; }
-  .body_admin .accueil_membres h2 {
+  .body_admin .accueil_articles h2 {
     text-align: center; }
-    .body_admin .accueil_membres h2:after {
+    .body_admin .accueil_articles h2:after {
       left: 50%;
       margin-left: -55px; }
-  .body_admin .accueil_membres .accueil_membre {
-    width: 300px;
+  .body_admin .accueil_articles .accueil_article {
+    width: 30%;
     height: 100%;
     float: left;
-    border: 1px solid #eeeeee;
-    text-align: center;
+    text-align: left;
     display: inline-block; }
-    .body_admin .accueil_membres .accueil_membre:nth-child(3) {
+    .body_admin .accueil_articles .accueil_article:nth-child(3) {
       margin: 0 5%; }
-    .body_admin .accueil_membres .accueil_membre .accueil_membre_photo {
+    .body_admin .accueil_articles .accueil_article .accueil_article_photo {
       width: 100%;
-      height: 300px;
+      height: 200px;
       background-size: cover;
-      background-position: center;
-      margin-bottom: 1rem; }
-    .body_admin .accueil_membres .accueil_membre .accueil_membre_nom {
-      text-transform: uppercase; }
-    .body_admin .accueil_membres .accueil_membre .accueil_membre_role {
-      color: #999999;
-      font-style: italic;
+      background-position: 50% 50%;
       margin-bottom: 1rem;
-      position: relative; }
-    .body_admin .accueil_membres .accueil_membre .accueil_membre_description {
-      text-align: justify;
-      padding: 2rem; }
+      background-color: #eeeeee; }
+    .body_admin .accueil_articles .accueil_article .accueil_article_titre {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      color: #329899;
+      margin-bottom: 1rem; }
+    .body_admin .accueil_articles .accueil_article .accueil_article_description {
+      color: #999999; }
+    .body_admin .accueil_articles .accueil_article .accueil_article_lien {
+      float: left;
+      padding-top: 2rem;
+      text-transform: uppercase;
+      font-size: 0.8rem; }
+      .body_admin .accueil_articles .accueil_article .accueil_article_lien:before {
+        content: url("../img/title_bottom.svg");
+        width: 30px;
+        float: left;
+        margin-right: 0.5rem;
+        line-height: 0.8rem; }
+      .body_admin .accueil_articles .accueil_article .accueil_article_lien:after {
+        content: url("../img/title_bottom.svg");
+        width: 30px;
+        float: right;
+        margin-left: 0.5rem;
+        line-height: 0.8rem; }
 
 .produit_introduction {
   width: 100%;
@@ -1151,7 +1245,7 @@ form.creer {
       overflow: auto; }
       .produit_gammes .produit_gamme .produit_atout .atout {
         width: 50%;
-        min-height: 200px;
+        min-height: 150px;
         float: left;
         position: relative;
         text-align: center;
@@ -1341,63 +1435,88 @@ form.creer {
     color: #999999;
     font-size: 0.8rem; }
 
-.faq {
+.content .faqs {
+  width: 100%;
+  max-width: 800px;
+  margin: 5rem auto; }
+  .content .faqs .faq {
+    width: 100%;
+    margin: 2rem 0;
+    position: relative;
+    border-bottom: 1px solid #eeeeee; }
+    .content .faqs .faq .faq_question {
+      color: #222222;
+      font-weight: 500;
+      font-size: 1.5rem;
+      margin-bottom: 1rem; }
+    .content .faqs .faq .faq_separation {
+      width: 80px;
+      margin-bottom: 1rem; }
+    .content .faqs .faq .faq_reponse {
+      color: #999999;
+      text-align: justify;
+      margin-bottom: 2rem; }
+    .content .faqs .faq:last-of-type {
+      margin-bottom: 0;
+      border-bottom: 0; }
+
+.content_admin .faq {
   width: 100%;
   margin: 2rem 0;
   position: relative;
   border-bottom: 1px solid #bfbfbf; }
-  .faq .faq_question {
+  .content_admin .faq .faq_question {
     color: #283a47;
     font-weight: 500;
     margin-bottom: 1rem; }
-  .faq .faq_separation {
+  .content_admin .faq .faq_separation {
     font-style: italic;
     color: #999999;
     margin-bottom: 1rem;
     font-size: 0.8rem; }
-  .faq .faq_reponse {
+  .content_admin .faq .faq_reponse {
     text-align: justify;
     margin-bottom: 1rem; }
-  .faq .modifier_faq {
+  .content_admin .faq .modifier_faq {
     position: absolute;
     top: 0;
     right: 0;
     text-align: center;
     width: 50px; }
-    .faq .modifier_faq svg {
+    .content_admin .faq .modifier_faq svg {
       width: 30px;
       fill: #999999; }
-      .faq .modifier_faq svg:hover {
+      .content_admin .faq .modifier_faq svg:hover {
         fill: #283a47; }
-    .faq .modifier_faq p {
+    .content_admin .faq .modifier_faq p {
       font-size: 10px;
       color: #999999; }
-  .faq .supprimer_faq {
+  .content_admin .faq .supprimer_faq {
     position: absolute;
     top: 0;
     right: 4rem;
     cursor: pointer;
     text-align: center;
     width: 50px; }
-    .faq .supprimer_faq svg {
+    .content_admin .faq .supprimer_faq svg {
       width: 30px;
       fill: #999999; }
-      .faq .supprimer_faq svg:hover {
+      .content_admin .faq .supprimer_faq svg:hover {
         fill: #283a47; }
-    .faq .supprimer_faq p {
+    .content_admin .faq .supprimer_faq p {
       font-size: 10px;
       color: #999999; }
 
-.faq_photo_preview {
+.content_admin .faq_photo_preview {
   position: relative;
   text-align: center; }
-  .faq_photo_preview input[type="file"] {
+  .content_admin .faq_photo_preview input[type="file"] {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
     z-index: -1; }
-  .faq_photo_preview label {
+  .content_admin .faq_photo_preview label {
     margin: auto;
     display: block;
     width: 150px;
@@ -1407,7 +1526,7 @@ form.creer {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat; }
-  .faq_photo_preview p {
+  .content_admin .faq_photo_preview p {
     color: #999999;
     font-size: 0.8rem; }
 

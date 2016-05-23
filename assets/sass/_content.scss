@@ -68,16 +68,28 @@ a {
 	width: 100%;
 	text-align: left;
 
+	.uptitle {
+		margin-bottom: 0.5rem;
+		font-size: 1rem;
+		color: $noir;
+	}
+
+	hr {
+		width: 100%;
+		height: 2px;
+		background: $gris;
+	}
+
 	h1, h2 {
 		font-size: 2rem;
 		color: $noir;
 		margin-bottom: 5rem;
 		text-transform: uppercase;
-		font-weight: 700;
+		font-weight: 600;
 		position: relative;
 
-		h2:after {
-			content:url('../img/title_bottom.svg');
+		&:after {
+			content: url('../img/title_bottom.svg');
 			position: absolute;
 			left: 50%;
 			margin-left: -55px;
@@ -93,6 +105,10 @@ a {
 		text-transform: uppercase;
 		font-weight: 600;
 		position: relative;
+
+		&:after {
+			content: '';
+		}
 
 		span {
 			font-size: 1rem;

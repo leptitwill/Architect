@@ -51,6 +51,10 @@
 
 					<?php foreach ($produits as $produit): ?>
 
+						<?php
+							$produit_url = $produit['url'];
+						?>
+
 						<article class="accueil_produit">
 
 							<div class="accueil_produit_contenu">
@@ -61,40 +65,29 @@
 								</div>
 							</div>
 							<div class="accueil_produit_atout">
-								<div class="atout">
-									<div>
-										<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
-											<path d="M20,20v-8h2v0L12,3L2,12v0h2v8c0,0.6,0.4,1,1,1h5v-7h4v7h5C19.6,21,20,20.6,20,20z"></path>
-										</svg>
-										<p>Le studio de jardin est garanti 10 ans</p>	
+								<?php foreach ($avantages as $avantage): ?>	
+									<div class="atout">
+										<div>
+											<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>">
+											<p class="atout_nom"><?= $avantage['nom'] ?></p>
+											<p class="atout_description"><?= $avantage['description'] ?></p>
+										</div>
+										
 									</div>
-								</div>
-								<div class="atout">
-									<div>
-										<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
-										    <path d="M 6.09375 4 C 5.39375 4 4.80625 4.4 4.40625 5 L 2.1875 8.59375 C 2.0875 8.79375 2 9.2 2 9.5 L 2 20 C 2 21.1 2.9 22 4 22 L 20 22 C 21.1 22 22 21.1 22 20 L 22 16 L 22 9.5 C 22 9.2 21.9125 8.79375 21.8125 8.59375 L 19.59375 5 C 19.19375 4.4 18.60625 4 17.90625 4 L 6.09375 4 z M 5.90625 6 L 11 6 L 11 9 L 4.1875 9 L 5.90625 6 z M 13 6 L 18.09375 6 L 19.8125 9 L 13 9 L 13 6 z M 9 11 L 15 11 C 15.6 11 16 11.4 16 12 C 16 12.6 15.6 13 15 13 L 9 13 C 8.4 13 8 12.6 8 12 C 8 11.4 8.4 11 9 11 z"></path>
-										</svg>
-										<p>Isolant type M1 non inflammable</p>	
-									</div>
-								</div>
-								<div class="atout">
-									<div>
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
-			 								<path d="M22,6.9v6.3c0,0-1.3,0.3-1.6,0.3c-0.3,0-1.1,0.3-1.7-0.3c-0.9-0.9-4.3-4.4-4.3-4.4S13.9,8.2,13,8.7l-1.5,0.9 C11,9.9,10.2,9.7,9.9,9.2l0,0c-0.4-0.6-0.2-1.4,0.4-1.7c1.2-0.7,3.1-1.8,3.8-2.2c0.6-0.4,1.1-0.4,2,0.4c1.1,0.9,2,1.8,2,1.8 s0.4,0.2,0.8,0.2C19.6,7.5,22,6.9,22,6.9z M9.9,17.8c-0.3-0.3-3.7-4-4-4.3c-0.4-0.5-1.1-0.4-1.7,0c-0.6,0.5-0.8,1.4-0.4,1.9 c0.4,0.5,3.5,3.8,4,4.3c0.4,0.5,1.5,0.3,2-0.2C10.3,19,10.4,18.2,9.9,17.8z M17.6,15.7c0.5-0.5,0.4-1.4-0.1-1.9 c-2.7-2.8-1.7-1.7-3.5-3.6c0,0-0.6-0.7-1.3-0.3c-0.2,0.1-0.5,0.3-0.9,0.5c-0.9,0.6-1.9,0.5-2.8-0.9C8,8.3,8.5,7.3,9.4,6.7l1.7-1.1 c0,0-0.4-0.6-1.6-0.6C8.3,5,5.8,6.8,5.8,6.8S5,7.3,4,6.9L2,6.2v7.2c0,0,0.6,0.2,1.1,0.4c0.1-0.3,0.3-0.7,0.6-0.9 c0.8-0.8,2.3-0.9,3,0c0.5,0.5,3.7,4,4,4.3c0.5,0.5,0.6,1.2,0.5,1.8C11.4,19.2,15.7,17.8,17.6,15.7z"></path>
-										</svg>
-										<p>Peut être bâti sans permis de contruire</p>	
-									</div>
-								</div>
-								<div class="atout">
-									<div>
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										    <path d="M 4 4 L 4 8 L 8 8 L 8 4 L 4 4 z M 10 4 L 10 8 L 14 8 L 14 4 L 10 4 z M 16 4 L 16 8 L 20 8 L 20 4 L 16 4 z M 4 10 L 4 14 L 8 14 L 8 10 L 4 10 z M 10 10 L 10 14 L 14 14 L 14 10 L 10 10 z M 16 10 L 16 14 L 20 14 L 20 10 L 16 10 z M 4 16 L 4 20 L 8 20 L 8 16 L 4 16 z M 10 16 L 10 20 L 14 20 L 14 16 L 10 16 z M 16 16 L 16 20 L 20 20 L 20 16 L 16 16 z"></path>
-										</svg>
-										<p>Finitions intérieures sol, murs et plafond</p>	
-									</div>
-								</div>
-							</div>
+								<?php endforeach ?>	
 
+								<a href="<?= base_url("produit/$produit_url") ?>" class="atout">
+									<div>
+										<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-454 256 50 50" style="enable-background:new -454 256 50 50;" xml:space="preserve">
+											<path d="M-406,256h-30c-0.6,0-1,0.5-1,1v10h2.1v-9h27.9V304H-435v-9h-2.1v10c0,0.6,0.5,1,1,1h30c0.6,0,1-0.5,1-1v-48
+											c0-0.5-0.3-0.9-0.8-1C-405.9,256-405.9,256-406,256z M-429.7,271.4c-0.4,0.4-0.4,1,0,1.4l7.2,7.2H-452c0,0,0,0,0,0c-0.6,0-1,0.5-1,1
+											c0,0.6,0.5,1,1,1h29.6l-7.2,7.2c-0.1,0-0.1,0.1-0.2,0.2c-0.3,0.4-0.3,1.1,0.2,1.4c0.4,0.3,1.1,0.3,1.4-0.2l8.9-8.9l0.7-0.7l-0.7-0.7
+											l-8.9-8.9c-0.2-0.2-0.4-0.3-0.6-0.3C-429.1,271.1-429.4,271.2-429.7,271.4z"/>
+										</svg>
+										<p>Voir le produit</p>	
+									</div>
+								</a>
+							</div>
 						</article>
 					
 					<?php endforeach; ?>
@@ -103,131 +96,116 @@
 
 				<section class="accueil_etapes">
 						
-				<h2>Les étapes clées pour mener à bien votre projet</h2>
+					<h2>Les étapes clées pour mener à bien votre projet</h2>
 
-				<div class="accueil_etape">
-					<span>Étape n°</span><br>
-					<p class="number">01<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
-					</p>
-				</div>
-
-				<div class="accueil_etape">
-					<span>Étape n°</span><br>
-					<p class="number">02<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
-					</p>
-				</div>
-
-				<div class="accueil_etape">
-					<span>Étape n°</span><br>
-					<p class="number">03<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
-					</p>
-				</div>
-
-				<div class="accueil_etape">
-					<span>Étape n°</span><br>
-					<p class="number">04<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
-					</p>
-				</div>
-
-			</section>
-
-			<section class="accueil_validation">
-
-				<p>
-				Une fois le feu vert de la Marie et le délai de recours des tiers passé, la fabrication est alors lancé.
-				Un contrat sera signé entre les 2 parties dans le but de clarifier les étapes à venir et les obligations de chacun.
-				</p>
-
-			</section>
-
-			<section class="accueil_membres">
-
-				<h2>Qui sommes nous ?</h2>
-
-				<?php foreach ($membres as $membre): ?>
-				
-					<div class="accueil_membre">
-						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
-						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
+					<div class="accueil_etape">
+						<span>Étape n°</span><br>
+						<p class="number">01<span>.</span></p>
+						<p class="accueil_etape_texte">
+							<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+							<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						</p>
 					</div>
 
-				<?php endforeach; ?>
-
-			</section>
-
-			<section class="accueil_avis my-slider">
-				<ul class="overlay">
-					<li>
-						<blockquote><p>On est pas bien ? paisibles, à la fraiche, décontractés du gland. … et on bandera quand on aura envie de bander</p></blockquote><br>
-						<span>Les valseuses</span>
-					</li>
-					<li>
-						<blockquote><p>La capote, c’est le soulier de verre de notre génération. On l’enfile quand on rencontre une inconnue, on danse toute la nuit, et puis on la balance</p></blockquote><br>
-						<span>Fight Club</span>
-					</li>
-					<li>
-						<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un pistolet chargé et ceux qui creusent. Toi tu creuses</p></blockquote><br>
-						<span>Le bon, la brute et le truand</span>
-					</li>
-				</ul>
-			</section>
-
-			<section class="accueil_membres">
-
-				<h2>Les derniers articles</h2>
-
-				<?php foreach ($membres as $membre): ?>
-				
-					<div class="accueil_membre">
-						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
-						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
+					<div class="accueil_etape">
+						<span>Étape n°</span><br>
+						<p class="number">02<span>.</span></p>
+						<p class="accueil_etape_texte">
+							<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+							<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						</p>
 					</div>
 
-				<?php endforeach; ?>
+					<div class="accueil_etape">
+						<span>Étape n°</span><br>
+						<p class="number">03<span>.</span></p>
+						<p class="accueil_etape_texte">
+							<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+							<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						</p>
+					</div>
 
-			</section>
+					<div class="accueil_etape">
+						<span>Étape n°</span><br>
+						<p class="number">04<span>.</span></p>
+						<p class="accueil_etape_texte">
+							<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
+							<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						</p>
+					</div>
+
+				</section>
+
+				<section class="accueil_validation">
+
+					<p>
+					Une fois le feu vert de la Marie et le délai de recours des tiers passé, la fabrication est alors lancé.
+					Un contrat sera signé entre les 2 parties dans le but de clarifier les étapes à venir et les obligations de chacun.
+					</p>
+
+				</section>
+
+				<section class="accueil_avis">
+
+					<div class="overlay">
+
+						<h2>Les avis clients</h2>
+
+						<div class="my-slider">
+							<ul>
+								<li>
+									<blockquote><p>On est pas bien ? paisibles, à la fraiche, décontractés du gland. … et on bandera quand on aura envie de bander</p></blockquote><br>
+									<span>Les valseuses</span>
+								</li>
+								<li>
+									<blockquote><p>La capote, c’est le soulier de verre de notre génération. On l’enfile quand on rencontre une inconnue, on danse toute la nuit, et puis on la balance</p></blockquote><br>
+									<span>Fight Club</span>
+								</li>
+								<li>
+									<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un pistolet chargé et ceux qui creusent. Toi tu creuses</p></blockquote><br>
+									<span>Le bon, la brute et le truand</span>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+
+				</section>
+
+				<section class="accueil_articles">
+
+					<h2>Les derniers articles</h2>
+					
+					<div class="accueil_article">
+						<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-1.jpg');"></div>
+						<p class="accueil_article_titre">American Gothic</p>
+						<p class="accueil_article_description">
+							American Gothic est un tableau de Grant Wood faisant partie de la collection de l'Institut d'art de Chicago. Wood a été inspiré par un chalet conçu dans le style néogothique avec une fenêtre supérieure distinctive.
+						</p>
+						<a  class="accueil_article_lien" href="#">Lire plus</a>
+					</div>
+
+					<div class="accueil_article">
+						<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-2.jpg');"></div>
+						<p class="accueil_article_titre">Le Désespéré</p>
+						<p class="accueil_article_description">
+							Le Désespéré est un tableau du peintre français Gustave Courbet réalisé entre 1843 et 1845. C'est un autoportrait de l'artiste sous les traits d'un jeune homme grand, beau et brun qui regarde avec désespoir vers moi. 							
+						</p>
+						<a  class="accueil_article_lien" href="#">Lire plus</a>
+					</div>
+
+					<div class="accueil_article">
+						<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-3.jpg');"></div>
+						<p class="accueil_article_titre">La nevada</p>
+						<p class="accueil_article_description">
+							La nevada ou El invierno est une peinture réalisée par Francisco de Goya en 1786 et faisant partie de la cinquième série des cartons pour tapisserie destinée à la salle à manger du Prince des Asturies au Palais du Pardo.
+						</p>
+						<a  class="accueil_article_lien" href="#">Lire plus</a>
+					</div>
+
+				</section>
 
 				<footer>
-
-					<div class="footer_bloc">
-						<ul class="texte">
-							<li>Société</li>
-							<li>
-								<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
-									Contact
-								</a>
-							</li>
-							<li>
-								<a href="<?= base_url("faq"); ?>">
-									Foire aux questions
-								</a>
-							</li>
-							<li>
-								<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
-									Mentions légales
-								</a>
-							</li>
-							<li>
-								<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
-									Conditions générales
-								</a>
-							</li>
-						</ul>
-					</div>
 
 					<div class="footer_bloc">
 						<ul class="texte">
@@ -249,21 +227,67 @@
 						</ul>
 					</div>
 
-					<div class="footer_bloc">
-						<p><b>Suivez nous</b></p>
-						<ul class="reseau_social">
-							<?php foreach ($reseaux_sociaux as $reseau_social): ?>
-								<?php
-									$reseaux_sociaux_id = $reseau_social['idReseauxSociaux'];
-								?>
-									<a target="_blank" href="<?= $reseau_social['lien'] ?>">
-										<li>
-											<img src="<?=img_url()?>reseaux_sociaux/<?= $reseau_social['logo']; ?>">
-										</li>
-									</a>
-							<?php endforeach; ?>
+					<div class="footer_bloc_newsletter">
+						<ul class="texte">
+							<li>Newsletter</li>
+							<li>Suivez notre actualitées en vous inscrivant à notre newsletter</li>
 						</ul>
-						<p>© Conceptcub - Tous droits réservés</p>
+						<form>
+							<input type="email" name="email" placeholder="Votre adresse email">
+							<span>
+								<button type="submit">S'inscrire</button>
+							</span>
+						</form>
+					</div>
+
+					<div class="footer_bloc_bas">
+
+						<div>
+							<p>© Conceptcub - Tous droits réservés</p>
+						</div>
+
+						<div>
+							<ul class="footer_menu">
+								<li>
+									<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+										Contact
+									</a>
+								</li>
+								<li>
+									<a href="<?= base_url("faq"); ?>">
+										FAQ
+									</a>
+								</li>
+								<li>
+									<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+										Mentions légales
+									</a>
+								</li>
+								<li>
+									<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+										Conditions générales
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div>
+
+							<ul class="reseau_social">
+								<?php foreach ($reseaux_sociaux as $reseau_social): ?>
+									<?php
+										$reseaux_sociaux_id = $reseau_social['idReseauxSociaux'];
+									?>
+										<a target="_blank" href="<?= $reseau_social['lien'] ?>">
+											<li>
+												<img src="<?=img_url()?>reseaux_sociaux/<?= $reseau_social['logo']; ?>">
+											</li>
+										</a>
+								<?php endforeach; ?>
+							</ul>
+							
+						</div>
+						
 					</div>
 					
 				</footer>
