@@ -2,13 +2,13 @@
 			<ul>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-1.jpg')">
 					<div class="cover_texte">
-						<h3>Nos bureau de jardin</h3><br>
+						<h3>Nos bureaux de jardin</h3><br>
 						<span>Super facile d'utilisation et trés beau.</span>
 					</div>
 				</li>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-2.jpg')">
 					<div class="cover_texte">
-						<h3>Nos studio de jardin</h3><br>
+						<h3>Nos studios de jardin</h3><br>
 						<span>Super facile d'utilisation et trés beau.</span>
 					</div>
 				</li>
@@ -92,8 +92,8 @@
 					<span>Étape n°</span><br>
 					<p class="number">01<span>.</span></p>
 					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						<span class="etape_titre">Premier rendez-vous téléphonique</span><br><br>
+						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les différentes options possibles.</span>
 					</p>
 				</div>
 
@@ -101,8 +101,8 @@
 					<span>Étape n°</span><br>
 					<p class="number">02<span>.</span></p>
 					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						<span class="etape_titre">Une étude préliminaire du projet</span><br><br>
+						<span class="etape_contenu">Cette étape est la plus importante dans la mesure où votre projet doit avant tout respecter certaines règles du plan local d'urbanisme (PLU) de votre commune.</span>
 					</p>
 				</div>
 
@@ -110,8 +110,8 @@
 					<span>Étape n°</span><br>
 					<p class="number">03<span>.</span></p>
 					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						<span class="etape_titre">Réalisation des documents administratifs</span><br><br>
+						<span class="etape_contenu">Réalisation des documents administratifs, déclaration préalable ou permis de construire pour un coût de 600 euros. vous êtes dégagés des démarches administratifs.</span>
 					</p>
 				</div>
 
@@ -119,8 +119,12 @@
 					<span>Étape n°</span><br>
 					<p class="number">04<span>.</span></p>
 					<p class="accueil_etape_texte">
-						<span class="etape_titre">PREMIER RENDEZ-VOUS TELEPHONIQUE</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les diffé- rentes options possibles.</span>
+						<span class="etape_titre">Nous préparons un avant projet regroupant</span><br><br>
+						<span class="etape_contenu">1. Un plan d'implantation<br>
+						2. Plan et descriptif<br>
+						3. Un devis détaillé<br>
+						4. La liste des options<br>
+						Nous rédigeons un devis ferme et définitif.</span>
 					</p>
 				</div>
 
@@ -160,16 +164,16 @@
 					<div class="my-slider">
 						<ul>
 							<li>
-								<blockquote><p>On est pas bien ? paisibles, à la fraiche, décontractés du gland. … et on bandera quand on aura envie de bander</p></blockquote><br>
-								<span>Les valseuses</span>
+								<blockquote><p>On est pas bien ? paisibles, à la fraiche, sirotant un nestea dans mon studio de jardin.</p></blockquote><br>
+								<span>Eden Hazard</span>
 							</li>
 							<li>
-								<blockquote><p>La capote, c’est le soulier de verre de notre génération. On l’enfile quand on rencontre une inconnue, on danse toute la nuit, et puis on la balance</p></blockquote><br>
-								<span>Fight Club</span>
+								<blockquote><p>Super ce bureaux de jardin ! Je peux enfin travailler tranquilement sans que ma femme vienne m'embêter.</p></blockquote><br>
+								<span>José Morinho</span>
 							</li>
 							<li>
-								<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un pistolet chargé et ceux qui creusent. Toi tu creuses</p></blockquote><br>
-								<span>Le bon, la brute et le truand</span>
+								<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un studio de jardin et ceux qui en on pas.</p></blockquote><br>
+								<span>Selena Gomez</span>
 							</li>
 						</ul>
 					</div>
@@ -184,30 +188,29 @@
 				
 				<div class="accueil_article">
 					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-1.jpg');"></div>
-					<p class="accueil_article_titre">American Gothic</p>
+					<a href=""><h3 class="accueil_article_titre">American Gothic</h3></a>
 					<p class="accueil_article_description">
 						American Gothic est un tableau de Grant Wood faisant partie de la collection de l'Institut d'art de Chicago. Wood a été inspiré par un chalet conçu dans le style néogothique avec une fenêtre supérieure distinctive.
 					</p>
-					<a  class="accueil_article_lien" href="#">Lire plus</a>
 				</div>
 
 				<div class="accueil_article">
 					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-2.jpg');"></div>
-					<p class="accueil_article_titre">Le Désespéré</p>
+					<a href=""><h3 class="accueil_article_titre">Le Désespéré</h3></a>
 					<p class="accueil_article_description">
 						Le Désespéré est un tableau du peintre français Gustave Courbet réalisé entre 1843 et 1845. C'est un autoportrait de l'artiste sous les traits d'un jeune homme grand, beau et brun qui regarde avec désespoir vers moi. 							
 					</p>
-					<a  class="accueil_article_lien" href="#">Lire plus</a>
 				</div>
 
 				<div class="accueil_article">
 					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-3.jpg');"></div>
-					<p class="accueil_article_titre">La nevada</p>
+					<a href=""><h3 class="accueil_article_titre">La nevada</h3></a>
 					<p class="accueil_article_description">
 						La nevada ou El invierno est une peinture réalisée par Francisco de Goya en 1786 et faisant partie de la cinquième série des cartons pour tapisserie destinée à la salle à manger du Prince des Asturies au Palais du Pardo.
 					</p>
-					<a  class="accueil_article_lien" href="#">Lire plus</a>
 				</div>
+
+				<a  class="accueil_article_lien" href="#">Voir tous les articles</a>
 
 			</section>
 

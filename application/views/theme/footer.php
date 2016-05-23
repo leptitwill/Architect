@@ -101,7 +101,8 @@
 		<script>
 			jQuery(document).ready(function($) {
 				$('.my-slider').unslider({
-					autoplay: false,
+					autoplay: true,
+					delay: 5000,
 					infinite: true,
 					nav: false,
 				});

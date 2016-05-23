@@ -11,6 +11,15 @@
 
 		<section class="content">
 
+			<section class="produit_appel">
+				<div>
+					<p>
+					Vous avez un projet d'aménagement, vous avez des questions ?
+				</p>
+				<a href="#">Contactez-nous</a>
+				</div>
+			</section>
+
 			<section class="produit_introduction">
 
 				<p class="uptitle">Nous vous apportons</p>
@@ -53,50 +62,44 @@
 
 			<section class="produit_gammes">
 
-				<p class="uptitle">Jetez un coup d'oeil à</p>
-				<h2>Nos <?= $produit[0]['nom'] ?></h2>
-				
-				<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
-					<div class="produit_gamme">
-						<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')">
-							<div class="overlay">
+				<div class="content">
+					<p class="uptitle">Jetez un coup d'oeil à</p>
+					<h2>Nos <?= $produit[0]['nom'] ?></h2>
+					
+					<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
+						<div class="produit_gamme">
+							<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')">
 								<div class="produit_gamme_nom">
 									<h3><?= $gamme['nom'] ?></h3>
 								</div>
 							</div>
+
+							<div class="produit_atout">
+								<div class="atout">
+									<div>
+										<p>Idéale pour les particuliers au espace restreints</p>	
+									</div>
+								</div>
+								<div class="atout">
+									<div>
+										<p>Espace de 5m²</p>	
+									</div>
+								</div>
+								<div class="atout">
+									<div>
+										<p>Pas de création préalable, ni de permis de construire</p>	
+									</div>
+								</div>
+								<div class="atout">
+									<div>
+										<p>A partir de 16 500 € HT</p>	
+									</div>
+								</div>
+							</div>
 						</div>
 
-						<div class="produit_atout">
-							<div class="atout">
-								<div>
-									<p>Idéale pour les particuliers au espace restreints</p>	
-								</div>
-							</div>
-							<div class="atout">
-								<div>
-									<p>Espace de 5m²</p>	
-								</div>
-							</div>
-							<div class="atout">
-								<div>
-									<p>Pas de création préalable, ni de permis de construire</p>	
-								</div>
-							</div>
-							<div class="atout">
-								<div>
-									<p>A partir de 16 500 € HT</p>	
-								</div>
-							</div>
-						</div>
-					</div>
-				
-					<!-- <a href="<?= base_url("gamme/$gamme_url") ?>" class="gamme_nom">
-						<article class="produit_gamme" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')">
-							<span><?= $gamme['nom'] ?></span>
-						</article>
-					</a> -->
-
-				<?php endforeach ?>
+					<?php endforeach ?>
+				</div>
 
 			</section>
 

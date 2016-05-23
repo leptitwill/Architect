@@ -1,3 +1,33 @@
+.produit_appel {
+	text-align: left;
+	padding: 1rem 2rem;
+	color: $noir;
+	background: $gris;
+
+	div {
+		max-width: 1000px;
+		width: 100%;
+		margin: auto;
+		overflow: hidden;
+
+		p {
+			float: left;
+			line-height: 47px;
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+
+		a {
+			float: right;
+			background: $vert;
+			color: white;
+			padding: 1rem 2rem;
+			text-transform: uppercase;
+			font-size: 0.8rem;
+		}
+	}
+}
+
 .produit_introduction {
 	width: 100%;
 	max-width: 800px;
@@ -105,117 +135,108 @@
 
 .produit_gammes {
 	width: 100%;
-	max-width: 1000px;
-	margin: 5rem auto 3rem;
-	text-align: center;
-	color: $faux-noir;
-	font-size: 0;
+	background: lighten($gris, 4%);
 
-	.produit_gamme {
-		width: 47.5%;
-		display: inline-block;
-		font-size: 1rem;
+	.content {
+		max-width: 1000px;
+		width: 100%;
+		margin: auto;
+		padding: 5rem 0 3rem;
 		text-align: center;
-		border: 1px solid $gris;
-		vertical-align: top;
-		margin-bottom: 2rem;
+		color: $faux-noir;
+		font-size: 0;
 
-		&:nth-child(odd) {
-			margin-right: 5%;
-		}
+		.produit_gamme {
+			width: 47.5%;
+			display: inline-block;
+			font-size: 1rem;
+			text-align: center;
+			border: 1px solid $gris;
+			background: white;
+			vertical-align: top;
+			margin-bottom: 2rem;
 
-		.produit_gamme_photo {
-			width: 100%;
-			height: 300px;
-			background-size: cover;
-		    background-position: 50% 50%;
-		    background-repeat: no-repeat;
-		    background-color: #eeeeee;
+			&:nth-child(odd) {
+				margin-right: 5%;
+			}
 
-		    .overlay {
-		    	position: relative;
-			    padding: 1.5rem;
-			    z-index: 1;
-			    background-color: rgba($noir, 0.4);
-			    color: white;
-			    height: 100%;
-			    width: 100%;
+			.produit_gamme_photo {
+				width: 100%;
+				height: 300px;
+				background-size: cover;
+			    background-position: 50% 50%;
+			    background-repeat: no-repeat;
+			    background-color: #eeeeee;
+			    position: relative;
 
 			    .produit_gamme_nom {
 					position: absolute;
 					text-align: center;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
+					bottom: 0;
+					left: 0;
+					width: 50%;
+					padding: 1rem;
+					background: rgba($noir, 0.7);
 
 					h3 {
-						font-size: 2rem;
+						font-size: 1.5rem;
 						text-transform: uppercase;
-						font-weight: 500;
+						font-weight: 400;
 						position: relative;
-					}
-				}
-		    }
-		}
-
-		.produit_atout {
-			width: 100%;
-			overflow: auto;
-
-			.atout {
-				width: 50%;
-				min-height: 150px;
-				float: left;
-				position: relative;
-				text-align: center;
-				transition: 0.3s;
-
-				div {
-					width: 100%;
-					vertical-align: middle;
-					position: absolute;
-					transform: translate(-50%, -50%);
-					top: 50%;
-					left: 50%;
-
-					svg {
-						width: 50px;
-						fill: $noir;
-					}
-
-					p {
-						color: $gris-fonce;
-						padding: 1rem 1rem 0rem;
-					}
-				}
-
-				&:first-child {
-					border-right: 1px solid $gris;
-					border-bottom: 1px solid $gris;
-				}
-
-				&:nth-child(2) {
-					border-bottom: 1px solid $gris;
-				}
-
-				&:nth-child(3) {
-					border-right: 1px solid $gris;
-				}
-
-				&:hover {
-					background: $vert;
-					color: white;
-
-					svg {
-						fill: white;
-					}
-
-					p {
 						color: white;
 					}
 				}
 			}
 
+			.produit_atout {
+				width: 100%;
+				overflow: auto;
+
+				.atout {
+					width: 50%;
+					min-height: 150px;
+					float: left;
+					position: relative;
+					text-align: center;
+					transition: 0.3s;
+
+					div {
+						width: 100%;
+						vertical-align: middle;
+						position: absolute;
+						transform: translate(-50%, -50%);
+						top: 50%;
+						left: 50%;
+
+						p {
+							color: $gris-fonce;
+							padding: 1rem 1rem 0rem;
+						}
+					}
+
+					&:first-child {
+						border-right: 1px solid $gris;
+						border-bottom: 1px solid $gris;
+					}
+
+					&:nth-child(2) {
+						border-bottom: 1px solid $gris;
+					}
+
+					&:nth-child(3) {
+						border-right: 1px solid $gris;
+					}
+
+					&:nth-child(4) {
+						font-weight: 400;
+
+						p {
+							color: $vert;
+						}
+					}
+				}
+
+			}
 		}
 	}
 }

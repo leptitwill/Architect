@@ -42,6 +42,7 @@
 					<?php endforeach; ?>
 					<a href=""><li>Concept</li></a>
 					<a href=""><li>Blog</li></a>
+					<a href=""><li>Contact</li></a>
 				</ul>
 			</nav>
 

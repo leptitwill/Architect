@@ -5,7 +5,7 @@ footer {
 	padding: 20px;
 	width: 100%;
 	font-size: 0;
-	padding: 3rem;
+	padding: 4rem 3rem 2rem;
 
 	.footer_bloc {
 		color: $gris-fonce;
@@ -22,8 +22,10 @@ footer {
 				font-family: "Open sans" !important;
 
 				&:first-child {
-					font-weight: 600;
+					font-weight: 400;
+					text-transform: uppercase;
 					margin-bottom: 1rem;
+					color: $vert;
 				}
 			}
 		}
@@ -45,8 +47,10 @@ footer {
 				font-family: "Open sans" !important;
 
 				&:first-child {
-					font-weight: 600;
+					font-weight: 400;
+					text-transform: uppercase;
 					margin-bottom: 1rem;
+					color: $vert;
 				}
 			}
 		}
@@ -75,8 +79,8 @@ footer {
 	.footer_bloc_bas {
 		width: 100%;
 		font-size: 0;
-		padding-top: 3rem;
-		margin-top: 3rem;
+		padding-top: 2rem;
+		margin-top: 4rem;
 		border-top: 1px solid darken($gris-fonce, 20%);
 
 		div {
