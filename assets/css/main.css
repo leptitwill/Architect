@@ -606,7 +606,14 @@ form.creer {
             top: 2rem;
             width: 80px; }
         .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
-          color: #999999; }
+          color: #999999;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          line-height: 16px;
+          max-height: 48px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical; }
       .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
         border-right: 1px solid #eeeeee;
         border-bottom: 1px solid #eeeeee; }
@@ -900,7 +907,7 @@ form.creer {
       left: 0; }
       .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
         text-transform: uppercase;
-        color: #329899;
+        color: white;
         margin-bottom: 1rem;
         font-weight: 400;
         font-size: 1.5rem; }
@@ -946,7 +953,14 @@ form.creer {
             top: 2rem;
             width: 80px; }
         .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
-          color: #999999; }
+          color: #999999;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          line-height: 16px;
+          max-height: 48px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical; }
       .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
         border-right: 1px solid #eeeeee;
         border-bottom: 1px solid #eeeeee; }
@@ -1083,9 +1097,10 @@ form.creer {
 .body_admin .accueil_articles {
   width: 100%;
   max-width: 1000px;
-  margin: 4rem auto;
   padding: 0 1rem;
-  overflow: auto; }
+  margin: 4rem auto;
+  overflow: auto;
+  text-align: center; }
   .body_admin .accueil_articles h2 {
     text-align: center; }
     .body_admin .accueil_articles h2:after {
@@ -1108,28 +1123,36 @@ form.creer {
       background-color: #eeeeee; }
     .body_admin .accueil_articles .accueil_article .accueil_article_titre {
       text-transform: uppercase;
-      font-size: 1.5rem;
+      font-size: 1rem;
+      font-weight: 400;
       color: #329899;
       margin-bottom: 1rem; }
     .body_admin .accueil_articles .accueil_article .accueil_article_description {
-      color: #999999; }
-    .body_admin .accueil_articles .accueil_article .accueil_article_lien {
+      color: #999999;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 16px;
+      max-height: 80px;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical; }
+  .body_admin .accueil_articles .accueil_article_lien {
+    display: inline-block;
+    margin: 3rem 0;
+    text-transform: uppercase;
+    font-size: 0.8rem; }
+    .body_admin .accueil_articles .accueil_article_lien:before {
+      content: url("../img/title_bottom.svg");
+      width: 30px;
       float: left;
-      padding-top: 2rem;
-      text-transform: uppercase;
-      font-size: 0.8rem; }
-      .body_admin .accueil_articles .accueil_article .accueil_article_lien:before {
-        content: url("../img/title_bottom.svg");
-        width: 30px;
-        float: left;
-        margin-right: 0.5rem;
-        line-height: 0.8rem; }
-      .body_admin .accueil_articles .accueil_article .accueil_article_lien:after {
-        content: url("../img/title_bottom.svg");
-        width: 30px;
-        float: right;
-        margin-left: 0.5rem;
-        line-height: 0.8rem; }
+      margin-right: 0.5rem;
+      line-height: 0.8rem; }
+    .body_admin .accueil_articles .accueil_article_lien:after {
+      content: url("../img/title_bottom.svg");
+      width: 30px;
+      float: right;
+      margin-left: 0.5rem;
+      line-height: 0.8rem; }
 
 .produit_appel {
   text-align: left;
@@ -1490,63 +1513,63 @@ form.creer {
       margin-bottom: 0;
       border-bottom: 0; }
 
-.content_admin .faq {
+.content-admin .faq {
   width: 100%;
   margin: 2rem 0;
   position: relative;
   border-bottom: 1px solid #bfbfbf; }
-  .content_admin .faq .faq_question {
+  .content-admin .faq .faq_question {
     color: #283a47;
     font-weight: 500;
     margin-bottom: 1rem; }
-  .content_admin .faq .faq_separation {
+  .content-admin .faq .faq_separation {
     font-style: italic;
     color: #999999;
     margin-bottom: 1rem;
     font-size: 0.8rem; }
-  .content_admin .faq .faq_reponse {
+  .content-admin .faq .faq_reponse {
     text-align: justify;
     margin-bottom: 1rem; }
-  .content_admin .faq .modifier_faq {
+  .content-admin .faq .modifier_faq {
     position: absolute;
     top: 0;
     right: 0;
     text-align: center;
     width: 50px; }
-    .content_admin .faq .modifier_faq svg {
+    .content-admin .faq .modifier_faq svg {
       width: 30px;
       fill: #999999; }
-      .content_admin .faq .modifier_faq svg:hover {
+      .content-admin .faq .modifier_faq svg:hover {
         fill: #283a47; }
-    .content_admin .faq .modifier_faq p {
+    .content-admin .faq .modifier_faq p {
       font-size: 10px;
       color: #999999; }
-  .content_admin .faq .supprimer_faq {
+  .content-admin .faq .supprimer_faq {
     position: absolute;
     top: 0;
     right: 4rem;
     cursor: pointer;
     text-align: center;
     width: 50px; }
-    .content_admin .faq .supprimer_faq svg {
+    .content-admin .faq .supprimer_faq svg {
       width: 30px;
       fill: #999999; }
-      .content_admin .faq .supprimer_faq svg:hover {
+      .content-admin .faq .supprimer_faq svg:hover {
         fill: #283a47; }
-    .content_admin .faq .supprimer_faq p {
+    .content-admin .faq .supprimer_faq p {
       font-size: 10px;
       color: #999999; }
 
-.content_admin .faq_photo_preview {
+.content-admin .faq_photo_preview {
   position: relative;
   text-align: center; }
-  .content_admin .faq_photo_preview input[type="file"] {
+  .content-admin .faq_photo_preview input[type="file"] {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
     z-index: -1; }
-  .content_admin .faq_photo_preview label {
+  .content-admin .faq_photo_preview label {
     margin: auto;
     display: block;
     width: 150px;
@@ -1556,7 +1579,7 @@ form.creer {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat; }
-  .content_admin .faq_photo_preview p {
+  .content-admin .faq_photo_preview p {
     color: #999999;
     font-size: 0.8rem; }
 
@@ -1930,7 +1953,7 @@ form.creer {
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
     .connexion .connexion_content .connexion_logo {
-      width: 251px;
+      width: 300px;
       margin-bottom: 2rem; }
     .connexion .connexion_content form.connexion_form {
       text-align: left;

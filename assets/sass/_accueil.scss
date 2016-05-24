@@ -193,6 +193,13 @@
 
 						.atout_description {
 							color: $gris-fonce;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							line-height: 16px;
+							max-height: 48px;
+							-webkit-line-clamp: 4;
+							-webkit-box-orient: vertical;
 						}
 					}
 
@@ -627,7 +634,7 @@
 
 					.accueil_produit_nom {
 						text-transform: uppercase;
-						color: $vert;
+						color: white;
 						margin-bottom: 1rem;
 						font-weight: 400;
 						font-size: 1.5rem;
@@ -688,6 +695,13 @@
 
 						.atout_description {
 							color: $gris-fonce;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							line-height: 16px;
+							max-height: 48px;
+							-webkit-line-clamp: 4;
+							-webkit-box-orient: vertical;
 						}
 					}
 
@@ -905,9 +919,10 @@
 	.accueil_articles {
 		width: 100%;
 		max-width: 1000px;
-		margin: 4rem auto;
 		padding: 0 1rem;
+		margin: 4rem auto;
 		overflow: auto;
+		text-align: center;
 
 		h2 {
 			text-align: center;
@@ -940,36 +955,44 @@
 
 			.accueil_article_titre {
 				text-transform: uppercase;
-				font-size: 1.5rem;
+				font-size: 1rem;
+				font-weight: 400;
 				color: $vert;
 				margin-bottom: 1rem;
 			}
 
 			.accueil_article_description {
 				color: $gris-fonce;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				line-height: 16px;
+				max-height: 80px;
+				-webkit-line-clamp: 5;
+				-webkit-box-orient: vertical;
+			}
+		}
+
+		.accueil_article_lien {
+			display: inline-block;
+			margin: 3rem 0;
+			text-transform: uppercase;
+			font-size: 0.8rem;
+
+			&:before {
+				content:url('../img/title_bottom.svg');
+				width: 30px;
+				float: left;
+				margin-right: 0.5rem;
+				line-height: 0.8rem;
 			}
 
-			.accueil_article_lien {
-				float: left;
-				padding-top: 2rem;
-				text-transform: uppercase;
-				font-size: 0.8rem;
-
-				&:before {
-					content:url('../img/title_bottom.svg');
-					width: 30px;
-					float: left;
-					margin-right: 0.5rem;
-					line-height: 0.8rem;
-				}
-
-				&:after {
-					content:url('../img/title_bottom.svg');
-					width: 30px;
-					float: right;
-					margin-left: 0.5rem;
-					line-height: 0.8rem;
-				}
+			&:after {
+				content:url('../img/title_bottom.svg');
+				width: 30px;
+				float: right;
+				margin-left: 0.5rem;
+				line-height: 0.8rem;
 			}
 		}
 	}

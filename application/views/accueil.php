@@ -14,7 +14,7 @@
 				</li>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-3.jpg')">
 					<div class="cover_texte">
-						<h3>Voyager au Canada</h3><br>
+						<h3>Travailler en extérieur</h3><br>
 						<span>Super facile d'utilisation et trés beau.</span>
 					</div>
 				</li>
