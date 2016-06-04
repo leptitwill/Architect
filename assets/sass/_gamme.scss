@@ -5,7 +5,7 @@
 
 		.gamme_info {
 			width: 100%;
-			padding-right: 400px;
+			border-right: 400px solid white;
 			background: lighten($gris, 4%);
 			overflow: auto;
 
@@ -104,7 +104,6 @@
 			top: 0;
 			right: 0;
 			width: 400px;
-			height: 100vh;
 			background: white;
 
 			.gamme_menu {
@@ -164,6 +163,9 @@
 				padding: 0 2rem 2rem;
 
 				a {
+					display: block;
+					width: 100%;
+					text-align: center;
 				    background: $vert;
 				    color: white;
 				    padding: 1rem 2rem;
@@ -173,7 +175,7 @@
 			}
 
 			.gamme_pdf {
-				padding: 0 2rem;
+				padding: 0 2rem 2rem;
 
 				a {
 					color: $vert;

@@ -17,7 +17,7 @@
 header {
   width: 100%;
   height: 70px;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   padding: 0 50px;
@@ -1393,7 +1393,7 @@ form.creer {
   position: relative; }
   .content .gamme .gamme_info {
     width: 100%;
-    padding-right: 400px;
+    border-right: 400px solid white;
     background: #f8f8f8;
     overflow: auto; }
     .content .gamme .gamme_info .gamme_gallery {
@@ -1460,7 +1460,6 @@ form.creer {
     top: 0;
     right: 0;
     width: 400px;
-    height: 100vh;
     background: white; }
     .content .gamme .gamme_sidebar .gamme_menu {
       width: 100%; }
@@ -1498,13 +1497,16 @@ form.creer {
     .content .gamme .gamme_sidebar .gamme_devis {
       padding: 0 2rem 2rem; }
       .content .gamme .gamme_sidebar .gamme_devis a {
+        display: block;
+        width: 100%;
+        text-align: center;
         background: #329899;
         color: white;
         padding: 1rem 2rem;
         text-transform: uppercase;
         font-size: 0.8rem; }
     .content .gamme .gamme_sidebar .gamme_pdf {
-      padding: 0 2rem; }
+      padding: 0 2rem 2rem; }
       .content .gamme .gamme_sidebar .gamme_pdf a {
         color: #329899; }
 
