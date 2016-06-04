@@ -66,6 +66,7 @@ $route['gamme/redimensionner'] = 'gamme/redimensionner';
 $route['gamme/recadrer'] = 'gamme/recadrer';
 $route['gamme/supprimer_accent'] = 'gamme/supprimer_accent';
 $route['gamme/(:any)'] = 'gamme/index/$1';
+$route['mentions-legales'] = 'mentions';
 
 // Routes admin
 $route['admin'] = 'admin/admin';

@@ -9,16 +9,16 @@
 
 		</section>
 
-		<section class="content">
+		<section class="produit_appel">
+			<div>
+				<p>
+				Vous avez un projet d'aménagement, vous avez des questions ?
+			</p>
+			<a href="#">Contactez-nous</a>
+			</div>
+		</section>
 
-			<section class="produit_appel">
-				<div>
-					<p>
-					Vous avez un projet d'aménagement, vous avez des questions ?
-				</p>
-				<a href="#">Contactez-nous</a>
-				</div>
-			</section>
+		<section class="content" id="produit_content">
 
 			<section class="produit_introduction">
 
@@ -33,7 +33,7 @@
 
 				<?php foreach ($avantages as $avantage): ?>	
 					<div class="produit_avantage">
-						<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>">
+						<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>" >
 						<p class="produit_avantage_nom"><?= $avantage['nom'] ?></p>
 						<p class="produit_avantage_description"><?= $avantage['description'] ?></p>
 					</div>
@@ -69,7 +69,7 @@
 					<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
 						<div class="produit_gamme">
 							<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')">
-								<div class="produit_gamme_nom">
+								<div onclick="chargerGamme('<?= $gamme_url ?>')" class="produit_gamme_nom">
 									<h3><?= $gamme['nom'] ?></h3>
 								</div>
 							</div>

@@ -1,12 +1,15 @@
 <?php
 
-class Faq extends CI_Controller
+class Contact extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 
-		$this->load->model('faq_model');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->load->model('contact_model');
 		$this->load->model('reseaux_sociaux_model');
 
 		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
@@ -15,13 +18,13 @@ class Faq extends CI_Controller
 	
 	public function index()
 	{
-		$this->data['titre'] = 'Foire aux questions';
-		$this->data['sous_titre'] = 'Comment pouvons-nous vous aider ?';
-		$this->data['faqs'] = $this->faq_model->lister_faq();
+		$this->data['titre'] = 'Contact';
+		$this->data['sous_titre'] = 'Comment pouvons-nous vous renseigner ?';
+		//$this->data['contacts'] = $this->contact_model->lister_contact();
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header', $this->data);
-		$this->load->view('faq/accueil', $this->data);
+		$this->load->view('contact/accueil', $this->data);
 		$this->load->view('theme/footer', $this->data);
 	}
 

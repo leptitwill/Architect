@@ -227,17 +227,15 @@ a {
   .content-admin h1, .content-admin h2 {
     font-size: 2rem;
     color: #222222;
-    margin-bottom: 5rem;
     text-transform: uppercase;
     font-weight: 600;
-    position: relative; }
+    display: block; }
     .content-admin h1:after, .content-admin h2:after {
       content: url("../img/title_bottom.svg");
-      position: absolute;
-      left: 50%;
-      margin-left: -55px;
-      top: 3rem;
-      width: 110px; }
+      display: block;
+      margin: 2rem auto;
+      width: 110px;
+      line-height: 0; }
   .content-admin .titre {
     font-size: 1.5rem;
     color: #283a47;
@@ -278,20 +276,18 @@ a {
   .content h1, .content h2 {
     font-size: 2rem;
     color: #222222;
-    margin-bottom: 5rem;
     text-transform: uppercase;
     font-weight: 600;
-    position: relative; }
+    display: block; }
     .content h1:after, .content h2:after {
       content: url("../img/title_bottom.svg");
-      position: absolute;
-      left: 50%;
-      margin-left: -55px;
-      top: 3rem;
-      width: 110px; }
+      display: block;
+      margin: 2rem auto;
+      width: 110px;
+      line-height: 0; }
   .content .button {
     padding: 1rem 2rem;
-    border-radius: 5px;
+    font-size: 1rem;
     background: #329899;
     color: white;
     cursor: pointer; }
@@ -594,17 +590,15 @@ form.creer {
           width: 50px;
           margin-bottom: 1rem; }
         .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
-          margin-bottom: 3rem;
           text-transform: uppercase;
           font-weight: 500;
-          position: relative; }
+          display: block; }
           .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom:after {
             content: url("../img/title_bottom.svg");
-            position: absolute;
-            left: 50%;
-            margin-left: -40px;
-            top: 2rem;
-            width: 80px; }
+            display: block;
+            margin: 1.5rem auto;
+            width: 80px;
+            line-height: 0; }
         .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
           color: #999999;
           overflow: hidden;
@@ -651,9 +645,6 @@ form.creer {
   .body .accueil_etapes h2 {
     color: white;
     text-align: center; }
-    .body .accueil_etapes h2:after {
-      left: 50%;
-      margin-left: -55px; }
   .body .accueil_etapes .accueil_etape {
     margin-top: 2rem;
     width: 25%;
@@ -754,11 +745,6 @@ form.creer {
   margin: 4rem auto;
   overflow: auto;
   text-align: center; }
-  .body .accueil_articles h2 {
-    text-align: center; }
-    .body .accueil_articles h2:after {
-      left: 50%;
-      margin-left: -55px; }
   .body .accueil_articles .accueil_article {
     width: 30%;
     height: 100%;
@@ -998,9 +984,6 @@ form.creer {
   .body_admin .accueil_etapes h2 {
     color: white;
     text-align: center; }
-    .body_admin .accueil_etapes h2:after {
-      left: 50%;
-      margin-left: -55px; }
   .body_admin .accueil_etapes .accueil_etape {
     margin-top: 2rem;
     width: 25%;
@@ -1101,11 +1084,6 @@ form.creer {
   margin: 4rem auto;
   overflow: auto;
   text-align: center; }
-  .body_admin .accueil_articles h2 {
-    text-align: center; }
-    .body_admin .accueil_articles h2:after {
-      left: 50%;
-      margin-left: -55px; }
   .body_admin .accueil_articles .accueil_article {
     width: 30%;
     height: 100%;
@@ -1292,7 +1270,8 @@ form.creer {
           left: 0;
           width: 50%;
           padding: 1rem;
-          background: rgba(34, 34, 34, 0.7); }
+          background: rgba(34, 34, 34, 0.7);
+          cursor: pointer; }
           .produit_gammes .content .produit_gamme .produit_gamme_photo .produit_gamme_nom h3 {
             font-size: 1.5rem;
             text-transform: uppercase;
@@ -1410,11 +1389,130 @@ form.creer {
     color: #999999;
     font-size: 0.8rem; }
 
-.gamme {
+.content .gamme {
+  position: relative; }
+  .content .gamme .gamme_info {
+    width: 100%;
+    padding-right: 400px;
+    background: #f8f8f8;
+    overflow: auto; }
+    .content .gamme .gamme_info .gamme_gallery {
+      width: 100%;
+      height: 400px;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-color: #eeeeee; }
+    .content .gamme .gamme_info .gamme_detail {
+      width: 60%;
+      float: left;
+      padding: 3rem 2rem; }
+      .content .gamme .gamme_info .gamme_detail h2 {
+        font-size: 1.5rem; }
+        .content .gamme .gamme_info .gamme_detail h2:after {
+          margin: 1rem 0;
+          width: 80px; }
+      .content .gamme .gamme_info .gamme_detail p {
+        color: #999999; }
+      .content .gamme .gamme_info .gamme_detail ul {
+        padding: 1rem 0 0 1rem; }
+        .content .gamme .gamme_info .gamme_detail ul li {
+          list-style: square;
+          padding: 5px;
+          color: #999999; }
+    .content .gamme .gamme_info .gamme_plan {
+      width: 60%;
+      float: left;
+      padding: 3rem 2rem; }
+      .content .gamme .gamme_info .gamme_plan img {
+        width: 100%; }
+    .content .gamme .gamme_info .gamme_equipement {
+      width: 40%;
+      float: right;
+      padding: 3rem 2rem; }
+      .content .gamme .gamme_info .gamme_equipement h3 {
+        background: #333333;
+        text-transform: uppercase;
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 1rem 2rem;
+        margin-bottom: 1rem; }
+      .content .gamme .gamme_info .gamme_equipement p {
+        color: #999999; }
+    .content .gamme .gamme_info .gamme_equipement-option {
+      width: 40%;
+      float: right;
+      padding: 3rem 2rem; }
+      .content .gamme .gamme_info .gamme_equipement-option h3 {
+        background: #329899;
+        text-transform: uppercase;
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 1rem 2rem;
+        margin-bottom: 1rem; }
+      .content .gamme .gamme_info .gamme_equipement-option p {
+        color: #999999; }
+  .content .gamme .gamme_sidebar {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background: white; }
+    .content .gamme .gamme_sidebar .gamme_menu {
+      width: 100%; }
+      .content .gamme .gamme_sidebar .gamme_menu ul {
+        font-size: 0; }
+        .content .gamme .gamme_sidebar .gamme_menu ul li {
+          font-size: 1rem;
+          display: inline-block;
+          padding: 1rem;
+          width: 50%;
+          border-right: 1px solid #eeeeee;
+          border-bottom: 1px solid #eeeeee;
+          color: #999999; }
+          .content .gamme .gamme_sidebar .gamme_menu ul li.active {
+            border-bottom: 0;
+            font-weight: 500;
+            color: #222222; }
+    .content .gamme .gamme_sidebar .gamme_resume {
+      padding: 2rem; }
+      .content .gamme .gamme_sidebar .gamme_resume table {
+        width: 100%;
+        padding: 2rem;
+        border-collapse: collapse; }
+        .content .gamme .gamme_sidebar .gamme_resume table tr {
+          color: #999999; }
+          .content .gamme .gamme_sidebar .gamme_resume table tr:last-of-type {
+            color: #329899; }
+          .content .gamme .gamme_sidebar .gamme_resume table tr td {
+            border: 1px solid #eeeeee;
+            padding: 1rem;
+            text-align: center;
+            vertical-align: middle; }
+            .content .gamme .gamme_sidebar .gamme_resume table tr td svg {
+              width: 30px; }
+    .content .gamme .gamme_sidebar .gamme_devis {
+      padding: 0 2rem 2rem; }
+      .content .gamme .gamme_sidebar .gamme_devis a {
+        background: #329899;
+        color: white;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        font-size: 0.8rem; }
+    .content .gamme .gamme_sidebar .gamme_pdf {
+      padding: 0 2rem; }
+      .content .gamme .gamme_sidebar .gamme_pdf a {
+        color: #329899; }
+
+.content-admin .gamme {
   width: 100%;
   margin: 1rem 0;
   position: relative; }
-  .gamme .gamme_photo {
+  .content-admin .gamme .gamme_photo {
     margin-top: 1rem;
     width: 150px;
     height: 100px;
@@ -1422,60 +1520,60 @@ form.creer {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat; }
-  .gamme .gamme_info {
+  .content-admin .gamme .gamme_info {
     margin-left: 170px;
     text-align: left;
     padding: 1rem 0;
     border-bottom: 1px solid #bfbfbf; }
-    .gamme .gamme_info .gamme_nom {
+    .content-admin .gamme .gamme_info .gamme_nom {
       color: #283a47;
       font-weight: 500; }
-    .gamme .gamme_info .gamme_lien {
+    .content-admin .gamme .gamme_info .gamme_lien {
       font-style: italic;
       color: #999999;
       font-size: 0.8rem;
       display: inline-block;
       margin-bottom: 1rem; }
-  .gamme .modifier_gamme {
+  .content-admin .gamme .modifier_gamme {
     position: absolute;
     top: 0;
     right: 0;
     text-align: center;
     width: 50px; }
-    .gamme .modifier_gamme svg {
+    .content-admin .gamme .modifier_gamme svg {
       width: 30px;
       fill: #999999; }
-      .gamme .modifier_gamme svg:hover {
+      .content-admin .gamme .modifier_gamme svg:hover {
         fill: #283a47; }
-    .gamme .modifier_gamme p {
+    .content-admin .gamme .modifier_gamme p {
       font-size: 10px;
       color: #999999; }
-  .gamme .supprimer_gamme {
+  .content-admin .gamme .supprimer_gamme {
     position: absolute;
     top: 0;
     right: 4rem;
     cursor: pointer;
     text-align: center;
     width: 50px; }
-    .gamme .supprimer_gamme svg {
+    .content-admin .gamme .supprimer_gamme svg {
       width: 30px;
       fill: #999999; }
-      .gamme .supprimer_gamme svg:hover {
+      .content-admin .gamme .supprimer_gamme svg:hover {
         fill: #283a47; }
-    .gamme .supprimer_gamme p {
+    .content-admin .gamme .supprimer_gamme p {
       font-size: 10px;
       color: #999999; }
 
-.gamme_couverture_preview {
+.content-admin .gamme_couverture_preview {
   position: relative;
   text-align: center; }
-  .gamme_couverture_preview input[type="file"] {
+  .content-admin .gamme_couverture_preview input[type="file"] {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
     z-index: -1; }
-  .gamme_couverture_preview label {
+  .content-admin .gamme_couverture_preview label {
     margin: auto;
     display: block;
     width: 100%;
@@ -1484,7 +1582,7 @@ form.creer {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat; }
-  .gamme_couverture_preview p {
+  .content-admin .gamme_couverture_preview p {
     color: #999999;
     font-size: 0.8rem; }
 
@@ -1868,6 +1966,75 @@ form.creer {
     color: #999999;
     font-size: 0.8rem; }
 
+.content .contact {
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto;
+  overflow: hidden; }
+  .content .contact .contact_formulaire {
+    width: 60%;
+    margin-right: 5%;
+    float: left; }
+    .content .contact .contact_formulaire form {
+      font-size: 0; }
+      .content .contact .contact_formulaire form span {
+        font-size: 1rem;
+        display: inline-block;
+        width: 47.5%;
+        margin-right: 5%; }
+        .content .contact .contact_formulaire form span:nth-child(even) {
+          margin-right: 0; }
+        .content .contact .contact_formulaire form span input {
+          padding: 1rem;
+          border: 1px solid #eeeeee;
+          width: 100%;
+          font-size: 1rem;
+          display: inline-block; }
+      .content .contact .contact_formulaire form input {
+        padding: 1rem;
+        border: 1px solid #eeeeee;
+        width: 100%;
+        font-size: 1rem;
+        display: inline-block;
+        margin-bottom: 1rem; }
+      .content .contact .contact_formulaire form input[type="submit"] {
+        width: auto;
+        margin: 0;
+        padding: 1rem 2rem; }
+      .content .contact .contact_formulaire form textarea {
+        width: 100%;
+        border: 1px solid #eeeeee;
+        min-height: 200px;
+        resize: none;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        padding: 1rem; }
+  .content .contact .contact_informations {
+    width: 35%;
+    float: right;
+    font-size: 0; }
+    .content .contact .contact_informations h2:after {
+      margin: 2rem 0; }
+    .content .contact .contact_informations ul li {
+      color: #999999;
+      font-family: "Open sans";
+      font-size: 1rem;
+      font-weight: 300;
+      padding: 0.5rem 0; }
+
+.content .mentions {
+  width: 100%;
+  max-width: 800px;
+  margin: 150px auto 5rem;
+  overflow: hidden; }
+  .content .mentions h1:after {
+    margin: 2rem 0; }
+  .content .mentions h2 {
+    font-size: 1.5rem;
+    font-weight: 500; }
+    .content .mentions h2:after {
+      content: ''; }
+
 .body_admin {
   background: #eeeeee;
   min-width: 1100px; }
@@ -1908,7 +2075,9 @@ form.creer {
         color: rgba(255, 255, 255, 0.6);
         font-style: italic; }
   .connexion_sidebar ul {
-    padding-top: 1rem; }
+    padding-top: 1rem;
+    max-height: calc(100vh - 159px);
+    overflow-y: auto; }
     .connexion_sidebar ul a, .connexion_sidebar ul span {
       cursor: pointer; }
       .connexion_sidebar ul a li, .connexion_sidebar ul span li {

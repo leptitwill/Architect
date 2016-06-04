@@ -54,7 +54,7 @@
 			
 			<ul>
 				<a href="<?= base_url('admin/home-page'); ?>">
-					<li>
+					<li class="<?php if($this->uri->segment(2)=="home-page"){echo "active";}?>">
 						<span>
 							<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
 								<path d="M20,20v-8h2v0L12,3L2,12v0h2v8c0,0.6,0.4,1,1,1h5v-7h4v7h5C19.6,21,20,20.6,20,20z"></path>

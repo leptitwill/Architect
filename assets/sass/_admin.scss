@@ -61,6 +61,8 @@
 
 	ul {
 		padding-top: 1rem;
+		max-height: calc(100vh - 159px);
+		overflow-y: auto;
 
 		a, span {
 			cursor: pointer;

@@ -42,7 +42,7 @@
 				<div>
 					<ul class="footer_menu">
 						<li>
-							<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+							<a href="<?= base_url("contact"); ?>">
 								Contact
 							</a>
 						</li>
@@ -52,13 +52,8 @@
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
+							<a href="<?= base_url("mentions-legales"); ?>">
 								Mentions légales
-							</a>
-						</li>
-						<li>
-							<a href="<?= base_url("produit/bureaux-de-jardin"); ?>">
-								Conditions générales
 							</a>
 						</li>
 					</ul>
@@ -86,19 +81,9 @@
 		</footer>
 		
 		<?=js('jquery.min.js')?>
-
-		<script src="<?= asset_url() ?>tinymce/tinymce.min.js"></script>
-		<script>
-			tinymce.init({
-				selector:'textarea',
-				language: 'fr_FR'
-			});
-		</script>
-
-		<?=js('upload-file.js')?>
-
 		<?=js('unslider.min.js')?>
 		<script>
+
 			jQuery(document).ready(function($) {
 				$('.my-slider').unslider({
 					autoplay: true,
@@ -107,6 +92,25 @@
 					nav: false,
 				});
 			});
+
+			function chargerGamme(url){
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>gamme/url',
+					data: {
+						url: url
+					},
+
+					success: function(data) {
+						$('#produit_content').html(data);
+						$('html, body').animate({
+						    scrollTop: $("body").offset().top
+						}, 500);
+			        },
+				});
+			};
+
 		</script>
 
 	</body>

@@ -176,18 +176,16 @@
 						}
 
 						.atout_nom {
-							margin-bottom: 3rem;
 							text-transform: uppercase;
 							font-weight: 500;
-							position: relative;
+							display: block;
 
 							&:after {
 								content:url('../img/title_bottom.svg');
-								position: absolute;
-								left: 50%;
-								margin-left: -40px;
-								top: 2rem;
+								display: block;
+								margin: 1.5rem auto;
 								width: 80px;
+								line-height: 0;
 							}
 						}
 
@@ -271,11 +269,6 @@
 		h2 {
 			color: white;
 			text-align: center;
-
-			&:after {
-				left: 50%;
-				margin-left: -55px;
-			}
 		}
 
 		.accueil_etape {
@@ -421,15 +414,6 @@
 		margin: 4rem auto;
 		overflow: auto;
 		text-align: center;
-
-		h2 {
-			text-align: center;
-
-			&:after {
-				left: 50%;
-				margin-left: -55px;
-			}
-		}
 
 		.accueil_article {
 			width: 30%;
@@ -773,11 +757,6 @@
 		h2 {
 			color: white;
 			text-align: center;
-
-			&:after {
-				left: 50%;
-				margin-left: -55px;
-			}
 		}
 
 		.accueil_etape {
@@ -923,15 +902,6 @@
 		margin: 4rem auto;
 		overflow: auto;
 		text-align: center;
-
-		h2 {
-			text-align: center;
-
-			&:after {
-				left: 50%;
-				margin-left: -55px;
-			}
-		}
 
 		.accueil_article {
 			width: 30%;

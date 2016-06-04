@@ -3,12 +3,13 @@
 	
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<title><?= $titre ?> - Conceptcub</title>
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
 		<?=css('unslider.css')?>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body class="body">
@@ -30,7 +31,7 @@
 
 			<nav>
 				<ul>
-					<a href="<?= base_url() ?>"><li class="<?php if($this->uri->segment(2)==""){echo "active";}?>">Accueil</li></a>
+					<a href="<?= base_url() ?>"><li class="<?php if($this->uri->segment(1)==""){echo "active";}?>">Accueil</li></a>
 					<?php foreach ($produits as $produit): ?>
 
 					<?php
@@ -42,7 +43,7 @@
 					<?php endforeach; ?>
 					<a href=""><li>Concept</li></a>
 					<a href=""><li>Blog</li></a>
-					<a href=""><li>Contact</li></a>
+					<a href="<?= base_url("contact") ?>"><li class="<?php if($this->uri->segment(1)=="contact"){echo "active";}?>">Contact</li></a>
 				</ul>
 			</nav>
 

@@ -2,20 +2,23 @@
 			<ul>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-1.jpg')">
 					<div class="cover_texte">
-						<h3>Nos bureaux de jardin</h3><br>
-						<span>Super facile d'utilisation et trés beau.</span>
+						<h3>Conceptcub</h3><br>
+						<span style="background-color: rgba(0,0,0,0.8); display: inline-block; width:400px;">Conceptcub offre une réponse efficace aux vraies problématiques sociales et sociétales</span><br>
+						<span style="margin-top:2rem; display: inline-block;">Contactez-nous</span>
 					</div>
 				</li>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-2.jpg')">
 					<div class="cover_texte">
 						<h3>Nos studios de jardin</h3><br>
-						<span>Super facile d'utilisation et trés beau.</span>
+						<span style="background-color: rgba(0,0,0,0.8)">Super facile d'utilisation et trés beau.</span><br>
+						<span style="margin-top:2rem; display: inline-block;">Contact</span>
 					</div>
 				</li>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-3.jpg')">
 					<div class="cover_texte">
 						<h3>Travailler en extérieur</h3><br>
-						<span>Super facile d'utilisation et trés beau.</span>
+						<span style="background-color: rgba(0,0,0,0.8)">Super facile d'utilisation et trés beau.</span><br>
+						<span style="margin-top:2rem; display: inline-block;">Contact</span>
 					</div>
 				</li>
 			</ul>
@@ -58,7 +61,7 @@
 							<?php foreach ($avantages as $avantage): ?>	
 								<div class="atout">
 									<div>
-										<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>">
+										<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>">
 										<p class="atout_nom"><?= $avantage['nom'] ?></p>
 										<p class="atout_description"><?= $avantage['description'] ?></p>
 									</div>
@@ -74,7 +77,7 @@
 										c0,0.6,0.5,1,1,1h29.6l-7.2,7.2c-0.1,0-0.1,0.1-0.2,0.2c-0.3,0.4-0.3,1.1,0.2,1.4c0.4,0.3,1.1,0.3,1.4-0.2l8.9-8.9l0.7-0.7l-0.7-0.7
 										l-8.9-8.9c-0.2-0.2-0.4-0.3-0.6-0.3C-429.1,271.1-429.4,271.2-429.7,271.4z"/>
 									</svg>
-									<p>Voir le produit</p>	
+									<p>Voir nos <?= $produit['nom'] ?></p>	
 								</div>
 							</a>
 						</div>
