@@ -20,7 +20,7 @@
 				<label for="question">Question</label>
 				<input type="text" name="question" placeholder="Quel est la couleur du cheval blanc d'Henry IV" value="<?= $faq[0]['question'] ?>"/><br />
 
-				<label for="reponse">reponse</label>
+				<label for="reponse">Réponse</label>
 				<textarea name="reponse" placeholder="La couleur du cheval est blanche"><?= $faq[0]['reponse'] ?></textarea><br />
 
 				<input type="submit" class="button" name="submit" value="Mettre à jour la question" />

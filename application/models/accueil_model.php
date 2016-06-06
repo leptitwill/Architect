@@ -10,7 +10,7 @@ class Accueil_model extends CI_Model
 		return $query->result_array();
 	}
 
-	public function modifier_membre($id, $contenu)
+	public function modifier_accueil($id, $contenu)
 	{
 		$data = array(
 			$id => $contenu

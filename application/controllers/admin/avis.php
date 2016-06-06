@@ -1,6 +1,6 @@
 <?php
 
-class Faq extends CI_Controller
+class Avis extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class Faq extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->model('faq_model');
+		$this->load->model('avis_model');
 
 		$this->load->model('membre_model');
 
@@ -24,99 +24,99 @@ class Faq extends CI_Controller
 	
 	public function index()
 	{
-		$this->data['titre'] = 'Gestion de la FAQ';
-		$this->data['faqs'] = $this->faq_model->lister_faq();
+		$this->data['titre'] = 'Gestion des avis';
+		$this->data['avis_clients'] = $this->avis_model->lister_avis();
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('faq/accueil-admin', $this->data);
+		$this->load->view('avis/accueil-admin', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function creer()
 	{
-		$this->data['titre'] = 'Ajouter une nouvelle question';
+		$this->data['titre'] = 'Ajouter un nouvel avis';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('faq/creer', $this->data);
+		$this->load->view('avis/creer', $this->data);
 		$this->load->view('theme/footer-admin');
 	}
 
 	public function modifier($id)
 	{
-		$this->data['titre'] = 'Modifier une question';
+		$this->data['titre'] = 'Modifier un avis';
 		$this->data['attributs'] = array('class' => 'creer');
-		$this->data['faq'] = $this->faq_model->selectionner_faq($id);
+		$this->data['avis_client'] = $this->avis_model->selectionner_avis($id);
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
 		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('faq/modifier', $this->data);
+		$this->load->view('avis/modifier', $this->data);
 		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
 	{
-		$data['faq'] = $this->faq_model->selectionner_faq($id);
+		$data['avis_client'] = $this->avis_model->selectionner_avis($id);
 
-		$this->faq_model->supprimer_faq($id);
+		$this->avis_model->supprimer_avis($id);
 
-		$this->session->set_flashdata('succes','<p>La question à bien était supprimé</p>');
-		redirect("admin/faq");
+		$this->session->set_flashdata('succes','<p>L\'avis à bien était supprimé</p>');
+		redirect("admin/avis");
 	}
 
 	public function upload()
 	{
-		$question = $this->input->post('question');
-		$reponse = $this->input->post('reponse');
+		$message = $this->input->post('message');
+		$auteur = $this->input->post('auteur');
 
-		$this->form_validation->set_rules('question', 'question', 'required');
-		$this->form_validation->set_rules('reponse', 'reponse', 'required');
+		$this->form_validation->set_rules('message', 'message', 'required');
+		$this->form_validation->set_rules('auteur', 'auteur', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/faq/creer");
+			redirect("admin/avis/creer");
 		}
 
 		else
 		{
-			$this->faq_model->ajouter_faq($question, $reponse);
+			$this->avis_model->ajouter_avis($message, $auteur);
 
-			$this->session->set_flashdata('succes','<p>La question à bien était ajouté</p>');
-			redirect("admin/faq");
+			$this->session->set_flashdata('succes','<p>L\'avis à bien était ajouté</p>');
+			redirect("admin/avis");
 		}
 	}
 
 	public function update($id)
 	{
-		$question = $this->input->post('question');
-		$reponse = $this->input->post('reponse');
-		$reponse = str_replace( "\n", '<br />', $reponse ); 
+		$auteur = $this->input->post('auteur');
+		$message = $this->input->post('message');
+		$message = str_replace( "\n", '<br />', $message ); 
 
-		$this->form_validation->set_rules('question', 'question', 'required');
-		$this->form_validation->set_rules('reponse', 'reponse', 'required');
+		$this->form_validation->set_rules('auteur', 'auteur', 'required');
+		$this->form_validation->set_rules('message', 'message', 'required');
 
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/faq/creer");
+			redirect("admin/avis/creer");
 		}
 
 		else
 		{
-			$this->faq_model->modifier_faq($id, $question, $reponse);
+			$this->avis_model->modifier_avis($id, $message, $auteur);
 
-			$this->session->set_flashdata('succes','<p>La question à bien était modifié</p>');
-			redirect("admin/faq");
+			$this->session->set_flashdata('succes','<p>L\'avis à bien était modifié</p>');
+			redirect("admin/avis");
 		}
 	}
 }

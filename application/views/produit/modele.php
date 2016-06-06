@@ -77,22 +77,22 @@
 							<div class="produit_atout">
 								<div class="atout">
 									<div>
-										<p>Idéale pour les particuliers au espace restreints</p>	
+										<p><?= $gamme['atout1'] ?></p>	
 									</div>
 								</div>
 								<div class="atout">
 									<div>
-										<p>Espace de 5m²</p>	
+										<p>Espace de <?= $gamme['taille'] ?>m²</p>	
 									</div>
 								</div>
 								<div class="atout">
 									<div>
-										<p>Pas de création préalable, ni de permis de construire</p>	
+										<p><?= $gamme['atout2'] ?></p>	
 									</div>
 								</div>
 								<div class="atout">
 									<div>
-										<p>A partir de 16 500 € HT</p>	
+										<p>A partir de <?= $gamme['prix'] ?> € HT</p>	
 									</div>
 								</div>
 							</div>

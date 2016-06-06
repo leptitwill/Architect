@@ -94,51 +94,40 @@
 				<div class="accueil_etape">
 					<span>Étape n°</span><br>
 					<p class="number">01<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">Premier rendez-vous téléphonique</span><br><br>
-						<span class="etape_contenu">En fonction de la superficie de votre terrain, vous serez conseillés sur le choix du modèle de bureau ou de studio de jardin ainsi que sur les différentes options possibles.</span>
-					</p>
+					<div class="accueil_etape_texte">
+						<?= $accueil[0]['etape1'] ?>
+					</div>
 				</div>
 
 				<div class="accueil_etape">
 					<span>Étape n°</span><br>
 					<p class="number">02<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">Une étude préliminaire du projet</span><br><br>
-						<span class="etape_contenu">Cette étape est la plus importante dans la mesure où votre projet doit avant tout respecter certaines règles du plan local d'urbanisme (PLU) de votre commune.</span>
-					</p>
+					<div class="accueil_etape_texte">
+						<?= $accueil[0]['etape2'] ?>
+					</div>
 				</div>
 
 				<div class="accueil_etape">
 					<span>Étape n°</span><br>
 					<p class="number">03<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">Réalisation des documents administratifs</span><br><br>
-						<span class="etape_contenu">Réalisation des documents administratifs, déclaration préalable ou permis de construire pour un coût de 600 euros. vous êtes dégagés des démarches administratifs.</span>
-					</p>
+					<div class="accueil_etape_texte">
+						<?= $accueil[0]['etape3'] ?>
+					</div>
 				</div>
 
 				<div class="accueil_etape">
 					<span>Étape n°</span><br>
 					<p class="number">04<span>.</span></p>
-					<p class="accueil_etape_texte">
-						<span class="etape_titre">Nous préparons un avant projet regroupant</span><br><br>
-						<span class="etape_contenu">1. Un plan d'implantation<br>
-						2. Plan et descriptif<br>
-						3. Un devis détaillé<br>
-						4. La liste des options<br>
-						Nous rédigeons un devis ferme et définitif.</span>
-					</p>
+					<div class="accueil_etape_texte">
+						<?= $accueil[0]['etape4'] ?>
+					</div>
 				</div>
 
 			</section>
 
 			<section class="accueil_validation">
-
-				<p>
-				Une fois le feu vert de la Marie et le délai de recours des tiers passé, la fabrication est alors lancé.
-				Un contrat sera signé entre les 2 parties dans le but de clarifier les étapes à venir et les obligations de chacun.
-				</p>
+				
+				<?= $accueil[0]['validation'] ?>
 
 			</section>
 
@@ -166,18 +155,12 @@
 
 					<div class="my-slider">
 						<ul>
-							<li>
-								<blockquote><p>On est pas bien ? paisibles, à la fraiche, sirotant un nestea dans mon studio de jardin.</p></blockquote><br>
-								<span>Eden Hazard</span>
-							</li>
-							<li>
-								<blockquote><p>Super ce bureaux de jardin ! Je peux enfin travailler tranquilement sans que ma femme vienne m'embêter.</p></blockquote><br>
-								<span>José Morinho</span>
-							</li>
-							<li>
-								<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un studio de jardin et ceux qui en on pas.</p></blockquote><br>
-								<span>Selena Gomez</span>
-							</li>
+							<?php foreach ($avis_clients as $avis_client): ?>
+								<li>
+									<blockquote><p><?= $avis_client['message'] ?></p></blockquote><br>
+									<span><?= $avis_client['auteur'] ?></span>
+								</li>
+							<?php endforeach; ?>
 						</ul>
 					</div>
 					

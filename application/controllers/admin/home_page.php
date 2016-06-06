@@ -41,7 +41,7 @@ class Home_page extends CI_Controller
 		$id = $_POST['id'];
 		$contenu = $_POST['contenu'];
 		
-		$this->accueil_model->modifier_membre($id, $contenu);
+		$this->accueil_model->modifier_accueil($id, $contenu);
 
 		return $ok = TRUE;
 	}

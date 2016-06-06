@@ -297,13 +297,13 @@
 
 			.accueil_etape_texte {
 
-				.etape_titre {
+				h3 {
 					color: white;
 					text-transform: uppercase;
 					font-weight: 500;
 				}
 
-				.etape_contenu {
+				p {
 					color: white;
 					font-weight: 300;
 				}
@@ -784,14 +784,15 @@
 			}
 
 			.accueil_etape_texte {
+				background: transparent;
 
-				.etape_titre {
+				h3 {
 					color: white;
 					text-transform: uppercase;
 					font-weight: 500;
 				}
 
-				.etape_contenu {
+				p {
 					color: white;
 					font-weight: 300;
 				}

@@ -14,3 +14,7 @@
 .mce-tinymce {
 	z-index: 10 !important;
 }
+
+.mce-edit-focus {
+	outline: 1px dotted $gris-fonce !important;
+}

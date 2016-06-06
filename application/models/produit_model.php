@@ -34,7 +34,7 @@ class Produit_model extends CI_Model
 		$result = $query->row();
 		$id = $result->idProduit;
 
-		$this->db->select('gamme.nom, gamme.miniature, gamme.url');
+		$this->db->select('gamme.nom, gamme.miniature, gamme.url, gamme.atout1, gamme.atout2, gamme.prix, gamme.taille');
 		$this->db->join('produit', 'gamme.produit_idProduit = produit.idProduit', 'left');
 		$this->db->where('produit.idProduit',$id);
 		$query = $this->db->get('gamme');

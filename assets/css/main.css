@@ -14,6 +14,9 @@
 .mce-tinymce {
   z-index: 10 !important; }
 
+.mce-edit-focus {
+  outline: 1px dotted #999999 !important; }
+
 header {
   width: 100%;
   height: 70px;
@@ -660,11 +663,11 @@ form.creer {
         font-family: initial;
         font-size: 4rem;
         color: #329899; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_titre {
+    .body .accueil_etapes .accueil_etape .accueil_etape_texte h3 {
       color: white;
       text-transform: uppercase;
       font-weight: 500; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
+    .body .accueil_etapes .accueil_etape .accueil_etape_texte p {
       color: white;
       font-weight: 300; }
 
@@ -999,13 +1002,15 @@ form.creer {
         font-family: initial;
         font-size: 4rem;
         color: #329899; }
-    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .etape_titre {
-      color: white;
-      text-transform: uppercase;
-      font-weight: 500; }
-    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte .etape_contenu {
-      color: white;
-      font-weight: 300; }
+    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte {
+      background: transparent; }
+      .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte h3 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500; }
+      .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte p {
+        color: white;
+        font-weight: 300; }
 
 .body_admin .accueil_validation {
   padding: 2rem 4rem;
@@ -2036,6 +2041,101 @@ form.creer {
     font-weight: 500; }
     .content .mentions h2:after {
       content: ''; }
+
+.content .aviss {
+  width: 100%;
+  max-width: 800px;
+  margin: 5rem auto; }
+  .content .aviss .avis {
+    width: 100%;
+    margin: 2rem 0;
+    position: relative;
+    border-bottom: 1px solid #eeeeee; }
+    .content .aviss .avis .avis_question {
+      color: #222222;
+      font-weight: 500;
+      font-size: 1.5rem;
+      margin-bottom: 1rem; }
+    .content .aviss .avis .avis_separation {
+      width: 80px;
+      margin-bottom: 1rem; }
+    .content .aviss .avis .avis_reponse {
+      color: #999999;
+      text-align: justify;
+      margin-bottom: 2rem; }
+    .content .aviss .avis:last-of-type {
+      margin-bottom: 0;
+      border-bottom: 0; }
+
+.content-admin .avis {
+  width: 100%;
+  margin: 2rem 0;
+  position: relative;
+  border-bottom: 1px solid #bfbfbf; }
+  .content-admin .avis .avis_question {
+    color: #283a47;
+    font-weight: 500;
+    margin-bottom: 1rem; }
+  .content-admin .avis .avis_separation {
+    font-style: italic;
+    color: #999999;
+    margin-bottom: 1rem;
+    font-size: 0.8rem; }
+  .content-admin .avis .avis_reponse {
+    text-align: justify;
+    margin-bottom: 1rem; }
+  .content-admin .avis .modifier_avis {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 50px; }
+    .content-admin .avis .modifier_avis svg {
+      width: 30px;
+      fill: #999999; }
+      .content-admin .avis .modifier_avis svg:hover {
+        fill: #283a47; }
+    .content-admin .avis .modifier_avis p {
+      font-size: 10px;
+      color: #999999; }
+  .content-admin .avis .supprimer_avis {
+    position: absolute;
+    top: 0;
+    right: 4rem;
+    cursor: pointer;
+    text-align: center;
+    width: 50px; }
+    .content-admin .avis .supprimer_avis svg {
+      width: 30px;
+      fill: #999999; }
+      .content-admin .avis .supprimer_avis svg:hover {
+        fill: #283a47; }
+    .content-admin .avis .supprimer_avis p {
+      font-size: 10px;
+      color: #999999; }
+
+.content-admin .avis_photo_preview {
+  position: relative;
+  text-align: center; }
+  .content-admin .avis_photo_preview input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1; }
+  .content-admin .avis_photo_preview label {
+    margin: auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+  .content-admin .avis_photo_preview p {
+    color: #999999;
+    font-size: 0.8rem; }
 
 .body_admin {
   background: #eeeeee;
