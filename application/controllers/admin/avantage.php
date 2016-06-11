@@ -21,15 +21,29 @@ class Avantage extends CI_Controller
 		}
 	}
 	
-	public function index()
+	public function index($id = NULL)
 	{
-		$this->data['titre'] = 'Gestion des avantages';
-		$this->data['avantages'] = $this->avantage_model->lister_avantage();
-		$this->data['succes'] = $this->session->flashdata('succes');
+		if ($id == NULL)
+		{
+			$this->data['titre'] = 'Gestion des avantages';
+			$this->data['avantages'] = $this->avantage_model->lister_avantage();
+			$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('avantage/accueil', $this->data);
-		$this->load->view('theme/footer-admin', $this->data);
+			$this->load->view('theme/header-admin', $this->data);
+			$this->load->view('avantage/accueil', $this->data);
+			$this->load->view('theme/footer-admin', $this->data);
+		}
+
+		else
+		{
+			$this->data['titre'] = 'Gestion des avantages';
+			$this->data['avantages'] = $this->avantage_model->lister_avantage_par_id($id);
+			$this->data['succes'] = $this->session->flashdata('succes');
+
+			$this->load->view('theme/header-admin', $this->data);
+			$this->load->view('avantage/accueil', $this->data);
+			$this->load->view('theme/footer-admin', $this->data);
+		}
 	}
 
 	public function creer()
@@ -50,6 +64,7 @@ class Avantage extends CI_Controller
 		$this->data['titre'] = 'Modifier un avantage';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['avantage'] = $this->avantage_model->selectionner_avantage($id);
+		$this->data['produits'] = $this->avantage_model->selectionner_produit_par_avantage_par_id($id);
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 

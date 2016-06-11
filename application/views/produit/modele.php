@@ -14,7 +14,7 @@
 				<p>
 				Vous avez un projet d'aménagement, vous avez des questions ?
 			</p>
-			<a href="#">Contactez-nous</a>
+			<a href="<?= base_url('contact') ?>">Contactez-nous</a>
 			</div>
 		</section>
 
@@ -25,7 +25,7 @@
 				<p class="uptitle">Nous vous apportons</p>
 				<h2>Des réponses pratiques</h2>
 
-				<?= $produit[0]['description'] ?>
+				<?= nl2br($produit[0]['description']) ?>
 
 			</section>
 
@@ -35,7 +35,7 @@
 					<div class="produit_avantage">
 						<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>" >
 						<p class="produit_avantage_nom"><?= $avantage['nom'] ?></p>
-						<p class="produit_avantage_description"><?= $avantage['description'] ?></p>
+						<p class="produit_avantage_description"><?= nl2br($avantage['description']) ?></p>
 					</div>
 				<?php endforeach ?>	
 
@@ -52,7 +52,7 @@
 					<div class="produit_solution">
 						<img src="<?=img_url()?>solution/<?= $solution['icone'] ?>">
 						<p class="produit_solution_nom"><?= $solution['nom'] ?></p>
-						<p class="produit_solution_description"><?= $solution['description'] ?></p>
+						<p class="produit_solution_description"><?= nl2br($solution['description']) ?></p>
 					</div>
 				<?php endforeach ?>	
 

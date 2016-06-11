@@ -37,7 +37,7 @@
 					<div class="produit_info">
 						<p class="produit_nom"><?= $produit['nom'] ?></p>
 						<a href="<?= base_url("produit/$produit_url") ?>" class="produit_lien"><?= base_url("produit/$produit_url") ?></a>
-						<p class="produit_description"><?= $produit['description'] ?></p>	
+						<p class="produit_description"><?= nl2br($produit['description']) ?></p>	
 					</div>
 
 				</article>

@@ -21,15 +21,29 @@ class Solution extends CI_Controller
 		}
 	}
 	
-	public function index()
+	public function index($id = NULL)
 	{
-		$this->data['titre'] = 'Gestion des solutions';
-		$this->data['solutions'] = $this->solution_model->lister_solution();
-		$this->data['succes'] = $this->session->flashdata('succes');
+		if ($id == NULL)
+		{
+			$this->data['titre'] = 'Gestion des solutions';
+			$this->data['solutions'] = $this->solution_model->lister_solution();
+			$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('solution/accueil', $this->data);
-		$this->load->view('theme/footer-admin', $this->data);
+			$this->load->view('theme/header-admin', $this->data);
+			$this->load->view('solution/accueil', $this->data);
+			$this->load->view('theme/footer-admin', $this->data);
+		}
+
+		else
+		{
+			$this->data['titre'] = 'Gestion des solutions';
+			$this->data['solutions'] = $this->solution_model->lister_solution_par_id($id);
+			$this->data['succes'] = $this->session->flashdata('succes');
+
+			$this->load->view('theme/header-admin', $this->data);
+			$this->load->view('solution/accueil', $this->data);
+			$this->load->view('theme/footer-admin', $this->data);
+		}
 	}
 
 	public function creer()

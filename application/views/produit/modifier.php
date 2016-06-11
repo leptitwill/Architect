@@ -1,6 +1,6 @@
 		<section class="content-admin">
 
-			<h1 class="titre"><?= $titre ?><br><span>Pour modifier le contenu cliquez sur les paragraphes</span></h1>
+			<h1 class="titre"><?= $titre ?></h1>
 
 			<div class="succes">
 				<?php echo $succes;?>
@@ -20,20 +20,77 @@
 				<div class="produit_couverture_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
 					<label id="preview" for="my-file" style="background-image: url('<?=img_url()?>produit/<?= $produit[0]['couverture'] ?>')" tabindex="0"></label>
-					<br><p>Cliquer ci-dessus pour ajouter une image</p>
+					<br><p>Cliquer ci-dessus pour modifier l'image</p>
 				</div><br>
 
-				<label for="nom">Nom</label>
+				<label for="nom">Nom du produit</label>
 				<input type="text" name="nom" placeholder="Officecub 1" value="<?= $produit[0]['nom'] ?>"/><br />
 
-				<label for="description">Description</label>
+				<label for="description">Description du produit</label>
 				<textarea name="description" placeholder="Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."><?= $produit[0]['description'] ?></textarea><br />
 
-				<label for="titre">Titre</label>
+				<label for="titre">Titre sur l'image de couverture</label>
 				<input type="text" name="titre" placeholder="Nos studio de jardin" value="<?= $produit[0]['titre'] ?>"/><br />
 
-				<label for="sous_titre">Sous titre</label>
+				<label for="sous_titre">Sous titre sur l'image de couverture</label>
 				<input type="text" name="sous_titre" placeholder="Offrir une réponse efficace aux vraies problématiques sociétales" value="<?= $produit[0]['sousTitre'] ?>"/><br />
+				
+				<label>Avantages liés au produit</label>
+				<table>
+					<?php foreach ($avantages as $avantage): ?>
+						<tr>
+							<td>
+								<p><?= $avantage['nom'] ?></p>
+							</td>
+							<td>
+								<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>" >
+							</td>
+						</tr>
+					<?php endforeach ?>	
+					<tr>
+						<td>
+							<a href="<?= base_url("admin/avantage/$produit_id"); ?>">Gérer les avantages liées au produit</a>
+						</td>
+					</tr>
+				</table>
+
+				<label>Solutions liés au produit</label>
+				<table>
+					<?php foreach ($solutions as $solution): ?>	
+						<tr>
+							<td>
+								<p><?= $solution['nom'] ?></p>
+							</td>
+							<td>
+								<img src="<?=img_url()?>solution/<?= $solution['icone'] ?>" alt="<?= $solution['nom'] ?>" >
+							</td>
+						</tr>
+					<?php endforeach ?>	
+					<tr>
+						<td>
+							<a href="<?= base_url("admin/solution/$produit_id"); ?>">Gérer les solutions liées au produit</a>
+						</td>
+					</tr>
+				</table>
+
+				<label>Gammes liés au produit</label>
+				<table>
+					<?php foreach ($gammes as $gamme): ?>
+						<tr>
+							<td>
+								<p><?= $gamme['nom'] ?></p>
+							</td>
+							<td>
+								<p><?= $gamme['prix'] ?>  €</p>
+							</td>
+						</tr>
+					<?php endforeach ?>	
+					<tr>
+						<td>
+							<a href="<?= base_url("admin/gamme/$produit_id"); ?>">Gérer les gammes liées au produit</a>
+						</td>
+					</tr>
+				</table>
 
 				<input type="submit" class="button" name="submit" value="Mettre à jour le produit" />
 

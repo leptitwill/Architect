@@ -19,7 +19,6 @@ footer {
 		ul.texte {
 
 			li {
-				font-family: "Open sans" !important;
 
 				&:first-child {
 					font-weight: 400;
@@ -44,7 +43,6 @@ footer {
 		ul.texte {
 
 			li {
-				font-family: "Open sans" !important;
 
 				&:first-child {
 					font-weight: 400;
@@ -140,7 +138,7 @@ footer {
 						font-size: 0.8rem;
 						color: $gris-fonce;
 
-						&:hover {
+						&:hover, &.active {
 							color: white;
 						}
 					}

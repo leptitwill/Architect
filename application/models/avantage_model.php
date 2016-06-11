@@ -3,6 +3,7 @@
 class Avantage_model extends CI_Model
 {
 	protected $table = 'avantage';
+	protected $table_produit = 'produit';
 
 	public function lister_avantage()
 	{
@@ -11,10 +12,33 @@ class Avantage_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function lister_avantage_par_id($id)
+	{
+		$this->db->select('a.*');
+		$this->db->join('produit_has_avantage pa', 'pa.avantage_idAvantage = a.idAvantage', 'inner');
+		$this->db->join('produit p', 'pa.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.idProduit', $id);
+		$this->db->where('a.estSupprime', 0);
+		$query = $this->db->get($this->table.' a');
+
+		return $query->result_array();
+	}
+
 	public function selectionner_avantage($id)
 	{
 		$this->db->where('idAvantage',$id);
 		$query = $this->db->get($this->table);
+		return $query->result_array();
+	}
+
+	public function selectionner_produit_par_avantage_par_id($id)
+	{
+		$this->db->select('p.idProduit, p.nom');
+		$this->db->join('produit_has_avantage pa', 'pa.produit_idProduit = p.idProduit', 'inner');
+		$this->db->join('avantage a', 'pa.avantage_idAvantage = a.idAvantage', 'inner');
+		$this->db->where('a.idAvantage', $id);
+		$query = $this->db->get($this->table_produit.' p');
+
 		return $query->result_array();
 	}
 

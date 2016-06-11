@@ -19,7 +19,7 @@
 
 					<h3 class="faq_question"><?= $faq['question'] ?></h3>
 					<p class="faq_separation"><img src="<?=img_url()?>title_bottom.svg" alt=""></p>
-					<p class="faq_reponse"><?= $faq['reponse'] ?></p>	
+					<p class="faq_reponse"><?= nl2br($faq['reponse']) ?></p>	
 
 				</article>
 			

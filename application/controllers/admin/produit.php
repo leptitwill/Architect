@@ -11,6 +11,8 @@ class Produit extends CI_Controller
 
 		$this->load->model('produit_model');
 		$this->load->model('membre_model');
+		$this->load->model('avantage_model');
+		$this->load->model('solution_model');
 
 		$this->id = $this->session->userdata('idMembre');
 		$this->data['utilisateur'] = $this->membre_model->selectionner_membre($this->id);
@@ -50,7 +52,12 @@ class Produit extends CI_Controller
 	{
 		$this->data['titre'] = 'Modifier un produit';
 		$this->data['attributs'] = array('class' => 'creer');
+
 		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
+		$this->data['gammes'] = $this->produit_model->selectionner_gamme_par_produit_par_id($id);
+		$this->data['avantages'] = $this->produit_model->selectionner_avantage_par_produit_par_id($id);
+		$this->data['solutions'] = $this->produit_model->selectionner_solution_par_produit_par_id($id);
+
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 

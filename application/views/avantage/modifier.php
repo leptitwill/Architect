@@ -31,6 +31,27 @@
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."><?= $avantage[0]['description'] ?></textarea><br />
 
+				<label>Liéer l'avantage au(x) produit(s)</label>
+				<table>
+					<?php foreach ($produits as $produit): ?>
+						<tr>
+							<td>
+								<p><?= $produit['nom'] ?></p>
+							</td>
+							<td>
+								Lol
+							</td>
+						</tr>
+					<?php endforeach ?>	
+					<tr>
+						<td>
+							<select name="profil">
+								<option value="lol">lol</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+
 				<input type="submit" class="button" name="submit" value="Modifier l'avantage" />
 
 			</form>

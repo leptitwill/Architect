@@ -42,17 +42,17 @@
 				<div>
 					<ul class="footer_menu">
 						<li>
-							<a href="<?= base_url("contact"); ?>">
+							<a class="<?php if($this->uri->segment(1)=="contact"){echo "active";}?>" href="<?= base_url("contact"); ?>">
 								Contact
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url("faq"); ?>">
+							<a class="<?php if($this->uri->segment(1)=="faq"){echo "active";}?>" href="<?= base_url("faq"); ?>">
 								FAQ
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url("mentions-legales"); ?>">
+							<a class="<?php if($this->uri->segment(1)=="mentions-legales"){echo "active";}?>" href="<?= base_url("mentions-legales"); ?>">
 								Mentions légales
 							</a>
 						</li>

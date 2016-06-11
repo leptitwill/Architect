@@ -34,7 +34,7 @@
 
 					<p class="faq_question"><?= $faq['question'] ?></p>
 					<p class="faq_separation">—</p>
-					<p class="faq_reponse"><?= $faq['reponse'] ?></p>	
+					<p class="faq_reponse"><?= nl2br($faq['reponse']) ?></p>	
 
 				</article>
 			

@@ -19,16 +19,16 @@
 					<br><p>Cliquer ci-dessus pour ajouter une image</p>
 				</div><br>
 
-				<label for="nom">Nom</label>
+				<label for="nom">Nom du produit</label>
 				<input type="text" name="nom" placeholder="Officecub 1"/><br />
 
-				<label for="description">Description</label>
+				<label for="description">Description du produit</label>
 				<textarea name="description" placeholder="​Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."></textarea><br />
 
-				<label for="titre">Titre</label>
+				<label for="titre">Titre sur l'image de couverture</label>
 				<textarea name="titre" placeholder="​Nos studio de jardin"></textarea><br />
 
-				<label for="sous_titre">Sous titre</label>
+				<label for="sous_titre">Sous titre sur l'image de couverture</label>
 				<textarea name="sous_titre" placeholder="​Offrir une réponse efficace aux vraies problématiques sociétales"></textarea><br />
 
 				<input type="submit" class="button" name="submit" value="Créer un nouveau produit" />

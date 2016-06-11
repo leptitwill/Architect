@@ -53,26 +53,20 @@ $route['default_controller'] = 'accueil';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-$route['produit/upload'] = 'produit/upload';
-$route['produit/creer'] = 'produit/creer';
-$route['produit/update'] = 'produit/update';
-$route['produit/redimensionner'] = 'produit/redimensionner';
-$route['produit/supprimer_accent'] = 'produit/supprimer_accent';
 $route['produit/(:any)'] = 'produit/index/$1';
-$route['gamme/creer'] = 'gamme/creer';
-$route['gamme/upload'] = 'gamme/upload';
-$route['gamme/update'] = 'gamme/update';
-$route['gamme/redimensionner'] = 'gamme/redimensionner';
-$route['gamme/recadrer'] = 'gamme/recadrer';
-$route['gamme/supprimer_accent'] = 'gamme/supprimer_accent';
+
 $route['gamme/(:any)'] = 'gamme/index/$1';
+
 $route['mentions-legales'] = 'mentions';
 
-// Routes admin
 $route['admin'] = 'admin/admin';
 $route['admin/connexion'] = 'admin/admin/connexion';
 $route['admin/accueil'] = 'admin/admin/accueil';
 $route['admin/login'] = 'admin/admin/login';
 $route['admin/logout'] = 'admin/admin/logout';
 $route['admin/(:any)'] = 'admin/$1';
+
+$route['admin/gamme/(:num)'] = 'admin/gamme/index/$1';
+$route['admin/avantage/(:num)'] = 'admin/avantage/index/$1';
+$route['admin/solution/(:num)'] = 'admin/solution/index/$1';
 

@@ -11,6 +11,14 @@ class Gamme_model extends CI_Model
         return $query->result_array();
 	}
 
+	public function lister_gamme_par_id($id)
+	{
+		$this->db->where('estSupprime', 0);
+		$this->db->where('produit_idProduit',$id);
+		$query = $this->db->get($this->table);
+		return $query->result_array();
+	}
+
 	public function selectionner_gamme($url)
 	{
 		$this->db->where('url',$url);

@@ -11,6 +11,18 @@ class Solution_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function lister_solution_par_id($id)
+	{
+		$this->db->select('s.*');
+		$this->db->join('produit_has_solution ps', 'ps.solution_idSolution = s.idSolution', 'inner');
+		$this->db->join('produit p', 'ps.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.idProduit', $id);
+		$this->db->where('s.estSupprime', 0);
+		$query = $this->db->get($this->table.' s');
+
+		return $query->result_array();
+	}
+
 	public function selectionner_solution($id)
 	{
 		$this->db->where('idSolution',$id);

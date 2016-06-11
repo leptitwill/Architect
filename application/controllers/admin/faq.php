@@ -98,7 +98,6 @@ class Faq extends CI_Controller
 	{
 		$question = $this->input->post('question');
 		$reponse = $this->input->post('reponse');
-		$reponse = str_replace( "\n", '<br />', $reponse ); 
 
 		$this->form_validation->set_rules('question', 'question', 'required');
 		$this->form_validation->set_rules('reponse', 'reponse', 'required');

@@ -63,7 +63,7 @@
 									<div>
 										<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>">
 										<p class="atout_nom"><?= $avantage['nom'] ?></p>
-										<p class="atout_description"><?= $avantage['description'] ?></p>
+										<!-- <p class="atout_description"><?= $avantage['description'] ?></p> -->
 									</div>
 									
 								</div>

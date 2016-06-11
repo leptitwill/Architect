@@ -5,14 +5,14 @@ form.creer {
 		width: 100%;
 		font-size: 1rem;
 		padding: 1rem;
-		margin: 0.5rem 0 1rem 0;
-		border: 1px solid $gris;
-		border-radius: 5px;
+		margin: 0.5rem 0 2rem 0;
+		border: 1px solid darken($gris, 10%);
 		outline: none;
 	}
 
 	textarea {
-		height: 100px;
+		height: 200px;
+		resize: none;
 	}
 
 	input[type="submit"] {
@@ -23,5 +23,54 @@ form.creer {
 	select {
 		background: white;
 		height: 52px;
+	}
+
+	table {
+		margin: 0.5rem 0 2rem 0;
+		width: 100%;
+		padding: 2rem;
+		border-collapse: collapse;
+
+		tr {
+			color: $gris-fonce;
+
+			&:last-of-type {
+
+				td {
+					width: auto !important;
+				}
+			}
+			
+			td {
+				border: 1px solid darken($gris, 10%);
+				padding: 1rem;
+				text-align: center;
+				vertical-align: middle;
+				background: white;
+
+				&:last-of-type {
+					padding: 0;
+					width: 120px;
+				}
+
+				img {
+					height: 30px;
+				}
+
+				a {
+					padding: 1rem;
+					display: block;
+					background: lighten($admin, 10%);
+					color: white;
+					cursor: pointer;
+					width: 100%;
+					transition: background 0.3s;
+
+					&:hover {
+						background: lighten($admin, 15%);
+					}
+				}
+			}
+		}
 	}
 }

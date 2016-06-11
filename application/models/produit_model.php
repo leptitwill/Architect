@@ -3,6 +3,8 @@
 class Produit_model extends CI_Model
 {
 	protected $table = 'produit';
+	protected $table_avantage = 'avantage';
+	protected $table_solution = 'solution';
 
 	public function lister_produit()
 	{
@@ -27,17 +29,64 @@ class Produit_model extends CI_Model
 
 	public function selectionner_gamme_par_produit($url)
 	{
-		$this->db->select('idProduit');
-		$this->db->where('url', $url);
-		$query = $this->db->get($this->table);
+		$this->db->select('g.*');
+		$this->db->join('produit p', 'g.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.url',$url);
+		$query = $this->db->get('gamme g');
 
-		$result = $query->row();
-		$id = $result->idProduit;
+		return $query->result_array();
+	}
 
-		$this->db->select('gamme.nom, gamme.miniature, gamme.url, gamme.atout1, gamme.atout2, gamme.prix, gamme.taille');
-		$this->db->join('produit', 'gamme.produit_idProduit = produit.idProduit', 'left');
-		$this->db->where('produit.idProduit',$id);
-		$query = $this->db->get('gamme');
+	public function selectionner_gamme_par_produit_par_id($id)
+	{
+		$this->db->select('g.*');
+		$this->db->join('produit p', 'g.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.idProduit',$id);
+		$query = $this->db->get('gamme g');
+
+		return $query->result_array();
+	}
+
+	public function selectionner_avantage_par_produit($url)
+	{
+		$this->db->select('a.*');
+		$this->db->join('produit_has_avantage pa', 'pa.avantage_idAvantage = a.idAvantage', 'inner');
+		$this->db->join('produit p', 'pa.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.url', $url);
+		$query = $this->db->get($this->table_avantage.' a');
+
+		return $query->result_array();
+	}
+
+	public function selectionner_avantage_par_produit_par_id($id)
+	{
+		$this->db->select('a.*');
+		$this->db->join('produit_has_avantage pa', 'pa.avantage_idAvantage = a.idAvantage', 'inner');
+		$this->db->join('produit p', 'pa.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.idProduit', $id);
+		$query = $this->db->get($this->table_avantage.' a');
+
+		return $query->result_array();
+	}
+
+	public function selectionner_solution_par_produit($url)
+	{
+		$this->db->select('s.*');
+		$this->db->join('produit_has_solution ps', 'ps.solution_idsolution = s.idsolution', 'inner');
+		$this->db->join('produit p', 'ps.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.url', $url);
+		$query = $this->db->get($this->table_solution.' s');
+
+		return $query->result_array();
+	}
+
+	public function selectionner_solution_par_produit_par_id($id)
+	{
+		$this->db->select('s.*');
+		$this->db->join('produit_has_solution ps', 'ps.solution_idsolution = s.idsolution', 'inner');
+		$this->db->join('produit p', 'ps.produit_idProduit = p.idProduit', 'inner');
+		$this->db->where('p.idProduit', $id);
+		$query = $this->db->get($this->table_solution.' s');
 
 		return $query->result_array();
 	}
