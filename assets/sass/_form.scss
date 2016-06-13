@@ -11,7 +11,7 @@ form.creer {
 	}
 
 	textarea {
-		height: 200px;
+		height: 150px;
 		resize: none;
 	}
 
@@ -32,7 +32,6 @@ form.creer {
 		border-collapse: collapse;
 
 		tr {
-			color: $gris-fonce;
 
 			&:last-of-type {
 
@@ -44,13 +43,18 @@ form.creer {
 			td {
 				border: 1px solid darken($gris, 10%);
 				padding: 1rem;
-				text-align: center;
+				text-align: left;
 				vertical-align: middle;
 				background: white;
 
 				&:last-of-type {
 					padding: 0;
 					width: 120px;
+					text-align: center;
+				}
+
+				&.form_select {
+					padding: 1rem;
 				}
 
 				img {
@@ -65,9 +69,34 @@ form.creer {
 					cursor: pointer;
 					width: 100%;
 					transition: background 0.3s;
+					text-align: center;
 
 					&:hover {
 						background: lighten($admin, 15%);
+					}
+				}
+
+				select {
+					margin: 0;
+					border: 0;
+					height: auto;
+				}
+
+				&.supprimer {
+					color: $rouge;
+					cursor: pointer;
+
+					&:hover {
+						color: darken($rouge, 15%);
+					}
+				}
+
+				&.ajouter {
+					color: $vert;
+					cursor: pointer;
+
+					&:hover {
+						color: darken($vert, 15%);
 					}
 				}
 			}

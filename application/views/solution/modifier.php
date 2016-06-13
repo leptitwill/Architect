@@ -31,6 +31,32 @@
 				<label for="description">Description</label>
 				<textarea name="description" placeholder="Au travailleurs indépendants/freelances travaillant à domicile, exerçant une profession libérale ..."><?= $solution[0]['description'] ?></textarea><br />
 
+				<label>Liéer la solution au(x) produit(s)</label>
+				<table id="produit_solution">
+					<?php foreach ($produit_solutions as $produit_solution): ?>
+						<tr>
+							<td>
+								<p><?= $produit_solution['nom'] ?></p>
+							</td>
+							<td class="supprimer" onclick="desassocierProduitSolution(<?= $produit_solution['idProduit'] ?>, <?= $solution[0]['idSolution'] ?>)">
+								Supprimer
+							</td>
+						</tr>
+					<?php endforeach ?>	
+					<tr>
+						<td class="form_select">
+							<select id="select_produit">
+								<?php foreach ($produits as $produit): ?>
+									<option value="<?= $produit['idProduit'] ?>"><?= $produit['nom'] ?></option>
+								<?php endforeach ?>	
+							</select>
+						</td>
+						<td class="ajouter" onclick="associerProduitSolution(<?= $solution[0]['idSolution'] ?>)">
+							Ajouter
+						</td>
+					</tr>
+				</table>
+
 				<input type="submit" class="button" name="submit" value="Modifier la solution" />
 
 			</form>

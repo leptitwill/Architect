@@ -325,7 +325,7 @@ form.creer {
     border: 1px solid #d5d5d5;
     outline: none; }
   form.creer textarea {
-    height: 200px;
+    height: 150px;
     resize: none; }
   form.creer input[type="submit"] {
     color: white;
@@ -338,31 +338,47 @@ form.creer {
     width: 100%;
     padding: 2rem;
     border-collapse: collapse; }
-    form.creer table tr {
-      color: #999999; }
-      form.creer table tr:last-of-type td {
-        width: auto !important; }
-      form.creer table tr td {
-        border: 1px solid #d5d5d5;
+    form.creer table tr:last-of-type td {
+      width: auto !important; }
+    form.creer table tr td {
+      border: 1px solid #d5d5d5;
+      padding: 1rem;
+      text-align: left;
+      vertical-align: middle;
+      background: white; }
+      form.creer table tr td:last-of-type {
+        padding: 0;
+        width: 120px;
+        text-align: center; }
+      form.creer table tr td.form_select {
+        padding: 1rem; }
+      form.creer table tr td img {
+        height: 30px; }
+      form.creer table tr td a {
         padding: 1rem;
-        text-align: center;
-        vertical-align: middle;
-        background: white; }
-        form.creer table tr td:last-of-type {
-          padding: 0;
-          width: 120px; }
-        form.creer table tr td img {
-          height: 30px; }
-        form.creer table tr td a {
-          padding: 1rem;
-          display: block;
-          background: #3a5568;
-          color: white;
-          cursor: pointer;
-          width: 100%;
-          transition: background 0.3s; }
-          form.creer table tr td a:hover {
-            background: #446278; }
+        display: block;
+        background: #3a5568;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s;
+        text-align: center; }
+        form.creer table tr td a:hover {
+          background: #446278; }
+      form.creer table tr td select {
+        margin: 0;
+        border: 0;
+        height: auto; }
+      form.creer table tr td.supprimer {
+        color: #f35f47;
+        cursor: pointer; }
+        form.creer table tr td.supprimer:hover {
+          color: #df2c0f; }
+      form.creer table tr td.ajouter {
+        color: #329899;
+        cursor: pointer; }
+        form.creer table tr td.ajouter:hover {
+          color: #1f5f5f; }
 
 /* styles de base si JS est activé */
 .js .input-file-container {

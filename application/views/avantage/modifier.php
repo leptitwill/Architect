@@ -32,22 +32,27 @@
 				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."><?= $avantage[0]['description'] ?></textarea><br />
 
 				<label>Liéer l'avantage au(x) produit(s)</label>
-				<table>
-					<?php foreach ($produits as $produit): ?>
+				<table id="produit_avantage">
+					<?php foreach ($produit_avantages as $produit_avantage): ?>
 						<tr>
 							<td>
-								<p><?= $produit['nom'] ?></p>
+								<p><?= $produit_avantage['nom'] ?></p>
 							</td>
-							<td>
-								Lol
+							<td class="supprimer" onclick="desassocierProduitAvantage(<?= $produit_avantage['idProduit'] ?>, <?= $avantage[0]['idAvantage'] ?>)">
+								Supprimer
 							</td>
 						</tr>
 					<?php endforeach ?>	
 					<tr>
-						<td>
-							<select name="profil">
-								<option value="lol">lol</option>
+						<td class="form_select">
+							<select id="select_produit">
+								<?php foreach ($produits as $produit): ?>
+									<option value="<?= $produit['idProduit'] ?>"><?= $produit['nom'] ?></option>
+								<?php endforeach ?>	
 							</select>
+						</td>
+						<td class="ajouter" onclick="associerProduitAvantage(<?= $avantage[0]['idAvantage'] ?>)">
+							Ajouter
 						</td>
 					</tr>
 				</table>

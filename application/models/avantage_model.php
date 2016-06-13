@@ -4,6 +4,7 @@ class Avantage_model extends CI_Model
 {
 	protected $table = 'avantage';
 	protected $table_produit = 'produit';
+	protected $table_produit_has_avantage = 'produit_has_avantage';
 
 	public function lister_avantage()
 	{
@@ -72,5 +73,19 @@ class Avantage_model extends CI_Model
 
 		$this->db->where('idAvantage',$id);
 		$this->db->update($this->table,  $data);
+	}
+
+	public function desassocierProduit($id)
+	{
+		$this->db->where('produit_idProduit',$id);
+		$this->db->delete($this->table_produit_has_avantage);
+	}
+
+	public function associerProduit($idProduit, $idAvantage)
+	{
+		$this->db->set('produit_idProduit',  $idProduit);
+		$this->db->set('avantage_idAvantage', $idAvantage);
+		
+		return $this->db->insert($this->table_produit_has_avantage);
 	}
 }

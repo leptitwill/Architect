@@ -10,6 +10,7 @@ class Solution extends CI_Controller
 		$this->load->library('form_validation');
 
 		$this->load->model('solution_model');
+		$this->load->model('produit_model');
 		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
@@ -64,6 +65,8 @@ class Solution extends CI_Controller
 		$this->data['titre'] = 'Modifier un solution';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['solution'] = $this->solution_model->selectionner_solution($id);
+		$this->data['produit_solutions'] = $this->solution_model->selectionner_produit_par_solution_par_id($id);
+		$this->data['produits'] = $this->produit_model->lister_produit();
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
@@ -80,6 +83,25 @@ class Solution extends CI_Controller
 
 		$this->session->set_flashdata('succes','<p>La solution à bien était supprimé</p>');
 		redirect("admin/solution");
+	}
+
+	public function desassocierProduit()
+	{
+		$id = $_POST['id'];
+		
+		$this->solution_model->desassocierProduit($id);
+
+		return $ok = TRUE;
+	}
+
+	public function associerProduit()
+	{
+		$idProduit = $_POST['idProduit'];
+		$idSolution = $_POST['idSolution'];
+		
+		$this->solution_model->associerProduit($idProduit, $idSolution);
+
+		return $ok = TRUE;
 	}
 
 	public function upload()

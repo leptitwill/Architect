@@ -77,6 +77,72 @@
 				});
 			};
 
+			function desassocierProduitAvantage(id, idAvantage){
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/avantage/desassocierProduit',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#produit_avantage').load("<?= base_url(); ?>admin/avantage/modifier/" + idAvantage + " #produit_avantage");
+			        },
+				});
+			};
+
+			function associerProduitAvantage(idAvantage){
+
+				var select = document.getElementById("select_produit");
+				var idProduit = select.options[select.selectedIndex].value;
+
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/avantage/associerProduit',
+					data: {
+						idProduit: idProduit,
+						idAvantage: idAvantage,
+					},
+					success: function(data) {
+						$('#produit_avantage').load("<?= base_url(); ?>admin/avantage/modifier/" + idAvantage + " #produit_avantage");
+			        }
+				});
+			};
+
+			function desassocierProduitSolution(id, idSolution){
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/solution/desassocierProduit',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#produit_solution').load("<?= base_url(); ?>admin/solution/modifier/" + idSolution + " #produit_solution");
+			        },
+				});
+			};
+
+			function associerProduitSolution(idSolution){
+
+				var select = document.getElementById("select_produit");
+				var idProduit = select.options[select.selectedIndex].value;
+
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/solution/associerProduit',
+					data: {
+						idProduit: idProduit,
+						idSolution: idSolution,
+					},
+					success: function(data) {
+						$('#produit_solution').load("<?= base_url(); ?>admin/solution/modifier/" + idSolution + " #produit_solution");
+			        }
+				});
+			};
+
 		</script>
 
 	</body>

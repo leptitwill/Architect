@@ -10,6 +10,7 @@ class Avantage extends CI_Controller
 		$this->load->library('form_validation');
 
 		$this->load->model('avantage_model');
+		$this->load->model('produit_model');
 		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
@@ -64,7 +65,8 @@ class Avantage extends CI_Controller
 		$this->data['titre'] = 'Modifier un avantage';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['avantage'] = $this->avantage_model->selectionner_avantage($id);
-		$this->data['produits'] = $this->avantage_model->selectionner_produit_par_avantage_par_id($id);
+		$this->data['produit_avantages'] = $this->avantage_model->selectionner_produit_par_avantage_par_id($id);
+		$this->data['produits'] = $this->produit_model->lister_produit();
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
 
@@ -81,6 +83,25 @@ class Avantage extends CI_Controller
 
 		$this->session->set_flashdata('succes','<p>L\'avantage à bien était supprimé</p>');
 		redirect("admin/avantage");
+	}
+
+	public function desassocierProduit()
+	{
+		$id = $_POST['id'];
+		
+		$this->avantage_model->desassocierProduit($id);
+
+		return $ok = TRUE;
+	}
+
+	public function associerProduit()
+	{
+		$idProduit = $_POST['idProduit'];
+		$idAvantage = $_POST['idAvantage'];
+		
+		$this->avantage_model->associerProduit($idProduit, $idAvantage);
+
+		return $ok = TRUE;
 	}
 
 	public function upload()

@@ -49,29 +49,29 @@ class Gamme extends CI_Controller
 
 	public function creer()
 	{
-		$data['titre'] = 'Ajouter une nouvelle gamme';
-		$data['attributs'] = array('class' => 'creer');
-		$data['produits'] = $this->produit_model->lister_produit();
-		$data['error'] = '';
-		$data['succes'] = $this->session->flashdata('succes');
+		$this->data['titre'] = 'Ajouter une nouvelle gamme';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['error'] = '';
+		$this->data['succes'] = $this->session->flashdata('succes');
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('gamme/creer', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('gamme/creer', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function modifier($id)
 	{
-		$data['titre'] = 'Modifier une gamme';
-		$data['attributs'] = array('class' => 'creer');
-		$data['produits'] = $this->produit_model->lister_produit();
-		$data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
-		$data['error'] = '';
-		$data['succes'] = '';
+		$this->data['titre'] = 'Modifier une gamme';
+		$this->data['attributs'] = array('class' => 'creer');
+		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
+		$this->data['error'] = '';
+		$this->data['succes'] = '';
 
-		$this->load->view('theme/header', $data);
-		$this->load->view('gamme/modifier', $data);
-		$this->load->view('theme/footer');
+		$this->load->view('theme/header-admin', $this->data);
+		$this->load->view('gamme/modifier', $this->data);
+		$this->load->view('theme/footer-admin', $this->data);
 	}
 
 	public function supprimer($id)
