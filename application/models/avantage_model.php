@@ -48,7 +48,6 @@ class Avantage_model extends CI_Model
 		$this->db->set('nom',  $nom);
 		$this->db->set('description',  $description);
 		$this->db->set('icone',  $icone);
-		$this->db->set('dateAjout', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}

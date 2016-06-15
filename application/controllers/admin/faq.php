@@ -61,8 +61,6 @@ class Faq extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['faq'] = $this->faq_model->selectionner_faq($id);
-
 		$this->faq_model->supprimer_faq($id);
 
 		$this->session->set_flashdata('succes','<p>La question à bien était supprimé</p>');

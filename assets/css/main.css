@@ -333,6 +333,11 @@ form.creer {
   form.creer select {
     background: white;
     height: 52px; }
+  form.creer .input_1-2 {
+    float: left;
+    width: 47.5%; }
+    form.creer .input_1-2:first-of-type {
+      margin-right: 5%; }
   form.creer table {
     margin: 0.5rem 0 2rem 0;
     width: 100%;
@@ -1635,7 +1640,8 @@ form.creer {
 
 .content-admin .gamme_couverture_preview {
   position: relative;
-  text-align: center; }
+  text-align: center;
+  clear: both; }
   .content-admin .gamme_couverture_preview input[type="file"] {
     position: absolute;
     top: 0;

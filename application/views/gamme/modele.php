@@ -23,7 +23,7 @@
 		<hr>
 
 		<div class="gamme_plan">
-			<img src="<?=img_url()?>gamme/<?=$gamme[0]['couverture']?>">
+			<img src="<?=img_url()?>gamme/<?=$gamme[0]['plan']?>">
 		</div>
 
 		<div class="gamme_equipement-option">

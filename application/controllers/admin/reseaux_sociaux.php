@@ -60,8 +60,6 @@ class Reseaux_sociaux extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->selectionner_reseaux_sociaux($id);
-
 		$this->reseaux_sociaux_model->supprimer_reseaux_sociaux($id);
 
 		$this->session->set_flashdata('succes','<p>Le réseau social à bien était supprimé</p>');

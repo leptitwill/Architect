@@ -60,8 +60,6 @@ class Partenaire extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$this->data['partenaire'] = $this->partenaire_model->selectionner_partenaire($id);
-
 		$this->partenaire_model->supprimer_partenaire($id);
 
 		$this->session->set_flashdata('succes','<p>Le partenaire à bien était supprimé</p>');

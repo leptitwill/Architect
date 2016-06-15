@@ -22,7 +22,6 @@ class Avis_model extends CI_Model
 	{
 		$this->db->set('message',  $message);
 		$this->db->set('auteur',  $auteur);
-		$this->db->set('dateAjout', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}

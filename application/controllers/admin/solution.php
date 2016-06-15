@@ -77,8 +77,6 @@ class Solution extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['solution'] = $this->solution_model->selectionner_solution($id);
-
 		$this->solution_model->supprimer_solution($id);
 
 		$this->session->set_flashdata('succes','<p>La solution à bien était supprimé</p>');

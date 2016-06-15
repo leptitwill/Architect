@@ -273,6 +273,7 @@
 	.gamme_couverture_preview {
 		position: relative;
 		text-align: center;
+		clear: both;
 
 		input[type="file"] {
 			position: absolute;
@@ -297,6 +298,5 @@
 			color: $gris-fonce;
 			font-size: 0.8rem;
 		}
-
 	}
 }

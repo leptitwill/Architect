@@ -15,8 +15,6 @@ class Profil_model extends CI_Model
 		$this->db->set('nom',  $nom);
 		$this->db->set('description',   $description);
 		$this->db->set('couverture',   $couverture);
-		$this->db->set('dateAjout', 'NOW()', false);
-		$this->db->set('dateModification', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}

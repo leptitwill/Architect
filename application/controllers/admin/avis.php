@@ -61,8 +61,6 @@ class Avis extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['avis_client'] = $this->avis_model->selectionner_avis($id);
-
 		$this->avis_model->supprimer_avis($id);
 
 		$this->session->set_flashdata('succes','<p>L\'avis à bien était supprimé</p>');

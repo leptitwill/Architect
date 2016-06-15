@@ -63,8 +63,6 @@ class Membre extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['membre'] = $this->membre_model->selectionner_membre($id);
-
 		$this->membre_model->supprimer_membre($id);
 
 		$this->session->set_flashdata('succes','<p>Le membre à bien était supprimé</p>');

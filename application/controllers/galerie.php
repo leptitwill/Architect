@@ -50,8 +50,6 @@ class Galerie extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['galerie'] = $this->galerie_model->selectionner_galerie($id);
-
 		$this->galerie_model->supprimer_galerie($id);
 
 		$this->session->set_flashdata('succes','<p>La galerie à bien était supprimé</p>');

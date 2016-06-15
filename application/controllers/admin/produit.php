@@ -68,8 +68,6 @@ class Produit extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$this->data['produit'] = $this->produit_model->selectionner_produit_par_id($id);
-
 		$this->produit_model->supprimer_produit($id);
 
 		$this->session->set_flashdata('succes','<p>Le produit à bien était supprimé</p>');

@@ -77,8 +77,6 @@ class Avantage extends CI_Controller
 
 	public function supprimer($id)
 	{
-		$data['avantage'] = $this->avantage_model->selectionner_avantage($id);
-
 		$this->avantage_model->supprimer_avantage($id);
 
 		$this->session->set_flashdata('succes','<p>L\'avantage à bien était supprimé</p>');

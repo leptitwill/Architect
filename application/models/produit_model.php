@@ -99,8 +99,6 @@ class Produit_model extends CI_Model
 		$this->db->set('titre', $titre);
 		$this->db->set('sousTitre', $sous_titre);
 		$this->db->set('url', $url);
-		$this->db->set('dateAjout', 'NOW()', false);
-		$this->db->set('dateModification', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}

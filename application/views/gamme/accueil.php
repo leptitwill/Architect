@@ -33,7 +33,7 @@
 						</span>
 					</div>
 
-					<div class="gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')"></div>
+					<div class="gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['couverture'] ?>')"></div>
 					<div class="gamme_info">
 						<p class="gamme_nom"><?= $gamme['nom'] ?></p>
 						<a href="<?= base_url("gamme/$gamme_url") ?>" class="gamme_lien"><?= base_url("gamme/$gamme_url") ?></a>
@@ -44,7 +44,7 @@
 			
 			<?php endforeach; ?>
 
-			<a href="<?= base_url("Gamme/creer"); ?>"><input type="button" class="button" value="Ajouter une gamme"></a>
+			<a href="<?= base_url("admin/gamme/creer"); ?>"><input type="button" class="button" value="Ajouter une gamme"></a>
 
 		</section>
 

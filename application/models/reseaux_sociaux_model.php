@@ -23,7 +23,6 @@ class Reseaux_sociaux_model extends CI_Model
 		$this->db->set('nom', $nom);
 		$this->db->set('lien', $lien);
 		$this->db->set('logo', $logo);
-		$this->db->set('dateAjout', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}

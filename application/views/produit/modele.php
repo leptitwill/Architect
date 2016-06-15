@@ -68,7 +68,7 @@
 					
 					<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
 						<div class="produit_gamme">
-							<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['miniature'] ?>')">
+							<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['couverture'] ?>')">
 								<div onclick="chargerGamme('<?= $gamme_url ?>')" class="produit_gamme_nom">
 									<h3><?= $gamme['nom'] ?></h3>
 								</div>

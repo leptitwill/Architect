@@ -33,32 +33,38 @@ class Gamme_model extends CI_Model
 		return $query->result_array();
 	}
 
-	public function ajouter_gamme($nom, $description, $couverture, $miniature, $specification, $url, $produit)
+	public function ajouter_gamme($nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url)
 	{
 		$this->db->set('nom', $nom);
 		$this->db->set('description', $description);
 		$this->db->set('couverture', $couverture);
-		$this->db->set('miniature', $miniature);
-		$this->db->set('specification', $specification);
+		$this->db->set('plan', $plan);
+		$this->db->set('atout1', $atout1);
+		$this->db->set('atout2', $atout2);
+		$this->db->set('taille', $taille);
+		$this->db->set('prix', $prix);
+		$this->db->set('equipementSerie', $equipement_serie);
+		$this->db->set('equipementOption', $equipement_option);
 		$this->db->set('url', $url);
 		$this->db->set('produit_idProduit', $produit);
-		$this->db->set('dateAjout', 'NOW()', false);
-		$this->db->set('dateModification', 'NOW()', false);
 		
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_gamme($id, $nom, $description, $couverture, $miniature, $specification, $url, $produit)
+	public function modifier_gamme($id, $nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url)
 	{
 		$data = array(
 					'nom' => $nom,
 					'description' => $description,
 					'couverture' => $couverture,
-					'miniature' => $miniature,
-					'specification' => $specification,
+					'plan' => $plan,
+					'atout1' => $atout1,
+					'atout2' => $atout2,
+					'taille' => $taille,
+					'equipementSerie' => $equipement_serie,
+					'equipementOption' => $equipement_option,
 					'url' => $url,
 					'produit_idProduit' => $produit,
-					'dateModification' => 'NOW()'
 				);
 
 		$this->db->where('idGamme',$id);

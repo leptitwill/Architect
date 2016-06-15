@@ -25,6 +25,15 @@ form.creer {
 		height: 52px;
 	}
 
+	.input_1-2 {
+		float: left;
+		width: 47.5%;
+
+		&:first-of-type {
+			margin-right: 5%;
+		}
+	}
+
 	table {
 		margin: 0.5rem 0 2rem 0;
 		width: 100%;

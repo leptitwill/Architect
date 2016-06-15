@@ -20,7 +20,7 @@
 				</div><br>
 
 				<label for="nom">Nom du produit</label>
-				<input type="text" name="nom" placeholder="Officecub 1"/><br />
+				<input type="text" name="nom" placeholder="Bureaux de jardin"/><br />
 
 				<label for="description">Description du produit</label>
 				<textarea name="description" placeholder="​Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."></textarea><br />
