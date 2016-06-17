@@ -26,10 +26,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" placeholder="Confort de vie" value="<?= $avantage[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Confort de vie" value="<?= set_value('nom', $avantage[0]['nom']) ?>"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."><?= $avantage[0]['description'] ?></textarea><br />
+				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."><?= set_value('description', $avantage[0]['description']) ?></textarea><br />
 
 				<label>Liéer l'avantage au(x) produit(s)</label>
 				<table id="produit_avantage">
@@ -75,4 +75,34 @@
 					reader.readAsDataURL(input.files[0]);
 				}
 			}
+
+			function desassocierProduitAvantage(id, idAvantage){
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/avantage/desassocierProduit',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#produit_avantage').load("<?= base_url(); ?>admin/avantage/modifier/" + idAvantage + " #produit_avantage");
+			        },
+				});
+			};
+
+			function associerProduitAvantage(idAvantage){
+				var select = document.getElementById("select_produit");
+				var idProduit = select.options[select.selectedIndex].value;
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/avantage/associerProduit',
+					data: {
+						idProduit: idProduit,
+						idAvantage: idAvantage,
+					},
+					success: function(data) {
+						$('#produit_avantage').load("<?= base_url(); ?>admin/avantage/modifier/" + idAvantage + " #produit_avantage");
+			        }
+				});
+			};
 		</script>

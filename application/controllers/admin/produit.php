@@ -102,9 +102,8 @@ class Produit extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/creer");
+			$this->creer();
 		}
 
 		elseif ( ! $this->upload->do_upload())
@@ -112,7 +111,7 @@ class Produit extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/creer");
+			$this->creer();
 		}
 
 		else
@@ -161,9 +160,7 @@ class Produit extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
-
-			redirect("admin/produit/modifier/$id");
+			$this->modifier($id);
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
@@ -171,7 +168,7 @@ class Produit extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/produit/modifier/$id");
+			$this->modifier($id);
 		}
 
 		else
@@ -203,7 +200,7 @@ class Produit extends CI_Controller
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = 1920;
-		$config['quality'] = 100;
+		$config['quality'] = 70;
 
 		$this->image_lib->initialize($config);
 		$this->image_lib->resize();

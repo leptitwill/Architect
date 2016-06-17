@@ -20,25 +20,25 @@
 				</div><br>
 
 				<label for="nom">Nom de la gamme</label>
-				<input type="text" name="nom" placeholder="Officecub 1"/><br />
+				<input type="text" name="nom" placeholder="Officecub 1" value="<?= set_value('nom') ?>"/><br />
 
 				<label for="description">Description de la gamme</label>
-				<textarea name="description" placeholder="Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."></textarea><br />
+				<textarea name="description" placeholder="Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."><?= set_value('description') ?></textarea><br />
 
 				<label for="atout1">Premier atout de la gamme</label>
-				<input type="text" name="atout1" placeholder="Idéale pour les particuliers au espace restreints"/><br />
+				<input type="text" name="atout1" placeholder="Idéale pour les particuliers au espace restreints" value="<?= set_value('atout1') ?>"/><br />
 
 				<label for="atout2">Second atout de la gamme</label>
-				<input type="text" name="atout2" placeholder="Pas de création préalable, ni de permis de construire"/><br />
+				<input type="text" name="atout2" placeholder="Pas de création préalable, ni de permis de construire" value="<?= set_value('atout2') ?>"/><br />
 				
 				<span class="input_1-2">
 					<label for="taille">Taille de la gamme</label>
-					<input type="number" name="taille" placeholder="21"/>
+					<input type="number" name="taille" placeholder="21" value="<?= set_value('taille') ?>"/>
 				</span>
 
 				<span class="input_1-2">
 					<label for="prix">Prix de la gamme</label>
-					<input type="number" name="prix" placeholder="16700"/>
+					<input type="number" name="prix" placeholder="16700" value="<?= set_value('prix') ?>"/>
 				</span><br />
 
 				<div class="gamme_couverture_preview">
@@ -48,10 +48,10 @@
 				</div><br>
 
 				<label for="equipement_serie">Équipement de série de la gamme</label>
-				<textarea name="equipement_serie" placeholder="Aménagements Exterieurs, Container maritime de 10 pieds ..."></textarea><br />
+				<textarea name="equipement_serie" placeholder="Aménagements Exterieurs, Container maritime de 10 pieds ..." ><?= set_value('equipement_serie') ?></textarea><br />
 
 				<label for="equipement_option">Équipement en option de la gamme</label>
-				<textarea name="equipement_option" placeholder="Aménagements Exterieurs, Container maritime de 10 pieds ..."></textarea><br />
+				<textarea name="equipement_option" placeholder="Aménagements Exterieurs, Container maritime de 10 pieds ..."><?= set_value('equipement_option') ?></textarea><br />
 
 				<label for="produit">Associer la gamme au produit</label>
 				<select name="produit">

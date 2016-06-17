@@ -121,9 +121,8 @@ class Avantage extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/creer");
+			$this->creer();
 		}
 
 		elseif ( ! $this->upload->do_upload())
@@ -131,7 +130,7 @@ class Avantage extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/creer");
+			$this->creer();
 		}
 
 		else
@@ -171,9 +170,7 @@ class Avantage extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
-
-			redirect("admin/avantage/modifier/$id");
+			$this->modifier($id);
 		}
 
 		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
@@ -181,7 +178,7 @@ class Avantage extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/avantage/modifier/$id");
+			$this->modifier($id);
 		}
 
 		else

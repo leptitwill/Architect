@@ -37,7 +37,7 @@
 					<div class="gamme_info">
 						<p class="gamme_nom"><?= $gamme['nom'] ?></p>
 						<a href="<?= base_url("gamme/$gamme_url") ?>" class="gamme_lien"><?= base_url("gamme/$gamme_url") ?></a>
-						<p class="gamme_description"><?= $gamme['description'] ?></p>	
+						<p class="gamme_description"><?= nl2br($gamme['description']) ?></p>	
 					</div>
 
 				</article>

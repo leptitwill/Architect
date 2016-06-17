@@ -78,6 +78,8 @@ class Gamme extends CI_Controller
 
 	public function supprimer($id)
 	{
+		$this->gamme_model->supprimer_gamme($id);
+
 		$this->session->set_flashdata('succes','<p>La gamme à bien était supprimé</p>');
 		redirect("admin/gamme");
 	}
@@ -98,6 +100,24 @@ class Gamme extends CI_Controller
 		$nom_image = str_replace("-","_",$url);
 		$nom_image = $this->supprimer_accent($nom_image);
 
+		$this->form_validation->set_rules('nom', 'nom', 'required');
+		$this->form_validation->set_rules('description', 'description', 'required');
+		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
+		$this->form_validation->set_rules('atout2', 'second atout', 'required');
+		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
+		$this->form_validation->set_rules('taille', 'taille', 'required');
+		$this->form_validation->set_rules('prix', 'prix', 'required');
+		$this->form_validation->set_rules('equipement_serie', 'équipement de série', 'required');
+		$this->form_validation->set_rules('equipement_option', 'équipement en option', 'required');
+
+		if ($this->form_validation->run() === FALSE )
+		{
+			$error = validation_errors();
+			
+			$this->creer();
+			return false;
+		}
+
 		$config['upload_path'] = './assets/img/gamme';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = $nom_image;
@@ -111,7 +131,8 @@ class Gamme extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/gamme/creer");
+			$this->creer();
+			return false;
 		} 
 
 		else
@@ -131,7 +152,8 @@ class Gamme extends CI_Controller
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/gamme/creer");
+			$this->creer();
+			return false;
 		} 
 
 		else
@@ -139,37 +161,16 @@ class Gamme extends CI_Controller
 			$data_plan = $this->upload->data();
 		}
 
-		$this->form_validation->set_rules('nom', 'nom', 'required');
-		$this->form_validation->set_rules('description', 'description', 'required');
-		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
-		$this->form_validation->set_rules('atout2', 'second atout', 'required');
-		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
-		$this->form_validation->set_rules('taille', 'taille', 'required');
-		$this->form_validation->set_rules('prix', 'prix', 'required');
-		$this->form_validation->set_rules('equipement_serie', 'équipement de série', 'required');
-		$this->form_validation->set_rules('equipement_option', 'équipement en option', 'required');
+		$this->redimensionner($data_couverture, 1920);
+		$this->redimensionner($data_plan, 1000);
 
-		if ($this->form_validation->run() === FALSE )
-		{
-			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
+		$couverture = $data_couverture['file_name'];
+		$plan = $data_plan['file_name'];
 
-			redirect("admin/gamme/creer");
-		}
+		$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
 
-		else
-		{
-			$this->redimensionner($data_couverture, 1920);
-			$this->redimensionner($data_plan, 1000);
-
-			$couverture = $data_couverture['file_name'];
-			$plan = $data_plan['file_name'];
-
-			$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
-
-			$this->session->set_flashdata('succes','<p>La gamme à bien était ajouté</p>');
-			redirect("admin/gamme");
-		}
+		$this->session->set_flashdata('succes','<p>La gamme à bien était ajouté</p>');
+		redirect("admin/gamme");
 	}
 
 	public function update($id)
@@ -189,14 +190,8 @@ class Gamme extends CI_Controller
 		$url = strtolower($url);
 		$nom_image = str_replace("-","_",$url);
 		$nom_image = $this->supprimer_accent($nom_image);
-
-		$config['upload_path'] = './assets/img/gamme';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = $nom_image;
-		$config['min_width']  = '1920';
-		$config['min_height']  = '400';
-
-		$this->load->library('upload', $config);
+		$fichier_couverture = $_FILES['couverture']['name'];
+		$fichier_plan = $_FILES['plan']['name'];
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
@@ -211,39 +206,84 @@ class Gamme extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
+			$this->modifier($id);
 
-			redirect("admin/gamme/modifier/$id");
+			return false;
 		}
 
-		elseif ($fichier_envoye != "" && ! $this->upload->do_upload())
+		$config['upload_path'] = './assets/img/gamme';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $nom_image;
+		$config['min_width']  = '1920';
+		$config['min_height']  = '400';
+		$config['overwrite']  = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if ($fichier_couverture != "" && ! $this->upload->do_upload('couverture'))
 		{
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/gamme/modifier/$id");
-		}
+			$this->modifier($id);
+			return false;
+		} 
 
 		else
 		{
-			if ($fichier_envoye != "")
-			{
-				$data = $this->upload->data();
-				$this->redimensionner($data);
-				
-				$couverture = $data['file_name'];
-			}
-
-			else 
-			{
-				$couverture = $gamme[0]['couverture'];
-			}
-
-			$this->gamme_model->ajouter_gamme($id, $nom, $description, $couverture, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
-
-			$this->session->set_flashdata('succes','<p>La gamme à bien était modifié</p>');
-			redirect("admin/gamme");
+			$data_couverture = $this->upload->data();
 		}
+
+        $config2['upload_path'] = './assets/img/gamme';
+		$config2['allowed_types'] = 'gif|jpg|png';
+		$config2['file_name'] = $nom_image . '_plan';
+		$config2['min_width']  = '1000';
+		$config2['overwrite']  = TRUE;
+
+		$this->upload->initialize($config2);
+
+		if ($fichier_plan != "" && ! $this->upload->do_upload('plan'))
+		{
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
+
+			$this->modifier($id);
+			return false;
+		} 
+
+		else
+		{
+			$data_plan = $this->upload->data();
+		}
+
+		if ($fichier_couverture != "")
+		{
+			$this->redimensionner($data_couverture, 1920);
+			
+			$couverture = $data_couverture['file_name'];
+		}
+
+		else 
+		{
+			$couverture = $gamme[0]['couverture'];
+		}
+
+		if ($fichier_plan != "")
+		{
+			$this->redimensionner($data_plan, 1920);
+			
+			$plan = $data_plan['file_name'];
+		}
+
+		else 
+		{
+			$plan = $gamme[0]['plan'];
+		}
+
+		$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
+
+		$this->session->set_flashdata('succes','<p>La gamme à bien était modifié</p>');
+		redirect("admin/gamme");
 	}
 
 	function redimensionner($data, $width)
@@ -253,7 +293,7 @@ class Gamme extends CI_Controller
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width'] = $width;
-		$config['quality'] = 100;
+		$config['quality'] = 70;
 		
 		$this->image_lib->initialize($config);
 		$this->image_lib->resize();

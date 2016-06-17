@@ -22,10 +22,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" placeholder="Solution pour les particuliers"/><br />
+				<input type="text" name="nom" placeholder="Solution pour les particuliers" value="<?= set_value('nom') ?>"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Au travailleurs indépendants/freelances travaillant à domicile, exerçant une profession libérale ..."></textarea><br />
+				<textarea name="description" placeholder="Au travailleurs indépendants/freelances travaillant à domicile, exerçant une profession libérale ..."><?= set_value('description') ?></textarea><br />
 
 				<input type="submit" class="button" name="submit" value="Créer une nouvelle solution" />
 

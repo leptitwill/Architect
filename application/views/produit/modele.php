@@ -104,3 +104,48 @@
 			</section>
 
 		</section>
+
+		<script>
+
+			function chargerGamme(url){
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>gamme/url',
+					data: {
+						url: url
+					},
+					success: function(data) {
+						$('#produit_content').html(data);
+						$('html, body').animate({
+							scrollTop: $("body").offset().top
+						}, 500);
+					},
+				});
+
+				$( document ).ready(function() {
+					setTimeout(function(){
+						$(window).scroll(function(){
+							var sidebar = $('#produit_content').offset().top,
+								footer = $('footer').offset().top,
+								scrollTop = $(window).scrollTop(),
+								distance = (scrollTop + $('.gamme_sidebar').outerHeight());
+
+							if(distance > footer)
+							{
+								$('.gamme_sidebar').css('position','fixed').css('top', footer - distance);
+							}
+							else if($(window).scrollTop() > sidebar)
+							{
+								$('.gamme_sidebar').css('position','fixed').css('top', '0');
+							}
+							else
+							{
+								$('.gamme_sidebar').css('position','absolute');
+							}
+						});
+					}, 200);
+				});
+			};
+
+		</script>

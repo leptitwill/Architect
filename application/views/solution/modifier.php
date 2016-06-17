@@ -26,10 +26,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" placeholder="Solution pour les particuliers" value="<?= $solution[0]['nom'] ?>"/><br />
+				<input type="text" name="nom" placeholder="Solution pour les particuliers" value="<?= set_value('nom', $solution[0]['nom']) ?>"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Au travailleurs indépendants/freelances travaillant à domicile, exerçant une profession libérale ..."><?= $solution[0]['description'] ?></textarea><br />
+				<textarea name="description" placeholder="Au travailleurs indépendants/freelances travaillant à domicile, exerçant une profession libérale ..."><?= set_value('description', $solution[0]['description']) ?></textarea><br />
 
 				<label>Liéer la solution au(x) produit(s)</label>
 				<table id="produit_solution">
@@ -75,4 +75,34 @@
 					reader.readAsDataURL(input.files[0]);
 				}
 			}
+
+			function desassocierProduitSolution(id, idSolution){
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/solution/desassocierProduit',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#produit_solution').load("<?= base_url(); ?>admin/solution/modifier/" + idSolution + " #produit_solution");
+			        },
+				});
+			};
+
+			function associerProduitSolution(idSolution){
+				var select = document.getElementById("select_produit");
+				var idProduit = select.options[select.selectedIndex].value;
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/solution/associerProduit',
+					data: {
+						idProduit: idProduit,
+						idSolution: idSolution,
+					},
+					success: function(data) {
+						$('#produit_solution').load("<?= base_url(); ?>admin/solution/modifier/" + idSolution + " #produit_solution");
+			        }
+				});
+			};
 		</script>

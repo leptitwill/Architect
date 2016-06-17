@@ -8,6 +8,7 @@
 		<?=css('main.css')?>
 		<?=css('sweetalert.css')?>
 		<?=css('unslider.css')?>
+		<?=js('jquery.min.js')?>
 	</head>
 
 	<body class="body_admin">

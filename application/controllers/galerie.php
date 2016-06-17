@@ -208,24 +208,9 @@ class Galerie extends CI_Controller
 		} else {
 			$config['master_dim'] = 'height';
 		}
-		$config['quality'] = 100;
+		$config['quality'] = 70;
 		$this->image_lib->initialize($config);
 		$this->image_lib->resize();
-	}
-
-	function recadrer($data)
-	{
-		$dimensions = getimagesize($data['full_path']);
-		$config['image_library'] = 'gd2';
-		$config['source_image'] =$data['full_path'];
-		$config['maintain_ratio'] = FALSE;
-		$config['width'] = 200;
-		$config['height'] = 200;
-		$config['quality'] = 100;
-		$config['x_axis'] = ($dimensions[0] / 2) - (200 / 2);
-		$config['y_axis'] = ($dimensions[1] / 2) - (200 / 2);
-		$this->image_lib->initialize($config);
-		$this->image_lib->crop();
 	}
 
 

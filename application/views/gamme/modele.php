@@ -17,7 +17,7 @@
 
 		<div class="gamme_equipement">
 			<h3>Équipement de série</h3>
-			<p><?= $gamme[0]['equipementSerie'] ?></p>
+			<p><?= nl2br($gamme[0]['equipementSerie']) ?></p>
 		</div>
 
 		<hr>
@@ -28,7 +28,7 @@
 
 		<div class="gamme_equipement-option">
 			<h3>Équipement en option</h3>
-			<p><?= $gamme[0]['equipementOption'] ?></p>
+			<p><?= nl2br($gamme[0]['equipementOption']) ?></p>
 		</div>
 		
 	</section>

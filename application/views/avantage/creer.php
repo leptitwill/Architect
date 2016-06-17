@@ -22,10 +22,10 @@
 				</div><br>
 
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" placeholder="Confort de vie"/><br />
+				<input type="text" name="nom" placeholder="Confort de vie" value="<?= set_value('nom') ?>"/><br />
 
 				<label for="description">Description</label>
-				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."></textarea><br />
+				<textarea name="description" placeholder="Créer un espace dédié à votre activitée profesionelle et améliorer votre confort de vie ..."><?= set_value('description') ?></textarea><br />
 
 				<input type="submit" class="button" name="submit" value="Créer un nouvel avantage" />
 

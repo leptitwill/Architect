@@ -223,3 +223,46 @@
 			</div>
 
 		</section>
+
+		<script>
+
+			function majAccueil(id){
+				var contenu = tinyMCE.get(id).getContent();
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/home_page/modifier',
+					data: {
+						id: id,
+						contenu: contenu
+					},
+					success: function(data) {
+						if (data == '')
+						{
+							swal({
+								title: 'Contenu mis à jour',
+								text: 'La fenêtre va se fermer dans 2 secondes',
+								timer: 2000,
+								animation: false,
+								showConfirmButton: false
+							});
+
+							$(".sweet-alert h2").css('color', "#39D2B4");
+						}
+						else
+						{
+							swal({
+								title: 'Erreur lors de la mis à jour',
+								text: 'La fenêtre va se fermer dans 2 secondes',
+								timer: 2000,
+								animation: false,
+								showConfirmButton: false
+							});
+
+							$(".sweet-alert h2").css('color', "#f35f47");
+						}
+			        },
+				});
+			};
+
+		</script>

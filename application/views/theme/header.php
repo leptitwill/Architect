@@ -8,6 +8,7 @@
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
 		<?=css('main.css')?>
 		<?=css('unslider.css')?>
+		<?=js('jquery.min.js')?>
 	</head>
 
 	<body class="body">

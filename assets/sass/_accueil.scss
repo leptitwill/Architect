@@ -1,968 +1,811 @@
 .body {
-	.cover--home {
-		width: 100%;
-		height: 100vh;
-		margin-top: 0px;
-
-		ul {
-
-			li {
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-				background-color: $gris;
-				position: relative;
-
-				.cover_texte {
-					padding-right: 4rem;
-					float: right;
-					text-align: right;
-					position: absolute;
-					right: 2rem;
-					top: 50%;
-
-					h3 {
-						color: white;
-						text-transform: uppercase;
-						background: rgba(0,0,0,0.8);
-						padding: 1rem;
-						margin-bottom: 1.5rem;
-						display: inline-block;
-					}
-
-					span {
-						color: white;
-						background: rgba(51,153,153,0.8);
-						padding: 1rem;
-					}
-
-				}
-			}
-		}
-
-	}
-
-	.accueil_introduction {
-		width: 100%;
-		max-width: 800px;
-		margin: 5rem auto;
-		text-align: center;
-		color: $gris-fonce;
-		font-size: 1.1rem;
-	}
-
-	.accueil_baseline {
-		color: white;
-		text-align: center;
-		font-size: 1.5rem;
-		background-image: url('../img/cover-1.jpg');
-		background-size: cover;
-		background-position: center;
-		background-attachment: fixed;
-
-		.overlay {
-			background: rgba($vert, 0.9);
-			width: 100%;
-			padding: 4rem 1rem;
-		}
-
-		blockquote {
-			font-family: initial;
-			quotes: "\201C""\201D""\2018""\2019";
-			display: inline-block;
-			position: relative;
-
-			&:before {
-				position: absolute;
-				color: white;
-				content: open-quote;
-				font-size: 4rem;
-				line-height: 1rem;
-				left: -3rem;
-			}
-
-			&:after {
-				position: absolute;
-				color: white;
-				content: close-quote;
-				font-size: 4rem;
-				line-height: 1rem;
-				vertical-align: middle;
-				margin-left: 0.5rem;
-				right: -3rem;
-				bottom: -28px;
-			}
-		}
-
-		blockquote p {
-			display: inline;
-		}
-	}
-
-	.accueil_produits {
-
-		.accueil_produit {
-			width: 100%;
-			font-size: 1rem;
-			overflow: auto;
-			display: table;
-
-			.accueil_produit_contenu {
-				width: 50%;
-				float: left;
-				position: relative;
-
-				.accueil_produit_photo {
-					width: 100%;
-					height: 100vh;
-					min-height: 400px;
-					background-size: cover;
-					background-position: 50% 50%;
-					background-repeat: no-repeat;
-					background-color: $gris;
-				}
-
-				.accueil_produit_info {
-					padding: 2rem;
-					width: 100%;
-					background: rgba($noir, 0.7);
-					position: absolute;
-					bottom: 0;
-					left: 0;
-
-					.accueil_produit_nom {
-						text-transform: uppercase;
-						color: white;
-						margin-bottom: 1rem;
-						font-weight: 400;
-						font-size: 1.5rem;
-					}
-
-					.accueil_produit_description {
-						color: white;
-						text-align: justify;
-						font-weight: 300;
-					}
-				}
-			}
-
-			.accueil_produit_atout {
-				width: 50%;
-				height: 100%;
-				float: right;
-				overflow: auto;
-				display: inline-block;
-
-				.atout {
-					width: 50%;
-					height: 50%;
-					float: left;
-					position: relative;
-					text-align: center;
-					transition: 0.3s;
-
-					div {
-						width: 100%;
-						vertical-align: middle;
-						position: absolute;
-						transform: translate(-50%, -50%);
-						top: 50%;
-						left: 50%;
-						padding: 1.5rem;
-
-						img {
-							width: 50px;
-							margin-bottom: 1rem;
-						}
-
-						.atout_nom {
-							text-transform: uppercase;
-							font-weight: 500;
-							display: block;
-
-							&:after {
-								content:url('../img/title_bottom.svg');
-								display: block;
-								margin: 1.5rem auto;
-								width: 80px;
-								line-height: 0;
-							}
-						}
-
-						.atout_description {
-							color: $gris-fonce;
-							overflow: hidden;
-							text-overflow: ellipsis;
-							display: -webkit-box;
-							line-height: 16px;
-							max-height: 48px;
-							-webkit-line-clamp: 4;
-							-webkit-box-orient: vertical;
-						}
-					}
-
-					&:first-child {
-						border-right: 1px solid $gris;
-						border-bottom: 1px solid $gris;
-					}
-
-					&:nth-child(2) {
-						border-bottom: 1px solid $gris;
-					}
-
-					&:nth-child(3) {
-						border-right: 1px solid $gris;
-					}
-
-					&:last-child {
-
-						svg {
-							fill: $noir;
-							width: 50px;
-							margin-bottom: 1rem;
-						}
-
-						p {
-							text-transform: uppercase;
-							font-weight: 500;
-							color: $noir;
-						}
-
-						&:hover {
-							background: $vert;
-							color: white;
-
-							svg {
-								fill: white;
-							}
-
-							p {
-								color: white;
-							}
-						}
-					}
-				}
-
-			}
-
-		}
-
-		.accueil_produit:nth-child(even) {
-
-			.accueil_produit_contenu {
-				float: right;
-			}
-
-			.accueil_produit_atout {
-				float: left;
-			}
-
-		}
-	}
-
-	.accueil_etapes {
-		padding: 4rem 2rem;
-		background: $faux-noir;
-		color: white;
-		overflow: auto;
-
-		h2 {
-			color: white;
-			text-align: center;
-		}
-
-		.accueil_etape {
-			margin-top: 2rem;
-			width: 25%;
-			float: left;
-			padding: 0 2rem;
-
-			span {
-				
-			}
-
-			.number {
-				font-size: 5rem;
-				font-weight: 700;
-				line-height: 6rem;
-				margin-bottom: 2rem;
-
-				span {
-					font-family: initial;
-					font-size: 4rem;
-					color: $vert;
-				}
-			}
-
-			.accueil_etape_texte {
-
-				h3 {
-					color: white;
-					text-transform: uppercase;
-					font-weight: 500;
-				}
-
-				p {
-					color: white;
-					font-weight: 300;
-				}
-			}
-		}
-	}
-
-	.accueil_validation {
-		padding: 2rem 4rem;
-		text-align: center;
-		font-size: 1.2rem;
-		background: $vert;
-		color: white;
-		overflow: auto;
-	}
-
-	.accueil_avis {
-		color: white;
-		text-align: center;
-		background-image: url('../img/cover-1.jpg');
-		background-size: cover;
-		background-position: center;
-		background-attachment: fixed;
-
-		h2 {
-			color: white;
-		}
-
-		.overlay {
-			background: rgba(black, 0.6);
-			width: 100%;
-			height: 100%;
-			padding: 4rem 0rem;
-			overflow: auto;
-			text-align: center;
-
-			li {
-				padding: 2rem 4rem;
-
-				blockquote {
-					font-family: initial;
-					quotes: "\201C""\201D""\2018""\2019";
-					display: inline-block;
-					position: relative;
-
-					&:before {
-						position: absolute;
-						color: white;
-						content: open-quote;
-						font-size: 4rem;
-						line-height: 1rem;
-						left: -3rem;
-					}
-
-					&:after {
-						position: absolute;
-						color: white;
-						content: close-quote;
-						font-size: 4rem;
-						line-height: 1rem;
-						vertical-align: middle;
-						margin-left: 0.5rem;
-						right: -3rem;
-						bottom: -28px;
-					}
-				}
-
-				p {
-					display: inline;
-					font-size: 1.5rem;
-				}
-
-				span {
-					display: block;
-					margin-top: 2rem;
-					color: $vert;
-				}
-			}
-
-			.unslider {
-				width: 100%;
-				max-width: 800px;
-				margin: auto;
-				overflow: visible;
-
-				.unslider-arrow {
-					top: 100%;
-					left: 50%;
-
-					&.next {
-						left: auto;
-						right: 50%;
-						margin-right: -50px;
-					}
-
-					&.prev {
-						margin-left: -50px;
-					}
-				}
-			}
-		}
-	}
-
-	.accueil_articles {
-		width: 100%;
-		max-width: 1000px;
-		padding: 0 1rem;
-		margin: 4rem auto;
-		overflow: auto;
-		text-align: center;
-
-		.accueil_article {
-			width: 30%;
-			height: 100%;
-			float: left;
-			text-align: left;
-			display: inline-block;
-
-			&:nth-child(3) {
-				margin: 0 5%;
-			}
-
-			.accueil_article_photo {
-				width: 100%;
-				height: 200px;
-				background-size: cover;
-				background-position: 50% 50%;
-				margin-bottom: 1rem;
-				background-color: $gris;
-			}
-
-			.accueil_article_titre {
-				text-transform: uppercase;
-				font-size: 1rem;
-				font-weight: 400;
-				color: $vert;
-				margin-bottom: 1rem;
-			}
-
-			.accueil_article_description {
-				color: $gris-fonce;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				display: -webkit-box;
-				line-height: 16px;
-				max-height: 80px;
-				-webkit-line-clamp: 5;
-				-webkit-box-orient: vertical;
-			}
-		}
-
-		.accueil_article_lien {
-			display: inline-block;
-			margin-top: 3rem;
-			text-transform: uppercase;
-			font-size: 0.8rem;
-
-			&:before {
-				content:url('../img/title_bottom.svg');
-				width: 30px;
-				float: left;
-				margin-right: 0.5rem;
-				line-height: 0.8rem;
-			}
-
-			&:after {
-				content:url('../img/title_bottom.svg');
-				width: 30px;
-				float: right;
-				margin-left: 0.5rem;
-				line-height: 0.8rem;
-			}
-		}
-	}
+    .cover--home {
+        width: 100%;
+        height: 100vh;
+        margin-top: 0px;
+        ul {
+            li {
+                background-size: cover;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-color: $gris;
+                position: relative;
+                .cover_texte {
+                    padding-right: 4rem;
+                    float: right;
+                    text-align: right;
+                    position: absolute;
+                    right: 2rem;
+                    top: 50%;
+                    h3 {
+                        color: white;
+                        text-transform: uppercase;
+                        background: rgba(0, 0, 0, 0.8);
+                        padding: 1rem;
+                        margin-bottom: 1.5rem;
+                        display: inline-block;
+                    }
+                    span {
+                        color: white;
+                        background: rgba(51, 153, 153, 0.8);
+                        padding: 1rem;
+                    }
+                }
+            }
+        }
+    }
+    .accueil_introduction {
+        width: 100%;
+        max-width: 800px;
+        margin: 5rem auto;
+        text-align: center;
+        color: $gris-fonce;
+        font-size: 1.1rem;
+    }
+    .accueil_baseline {
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        background-image: url('../img/cover-1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        .overlay {
+            background: rgba($vert, 0.9);
+            width: 100%;
+            padding: 4rem 1rem;
+        }
+        blockquote {
+            font-family: initial;
+            quotes: "\201C""\201D""\2018""\2019";
+            display: inline-block;
+            position: relative;
+            &:before {
+                position: absolute;
+                color: white;
+                content: open-quote;
+                font-size: 4rem;
+                line-height: 1rem;
+                left: -3rem;
+            }
+            &:after {
+                position: absolute;
+                color: white;
+                content: close-quote;
+                font-size: 4rem;
+                line-height: 1rem;
+                vertical-align: middle;
+                margin-left: 0.5rem;
+                right: -3rem;
+                bottom: -28px;
+            }
+        }
+        blockquote p {
+            display: inline;
+        }
+    }
+    .accueil_produits {
+        .accueil_produit {
+            width: 100%;
+            font-size: 1rem;
+            overflow: auto;
+            display: table;
+            .accueil_produit_contenu {
+                width: 50%;
+                float: left;
+                position: relative;
+                .accueil_produit_photo {
+                    width: 100%;
+                    height: 100vh;
+                    min-height: 400px;
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    background-color: $gris;
+                }
+                .accueil_produit_info {
+                    padding: 2rem;
+                    width: 100%;
+                    background: rgba($noir, 0.7);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    .accueil_produit_nom {
+                        text-transform: uppercase;
+                        color: white;
+                        margin-bottom: 1rem;
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                    }
+                    .accueil_produit_description {
+                        color: white;
+                        text-align: justify;
+                        font-weight: 300;
+                    }
+                }
+            }
+            .accueil_produit_atout {
+                width: 50%;
+                height: 100%;
+                float: right;
+                overflow: auto;
+                display: inline-block;
+                .atout {
+                    width: 50%;
+                    height: 50%;
+                    float: left;
+                    position: relative;
+                    text-align: center;
+                    transition: 0.3s;
+                    div {
+                        width: 100%;
+                        vertical-align: middle;
+                        position: absolute;
+                        transform: translate(-50%, -50%);
+                        top: 50%;
+                        left: 50%;
+                        padding: 1.5rem;
+                        img {
+                            width: 50px;
+                            margin-bottom: 1rem;
+                        }
+                        .atout_nom {
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            display: block;
+                            &:after {
+                                content: url('../img/title_bottom.svg');
+                                display: block;
+                                margin: 1.5rem auto;
+                                width: 80px;
+                                line-height: 0;
+                            }
+                        }
+                        .atout_description {
+                            color: $gris-fonce;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            line-height: 16px;
+                            max-height: 48px;
+                            -webkit-line-clamp: 4;
+                            -webkit-box-orient: vertical;
+                        }
+                    }
+                    &:first-child {
+                        border-right: 1px solid $gris;
+                        border-bottom: 1px solid $gris;
+                    }
+                    &:nth-child(2) {
+                        border-bottom: 1px solid $gris;
+                    }
+                    &:nth-child(3) {
+                        border-right: 1px solid $gris;
+                    }
+                    &:last-child {
+                        svg {
+                            fill: $noir;
+                            width: 50px;
+                            margin-bottom: 1rem;
+                        }
+                        p {
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            color: $noir;
+                        }
+                        &:hover {
+                            background: $vert;
+                            color: white;
+                            svg {
+                                fill: white;
+                            }
+                            p {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .accueil_produit:nth-child(even) {
+            .accueil_produit_contenu {
+                float: right;
+            }
+            .accueil_produit_atout {
+                float: left;
+            }
+        }
+    }
+    .accueil_etapes {
+        padding: 4rem 2rem;
+        background: $faux-noir;
+        color: white;
+        overflow: auto;
+        h2 {
+            color: white;
+            text-align: center;
+        }
+        .accueil_etape {
+            margin-top: 2rem;
+            width: 25%;
+            float: left;
+            padding: 0 2rem;
+            span {}
+            .number {
+                font-size: 5rem;
+                font-weight: 700;
+                line-height: 6rem;
+                margin-bottom: 2rem;
+                span {
+                    font-family: initial;
+                    font-size: 4rem;
+                    color: $vert;
+                }
+            }
+            .accueil_etape_texte {
+                h3 {
+                    color: white;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                }
+                p {
+                    color: white;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+    .accueil_validation {
+        padding: 2rem 4rem;
+        text-align: center;
+        font-size: 1.2rem;
+        background: $vert;
+        color: white;
+        overflow: auto;
+    }
+    .accueil_avis {
+        color: white;
+        text-align: center;
+        background-image: url('../img/cover-1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        h2 {
+            color: white;
+        }
+        .overlay {
+            background: rgba(black, 0.6);
+            width: 100%;
+            height: 100%;
+            padding: 4rem 0rem;
+            overflow: auto;
+            text-align: center;
+            li {
+                padding: 2rem 4rem;
+                blockquote {
+                    font-family: initial;
+                    quotes: "\201C""\201D""\2018""\2019";
+                    display: inline-block;
+                    position: relative;
+                    &:before {
+                        position: absolute;
+                        color: white;
+                        content: open-quote;
+                        font-size: 4rem;
+                        line-height: 1rem;
+                        left: -3rem;
+                    }
+                    &:after {
+                        position: absolute;
+                        color: white;
+                        content: close-quote;
+                        font-size: 4rem;
+                        line-height: 1rem;
+                        vertical-align: middle;
+                        margin-left: 0.5rem;
+                        right: -3rem;
+                        bottom: -28px;
+                    }
+                }
+                p {
+                    display: inline;
+                    font-size: 1.5rem;
+                }
+                span {
+                    display: block;
+                    margin-top: 2rem;
+                    color: $vert;
+                }
+            }
+            .unslider {
+                width: 100%;
+                max-width: 800px;
+                margin: auto;
+                overflow: visible;
+                .unslider-arrow {
+                    top: 100%;
+                    left: 50%;
+                    &.next {
+                        left: auto;
+                        right: 50%;
+                        margin-right: -50px;
+                    }
+                    &.prev {
+                        margin-left: -50px;
+                    }
+                }
+            }
+        }
+    }
+    .accueil_articles {
+        width: 100%;
+        max-width: 1000px;
+        padding: 0 1rem;
+        margin: 4rem auto;
+        overflow: auto;
+        text-align: center;
+        .accueil_article {
+            width: 30%;
+            height: 100%;
+            float: left;
+            text-align: left;
+            display: inline-block;
+            &:nth-child(3) {
+                margin: 0 5%;
+            }
+            .accueil_article_photo {
+                width: 100%;
+                height: 200px;
+                background-size: cover;
+                background-position: 50% 50%;
+                margin-bottom: 1rem;
+                background-color: $gris;
+            }
+            .accueil_article_titre {
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 400;
+                color: $vert;
+                margin-bottom: 1rem;
+            }
+            .accueil_article_description {
+                color: $gris-fonce;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                line-height: 16px;
+                max-height: 80px;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+        }
+        .accueil_article_lien {
+            display: inline-block;
+            margin-top: 3rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            &:before {
+                content: url('../img/title_bottom.svg');
+                width: 30px;
+                float: left;
+                margin-right: 0.5rem;
+                line-height: 0.8rem;
+            }
+            &:after {
+                content: url('../img/title_bottom.svg');
+                width: 30px;
+                float: right;
+                margin-left: 0.5rem;
+                line-height: 0.8rem;
+            }
+        }
+    }
 }
 
-
 // ADMIN ----------------------------------------------
-
 .body_admin {
-	
-	.cover--home {
-		width: 100%;
-		height: 400px;
-
-		ul {
-
-			li {
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-				background-color: $gris;
-				position: relative;
-
-				.cover_texte {
-					padding-right: 4rem;
-					float: right;
-					text-align: right;
-					position: absolute;
-					right: 2rem;
-					top: 50%;
-
-					h3 {
-						color: white;
-						text-transform: uppercase;
-						background: rgba(0,0,0,0.8);
-						padding: 1rem;
-						margin-bottom: 1.5rem;
-						display: inline-block;
-					}
-
-					span {
-						color: white;
-						background: rgba(51,153,153,0.8);
-						padding: 1rem;
-					}
-
-				}
-			}
-		}
-
-	}
-
-	.accueil_introduction {
-		width: 100%;
-		max-width: 800px;
-		margin: 5rem auto;
-		padding: 1rem;
-		text-align: center;
-		color: $gris-fonce;
-		font-size: 1.1rem;
-	}
-
-	.accueil_baseline {
-		color: white;
-		text-align: center;
-		font-size: 1.5rem;
-		background-image: url('../img/cover-1.jpg');
-		background-size: cover;
-		background-position: center;
-		background-attachment: fixed;
-
-		.overlay {
-			background: rgba($vert, 0.9);
-			width: 100%;
-			padding: 4rem 1rem;
-		}
-
-		blockquote {
-			font-family: initial;
-			quotes: "\201C""\201D""\2018""\2019";
-			display: inline-block;
-			position: relative;
-
-			&:before {
-				position: absolute;
-				color: white;
-				content: open-quote;
-				font-size: 4rem;
-				line-height: 1rem;
-				left: -3rem;
-			}
-
-			&:after {
-				position: absolute;
-				color: white;
-				content: close-quote;
-				font-size: 4rem;
-				line-height: 1rem;
-				vertical-align: middle;
-				margin-left: 0.5rem;
-				right: -3rem;
-				bottom: -28px;
-			}
-		}
-
-		blockquote p {
-			display: inline;
-		}
-	}
-
-	.accueil_produits {
-
-		.accueil_produit {
-			width: 100%;
-			font-size: 1rem;
-			overflow: auto;
-			display: table;
-
-			.accueil_produit_contenu {
-				width: 50%;
-				float: left;
-				position: relative;
-
-				.accueil_produit_photo {
-					width: 100%;
-					height: 600px;
-					min-height: 400px;
-					background-size: cover;
-					background-position: 50% 50%;
-					background-repeat: no-repeat;
-					background-color: $gris;
-				}
-
-				.accueil_produit_info {
-					padding: 2rem;
-					width: 100%;
-					background: rgba($noir, 0.7);
-					position: absolute;
-					bottom: 0;
-					left: 0;
-
-					.accueil_produit_nom {
-						text-transform: uppercase;
-						color: white;
-						margin-bottom: 1rem;
-						font-weight: 400;
-						font-size: 1.5rem;
-					}
-
-					.accueil_produit_description {
-						color: white;
-						text-align: justify;
-						font-weight: 300;
-					}
-				}
-			}
-
-			.accueil_produit_atout {
-				width: 50%;
-				height: 100%;
-				float: right;
-				overflow: auto;
-				display: inline-block;
-
-				.atout {
-					width: 50%;
-					height: 50%;
-					float: left;
-					position: relative;
-					text-align: center;
-					transition: 0.3s;
-
-					div {
-						width: 100%;
-						vertical-align: middle;
-						position: absolute;
-						transform: translate(-50%, -50%);
-						top: 50%;
-						left: 50%;
-						padding: 1.5rem;
-
-						img {
-							width: 50px;
-							margin-bottom: 1rem;
-						}
-
-						.atout_nom {
-							margin-bottom: 3rem;
-							text-transform: uppercase;
-							font-weight: 500;
-							position: relative;
-
-							&:after {
-								content:url('../img/title_bottom.svg');
-								position: absolute;
-								left: 50%;
-								margin-left: -40px;
-								top: 2rem;
-								width: 80px;
-							}
-						}
-
-						.atout_description {
-							color: $gris-fonce;
-							overflow: hidden;
-							text-overflow: ellipsis;
-							display: -webkit-box;
-							line-height: 16px;
-							max-height: 48px;
-							-webkit-line-clamp: 4;
-							-webkit-box-orient: vertical;
-						}
-					}
-
-					&:first-child {
-						border-right: 1px solid $gris;
-						border-bottom: 1px solid $gris;
-					}
-
-					&:nth-child(2) {
-						border-bottom: 1px solid $gris;
-					}
-
-					&:nth-child(3) {
-						border-right: 1px solid $gris;
-					}
-
-					&:last-child {
-
-						svg {
-							fill: $noir;
-							width: 50px;
-							margin-bottom: 1rem;
-						}
-
-						p {
-							text-transform: uppercase;
-							font-weight: 500;
-							color: $noir;
-						}
-
-						&:hover {
-							background: $vert;
-							color: white;
-
-							svg {
-								fill: white;
-							}
-
-							p {
-								color: white;
-							}
-						}
-					}
-				}
-
-			}
-
-		}
-
-		.accueil_produit:nth-child(even) {
-
-			.accueil_produit_contenu {
-				float: right;
-			}
-
-			.accueil_produit_atout {
-				float: left;
-			}
-
-		}
-	}
-
-	.accueil_etapes {
-		padding: 4rem 2rem;
-		background: $faux-noir;
-		color: white;
-		overflow: auto;
-
-		h2 {
-			color: white;
-			text-align: center;
-		}
-
-		.accueil_etape {
-			margin-top: 2rem;
-			width: 25%;
-			float: left;
-			padding: 0 2rem;
-
-			span {
-				
-			}
-
-			.number {
-				font-size: 5rem;
-				font-weight: 700;
-				line-height: 6rem;
-				margin-bottom: 2rem;
-
-				span {
-					font-family: initial;
-					font-size: 4rem;
-					color: $vert;
-				}
-			}
-
-			.accueil_etape_texte {
-				background: transparent;
-
-				h3 {
-					color: white;
-					text-transform: uppercase;
-					font-weight: 500;
-				}
-
-				p {
-					color: white;
-					font-weight: 300;
-				}
-			}
-		}
-	}
-
-	.accueil_validation {
-		padding: 2rem 4rem;
-		text-align: center;
-		font-size: 1.2rem;
-		background: $vert;
-		color: white;
-		overflow: auto;
-	}
-
-	.accueil_avis {
-		color: white;
-		text-align: center;
-		background-image: url('../img/cover-1.jpg');
-		background-size: cover;
-		background-position: center;
-		background-attachment: fixed;
-
-		h2 {
-			color: white;
-		}
-
-		.overlay {
-			background: rgba(black, 0.6);
-			width: 100%;
-			height: 100%;
-			padding: 4rem 0rem;
-			overflow: auto;
-			text-align: center;
-
-			li {
-				padding: 2rem 4rem;
-
-				blockquote {
-					font-family: initial;
-					quotes: "\201C""\201D""\2018""\2019";
-					display: inline-block;
-					position: relative;
-
-					&:before {
-						position: absolute;
-						color: white;
-						content: open-quote;
-						font-size: 4rem;
-						line-height: 1rem;
-						left: -3rem;
-					}
-
-					&:after {
-						position: absolute;
-						color: white;
-						content: close-quote;
-						font-size: 4rem;
-						line-height: 1rem;
-						vertical-align: middle;
-						margin-left: 0.5rem;
-						right: -3rem;
-						bottom: -28px;
-					}
-				}
-
-				p {
-					display: inline;
-					font-size: 1.5rem;
-				}
-
-				span {
-					display: block;
-					margin-top: 2rem;
-					color: $vert;
-				}
-			}
-
-			.unslider {
-				width: 100%;
-				max-width: 800px;
-				margin: auto;
-				overflow: visible;
-
-				.unslider-arrow {
-					top: 100%;
-					left: 50%;
-
-					&.next {
-						left: auto;
-						right: 50%;
-						margin-right: -50px;
-					}
-
-					&.prev {
-						margin-left: -50px;
-					}
-				}
-			}
-		}
-	}
-
-	.accueil_articles {
-		width: 100%;
-		max-width: 1000px;
-		padding: 0 1rem;
-		margin: 4rem auto;
-		overflow: auto;
-		text-align: center;
-
-		.accueil_article {
-			width: 30%;
-			height: 100%;
-			float: left;
-			text-align: left;
-			display: inline-block;
-
-			&:nth-child(3) {
-				margin: 0 5%;
-			}
-
-			.accueil_article_photo {
-				width: 100%;
-				height: 200px;
-				background-size: cover;
-				background-position: 50% 50%;
-				margin-bottom: 1rem;
-				background-color: $gris;
-			}
-
-			.accueil_article_titre {
-				text-transform: uppercase;
-				font-size: 1rem;
-				font-weight: 400;
-				color: $vert;
-				margin-bottom: 1rem;
-			}
-
-			.accueil_article_description {
-				color: $gris-fonce;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				display: -webkit-box;
-				line-height: 16px;
-				max-height: 80px;
-				-webkit-line-clamp: 5;
-				-webkit-box-orient: vertical;
-			}
-		}
-
-		.accueil_article_lien {
-			display: inline-block;
-			margin: 3rem 0;
-			text-transform: uppercase;
-			font-size: 0.8rem;
-
-			&:before {
-				content:url('../img/title_bottom.svg');
-				width: 30px;
-				float: left;
-				margin-right: 0.5rem;
-				line-height: 0.8rem;
-			}
-
-			&:after {
-				content:url('../img/title_bottom.svg');
-				width: 30px;
-				float: right;
-				margin-left: 0.5rem;
-				line-height: 0.8rem;
-			}
-		}
-	}
+    .cover--home {
+        width: 100%;
+        height: 400px;
+        ul {
+            li {
+                background-size: cover;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-color: $gris;
+                position: relative;
+                .cover_texte {
+                    padding-right: 4rem;
+                    float: right;
+                    text-align: right;
+                    position: absolute;
+                    right: 2rem;
+                    top: 50%;
+                    h3 {
+                        color: white;
+                        text-transform: uppercase;
+                        background: rgba(0, 0, 0, 0.8);
+                        padding: 1rem;
+                        margin-bottom: 1.5rem;
+                        display: inline-block;
+                    }
+                    span {
+                        color: white;
+                        background: rgba(51, 153, 153, 0.8);
+                        padding: 1rem;
+                    }
+                }
+            }
+        }
+    }
+    .accueil_introduction {
+        width: 100%;
+        max-width: 800px;
+        margin: 5rem auto;
+        padding: 1rem;
+        text-align: center;
+        color: $gris-fonce;
+        font-size: 1.1rem;
+    }
+    .accueil_baseline {
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        background-image: url('../img/cover-1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        .overlay {
+            background: rgba($vert, 0.9);
+            width: 100%;
+            padding: 4rem 1rem;
+        }
+        blockquote {
+            font-family: initial;
+            quotes: "\201C""\201D""\2018""\2019";
+            display: inline-block;
+            position: relative;
+            &:before {
+                position: absolute;
+                color: white;
+                content: open-quote;
+                font-size: 4rem;
+                line-height: 1rem;
+                left: -3rem;
+            }
+            &:after {
+                position: absolute;
+                color: white;
+                content: close-quote;
+                font-size: 4rem;
+                line-height: 1rem;
+                vertical-align: middle;
+                margin-left: 0.5rem;
+                right: -3rem;
+                bottom: -28px;
+            }
+        }
+        blockquote p {
+            display: inline;
+        }
+    }
+    .accueil_produits {
+        .accueil_produit {
+            width: 100%;
+            font-size: 1rem;
+            overflow: auto;
+            display: table;
+            .accueil_produit_contenu {
+                width: 50%;
+                float: left;
+                position: relative;
+                .accueil_produit_photo {
+                    width: 100%;
+                    height: 600px;
+                    min-height: 400px;
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    background-color: $gris;
+                }
+                .accueil_produit_info {
+                    padding: 2rem;
+                    width: 100%;
+                    background: rgba($noir, 0.7);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    .accueil_produit_nom {
+                        text-transform: uppercase;
+                        color: white;
+                        margin-bottom: 1rem;
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                    }
+                    .accueil_produit_description {
+                        color: white;
+                        text-align: justify;
+                        font-weight: 300;
+                    }
+                }
+            }
+            .accueil_produit_atout {
+                width: 50%;
+                height: 100%;
+                float: right;
+                overflow: auto;
+                display: inline-block;
+                .atout {
+                    width: 50%;
+                    height: 50%;
+                    float: left;
+                    position: relative;
+                    text-align: center;
+                    transition: 0.3s;
+                    div {
+                        width: 100%;
+                        vertical-align: middle;
+                        position: absolute;
+                        transform: translate(-50%, -50%);
+                        top: 50%;
+                        left: 50%;
+                        padding: 1.5rem;
+                        img {
+                            width: 50px;
+                            margin-bottom: 1rem;
+                        }
+                        .atout_nom {
+                            margin-bottom: 3rem;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            position: relative;
+                            &:after {
+                                content: url('../img/title_bottom.svg');
+                                position: absolute;
+                                left: 50%;
+                                margin-left: -40px;
+                                top: 2rem;
+                                width: 80px;
+                            }
+                        }
+                        .atout_description {
+                            color: $gris-fonce;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            line-height: 16px;
+                            max-height: 48px;
+                            -webkit-line-clamp: 4;
+                            -webkit-box-orient: vertical;
+                        }
+                    }
+                    &:first-child {
+                        border-right: 1px solid $gris;
+                        border-bottom: 1px solid $gris;
+                    }
+                    &:nth-child(2) {
+                        border-bottom: 1px solid $gris;
+                    }
+                    &:nth-child(3) {
+                        border-right: 1px solid $gris;
+                    }
+                    &:last-child {
+                        svg {
+                            fill: $noir;
+                            width: 50px;
+                            margin-bottom: 1rem;
+                        }
+                        p {
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            color: $noir;
+                        }
+                        &:hover {
+                            background: $vert;
+                            color: white;
+                            svg {
+                                fill: white;
+                            }
+                            p {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .accueil_produit:nth-child(even) {
+            .accueil_produit_contenu {
+                float: right;
+            }
+            .accueil_produit_atout {
+                float: left;
+            }
+        }
+    }
+    .accueil_etapes {
+        padding: 4rem 2rem;
+        background: $faux-noir;
+        color: white;
+        overflow: auto;
+        h2 {
+            color: white;
+            text-align: center;
+        }
+        .accueil_etape {
+            margin-top: 2rem;
+            width: 25%;
+            float: left;
+            padding: 0 2rem;
+            span {}
+            .number {
+                font-size: 5rem;
+                font-weight: 700;
+                line-height: 6rem;
+                margin-bottom: 2rem;
+                span {
+                    font-family: initial;
+                    font-size: 4rem;
+                    color: $vert;
+                }
+            }
+            .accueil_etape_texte {
+                background: transparent;
+                h3 {
+                    color: white;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                }
+                p {
+                    color: white;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+    .accueil_validation {
+        padding: 2rem 4rem;
+        text-align: center;
+        font-size: 1.2rem;
+        background: $vert;
+        color: white;
+        overflow: auto;
+    }
+    .accueil_avis {
+        color: white;
+        text-align: center;
+        background-image: url('../img/cover-1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        h2 {
+            color: white;
+        }
+        .overlay {
+            background: rgba(black, 0.6);
+            width: 100%;
+            height: 100%;
+            padding: 4rem 0rem;
+            overflow: auto;
+            text-align: center;
+            li {
+                padding: 2rem 4rem;
+                blockquote {
+                    font-family: initial;
+                    quotes: "\201C""\201D""\2018""\2019";
+                    display: inline-block;
+                    position: relative;
+                    &:before {
+                        position: absolute;
+                        color: white;
+                        content: open-quote;
+                        font-size: 4rem;
+                        line-height: 1rem;
+                        left: -3rem;
+                    }
+                    &:after {
+                        position: absolute;
+                        color: white;
+                        content: close-quote;
+                        font-size: 4rem;
+                        line-height: 1rem;
+                        vertical-align: middle;
+                        margin-left: 0.5rem;
+                        right: -3rem;
+                        bottom: -28px;
+                    }
+                }
+                p {
+                    display: inline;
+                    font-size: 1.5rem;
+                }
+                span {
+                    display: block;
+                    margin-top: 2rem;
+                    color: $vert;
+                }
+            }
+            .unslider {
+                width: 100%;
+                max-width: 800px;
+                margin: auto;
+                overflow: visible;
+                .unslider-arrow {
+                    top: 100%;
+                    left: 50%;
+                    &.next {
+                        left: auto;
+                        right: 50%;
+                        margin-right: -50px;
+                    }
+                    &.prev {
+                        margin-left: -50px;
+                    }
+                }
+            }
+        }
+    }
+    .accueil_articles {
+        width: 100%;
+        max-width: 1000px;
+        padding: 0 1rem;
+        margin: 4rem auto;
+        overflow: auto;
+        text-align: center;
+        .accueil_article {
+            width: 30%;
+            height: 100%;
+            float: left;
+            text-align: left;
+            display: inline-block;
+            &:nth-child(3) {
+                margin: 0 5%;
+            }
+            .accueil_article_photo {
+                width: 100%;
+                height: 200px;
+                background-size: cover;
+                background-position: 50% 50%;
+                margin-bottom: 1rem;
+                background-color: $gris;
+            }
+            .accueil_article_titre {
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 400;
+                color: $vert;
+                margin-bottom: 1rem;
+            }
+            .accueil_article_description {
+                color: $gris-fonce;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                line-height: 16px;
+                max-height: 80px;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+        }
+        .accueil_article_lien {
+            display: inline-block;
+            margin: 3rem 0;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            &:before {
+                content: url('../img/title_bottom.svg');
+                width: 30px;
+                float: left;
+                margin-right: 0.5rem;
+                line-height: 0.8rem;
+            }
+            &:after {
+                content: url('../img/title_bottom.svg');
+                width: 30px;
+                float: right;
+                margin-left: 0.5rem;
+                line-height: 0.8rem;
+            }
+        }
+    }
 }

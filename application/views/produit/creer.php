@@ -20,16 +20,16 @@
 				</div><br>
 
 				<label for="nom">Nom du produit</label>
-				<input type="text" name="nom" placeholder="Bureaux de jardin"/><br />
+				<input type="text" name="nom" placeholder="Studio de jardin" value="<?= set_value('nom') ?>"/><br />
 
 				<label for="description">Description du produit</label>
-				<textarea name="description" placeholder="​Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..."></textarea><br />
+				<textarea name="description" placeholder="​Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..." ><?= set_value('description') ?></textarea><br />
 
 				<label for="titre">Titre sur l'image de couverture</label>
-				<textarea name="titre" placeholder="​Nos studio de jardin"></textarea><br />
+				<input type="text" name="titre" placeholder="Nos studio de jardin" value="<?= set_value('titre') ?>"/><br />
 
 				<label for="sous_titre">Sous titre sur l'image de couverture</label>
-				<textarea name="sous_titre" placeholder="​Offrir une réponse efficace aux vraies problématiques sociétales"></textarea><br />
+				<input type="text" name="sous_titre" placeholder="Offrir une réponse efficace aux vraies problématiques sociétales" value="<?= set_value('sous_titre') ?>"/><br />
 
 				<input type="submit" class="button" name="submit" value="Créer un nouveau produit" />
 
@@ -38,6 +38,7 @@
 		</section>
 
 		<script type="text/javascript">
+
 			function readURL(input) {
 				if (input.files && input.files[0]) {
 					var reader = new FileReader();
@@ -48,5 +49,6 @@
 
 					reader.readAsDataURL(input.files[0]);
 				}
-			}
+			};
+
 		</script>

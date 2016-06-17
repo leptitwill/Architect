@@ -64,6 +64,6 @@
 				    	window.location.href = '<?= base_url() ?>admin/solution/supprimer/' + id;
 					}
 				})
-			}
+			};
 
 		</script>
