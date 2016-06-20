@@ -337,7 +337,7 @@ form.creer {
   form.creer .input_1-2 {
     float: left;
     width: 47.5%; }
-    form.creer .input_1-2:first-of-type {
+    form.creer .input_1-2:nth-of-type(odd) {
       margin-right: 5%; }
   form.creer table {
     margin: 0.5rem 0 2rem 0;

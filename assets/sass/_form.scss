@@ -29,7 +29,7 @@ form.creer {
 		float: left;
 		width: 47.5%;
 
-		&:first-of-type {
+		&:nth-of-type(odd) {
 			margin-right: 5%;
 		}
 	}

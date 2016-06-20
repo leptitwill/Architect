@@ -14,13 +14,18 @@
 			});
 
 			$("#social").click(function(){
-				$("#social").addClass("active");
+				$("#social").toggleClass("active");
 				$('#menu_social').slideToggle("ease");
 			});
 
 			$("#produits").click(function(){
-				$("#produits").addClass("active");
+				$("#produits").toggleClass("active");
 				$('#menu_produits').slideToggle("ease");
+			});
+
+			$("#entreprise").click(function(){
+				$("#entreprise").toggleClass("active");
+				$('#menu_entreprise').slideToggle("ease");
 			});
 
 			jQuery(document).ready(function($) {

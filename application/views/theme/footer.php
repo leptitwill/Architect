@@ -3,20 +3,17 @@
 			<div class="footer_bloc">
 				<ul class="texte">
 					<li>Horaires</li>
-					<li>Du lundi au vendredi</li>
-					<li>9:00 - 12:00 - 14:00 - 18:00</li>
-					<li>Samedi</li>
-					<li>9:00 - 12:00</li>
+					<li><?= nl2br($entreprise[0]['horaire']) ?></li>
 				</ul>
 			</div>
 
 			<div class="footer_bloc">
 				<ul class="texte">
 					<li>Contact</li>
-					<li>59 avenue de L'Union</li>
-					<li>59100 Tourcoing, France</li>
-					<li>+33 6 07 50 34 86</li>
-					<li>conceptcub@gmail.com</li>
+					<li><?= $entreprise[0]['adresse'] ?></li>
+					<li><?= $entreprise[0]['codePostal'] . ' ' . $entreprise[0]['ville'] . ', ' . $entreprise[0]['pays'] ?></li>
+					<li><?= $entreprise[0]['telephone1'] ?></li>
+					<li><?= $entreprise[0]['email'] ?></li>
 				</ul>
 			</div>
 

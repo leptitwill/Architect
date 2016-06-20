@@ -25,7 +25,7 @@
 							<input type="mail" name="email" placeholder="Adresse email"/>
 						</span>	
 
-						<input type="text" name="email" placeholder="Obljet"/>
+						<input type="text" name="email" placeholder="Objet"/>
 
 						<textarea name="message" placeholder="​Message"></textarea>
 
@@ -41,11 +41,11 @@
 					<h2>Contactez nous</h2>
 
 					<ul>
-						<li>59 avenue de L'Union</li>
-						<li>59100 Tourcoing, France</li>
-						<li>Email: conceptcub@gmail.com</li>
-						<li>Téléphone: +33 6 07 50 34 86</li>
-						<li>Téléphone: +33 607503486 (Belgique)</li>
+						<li><?= $entreprise[0]['adresse'] ?></li>
+						<li><?= $entreprise[0]['codePostal'] . ' ' . $entreprise[0]['ville'] . ', ' . $entreprise[0]['pays'] ?></li>
+						<li>Email : <?= $entreprise[0]['email'] ?></li>
+						<li>Téléphone : <?= $entreprise[0]['telephone1'] ?></li>
+						<li>Téléphone : <?= $entreprise[0]['telephone2'] ?></li>
 					</ul>
 
 				</section>

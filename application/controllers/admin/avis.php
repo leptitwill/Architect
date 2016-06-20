@@ -78,9 +78,8 @@ class Avis extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
-
-			redirect("admin/avis/creer");
+			
+			$this->creer();
 		}
 
 		else
@@ -96,7 +95,6 @@ class Avis extends CI_Controller
 	{
 		$auteur = $this->input->post('auteur');
 		$message = $this->input->post('message');
-		$message = str_replace( "\n", '<br />', $message ); 
 
 		$this->form_validation->set_rules('auteur', 'auteur', 'required');
 		$this->form_validation->set_rules('message', 'message', 'required');
@@ -104,9 +102,8 @@ class Avis extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
-
-			redirect("admin/avis/creer");
+			
+			$this->modifier($id);
 		}
 
 		else
