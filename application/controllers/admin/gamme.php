@@ -104,7 +104,6 @@ class Gamme extends CI_Controller
 		$this->form_validation->set_rules('description', 'description', 'required');
 		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
 		$this->form_validation->set_rules('atout2', 'second atout', 'required');
-		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
 		$this->form_validation->set_rules('taille', 'taille', 'required');
 		$this->form_validation->set_rules('prix', 'prix', 'required');
 		$this->form_validation->set_rules('equipement_serie', 'équipement de série', 'required');
@@ -197,7 +196,6 @@ class Gamme extends CI_Controller
 		$this->form_validation->set_rules('description', 'description', 'required');
 		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
 		$this->form_validation->set_rules('atout2', 'second atout', 'required');
-		$this->form_validation->set_rules('atout1', 'premier atout', 'required');
 		$this->form_validation->set_rules('taille', 'taille', 'required');
 		$this->form_validation->set_rules('prix', 'prix', 'required');
 		$this->form_validation->set_rules('equipement_serie', 'équipement de série', 'required');
