@@ -14,10 +14,10 @@
 			<?php echo form_open_multipart('admin/faq/upload', $attributs); ?>
 
 				<label for="question">Question</label>
-				<input type="text" name="question" placeholder="Quel est la couleur du cheval blanc d'Henry IV"/><br />
+				<input type="text" name="question" placeholder="Quel est la couleur du cheval blanc d'Henry IV" value="<?= set_value('question') ?>"/><br />
 
 				<label for="reponse">Réponse</label>
-				<textarea name="reponse" placeholder="La couleur du cheval est blanche"></textarea><br />
+				<textarea name="reponse" placeholder="La couleur du cheval est blanche"><?= set_value('reponse') ?></textarea><br />
 
 				<input type="submit" class="button" name="submit" value="Ajouter une question" />
 

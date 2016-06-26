@@ -78,9 +78,9 @@ class Faq extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/faq/creer");
+			$this->creer();
+			return false;
 		}
 
 		else
@@ -103,9 +103,9 @@ class Faq extends CI_Controller
 		if ($this->form_validation->run() === FALSE )
 		{
 			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
 
-			redirect("admin/faq/creer");
+			$this->creer();
+			return false;
 		}
 
 		else

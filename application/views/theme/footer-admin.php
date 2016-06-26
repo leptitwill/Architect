@@ -13,6 +13,13 @@
 				toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | save'
 			});
 
+			tinymce.init({
+				selector:'.tiny',
+				language: 'fr_FR',
+				menubar: false,
+				toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify'
+			});
+
 			$("#social").click(function(){
 				$("#social").toggleClass("active");
 				$('#menu_social').slideToggle("ease");

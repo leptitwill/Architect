@@ -1,0 +1,67 @@
+.content {
+
+	.concept_introduction {
+		width: 100%;
+		max-width: 800px;
+		margin: 5rem auto;
+		text-align: center;
+        color: $gris-fonce;
+        font-size: 1.1rem;
+	}
+
+	.concept_membres {
+		width: 100%;
+		max-width: 800px;
+		margin: 5rem auto;
+
+		.concept_membre {
+			width: 100%;
+			border: 1px solid $gris;
+			text-align: left;
+			margin-bottom: 2rem;
+			overflow: hidden;
+
+			.concept_membre_photo {
+				height: 250px;
+				width: 250px;
+				background-size: cover;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-color: $gris;
+				float: left;
+			}
+
+			.concept_membre_info {
+					padding: 1rem 1rem  1rem 282px;
+
+				
+				.concept_membre_nom {
+					color: $vert;
+					text-transform: uppercase;
+					padding-bottom: 0.5rem;
+				}
+
+				.concept_membre_role {
+					color: $noir;
+					font-style: italic;
+					position: relative;
+					margin-bottom: 3rem;
+					font-size: 0.9rem;
+
+					&:after {
+						content:url('../img/title_bottom.svg');
+						position: absolute;
+						top: 2rem;
+						left: 0;
+						width: 80px;
+					}
+				}
+
+				.concept_membre_description {
+					text-align: left;
+					color: $gris-fonce;
+				}
+			}
+		}
+	}
+}

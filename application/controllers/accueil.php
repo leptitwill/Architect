@@ -7,7 +7,6 @@ class Accueil extends CI_Controller
 		parent::__construct();
 
 		$this->load->model('produit_model');
-		$this->load->model('membre_model');
 		$this->load->model('accueil_model');
 		$this->load->model('avantage_model');
 		$this->load->model('avis_model');
@@ -24,7 +23,6 @@ class Accueil extends CI_Controller
 		$this->data['produits'] = $this->produit_model->lister_produit();
 		$this->data['avantages'] = $this->avantage_model->lister_avantage();
 		$this->data['avis_clients'] = $this->avis_model->lister_avis();
-		$this->data['membres'] = $this->membre_model->lister_membre();
 		$this->data['accueil'] = $this->accueil_model->contenu_accueil();
 
 		$this->load->view('theme/header', $this->data);

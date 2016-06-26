@@ -131,22 +131,6 @@
 
 			</section>
 
-			<!-- <section class="accueil_membres">
-
-				<h2>Qui sommes nous ?</h2>
-
-				<?php foreach ($membres as $membre): ?>
-				
-					<div class="accueil_membre">
-						<div class="accueil_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
-						<p class="accueil_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-						<p class="accueil_membre_role"><?= $membre['role'] ?></p>
-					</div>
-
-				<?php endforeach; ?>
-
-			</section> -->
-
 			<section class="accueil_avis">
 
 				<div class="overlay">

@@ -40,7 +40,7 @@
 						<a href="<?= base_url("produit/$produit_url") ?>"><li class="<?php if($this->uri->segment(2)=="$produit_url"){echo "active";}?>"><?= $produit['nom'] ?></li></a>
 
 					<?php endforeach; ?>
-					<a href=""><li>Concept</li></a>
+					<a href="<?= base_url("concept") ?>"><li class="<?php if($this->uri->segment(1)=="concept"){echo "active";}?>">Concept</li></a>
 					<a href=""><li>Blog</li></a>
 					<a href="<?= base_url("contact") ?>"><li class="<?php if($this->uri->segment(1)=="contact"){echo "active";}?>">Contact</li></a>
 				</ul>

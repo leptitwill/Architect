@@ -1,19 +1,19 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Mentions_model extends CI_Model
+class Concept_model extends CI_Model
 {
-	protected $table = 'mentions';
+	protected $table = 'concept';
 
-	public function lister_mentions()
+	public function lister_concept()
 	{
 		$query = $this->db->get($this->table);
 		return $query->result_array();
 	}
 
-	public function modifier_mentions($mentions)
+	public function modifier_concept($introduction)
 	{
 		$data = array(
-					'contenu' => $mentions,
+					'introduction' => $introduction,
 				);
 
 		$this->db->update($this->table,  $data);
