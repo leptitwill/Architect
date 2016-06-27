@@ -9,33 +9,139 @@ header {
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 	z-index: 10;
 
-	.logo {
-		height: 70px;
-		padding: 1rem 0;
+	.header_content {
+		max-width: 1200px;
+		width: 100%;
+		margin: auto;
+
+		.logo {
+			height: 70px;
+			padding: 1rem 0;
+		}
+
+		.header_menu_mobile {
+			display: none;
+		}
+
+		nav {
+			float: right;
+
+			ul {
+
+				a {
+
+					li {
+						color: white;
+						font-size: 0.8rem;
+						font-weight: 300 !important;
+						text-align: left;
+						padding: 0 15px;
+						font-weight: normal;
+						display: inline-block;
+						line-height: 70px;
+						text-transform: uppercase;
+						color: white;
+						transition: all .3s ease;
+
+						&:hover, &.active {
+							color: $vert;
+						}
+					}
+				}
+			}
+		}
 	}
+}
 
-	nav {
-		float: right;
+@media screen and (max-width: 1000px) {
+	header {
+		padding: 0 3rem;
+		position: fixed;
 
-		ul {
+		.header_content {
 
-			a {
+			.header_menu_mobile {
+				display: block;
+				position: fixed;
+				line-height: 70px;
+				right: 0;
+				top: 0;
+				text-align: right;
+				padding-right: 3rem;
+				z-index: 1;
 
-				li {
-					color: white;
-					font-size: 0.8rem;
-					font-weight: 300 !important;
-					text-align: left;
-					padding: 0 15px;
-					font-weight: normal;
-					display: inline-block;
-					line-height: 70px;
-					text-transform: uppercase;
-					color: white;
-					transition: all .3s ease;
+				svg {
+					height: 30px;
+					fill: white;
+					vertical-align: middle;
+					text-align: right;
+				}
+			}
 
-					&:hover, &.active {
-						color: $vert;
+			nav {
+				transition: all .3s ease;
+				position: fixed;
+				right: -200px;
+				top: 70px;
+				width: 200px;
+				max-height: 100vh;
+				min-height: 100vh;
+				background: lighten($noir, 2%);
+				overflow-y: auto;
+
+				ul {
+
+					a {
+
+						li {
+							display: block;
+							background: lighten($noir, 2%);
+							border-bottom: 1px solid darken($gris-fonce, 30%);
+							padding: 0 3rem 0 15px;
+
+							&:first-of-type {
+								text-align: right;
+							}
+
+							&:hover, &.active {
+								color: white;
+								background: $faux-noir;
+							}
+						}
+					}
+
+					a:first-of-type {
+						display: block;
+					}
+				}
+			}
+
+			.nav_active {
+				right: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	header {
+		padding: 0 2rem;
+
+		.header_content {
+
+			.header_menu_mobile {
+				padding-right: 2rem;
+			}
+
+			nav {
+
+				ul {
+
+					a {
+
+						li {
+							padding: 0 2rem 0 15px;
+						}
 					}
 				}
 			}
