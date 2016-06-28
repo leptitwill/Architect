@@ -4,5 +4,15 @@
 		width: 100%;
 		max-width: 800px;
 		margin: 5rem auto;
+		padding: 0 2rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.content {
+
+		.mentions {
+			margin: 2rem auto;
+		}
 	}
 }

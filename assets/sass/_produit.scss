@@ -31,6 +31,7 @@
 .produit_introduction {
 	width: 100%;
 	max-width: 800px;
+	padding: 0 2rem;
 	margin: 5rem auto;
 	text-align: center;
 	color: $gris-fonce;
@@ -41,6 +42,7 @@
 	width: 100%;
 	max-width: 1000px;
 	margin: 5rem auto;
+	padding: 0 2rem;
 	text-align: center;
 	color: $faux-noir;
 	font-size: 0;
@@ -89,6 +91,7 @@
 	width: 100%;
 	max-width: 1000px;
 	margin: 5rem auto;
+	padding: 0 2rem;
 	text-align: center;
 	color: $faux-noir;
 	font-size: 0;
@@ -350,5 +353,130 @@
 	p {
 		color: $gris-fonce;
 		font-size: 0.8rem;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.produit_appel {
+		padding: 1rem;
+
+		div {
+			text-align: center;
+
+			p {
+				display: block;
+				float: none;
+				line-height: 1;
+				margin-bottom: 1rem;
+			}
+
+			a {
+				display: inline-block;
+				float: none;
+			}
+		}
+	}
+
+	.produit_avantages {
+
+		.produit_avantage {
+			width: 100%;
+			max-width: 600px;
+			margin: 2rem auto;
+			display: block;
+
+			&:nth-child(2) {
+				margin: 2rem auto;
+			}
+		}
+	}
+
+	.produit_solutions {
+
+		.produit_solution {
+			width: 100%;
+			max-width: 600px;
+			display: block;
+			margin: 2rem auto;
+
+			&:first-of-type {
+				margin: 2rem auto;
+			}
+		}
+	}
+
+	.produit_gammes {
+
+		.content {
+
+			.produit_gamme {
+				width: calc(100% - 4rem);
+				display: block;
+				margin: 0 auto 2rem;
+
+				&:last-of-type {
+					margin: 0 auto !important;
+				}
+
+				&:nth-child(odd) {
+					margin: 0 auto 2rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.produit_appel {
+
+		div {
+
+			p {
+				font-size: 1rem;
+			}
+
+			a {
+				display: inline-block;
+				float: none;
+			}
+		}
+	}
+
+	.produit_introduction {
+		margin: 2rem 0;
+	}
+
+	.produit_avantages {
+		margin: 2rem 0;
+
+		.produit_avantage {
+			margin: 1rem auto;
+
+			&:nth-child(2) {
+				margin: 1rem auto;
+			}
+		}
+	}
+
+	.produit_solutions {
+		margin: 2rem 0;
+
+		.produit_solution {
+			margin: 1rem auto;
+
+			&:first-of-type {
+				margin: 1rem auto;
+			}
+		}
+	}
+
+	.produit_gammes {
+		.content {
+			padding: 2rem 0;
+
+			.produit_gamme {
+				width: 100%;
+			}
+		}
 	}
 }

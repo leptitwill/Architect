@@ -46,8 +46,8 @@
 
 				<section class="contact_informations">
 					
-					<p class="uptitle">Vous avez un projet ?</p>
-					<h2>Contactez nous</h2>
+					<p class="uptitle">Venez nous voir à</p>
+					<h2><?= $entreprise[0]['ville'] ?></h2>
 
 					<ul>
 						<li><?= $entreprise[0]['adresse'] ?></li>

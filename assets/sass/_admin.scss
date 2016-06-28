@@ -9,7 +9,14 @@
 	padding: 0 2rem;
 	z-index: 3;
 
+	.logo {
+		height: 70px;
+		padding: 1rem 0;
+	}
+
 	.connexion_nav {
+		float: right;
+		
 		ul {
 			color: white;
 
@@ -17,6 +24,16 @@
 
 				li {
 					color: white;
+					font-size: 0.8rem;
+					font-weight: 300 !important;
+					text-align: left;
+					padding: 0 15px;
+					font-weight: normal;
+					display: inline-block;
+					line-height: 70px;
+					text-transform: uppercase;
+					color: white;
+					transition: all .3s ease;
 
 					&:hover {
 						color: $vert;

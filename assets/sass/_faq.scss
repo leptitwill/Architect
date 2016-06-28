@@ -4,6 +4,7 @@
 		width: 100%;
 		max-width: 800px;
 		margin: 5rem auto;
+		padding: 0 2rem;
 
 		.faq {
 			width: 100%;
@@ -107,5 +108,44 @@
 				color: $gris-fonce;
 			}
 		}	
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.content {
+
+		.faqs {
+			margin: 2rem auto;
+
+			.faq {
+
+				.faq_question {
+					color: $noir;
+					font-weight: 500;
+					font-size: 1.3rem;
+					margin-bottom: 1rem;
+				}
+
+				.faq_separation {
+					width: 80px;
+					margin-bottom: 1rem;
+				}
+
+				.faq_reponse {
+					color: $gris-fonce;
+					text-align: justify;
+					margin-bottom: 2rem;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+					border-bottom: 0;
+				}
+			}
+		}
+
+		#carte {
+			height: 300px !important;
+		}
 	}
 }
