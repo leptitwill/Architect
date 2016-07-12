@@ -187,7 +187,8 @@ footer {
             width: 110px;
             text-align: center;
             color: white;
-            background: #329899; }
+            background: #329899;
+            cursor: pointer; }
     footer .footer_content .footer_bloc_bas {
       width: 100%;
       font-size: 0;
@@ -448,6 +449,30 @@ form.creer {
     width: 47.5%; }
     form.creer .input_1-2:nth-of-type(odd) {
       margin-right: 5%; }
+  form.creer .input_file {
+    overflow: auto; }
+    form.creer .input_file input {
+      width: calc(100% - 150px);
+      float: left;
+      border-right: 0; }
+    form.creer .input_file div {
+      background: #283a47;
+      text-align: center;
+      border: 1px solid #283a47;
+      color: white;
+      position: relative;
+      width: 150px;
+      float: left;
+      padding: 1rem;
+      margin: 0.5rem 0 2rem 0; }
+      form.creer .input_file div input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0; }
   form.creer table {
     margin: 0.5rem 0 2rem 0;
     width: 100%;
@@ -1666,7 +1691,8 @@ form.creer {
           width: 50%;
           border-right: 1px solid #eeeeee;
           border-bottom: 1px solid #eeeeee;
-          color: #999999; }
+          color: #999999;
+          cursor: pointer; }
           .content .gamme .gamme_sidebar .gamme_menu ul li.active {
             border-bottom: 0;
             font-weight: 500;

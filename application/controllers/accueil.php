@@ -30,4 +30,13 @@ class Accueil extends CI_Controller
 		$this->load->view('theme/footer', $this->data);
 	}
 
+	public function ajouterEmail()
+	{
+		$email = $_POST['email'];
+		
+		$this->accueil_model->ajouter_email($email);
+
+		return $ok = TRUE;
+	}
+
 }

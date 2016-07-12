@@ -66,13 +66,15 @@
 					<p class="uptitle">Jetez un coup d'oeil à</p>
 					<h2>Nos <?= $produit[0]['nom'] ?></h2>
 					
-					<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; ?>	
+					<?php foreach ($gammes as $gamme): $gamme_url = $gamme['url']; $gamme_produit = $gamme['produit_idProduit']; $produit_url = $produit[0]['url']; ?>	
 						<div class="produit_gamme">
-							<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['couverture'] ?>')">
-								<div onclick="chargerGamme('<?= $gamme_url ?>')" class="produit_gamme_nom">
-									<h3><?= $gamme['nom'] ?></h3>
+							<a href="<?= base_url("produit/$produit_url/$gamme_url") ?>">
+								<div class="produit_gamme_photo" style="background-image: url('<?=img_url()?>gamme/<?= $gamme['couverture'] ?>')">
+									<div class="produit_gamme_nom">
+										<h3><?= $gamme['nom'] ?></h3>
+									</div>
 								</div>
-							</div>
+							</a>
 
 							<div class="produit_atout">
 								<div class="atout">
@@ -104,48 +106,3 @@
 			</section>
 
 		</section>
-
-		<script>
-
-			function chargerGamme(url){
-
-				$.ajax({
-					type: 'POST',
-					url: '<?php echo base_url();?>gamme/url',
-					data: {
-						url: url
-					},
-					success: function(data) {
-						$('#produit_content').html(data);
-						$('html, body').animate({
-							scrollTop: $("body").offset().top
-						}, 500);
-					},
-				});
-
-				$( document ).ready(function() {
-					setTimeout(function(){
-						$(window).scroll(function(){
-							var sidebar = $('#produit_content').offset().top,
-								footer = $('footer').offset().top,
-								scrollTop = $(window).scrollTop(),
-								distance = (scrollTop + $('.gamme_sidebar').outerHeight());
-
-							if(distance > footer)
-							{
-								$('.gamme_sidebar').css('position','fixed').css('top', footer - distance);
-							}
-							else if($(window).scrollTop() > sidebar)
-							{
-								$('.gamme_sidebar').css('position','fixed').css('top', '0');
-							}
-							else
-							{
-								$('.gamme_sidebar').css('position','absolute');
-							}
-						});
-					}, 200);
-				});
-			};
-
-		</script>

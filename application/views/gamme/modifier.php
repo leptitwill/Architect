@@ -51,6 +51,15 @@
 					<br><p>Cliquer ci-dessus pour modifier le plan</p>
 				</div><br>
 
+				<label for="prix">PDF de la gamme</label>
+				<div class="input_file">
+					<input id="nom_pdf" placeholder="Choisissez un PDF" disabled="disabled" value="<?= $gamme[0]['pdf'] ?>"/>
+					<div>
+					    <span>télecharger</span>
+					    <input id="upload_pdf" type="file" name="pdf"/>
+					</div>
+				</div>
+
 				<label for="equipement_serie">Équipement de série de la gamme</label>
 				<textarea name="equipement_serie" placeholder="Aménagements Exterieurs, Container maritime de 10 pieds ..."><?= set_value('equipement_serie', $gamme[0]['equipementSerie']) ?></textarea><br />
 
@@ -84,4 +93,8 @@
 					reader.readAsDataURL(input.files[0]);
 				}
 			}
+
+			document.getElementById("upload_pdf").onchange = function () {
+			    document.getElementById("nom_pdf").value = this.value;
+			};
 		</script>

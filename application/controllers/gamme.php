@@ -31,11 +31,15 @@ class Gamme extends CI_Controller
 
 		else
 		{
-			$url = $_POST['url'];
 			$this->data['gamme'] = $this->gamme_model->selectionner_gamme($url);
-			$this->data['titre'] = str_replace("-"," ",$url); ;
+			$id = $this->data['gamme'][0]['produit_idProduit'];
+			$this->data['produit'] = $this->gamme_model->selectionner_produit_par_gamme($url);
+			$this->data['gammes_par_produit'] = $this->gamme_model->lister_gamme_par_id($id);
+			$this->data['titre'] = str_replace("-"," ",$url);
 
+			$this->load->view('theme/header', $this->data);
 			$this->load->view('gamme/modele', $this->data);
+			$this->load->view('theme/footer', $this->data);
 		}
 	}
 }

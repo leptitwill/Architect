@@ -35,7 +35,7 @@
 				$('#menu_entreprise').slideToggle("ease");
 			});
 
-			jQuery(document).ready(function($) {
+			$(document).ready(function() {
 				$('.my-slider').unslider({
 					autoplay: false,
 					infinite: true,

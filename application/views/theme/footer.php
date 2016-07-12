@@ -24,9 +24,9 @@
 						<li>Suivez notre actualitées en vous inscrivant à notre newsletter</li>
 					</ul>
 					<form>
-						<input type="email" name="email" placeholder="Votre adresse email">
+						<input type="email" id="email_client" name="email" placeholder="Votre adresse email" required>
 						<span>
-							<button type="submit">S'inscrire</button>
+							<button type="submit" onclick="ajouterEmail()">S'inscrire</button>
 						</span>
 					</form>
 				</div>
@@ -94,6 +94,28 @@
 					nav: false,
 				});
 			});
+
+			function ajouterEmail(){
+				var email = $("#email_client").val();
+
+				if( isEmail(email)) {
+					$.ajax({
+						type: 'POST',
+						url: '<?php echo base_url();?>accueil/ajouterEmail',
+						data: {
+							email: email
+						},
+						success: function(result) {
+
+						},
+					});
+				}
+			};
+
+			function isEmail(email) {
+				var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				return regex.test(email);
+			}
 
 		</script>
 

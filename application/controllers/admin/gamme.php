@@ -191,6 +191,7 @@ class Gamme extends CI_Controller
 		$nom_image = $this->supprimer_accent($nom_image);
 		$fichier_couverture = $_FILES['couverture']['name'];
 		$fichier_plan = $_FILES['plan']['name'];
+		$fichier_pdf = $_FILES['pdf']['name'];
 
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('description', 'description', 'required');
@@ -254,6 +255,27 @@ class Gamme extends CI_Controller
 			$data_plan = $this->upload->data();
 		}
 
+		$config3['upload_path'] = './assets/img/gamme';
+		$config3['allowed_types'] = 'pdf';
+		$config3['file_name'] = $nom_image . '_pdf';
+		$config3['overwrite']  = TRUE;
+
+		$this->upload->initialize($config3);
+
+		if ($fichier_pdf != "" && ! $this->upload->do_upload('pdf'))
+		{
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('error', $error);
+
+			$this->modifier($id);
+			return false;
+		} 
+
+		else
+		{
+			$data_pdf = $this->upload->data();
+		}
+
 		if ($fichier_couverture != "")
 		{
 			$this->redimensionner($data_couverture, 1920);
@@ -278,7 +300,17 @@ class Gamme extends CI_Controller
 			$plan = $gamme[0]['plan'];
 		}
 
-		$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
+		if ($fichier_pdf != "")
+		{	
+			$pdf = $data_pdf['file_name'];
+		}
+
+		else 
+		{
+			$pdf = $gamme[0]['pdf'];
+		}
+
+		$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $plan, $pdf, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
 
 		$this->session->set_flashdata('succes','<p>La gamme à bien était modifié</p>');
 		redirect("admin/gamme");

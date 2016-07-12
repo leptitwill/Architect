@@ -33,6 +33,16 @@ class Gamme_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function selectionner_produit_par_gamme($url)
+	{
+		$this->db->select('p.*');
+		$this->db->join('gamme g', 'p.idProduit = g.produit_idProduit', 'inner');
+		$this->db->where('g.url',$url);
+		$query = $this->db->get('produit p');
+
+		return $query->result_array();
+	}
+
 	public function ajouter_gamme($nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url)
 	{
 		$this->db->set('nom', $nom);
@@ -51,13 +61,14 @@ class Gamme_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_gamme($id, $nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url)
+	public function modifier_gamme($id, $nom, $description, $couverture, $plan, $pdf, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url)
 	{
 		$data = array(
 					'nom' => $nom,
 					'description' => $description,
 					'couverture' => $couverture,
 					'plan' => $plan,
+					'pdf' => $pdf,
 					'atout1' => $atout1,
 					'atout2' => $atout2,
 					'taille' => $taille,
