@@ -55,7 +55,7 @@ $route['translate_uri_dashes'] = TRUE;
 
 $route['produit/(:any)'] = 'produit/index/$1';
 
-$route['produit/(:any)/(:any)'] = 'gamme/index/$1';
+$route['produit/(:any)/(:any)'] = 'gamme/index/$1/$2';
 
 $route['mentions-legales'] = 'mentions';
 

@@ -59,8 +59,10 @@
 
 			<div class="gamme_menu">
 				<ul>
-					<?php foreach ($gammes_par_produit as $gamme_par_produit): $gamme_url = $gamme_par_produit['url']; $gamme_par_produit_nom = $gamme_par_produit['nom']; $gamme_nom = $gamme[0]['nom']; $gamme_produit = $gamme_par_produit['produit_idProduit'] ?>
-						<li onclick="chargerGamme('<?= $gamme_url ?>', <?= $gamme_produit ?>)" class="<?php if("$gamme_nom"=="$gamme_par_produit_nom"){echo "active";}?>"><?= $gamme_par_produit_nom ?></li>
+					<?php foreach ($gammes_par_produit as $gamme_par_produit): $gamme_url = $gamme_par_produit['url']; $gamme_par_produit_nom = $gamme_par_produit['nom']; $gamme_nom = $gamme[0]['nom']; $gamme_produit = $gamme_par_produit['produit_idProduit']; $produit_url = $produit[0]['url']; ?>
+						<a href="<?= base_url("produit/$produit_url/$gamme_url") ?>">
+							<li class="<?php if("$gamme_nom"=="$gamme_par_produit_nom"){echo "active";}?>"><?= $gamme_par_produit_nom ?></li>
+						</a>
 					<?php endforeach ?>
 				</ul>
 			</div>

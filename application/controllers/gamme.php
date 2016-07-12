@@ -16,22 +16,28 @@ class Gamme extends CI_Controller
 		$this->data['produits'] = $this->produit_model->lister_produit();
 	}
 	
-	public function index($url = NULL)
+	public function index($produit, $url = NULL)
 	{
+		$this->data['gamme'] = $this->gamme_model->selectionner_gamme($url);
+		$this->data['produit_url'] = $this->produit_model->selectionner_produit($produit);
+
 		if ($url == NULL)
 		{
-			$this->data['titre'] = 'Les gammes conceptcub';
-			$this->data['gammes'] = $this->gamme_model->lister_gamme();
-			$this->data['succes'] = $this->session->flashdata('succes');
+			redirect('');
+		}
 
-			$this->load->view('theme/header', $this->data);
-			$this->load->view('gamme/accueil', $this->data);
-			$this->load->view('theme/footer', $this->data);
+		elseif (empty($this->data['produit_url']))
+		{
+			show_404();
+		}
+
+		elseif (empty($this->data['gamme']))
+		{
+			show_404();
 		}
 
 		else
 		{
-			$this->data['gamme'] = $this->gamme_model->selectionner_gamme($url);
 			$id = $this->data['gamme'][0]['produit_idProduit'];
 			$this->data['produit'] = $this->gamme_model->selectionner_produit_par_gamme($url);
 			$this->data['gammes_par_produit'] = $this->gamme_model->lister_gamme_par_id($id);
