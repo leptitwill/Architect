@@ -611,44 +611,45 @@ form.creer {
     color: #999999;
     font-size: 0.8rem; }
 
-.body .cover--home {
+.cover--home {
   width: 100%;
   height: 100vh;
   margin-top: 0px; }
-  .body .cover--home ul li {
+  .cover--home ul li {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-color: #eeeeee;
     position: relative; }
-    .body .cover--home ul li .cover_texte {
+    .cover--home ul li .cover_texte {
       padding-right: 4rem;
       float: right;
       text-align: right;
       position: absolute;
       right: 2rem;
       top: 50%; }
-      .body .cover--home ul li .cover_texte h3 {
+      .cover--home ul li .cover_texte h3 {
         color: white;
         text-transform: uppercase;
         background: rgba(0, 0, 0, 0.8);
         padding: 1rem;
         margin-bottom: 1.5rem;
         display: inline-block; }
-      .body .cover--home ul li .cover_texte span {
+      .cover--home ul li .cover_texte span {
         color: white;
         background: rgba(51, 153, 153, 0.8);
         padding: 1rem; }
 
-.body .accueil_introduction {
+.accueil_introduction {
   width: 100%;
   max-width: 800px;
   margin: 5rem auto;
+  padding: 0 2rem;
   text-align: center;
   color: #999999;
   font-size: 1.1rem; }
 
-.body .accueil_baseline {
+.accueil_baseline {
   color: white;
   text-align: center;
   font-size: 1.5rem;
@@ -656,23 +657,23 @@ form.creer {
   background-size: cover;
   background-position: center;
   background-attachment: fixed; }
-  .body .accueil_baseline .overlay {
+  .accueil_baseline .overlay {
     background: rgba(50, 152, 153, 0.9);
     width: 100%;
-    padding: 4rem 1rem; }
-  .body .accueil_baseline blockquote {
+    padding: 4rem 5rem; }
+  .accueil_baseline blockquote {
     font-family: initial;
     quotes: "“" "”" "‘" "’";
     display: inline-block;
     position: relative; }
-    .body .accueil_baseline blockquote:before {
+    .accueil_baseline blockquote:before {
       position: absolute;
       color: white;
       content: open-quote;
       font-size: 4rem;
       line-height: 1rem;
       left: -3rem; }
-    .body .accueil_baseline blockquote:after {
+    .accueil_baseline blockquote:after {
       position: absolute;
       color: white;
       content: close-quote;
@@ -682,57 +683,57 @@ form.creer {
       margin-left: 0.5rem;
       right: -3rem;
       bottom: -28px; }
-  .body .accueil_baseline blockquote p {
+  .accueil_baseline blockquote p {
     display: inline; }
 
-.body .accueil_produits .accueil_produit {
+.accueil_produits .accueil_produit {
   width: 100%;
   font-size: 1rem;
   overflow: auto;
   display: table; }
-  .body .accueil_produits .accueil_produit .accueil_produit_contenu {
+  .accueil_produits .accueil_produit .accueil_produit_contenu {
     width: 50%;
     float: left;
     position: relative; }
-    .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
+    .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
       width: 100%;
       height: 100vh;
-      min-height: 400px;
+      min-height: 500px;
       background-size: cover;
       background-position: 50% 50%;
       background-repeat: no-repeat;
       background-color: #eeeeee; }
-    .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
+    .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
       padding: 2rem;
       width: 100%;
       background: rgba(34, 34, 34, 0.7);
       position: absolute;
       bottom: 0;
       left: 0; }
-      .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
+      .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
         text-transform: uppercase;
         color: white;
         margin-bottom: 1rem;
         font-weight: 400;
         font-size: 1.5rem; }
-      .body .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
+      .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
         color: white;
         text-align: justify;
         font-weight: 300; }
-  .body .accueil_produits .accueil_produit .accueil_produit_atout {
+  .accueil_produits .accueil_produit .accueil_produit_atout {
     width: 50%;
     height: 100%;
     float: right;
     overflow: auto;
     display: inline-block; }
-    .body .accueil_produits .accueil_produit .accueil_produit_atout .atout {
+    .accueil_produits .accueil_produit .accueil_produit_atout .atout {
       width: 50%;
       height: 50%;
       float: left;
       position: relative;
       text-align: center;
       transition: 0.3s; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
         width: 100%;
         vertical-align: middle;
         position: absolute;
@@ -741,88 +742,82 @@ form.creer {
         top: 50%;
         left: 50%;
         padding: 1.5rem; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div img {
+        .accueil_produits .accueil_produit .accueil_produit_atout .atout div img {
           width: 50px;
           margin-bottom: 1rem; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
+        .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
           text-transform: uppercase;
           font-weight: 500;
           display: block; }
-          .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom:after {
+          .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom:after {
             content: url("../img/title_bottom.svg");
             display: block;
             margin: 1.5rem auto;
             width: 80px;
             line-height: 0; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
+        .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
           color: #999999;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          line-height: 16px;
-          max-height: 48px;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
+          overflow: hidden; }
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
         border-right: 1px solid #eeeeee;
         border-bottom: 1px solid #eeeeee; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(2) {
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(2) {
         border-bottom: 1px solid #eeeeee; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
         border-right: 1px solid #eeeeee; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
         fill: #222222;
         width: 50px;
         margin-bottom: 1rem; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child p {
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child p {
         text-transform: uppercase;
         font-weight: 500;
         color: #222222; }
-      .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover {
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover {
         background: #329899;
         color: white; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover svg {
+        .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover svg {
           fill: white; }
-        .body .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover p {
+        .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover p {
           color: white; }
 
-.body .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
+.accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
   float: right; }
 
-.body .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
+.accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
   float: left; }
 
-.body .accueil_etapes {
+.accueil_etapes {
   padding: 4rem 2rem;
   background: #333333;
   color: white;
   overflow: auto; }
-  .body .accueil_etapes h2 {
+  .accueil_etapes h2 {
     color: white;
     text-align: center; }
-  .body .accueil_etapes .accueil_etape {
+  .accueil_etapes .accueil_etape {
     margin-top: 2rem;
     width: 25%;
     float: left;
     padding: 0 2rem; }
-    .body .accueil_etapes .accueil_etape .number {
+    .accueil_etapes .accueil_etape .number {
       font-size: 5rem;
       font-weight: 700;
       line-height: 6rem;
       margin-bottom: 2rem; }
-      .body .accueil_etapes .accueil_etape .number span {
+      .accueil_etapes .accueil_etape .number span {
         font-family: initial;
         font-size: 4rem;
         color: #329899; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte h3 {
+    .accueil_etapes .accueil_etape .accueil_etape_texte h3 {
       color: white;
       text-transform: uppercase;
       font-weight: 500; }
-    .body .accueil_etapes .accueil_etape .accueil_etape_texte p {
+    .accueil_etapes .accueil_etape .accueil_etape_texte p {
       color: white;
       font-weight: 300; }
 
-.body .accueil_validation {
+.accueil_validation {
   padding: 2rem 4rem;
   text-align: center;
   font-size: 1.2rem;
@@ -830,37 +825,37 @@ form.creer {
   color: white;
   overflow: auto; }
 
-.body .accueil_avis {
+.accueil_avis {
   color: white;
   text-align: center;
   background-image: url("../img/cover-1.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed; }
-  .body .accueil_avis h2 {
+  .accueil_avis h2 {
     color: white; }
-  .body .accueil_avis .overlay {
+  .accueil_avis .overlay {
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
     padding: 4rem 0rem;
     overflow: auto;
     text-align: center; }
-    .body .accueil_avis .overlay li {
+    .accueil_avis .overlay li {
       padding: 2rem 4rem; }
-      .body .accueil_avis .overlay li blockquote {
+      .accueil_avis .overlay li blockquote {
         font-family: initial;
         quotes: "“" "”" "‘" "’";
         display: inline-block;
         position: relative; }
-        .body .accueil_avis .overlay li blockquote:before {
+        .accueil_avis .overlay li blockquote:before {
           position: absolute;
           color: white;
           content: open-quote;
           font-size: 4rem;
           line-height: 1rem;
           left: -3rem; }
-        .body .accueil_avis .overlay li blockquote:after {
+        .accueil_avis .overlay li blockquote:after {
           position: absolute;
           color: white;
           content: close-quote;
@@ -870,57 +865,57 @@ form.creer {
           margin-left: 0.5rem;
           right: -3rem;
           bottom: -28px; }
-      .body .accueil_avis .overlay li p {
+      .accueil_avis .overlay li p {
         display: inline;
         font-size: 1.5rem; }
-      .body .accueil_avis .overlay li span {
+      .accueil_avis .overlay li span {
         display: block;
         margin-top: 2rem;
         color: #329899; }
-    .body .accueil_avis .overlay .unslider {
+    .accueil_avis .overlay .unslider {
       width: 100%;
       max-width: 800px;
       margin: auto;
       overflow: visible; }
-      .body .accueil_avis .overlay .unslider .unslider-arrow {
+      .accueil_avis .overlay .unslider .unslider-arrow {
         top: 100%;
         left: 50%; }
-        .body .accueil_avis .overlay .unslider .unslider-arrow.next {
+        .accueil_avis .overlay .unslider .unslider-arrow.next {
           left: auto;
           right: 50%;
           margin-right: -50px; }
-        .body .accueil_avis .overlay .unslider .unslider-arrow.prev {
+        .accueil_avis .overlay .unslider .unslider-arrow.prev {
           margin-left: -50px; }
 
-.body .accueil_articles {
+.accueil_articles {
   width: 100%;
   max-width: 1000px;
-  padding: 0 1rem;
+  padding: 0 2rem;
   margin: 4rem auto;
   overflow: auto;
   text-align: center; }
-  .body .accueil_articles .accueil_article {
+  .accueil_articles .accueil_article {
     width: 30%;
     height: 100%;
     float: left;
     text-align: left;
     display: inline-block; }
-    .body .accueil_articles .accueil_article:nth-child(3) {
+    .accueil_articles .accueil_article:nth-child(3) {
       margin: 0 5%; }
-    .body .accueil_articles .accueil_article .accueil_article_photo {
+    .accueil_articles .accueil_article .accueil_article_photo {
       width: 100%;
       height: 200px;
       background-size: cover;
       background-position: 50% 50%;
       margin-bottom: 1rem;
       background-color: #eeeeee; }
-    .body .accueil_articles .accueil_article .accueil_article_titre {
+    .accueil_articles .accueil_article .accueil_article_titre {
       text-transform: uppercase;
       font-size: 1rem;
       font-weight: 400;
       color: #329899;
       margin-bottom: 1rem; }
-    .body .accueil_articles .accueil_article .accueil_article_description {
+    .accueil_articles .accueil_article .accueil_article_description {
       color: #999999;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -929,363 +924,121 @@ form.creer {
       max-height: 80px;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical; }
-  .body .accueil_articles .accueil_article_lien {
+  .accueil_articles .accueil_article_lien {
     display: inline-block;
     margin-top: 3rem;
     text-transform: uppercase;
     font-size: 0.8rem; }
-    .body .accueil_articles .accueil_article_lien:before {
+    .accueil_articles .accueil_article_lien:before {
       content: url("../img/title_bottom.svg");
       width: 30px;
       float: left;
       margin-right: 0.5rem;
       line-height: 0.8rem; }
-    .body .accueil_articles .accueil_article_lien:after {
+    .accueil_articles .accueil_article_lien:after {
       content: url("../img/title_bottom.svg");
       width: 30px;
       float: right;
       margin-left: 0.5rem;
       line-height: 0.8rem; }
 
-.body_admin .cover--home {
-  width: 100%;
-  height: 400px; }
-  .body_admin .cover--home ul li {
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-color: #eeeeee;
-    position: relative; }
-    .body_admin .cover--home ul li .cover_texte {
-      padding-right: 4rem;
-      float: right;
-      text-align: right;
-      position: absolute;
-      right: 2rem;
-      top: 50%; }
-      .body_admin .cover--home ul li .cover_texte h3 {
-        color: white;
-        text-transform: uppercase;
-        background: rgba(0, 0, 0, 0.8);
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        display: inline-block; }
-      .body_admin .cover--home ul li .cover_texte span {
-        color: white;
-        background: rgba(51, 153, 153, 0.8);
-        padding: 1rem; }
-
-.body_admin .accueil_introduction {
-  width: 100%;
-  max-width: 800px;
-  margin: 5rem auto;
-  padding: 1rem;
-  text-align: center;
-  color: #999999;
-  font-size: 1.1rem; }
-
-.body_admin .accueil_baseline {
-  color: white;
-  text-align: center;
-  font-size: 1.5rem;
-  background-image: url("../img/cover-1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; }
-  .body_admin .accueil_baseline .overlay {
-    background: rgba(50, 152, 153, 0.9);
+@media screen and (max-width: 1000px) {
+  .accueil_produits .accueil_produit .accueil_produit_contenu {
     width: 100%;
-    padding: 4rem 1rem; }
-  .body_admin .accueil_baseline blockquote {
-    font-family: initial;
-    quotes: "“" "”" "‘" "’";
-    display: inline-block;
-    position: relative; }
-    .body_admin .accueil_baseline blockquote:before {
-      position: absolute;
-      color: white;
-      content: open-quote;
-      font-size: 4rem;
-      line-height: 1rem;
-      left: -3rem; }
-    .body_admin .accueil_baseline blockquote:after {
-      position: absolute;
-      color: white;
-      content: close-quote;
-      font-size: 4rem;
-      line-height: 1rem;
-      vertical-align: middle;
-      margin-left: 0.5rem;
-      right: -3rem;
-      bottom: -28px; }
-  .body_admin .accueil_baseline blockquote p {
-    display: inline; }
-
-.body_admin .accueil_produits .accueil_produit {
-  width: 100%;
-  font-size: 1rem;
-  overflow: auto;
-  display: table; }
-  .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu {
-    width: 50%;
+    float: none; }
+  .accueil_produits .accueil_produit .accueil_produit_atout {
+    width: 100%;
+    height: 400px;
+    float: none;
+    overflow: auto;
+    display: inline-block; }
+    .accueil_produits .accueil_produit .accueil_produit_atout .atout {
+      width: 50%; }
+  .accueil_etapes .accueil_etape {
+    margin: 0;
+    width: 100%;
     float: left;
-    position: relative; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_photo {
-      width: 100%;
-      height: 600px;
-      min-height: 400px;
-      background-size: cover;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-color: #eeeeee; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info {
-      padding: 2rem;
-      width: 100%;
-      background: rgba(34, 34, 34, 0.7);
-      position: absolute;
-      bottom: 0;
-      left: 0; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_nom {
-        text-transform: uppercase;
-        color: white;
-        margin-bottom: 1rem;
-        font-weight: 400;
-        font-size: 1.5rem; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_contenu .accueil_produit_info .accueil_produit_description {
-        color: white;
-        text-align: justify;
-        font-weight: 300; }
-  .body_admin .accueil_produits .accueil_produit .accueil_produit_atout {
-    width: 50%;
-    height: 100%;
+    padding: 2rem 0;
+    border-bottom: 1px solid #555555; }
+    .accueil_etapes .accueil_etape:first-of-type {
+      padding-top: 0; }
+    .accueil_etapes .accueil_etape:last-of-type {
+      padding-bottom: 0;
+      border-bottom: 0; } }
+
+@media screen and (max-width: 600px) {
+  .cover--home ul li .cover_texte {
+    padding-right: 4rem;
     float: right;
-    overflow: auto;
-    display: inline-block; }
-    .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout {
-      width: 50%;
-      height: 50%;
-      float: left;
-      position: relative;
-      text-align: center;
-      transition: 0.3s; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div {
-        width: 100%;
-        vertical-align: middle;
-        position: absolute;
-        -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        padding: 1.5rem; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div img {
-          width: 50px;
-          margin-bottom: 1rem; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
-          margin-bottom: 3rem;
-          text-transform: uppercase;
-          font-weight: 500;
-          position: relative; }
-          .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom:after {
-            content: url("../img/title_bottom.svg");
-            position: absolute;
-            left: 50%;
-            margin-left: -40px;
-            top: 2rem;
-            width: 80px; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_description {
-          color: #999999;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          line-height: 16px;
-          max-height: 48px;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
-        border-right: 1px solid #eeeeee;
-        border-bottom: 1px solid #eeeeee; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(2) {
-        border-bottom: 1px solid #eeeeee; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
-        border-right: 1px solid #eeeeee; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
-        fill: #222222;
-        width: 50px;
-        margin-bottom: 1rem; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child p {
-        text-transform: uppercase;
-        font-weight: 500;
-        color: #222222; }
-      .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover {
-        background: #329899;
-        color: white; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover svg {
-          fill: white; }
-        .body_admin .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child:hover p {
-          color: white; }
-
-.body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_contenu {
-  float: right; }
-
-.body_admin .accueil_produits .accueil_produit:nth-child(even) .accueil_produit_atout {
-  float: left; }
-
-.body_admin .accueil_etapes {
-  padding: 4rem 2rem;
-  background: #333333;
-  color: white;
-  overflow: auto; }
-  .body_admin .accueil_etapes h2 {
-    color: white;
-    text-align: center; }
-  .body_admin .accueil_etapes .accueil_etape {
-    margin-top: 2rem;
-    width: 25%;
-    float: left;
-    padding: 0 2rem; }
-    .body_admin .accueil_etapes .accueil_etape .number {
-      font-size: 5rem;
-      font-weight: 700;
-      line-height: 6rem;
-      margin-bottom: 2rem; }
-      .body_admin .accueil_etapes .accueil_etape .number span {
-        font-family: initial;
-        font-size: 4rem;
-        color: #329899; }
-    .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte {
-      background: transparent; }
-      .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte h3 {
-        color: white;
-        text-transform: uppercase;
-        font-weight: 500; }
-      .body_admin .accueil_etapes .accueil_etape .accueil_etape_texte p {
-        color: white;
-        font-weight: 300; }
-
-.body_admin .accueil_validation {
-  padding: 2rem 4rem;
-  text-align: center;
-  font-size: 1.2rem;
-  background: #329899;
-  color: white;
-  overflow: auto; }
-
-.body_admin .accueil_avis {
-  color: white;
-  text-align: center;
-  background-image: url("../img/cover-1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; }
-  .body_admin .accueil_avis h2 {
-    color: white; }
-  .body_admin .accueil_avis .overlay {
-    background: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 100%;
-    padding: 4rem 0rem;
-    overflow: auto;
-    text-align: center; }
-    .body_admin .accueil_avis .overlay li {
-      padding: 2rem 4rem; }
-      .body_admin .accueil_avis .overlay li blockquote {
-        font-family: initial;
-        quotes: "“" "”" "‘" "’";
-        display: inline-block;
-        position: relative; }
-        .body_admin .accueil_avis .overlay li blockquote:before {
-          position: absolute;
-          color: white;
-          content: open-quote;
-          font-size: 4rem;
-          line-height: 1rem;
-          left: -3rem; }
-        .body_admin .accueil_avis .overlay li blockquote:after {
-          position: absolute;
-          color: white;
-          content: close-quote;
-          font-size: 4rem;
-          line-height: 1rem;
-          vertical-align: middle;
-          margin-left: 0.5rem;
-          right: -3rem;
-          bottom: -28px; }
-      .body_admin .accueil_avis .overlay li p {
-        display: inline;
-        font-size: 1.5rem; }
-      .body_admin .accueil_avis .overlay li span {
-        display: block;
-        margin-top: 2rem;
-        color: #329899; }
-    .body_admin .accueil_avis .overlay .unslider {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      overflow: visible; }
-      .body_admin .accueil_avis .overlay .unslider .unslider-arrow {
-        top: 100%;
-        left: 50%; }
-        .body_admin .accueil_avis .overlay .unslider .unslider-arrow.next {
-          left: auto;
-          right: 50%;
-          margin-right: -50px; }
-        .body_admin .accueil_avis .overlay .unslider .unslider-arrow.prev {
-          margin-left: -50px; }
-
-.body_admin .accueil_articles {
-  width: 100%;
-  max-width: 1000px;
-  padding: 0 1rem;
-  margin: 4rem auto;
-  overflow: auto;
-  text-align: center; }
-  .body_admin .accueil_articles .accueil_article {
-    width: 30%;
-    height: 100%;
-    float: left;
-    text-align: left;
-    display: inline-block; }
-    .body_admin .accueil_articles .accueil_article:nth-child(3) {
-      margin: 0 5%; }
-    .body_admin .accueil_articles .accueil_article .accueil_article_photo {
-      width: 100%;
-      height: 200px;
-      background-size: cover;
-      background-position: 50% 50%;
-      margin-bottom: 1rem;
-      background-color: #eeeeee; }
-    .body_admin .accueil_articles .accueil_article .accueil_article_titre {
+    text-align: right;
+    position: absolute;
+    right: 2rem;
+    top: 50%; }
+    .cover--home ul li .cover_texte h3 {
+      color: white;
       text-transform: uppercase;
-      font-size: 1rem;
-      font-weight: 400;
-      color: #329899;
-      margin-bottom: 1rem; }
-    .body_admin .accueil_articles .accueil_article .accueil_article_description {
-      color: #999999;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      line-height: 16px;
-      max-height: 80px;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical; }
-  .body_admin .accueil_articles .accueil_article_lien {
-    display: inline-block;
-    margin: 3rem 0;
-    text-transform: uppercase;
-    font-size: 0.8rem; }
-    .body_admin .accueil_articles .accueil_article_lien:before {
-      content: url("../img/title_bottom.svg");
-      width: 30px;
-      float: left;
-      margin-right: 0.5rem;
-      line-height: 0.8rem; }
-    .body_admin .accueil_articles .accueil_article_lien:after {
-      content: url("../img/title_bottom.svg");
-      width: 30px;
-      float: right;
-      margin-left: 0.5rem;
-      line-height: 0.8rem; }
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      display: inline-block; }
+    .cover--home ul li .cover_texte span {
+      color: white;
+      background: rgba(51, 153, 153, 0.8);
+      padding: 1rem; }
+  .accueil_introduction {
+    margin: 2rem 0;
+    font-size: 1rem; }
+  .accueil_baseline .overlay {
+    padding: 2rem 3rem; }
+  .accueil_baseline blockquote:before {
+    font-size: 3rem;
+    left: -2rem; }
+  .accueil_baseline blockquote:after {
+    font-size: 3rem;
+    right: -2rem;
+    bottom: -20px; }
+  .accueil_baseline blockquote p span {
+    font-size: 1.2rem !important; }
+  .accueil_produits .accueil_produit .accueil_produit_atout {
+    height: 800px; }
+    .accueil_produits .accueil_produit .accueil_produit_atout .atout {
+      width: 100%;
+      height: 25%; }
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:first-child {
+        border-bottom: 1px solid #eeeeee; }
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(2) {
+        border-bottom: 1px solid #eeeeee; }
+      .accueil_produits .accueil_produit .accueil_produit_atout .atout:nth-child(3) {
+        border-bottom: 1px solid #eeeeee; }
+  .accueil_etapes {
+    padding: 2rem; }
+    .accueil_etapes h2 {
+      display: none; }
+    .accueil_etapes .accueil_etape .number {
+      font-size: 4rem;
+      line-height: 5rem; }
+  .accueil_validation {
+    padding: 2rem;
+    font-size: 1rem;
+    background: #329899; }
+  .accueil_avis .overlay {
+    padding: 2rem 0rem; }
+    .accueil_avis .overlay li blockquote:before {
+      font-size: 3rem; }
+    .accueil_avis .overlay li blockquote:after {
+      font-size: 3rem; }
+    .accueil_avis .overlay li p {
+      font-size: 1.2rem; }
+  .accueil_articles .accueil_article {
+    width: 100%;
+    float: none;
+    margin-bottom: 2rem; }
+    .accueil_articles .accueil_article:nth-child(3) {
+      margin: 0 0 2rem; }
+    .accueil_articles .accueil_article .accueil_article_photo {
+      height: 300px; }
+  .accueil_articles .accueil_article_lien {
+    margin-top: 0; } }
 
 .produit_appel {
   text-align: left;
@@ -1590,7 +1343,8 @@ form.creer {
     display: inline-block;
     float: none; }
   .produit_introduction {
-    margin: 2rem 0; }
+    margin: 2rem 0;
+    font-size: 1rem; }
   .produit_avantages {
     margin: 2rem 0; }
     .produit_avantages .produit_avantage {
