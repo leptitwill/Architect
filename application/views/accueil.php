@@ -1,4 +1,4 @@
-		<section class="cover--home my-slider">
+		<section class="cover--home slider_accueil">
 			<ul>
 				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-1.jpg')">
 					<div class="cover_texte">
@@ -50,13 +50,14 @@
 
 					<article class="accueil_produit">
 
-						<div class="accueil_produit_contenu">
+						<a href="<?= base_url("produit/$produit_url") ?>" class="accueil_produit_contenu">
 							<div class="accueil_produit_photo" style="background-image: url('<?=img_url()?>produit/<?= $produit['couverture'] ?>')"></div>
 							<div class="accueil_produit_info">
 								<h3 class="accueil_produit_nom"><?= $produit['nom'] ?></h3>
 								<div class="accueil_produit_description"><?= $produit['description'] ?></div>	
 							</div>
-						</div>
+						</a>
+						
 						<div class="accueil_produit_atout">
 							<?php foreach ($avantages as $avantage): ?>	
 								<div class="atout">

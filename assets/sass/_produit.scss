@@ -66,17 +66,14 @@
 		}
 
 		.produit_avantage_nom {
-			margin-bottom: 3rem;
 			text-transform: uppercase;
 			font-weight: 500;
 			position: relative;
 
 			&:after {
 				content:url('../img/title_bottom.svg');
-				position: absolute;
-				left: 50%;
-				margin-left: -40px;
-				top: 2rem;
+				display: block;
+				margin: 1rem auto;
 				width: 80px;
 			}
 		}
@@ -115,17 +112,14 @@
 		}
 
 		.produit_solution_nom {
-			margin-bottom: 3rem;
 			text-transform: uppercase;
 			font-weight: 500;
 			position: relative;
 
 			&:after {
 				content:url('../img/title_bottom.svg');
-				position: absolute;
-				left: 50%;
-				margin-left: -40px;
-				top: 2rem;
+				display: block;
+				margin: 1rem auto;
 				width: 80px;
 			}
 		}
@@ -473,10 +467,27 @@
 
 	.produit_gammes {
 		.content {
-			padding: 2rem 0;
+			padding: 2rem 0 0;
 
 			.produit_gamme {
 				width: 100%;
+				border: 0;
+				margin: 0;
+
+				&:last-of-type {
+					margin: 0 !important;
+				}
+
+				&:nth-child(odd) {
+					margin: 0;
+				}
+
+				.produit_gamme_photo {
+
+				    .produit_gamme_nom {
+						width: 100%;
+					}
+				}
 			}
 		}
 	}

@@ -30,7 +30,7 @@ class Admin extends CI_Controller
 
 	public function connexion()
 	{
-		$data['titre'] = 'Conceptcub - faite moi rêvé ....';
+		$data['titre'] = 'Conceptcub - Connexion';
 		$data['attributs'] = array('class' => 'connexion_form');
 		$data['error'] = $this->session->flashdata('error');
 
@@ -39,11 +39,7 @@ class Admin extends CI_Controller
 
 	public function accueil()
 	{
-		$this->data['titre'] = 'Conceptcub - faite moi rêvé ....';
-
-		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('admin/accueil', $this->data);
-		$this->load->view('theme/footer-admin', $this->data);
+		redirect("admin/home-page");
 	}
 
 	public function login()

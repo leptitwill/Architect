@@ -1,4 +1,4 @@
-		<section class="content">
+		<section class="content-admin">
 
 			<h1 class="titre"><?= $titre ?></h1>
 
@@ -12,46 +12,35 @@
 			</div>
 
 			<?php
-				$membre_id = $membre[0]['idMembre'];
+				$galerie_id = $galerie[0]['idGalerie'];
 			?>
 				
-			<?php echo form_open_multipart('membre/update/'.$membre_id, $attributs); ?>
+			<?php echo form_open_multipart('admin/galerie/update/'.$galerie_id, $attributs); ?>
 
-				<label for="prenom">Prénom</label>
-				<input type="text" name="prenom" placeholder="Votre prénom" value="<?= $membre[0]['prenom'] ?>"/><br />
+				<?php foreach ($images as $image): ?>
+					<div class="galerie_image" style="background-image: url('<?=img_url()?>galerie/<?= $image['nom'] ?>')"></div>
+				<?php endforeach ?>	<br><br>
 
-				<label for="nom">Nom</label>
-				<input type="text" name="nom" placeholder="Votre nom" value="<?= $membre[0]['nom'] ?>"/><br />
+				<label for="nom">Nom de l'image</label>
+				<input type="text" name="nom" placeholder="Image 1" value="<?= set_value('nom') ?>"/><br />
 
-				<label for="email">Email</label>
-				<input type="mail" name="email" placeholder="Votre email" value="<?= $membre[0]['email'] ?>"/><br />
-
-				<label for="role">Rôle</label>
-				<input type="text" name="role" placeholder="Rôle du membre" value="<?= $membre[0]['role'] ?>"/><br />
-
-				<label for="description">Description</label>
-				<textarea name="description" placeholder="Description du membre"><?= $membre[0]['description'] ?></textarea><br />
-
-				<label for="mot_de_passe">Mot de passe</label>
-				<input type="password" name="mot_de_passe" placeholder="Mot de passe" value="<?= $membre[0]['motDePasse'] ?>"/><br />
-
-				<label for="profil">Profil</label>
-				<select name="profil">
-					<?php foreach ($profils as $profil): ?>	
-						<option value="<?= $profil['idProfil'] ?>" <?php if ($profil['idProfil'] == $membre[0]['profil']): ?> selected <?php endif ?>>
-							<?= $profil['nom'] ?>
-						</option>
-					<?php endforeach ?>
-				</select><br />
-
-				<div class="input-file-container">
-					<input class="input-file" id="my-file" type="file" name="userfile">
-					<label for="my-file" class="input-file-trigger" tabindex="0">Importer une photo de profil</label>
+				<label for="prix">Ajouter une image</label>
+				<div class="input_file">
+					<input id="nom_image" placeholder="Choisissez une image" disabled="disabled"/>
+					<div>
+					    <span>télécharger</span>
+					    <input id="upload_image" type="file" name="image"/>
+					</div>
 				</div>
-				<p class="file-return"></p>
 
-				<input type="submit" name="submit" value="Mettre à jour le membre" />
+				<input type="submit" class="button" name="submit" value="Ajouter l'image" />
 
 			</form>
 
 		</section>
+
+		<script type="text/javascript">
+			$('#upload_image').change(function(){
+				$('#nom_image').val($(this).val());
+			});
+		</script>

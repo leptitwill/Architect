@@ -87,11 +87,19 @@
 			}
 
 			$(document).ready(function($) {
-				$('.my-slider').unslider({
-					autoplay: true,
+				$('.slider_accueil').unslider({
+					autoplay: false,
 					delay: 5000,
 					infinite: true,
 					nav: false,
+				});
+
+				$('.slider_gamme').unslider({
+					autoplay: false,
+					delay: 5000,
+					infinite: true,
+					nav: true,
+					arrows: false,
 				});
 			});
 

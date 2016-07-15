@@ -8,6 +8,7 @@ class Gamme extends CI_Controller
 
 		$this->load->model('gamme_model');
 		$this->load->model('produit_model');
+		$this->load->model('galerie_model');
 		$this->load->model('reseaux_sociaux_model');
 		$this->load->model('entreprise_model');
 
@@ -38,9 +39,11 @@ class Gamme extends CI_Controller
 
 		else
 		{
-			$id = $this->data['gamme'][0]['produit_idProduit'];
+			$idProduit = $this->data['gamme'][0]['produit_idProduit'];
+			$idGalerie = $this->data['gamme'][0]['galerie_idGalerie'];
 			$this->data['produit'] = $this->gamme_model->selectionner_produit_par_gamme($url);
-			$this->data['gammes_par_produit'] = $this->gamme_model->lister_gamme_par_id($id);
+			$this->data['images'] = $this->galerie_model->selectionner_image_par_galerie($idGalerie);
+			$this->data['gammes_par_produit'] = $this->gamme_model->lister_gamme_par_id($idProduit);
 			$this->data['titre'] = str_replace("-"," ",$url);
 
 			$this->load->view('theme/header', $this->data);

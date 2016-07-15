@@ -94,7 +94,7 @@
 				}
 			}
 
-			document.getElementById("upload_pdf").onchange = function () {
-			    document.getElementById("nom_pdf").value = this.value;
-			};
+			$('#upload_pdf').change(function(){
+				$('#nom_pdf').val($(this).val());
+			});
 		</script>

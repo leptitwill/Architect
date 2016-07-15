@@ -1,0 +1,82 @@
+.content-admin {
+
+	.galerie {
+		width: 100%;
+		margin: 2rem 0;
+		position: relative;
+		border-bottom: 1px solid lighten($gris-fonce, 15%);	
+
+		.galerie_nom {
+			color: $admin;
+			font-weight: 500;
+			margin-bottom: 1rem;
+		}
+
+		.galerie_separation {
+			font-style: italic;
+			color: $gris-fonce;
+			margin-bottom: 1rem;
+			font-size: 0.8rem;
+		}
+
+		.galerie_reponse {
+			text-align: justify;
+			margin-bottom: 1rem;
+		}
+
+		.modifier_galerie {
+			position: absolute;
+			top: 0;
+			right: 0;
+			text-align: center;
+			width: 50px;
+
+			svg {
+				width: 30px;
+				fill: $gris-fonce;
+
+				&:hover {
+					fill: $admin;
+				}
+			}
+
+			p {
+				font-size: 10px;
+				color: $gris-fonce;
+			}
+		}
+
+		.supprimer_galerie {
+			position: absolute;
+			top: 0;
+			right: 4rem;
+			cursor: pointer;
+			text-align: center;
+			width: 50px;
+
+			svg {
+				width: 30px;
+				fill: $gris-fonce;
+
+				&:hover {
+					fill: $admin;
+				}
+			}
+
+			p {
+				font-size: 10px;
+				color: $gris-fonce;
+			}
+		}
+	}
+
+	.galerie_image {
+		width: 24%;
+		height: 200px;
+		background-size: cover;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-color: $gris;
+		display: inline-block;
+	}
+}

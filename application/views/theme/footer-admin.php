@@ -35,6 +35,11 @@
 				$('#menu_entreprise').slideToggle("ease");
 			});
 
+			$("#media").click(function(){
+				$("#media").toggleClass("active");
+				$('#menu_media').slideToggle("ease");
+			});
+
 			$(document).ready(function() {
 				$('.my-slider').unslider({
 					autoplay: false,

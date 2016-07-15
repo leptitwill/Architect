@@ -171,8 +171,8 @@
 					</li>
 				</span>
 
-				<a href="<?= base_url(); ?>">
-					<li>
+				<span>
+					<li id="media" class="<?php if($this->uri->segment(2)=="galerie"){echo "active";}?>">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							    <path d="M 4 4 L 4 8 L 8 8 L 8 4 L 4 4 z M 10 4 L 10 8 L 14 8 L 14 4 L 10 4 z M 16 4 L 16 8 L 20 8 L 20 4 L 16 4 z M 4 10 L 4 14 L 8 14 L 8 10 L 4 10 z M 10 10 L 10 14 L 14 14 L 14 10 L 10 10 z M 16 10 L 16 14 L 20 14 L 20 10 L 16 10 z M 4 16 L 4 20 L 8 20 L 8 16 L 4 16 z M 10 16 L 10 20 L 14 20 L 14 16 L 10 16 z M 16 16 L 16 20 L 20 20 L 20 16 L 16 16 z"></path>
@@ -180,6 +180,15 @@
 						</span>
 						<span>Média</span>
 					</li>
-				</a>
+					<li id="menu_media" class="sous-menu" style="<?php if($this->uri->segment(2)=="galerie"){echo "display: block";}else{echo "display:none";}?>">
+						<ul>
+							<a href="<?= base_url('admin/galerie'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="galerie"){echo "active";}?>">
+									<span>Galeries</span>
+								</li>
+							</a>
+						</ul>
+					</li>
+				</span>
 			</ul>
 		</aside>
