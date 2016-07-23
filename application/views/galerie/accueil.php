@@ -42,8 +42,8 @@
 
 				<label>Créer une galerie</label>
 				<div class="input_creer">
-					<input id="nom_galerie" type="text" placeholder="Nom de la galerie"/>
-					<input type="button" class="button" name="submit" value="Créer la galerie" onclick="creerGalerie()" />
+					<input id="nom_galerie" type="text" placeholder="Nom de la galerie" name="nom" required/>
+					<input type="submit" class="button" value="Créer la galerie" />
 				</div>
 
 			</form>
@@ -68,20 +68,5 @@
 					}
 				})
 			}
-
-			function creerGalerie(){
-				var nom = $("#nom_galerie").val();
-
-				$.ajax({
-					type: 'POST',
-					url: '<?php echo base_url();?>admin/galerie/creer',
-					data: {
-						nom: nom
-					},
-					success: function(data) {
-						//$('#produit_avantage').load("<?= base_url(); ?>admin/avantage/modifier/" + idAvantage + " #produit_avantage");
-			        },
-				});
-			};
 
 		</script>

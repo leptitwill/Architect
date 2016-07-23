@@ -79,4 +79,10 @@ class Galerie_model extends CI_Model
 		$this->db->where('idGalerie',$id);
 		$this->db->update($this->table,  $data);
 	}
+
+	public function supprimer_image($id)
+	{
+		$this->db->where('idImage',$id);
+		$this->db->delete($this->table_image);
+	}
 }

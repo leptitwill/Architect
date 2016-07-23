@@ -37,9 +37,12 @@ class Galerie extends CI_Controller
 
 	public function creer()
 	{
-		$nom = $_POST['nom'];
+		$nom = $this->input->post('nom');
 		
 		$this->galerie_model->ajouter_galerie($nom);
+
+		$this->session->set_flashdata('succes','<p>La galerie à bien était créer</p>');
+		redirect("admin/galerie");
 	}
 
 	public function modifier($id)
@@ -62,6 +65,13 @@ class Galerie extends CI_Controller
 
 		$this->session->set_flashdata('succes','<p>Le galerie à bien était supprimé</p>');
 		redirect("admin/galerie");
+	}
+
+	public function supprimer_image($id, $idGalerie)
+	{
+		$this->galerie_model->supprimer_image($id);
+
+		redirect("admin/galerie/modifier/" . $idGalerie);
 	}
 
 	public function update($id)

@@ -18,7 +18,7 @@
 			<?php echo form_open_multipart('admin/galerie/update/'.$galerie_id, $attributs); ?>
 
 				<?php foreach ($images as $image): ?>
-					<div class="galerie_image" style="background-image: url('<?=img_url()?>galerie/<?= $image['nom'] ?>')"></div>
+					<div class="galerie_image" id="<?= $image['idImage'] ?>" style="background-image: url('<?=img_url()?>galerie/<?= $image['nom'] ?>')"></div>
 				<?php endforeach ?>	<br><br>
 
 				<label for="nom">Nom de l'image</label>
@@ -42,5 +42,25 @@
 		<script type="text/javascript">
 			$('#upload_image').change(function(){
 				$('#nom_image').val($(this).val());
+			});
+
+			$(".galerie_image").click(function(){
+				var id = $(this).attr('id');
+				var idGalerie = <?= $galerie[0]['idGalerie']; ?>;
+
+				swal({
+					title: 'Supprimer l\'image ?',
+					text: "Une fois supprimé l\'image ne sera plus disponible.",
+					showCancelButton: true,
+					confirmButtonColor: '#6289a5',
+					cancelButtonColor: '#f35f47',
+					confirmButtonText: 'Supprimer',
+					cancelButtonText: 'Annuler',
+					animation: false
+				}).then(function(isConfirm) {
+					if (isConfirm) {
+				    	window.location.href = '<?= base_url() ?>admin/galerie/supprimer_image/' + id + '/' + idGalerie;
+					}
+				})
 			});
 		</script>

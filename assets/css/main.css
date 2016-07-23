@@ -480,7 +480,7 @@ form.creer {
       width: calc(100% - 190px);
       float: left;
       margin: 0; }
-    form.creer .input_creer input[type="button"] {
+    form.creer .input_creer input[type="submit"] {
       width: 180px;
       float: right; }
   form.creer table {
