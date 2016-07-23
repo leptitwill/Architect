@@ -2212,23 +2212,25 @@ form.creer {
 .content .concept_membres {
   width: 100%;
   max-width: 800px;
-  margin: 5rem auto; }
+  margin: 5rem auto;
+  overflow: hidden; }
   .content .concept_membres .concept_membre {
-    width: 100%;
+    width: 47.5%;
     border: 1px solid #eeeeee;
     text-align: left;
     margin-bottom: 2rem;
-    overflow: hidden; }
+    float: left; }
+    .content .concept_membres .concept_membre:first-of-type {
+      margin-right: 5%; }
     .content .concept_membres .concept_membre .concept_membre_photo {
       height: 250px;
-      width: 250px;
+      width: 100%;
       background-size: cover;
       background-position: 50% 50%;
       background-repeat: no-repeat;
-      background-color: #eeeeee;
-      float: left; }
+      background-color: #eeeeee; }
     .content .concept_membres .concept_membre .concept_membre_info {
-      padding: 1rem 1rem  1rem 282px; }
+      padding: 1rem; }
       .content .concept_membres .concept_membre .concept_membre_info .concept_membre_nom {
         color: #329899;
         text-transform: uppercase;

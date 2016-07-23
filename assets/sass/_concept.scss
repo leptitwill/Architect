@@ -13,26 +13,30 @@
 		width: 100%;
 		max-width: 800px;
 		margin: 5rem auto;
+		overflow: hidden;
 
 		.concept_membre {
-			width: 100%;
+			width: 47.5%;
 			border: 1px solid $gris;
 			text-align: left;
 			margin-bottom: 2rem;
-			overflow: hidden;
+			float: left;
+
+			&:first-of-type {
+				margin-right: 5%;
+			}
 
 			.concept_membre_photo {
 				height: 250px;
-				width: 250px;
+				width: 100%;
 				background-size: cover;
 				background-position: 50% 50%;
 				background-repeat: no-repeat;
 				background-color: $gris;
-				float: left;
 			}
 
 			.concept_membre_info {
-					padding: 1rem 1rem  1rem 282px;
+					padding: 1rem;
 
 				
 				.concept_membre_nom {
