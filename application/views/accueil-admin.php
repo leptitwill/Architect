@@ -4,26 +4,17 @@
 
 			<div style="background: white">
 
-				<section class="cover--home my-slider">
+				<section class="cover--home slider_accueil">
 					<ul>
-						<li class="cover--home" style="background-image: url('<?=img_url()?>cover-1.jpg')">
-							<div class="cover_texte">
-								<h3>Nos bureau de jardin</h3><br>
-								<span>Super facile d'utilisation et trés beau.</span>
-							</div>
-						</li>
-						<li class="cover--home" style="background-image: url('<?=img_url()?>cover-2.jpg')">
-							<div class="cover_texte">
-								<h3>Nos studio de jardin</h3><br>
-								<span>Super facile d'utilisation et trés beau.</span>
-							</div>
-						</li>
-						<li class="cover--home" style="background-image: url('<?=img_url()?>cover-3.jpg')">
-							<div class="cover_texte">
-								<h3>Travailler en extérieur</h3><br>
-								<span>Super facile d'utilisation et trés beau.</span>
-							</div>
-						</li>
+						<?php foreach ($images as $image): ?>
+							<li class="cover--home" style="background-image: url('<?=img_url()?>galerie/<?=$image['nom']?>')">
+								<div class="cover_texte">
+									<h3>Conceptcub</h3><br>
+									<span style="background-color: rgba(0,0,0,0.8); display: inline-block; width:400px;">Conceptcub offre une réponse efficace aux vraies problématiques sociales et sociétales</span><br>
+									<span style="margin-top:2rem; display: inline-block;">Contactez-nous</span>
+								</div>
+							</li>
+						<?php endforeach ?>
 					</ul>
 				</section>
 
@@ -163,30 +154,24 @@
 
 				<section class="accueil_avis">
 
-					<div class="overlay">
+				<div class="overlay">
 
-						<h2>Les avis clients</h2>
+					<h2>Les avis clients</h2>
 
-						<div class="my-slider">
-							<ul>
+					<div class="slider-avis">
+						<ul>
+							<?php foreach ($avis_clients as $avis_client): ?>
 								<li>
-									<blockquote><p>On est pas bien ? paisibles, à la fraiche, sirotant un nestea dans mon studio de jardin.</p></blockquote><br>
-									<span>Eden Hazard</span>
+									<blockquote><p><?= $avis_client['message'] ?></p></blockquote><br>
+									<span><?= $avis_client['auteur'] ?></span>
 								</li>
-								<li>
-									<blockquote><p>Super ce bureaux de jardin ! Je peux enfin travailler tranquilement sans que ma femme vienne m'embêter.</p></blockquote><br>
-									<span>José Morinho</span>
-								</li>
-								<li>
-									<blockquote><p>Tu vois, le monde se divise en deux catégories: ceux qui ont un studio de jardin et ceux qui en on pas.</p></blockquote><br>
-									<span>Selena Gomez</span>
-								</li>
-							</ul>
-						</div>
-						
+							<?php endforeach; ?>
+						</ul>
 					</div>
+					
+				</div>
 
-				</section>
+			</section>
 
 				<section class="accueil_articles">
 

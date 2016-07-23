@@ -11,6 +11,8 @@ class Home_page extends CI_Controller
 		$this->load->model('accueil_model');
 		$this->load->model('avantage_model');
 		$this->load->model('reseaux_sociaux_model');
+		$this->load->model('galerie_model');
+		$this->load->model('avis_model');
 
 		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
 
@@ -30,6 +32,9 @@ class Home_page extends CI_Controller
 		$this->data['avantages'] = $this->avantage_model->lister_avantage();
 		$this->data['membres'] = $this->membre_model->lister_membre();
 		$this->data['accueil'] = $this->accueil_model->contenu_accueil();
+		$idGalerie = $this->data['accueil'][0]['galerie_idGalerie'];
+		$this->data['images'] = $this->galerie_model->selectionner_image_par_galerie($idGalerie);
+		$this->data['avis_clients'] = $this->avis_model->lister_avis();
 
 		$this->load->view('theme/header-admin', $this->data);
 		$this->load->view('accueil-admin', $this->data);

@@ -41,7 +41,13 @@
 			});
 
 			$(document).ready(function() {
-				$('.my-slider').unslider({
+				$('.slider_accueil').unslider({
+					autoplay: false,
+					infinite: true,
+					nav: false,
+				});
+
+				$('.slider-avis').unslider({
 					autoplay: false,
 					infinite: true,
 					nav: false,
