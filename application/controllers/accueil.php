@@ -12,6 +12,7 @@ class Accueil extends CI_Controller
 		$this->load->model('avis_model');
 		$this->load->model('reseaux_sociaux_model');
 		$this->load->model('entreprise_model');
+		$this->load->model('galerie_model');
 
 		$this->data['entreprise'] = $this->entreprise_model->lister_entreprise();
 		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
@@ -24,6 +25,8 @@ class Accueil extends CI_Controller
 		$this->data['avantages'] = $this->avantage_model->lister_avantage();
 		$this->data['avis_clients'] = $this->avis_model->lister_avis();
 		$this->data['accueil'] = $this->accueil_model->contenu_accueil();
+		$idGalerie = $this->data['accueil'][0]['galerie_idGalerie'];
+		$this->data['images'] = $this->galerie_model->selectionner_image_par_galerie($idGalerie);
 
 		$this->load->view('theme/header', $this->data);
 		$this->load->view('accueil', $this->data);

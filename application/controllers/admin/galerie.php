@@ -26,6 +26,7 @@ class Galerie extends CI_Controller
 	public function index()
 	{
 		$this->data['titre'] = 'Gestion des galeries';
+		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['galeries'] = $this->galerie_model->lister_galerie();
 		$this->data['succes'] = $this->session->flashdata('succes');
 
@@ -36,15 +37,9 @@ class Galerie extends CI_Controller
 
 	public function creer()
 	{
-		$this->data['titre'] = 'Ajouter un nouveau réseau social';
-		$this->data['attributs'] = array('class' => 'creer');
-		$this->data['error'] = $this->session->flashdata('error');
-		$this->data['succes'] = $this->session->flashdata('succes');
-
-
-		$this->load->view('theme/header-admin', $this->data);
-		$this->load->view('galerie/creer', $this->data);
-		$this->load->view('theme/footer-admin', $this->data);
+		$nom = $_POST['nom'];
+		
+		$this->galerie_model->ajouter_galerie($nom);
 	}
 
 	public function modifier($id)
@@ -65,55 +60,8 @@ class Galerie extends CI_Controller
 	{
 		$this->galerie_model->supprimer_galerie($id);
 
-		$this->session->set_flashdata('succes','<p>Le réseau social à bien était supprimé</p>');
+		$this->session->set_flashdata('succes','<p>Le galerie à bien était supprimé</p>');
 		redirect("admin/galerie");
-	}
-
-	public function upload()
-	{
-		$nom = $this->input->post('nom');
-		$image = $this->input->post('image');
-		$nom_image = str_replace("-","_",$nom);
-		$nom_image = $this->supprimer_accent($nom);
-
-		$config['upload_path'] = './assets/img/galerie';
-		$config['allowed_types'] = 'svg|gif|png|jpg';
-		$config['file_name'] = strtolower($nom_image);
-		$config['min_width']  = '1920';
-
-		$this->load->library('upload', $config);
-
-		$this->form_validation->set_rules('nom', 'nom', 'required');
-		$this->form_validation->set_rules('image', 'image', 'required');
-
-		if ($this->form_validation->run() === FALSE )
-		{
-			$error = validation_errors();
-			$this->session->set_flashdata('error', $error);
-
-			redirect("admin/galerie/creer");
-		}
-
-		elseif ( ! $this->upload->do_upload())
-		{
-			$error = $this->upload->display_errors();
-			$this->session->set_flashdata('error', $error);
-
-			redirect("admin/galerie/creer");
-		}
-
-		else
-		{
-			$data = $this->upload->data();
-			$this->redimensionner($data);
-
-			$logo = $data['file_name'];
-
-			$this->galerie_model->ajouter_galerie($nom, $lien, $logo);
-
-			$this->session->set_flashdata('succes','<p>Le reseau social à bien était ajouté</p>');
-			redirect("admin/galerie");
-		}
 	}
 
 	public function update($id)
@@ -162,7 +110,7 @@ class Galerie extends CI_Controller
 			$this->galerie_model->associer_image($idGalerie, $idImage);
 
 			$this->session->set_flashdata('succes','<p>L\'image à bien été ajouté</p>');
-			redirect("admin/modifier($id)");
+			redirect("admin/galerie/modifier/$id");
 		}
 	}
 

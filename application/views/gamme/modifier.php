@@ -75,6 +75,15 @@
 					<?php endforeach ?>
 				</select><br />
 
+				<label for="galerie">Associer la gamme a la galerie</label>
+				<select name="galerie">
+					<?php foreach ($galeries as $galerie): ?>
+						<option value="<?= $galerie['idGalerie'] ?>" <?php if ($galerie['idGalerie'] == $gamme[0]['galerie_idGalerie']): ?> selected <?php endif ?>>
+							<?= $galerie['nom'] ?>
+						</option>
+					<?php endforeach ?>
+				</select><br />
+
 				<input type="submit" class="button" name="submit" value="Mettre à jour la gamme" />
 
 			</form>

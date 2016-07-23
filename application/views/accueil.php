@@ -1,26 +1,14 @@
 		<section class="cover--home slider_accueil">
 			<ul>
-				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-1.jpg')">
-					<div class="cover_texte">
-						<h3>Conceptcub</h3><br>
-						<span style="background-color: rgba(0,0,0,0.8); display: inline-block; width:400px;">Conceptcub offre une réponse efficace aux vraies problématiques sociales et sociétales</span><br>
-						<span style="margin-top:2rem; display: inline-block;">Contactez-nous</span>
-					</div>
-				</li>
-				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-2.jpg')">
-					<div class="cover_texte">
-						<h3>Nos studios de jardin</h3><br>
-						<span style="background-color: rgba(0,0,0,0.8)">Super facile d'utilisation et trés beau.</span><br>
-						<span style="margin-top:2rem; display: inline-block;">Contact</span>
-					</div>
-				</li>
-				<li class="cover--home" style="background-image: url('<?=img_url()?>cover-3.jpg')">
-					<div class="cover_texte">
-						<h3>Travailler en extérieur</h3><br>
-						<span style="background-color: rgba(0,0,0,0.8)">Super facile d'utilisation et trés beau.</span><br>
-						<span style="margin-top:2rem; display: inline-block;">Contact</span>
-					</div>
-				</li>
+				<?php foreach ($images as $image): ?>
+					<li class="cover--home" style="background-image: url('<?=img_url()?>galerie/<?=$image['nom']?>')">
+						<div class="cover_texte">
+							<h3>Conceptcub</h3><br>
+							<span style="background-color: rgba(0,0,0,0.8); display: inline-block; width:400px;">Conceptcub offre une réponse efficace aux vraies problématiques sociales et sociétales</span><br>
+							<span style="margin-top:2rem; display: inline-block;">Contactez-nous</span>
+						</div>
+					</li>
+				<?php endforeach ?>
 			</ul>
 		</section>
 
@@ -138,7 +126,7 @@
 
 					<h2>Les avis clients</h2>
 
-					<div class="my-slider">
+					<div class="slider-avis">
 						<ul>
 							<?php foreach ($avis_clients as $avis_client): ?>
 								<li>

@@ -62,6 +62,15 @@
 					<?php endforeach ?>
 				</select><br />
 
+				<label for="galerie">Associer la gamme a la galerie</label>
+				<select name="galerie">
+					<?php foreach ($galeries as $galerie): ?>
+						<option value="<?= $galerie['idGalerie'] ?>">
+							<?= $galerie['nom'] ?>
+						</option>
+					<?php endforeach ?>
+				</select><br />
+
 				<input type="submit" class="button" name="submit" value="Créer une nouvelle gamme" />
 
 			</form>

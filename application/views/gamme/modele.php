@@ -137,7 +137,7 @@
 
 				else
 				{
-
+					$('.gamme_sidebar').css('position','inherit');
 				};
 			});
 

@@ -11,6 +11,7 @@ class Gamme extends CI_Controller
 
 		$this->load->model('gamme_model');
 		$this->load->model('produit_model');
+		$this->load->model('galerie_model');
 		$this->load->model('membre_model');
 
 		$this->id = $this->session->userdata('idMembre');
@@ -52,6 +53,7 @@ class Gamme extends CI_Controller
 		$this->data['titre'] = 'Ajouter une nouvelle gamme';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['galeries'] = $this->galerie_model->lister_galerie();
 
 		$this->data['error'] = $this->session->flashdata('error');
 		$this->data['succes'] = $this->session->flashdata('succes');
@@ -66,6 +68,7 @@ class Gamme extends CI_Controller
 		$this->data['titre'] = 'Modifier une gamme';
 		$this->data['attributs'] = array('class' => 'creer');
 		$this->data['produits'] = $this->produit_model->lister_produit();
+		$this->data['galeries'] = $this->galerie_model->lister_galerie();
 		$this->data['gamme'] = $this->gamme_model->selectionner_gamme_par_id($id);
 
 		$this->data['error'] = $this->session->flashdata('error');
@@ -95,6 +98,7 @@ class Gamme extends CI_Controller
 		$equipement_serie = $this->input->post('equipement_serie');
 		$equipement_option = $this->input->post('equipement_option');
 		$produit = (int)$this->input->post('produit');
+		$galerie = (int)$this->input->post('galerie');
 		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
 		$nom_image = str_replace("-","_",$url);
@@ -166,7 +170,7 @@ class Gamme extends CI_Controller
 		$couverture = $data_couverture['file_name'];
 		$plan = $data_plan['file_name'];
 
-		$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
+		$this->gamme_model->ajouter_gamme($nom, $description, $couverture, $plan, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $galerie, $url);
 
 		$this->session->set_flashdata('succes','<p>La gamme à bien était ajouté</p>');
 		redirect("admin/gamme");
@@ -185,6 +189,7 @@ class Gamme extends CI_Controller
 		$equipement_serie = $this->input->post('equipement_serie');
 		$equipement_option = $this->input->post('equipement_option');
 		$produit = (int)$this->input->post('produit');
+		$galerie = (int)$this->input->post('galerie');
 		$url = str_replace(" ","-",$nom);
 		$url = strtolower($url);
 		$nom_image = str_replace("-","_",$url);
@@ -310,7 +315,7 @@ class Gamme extends CI_Controller
 			$pdf = $gamme[0]['pdf'];
 		}
 
-		$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $plan, $pdf, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url);
+		$this->gamme_model->modifier_gamme($id, $nom, $description, $couverture, $plan, $pdf, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $galerie, $url);
 
 		$this->session->set_flashdata('succes','<p>La gamme à bien était modifié</p>');
 		redirect("admin/gamme");

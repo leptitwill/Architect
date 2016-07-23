@@ -24,7 +24,7 @@
 				<label for="nom">Nom de l'image</label>
 				<input type="text" name="nom" placeholder="Image 1" value="<?= set_value('nom') ?>"/><br />
 
-				<label for="prix">Ajouter une image</label>
+				<label for="galerie">Ajouter une image</label>
 				<div class="input_file">
 					<input id="nom_image" placeholder="Choisissez une image" disabled="disabled"/>
 					<div>

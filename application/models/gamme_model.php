@@ -61,7 +61,7 @@ class Gamme_model extends CI_Model
 		return $this->db->insert($this->table);
 	}
 
-	public function modifier_gamme($id, $nom, $description, $couverture, $plan, $pdf, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $url)
+	public function modifier_gamme($id, $nom, $description, $couverture, $plan, $pdf, $atout1, $atout2, $taille, $prix, $equipement_serie, $equipement_option, $produit, $galerie, $url)
 	{
 		$data = array(
 					'nom' => $nom,
@@ -76,6 +76,7 @@ class Gamme_model extends CI_Model
 					'equipementOption' => $equipement_option,
 					'url' => $url,
 					'produit_idProduit' => $produit,
+					'galerie_idGalerie' => $galerie
 				);
 
 		$this->db->where('idGamme',$id);

@@ -94,6 +94,13 @@
 					nav: false,
 				});
 
+				$('.slider-avis').unslider({
+					autoplay: false,
+					delay: 5000,
+					infinite: true,
+					nav: false,
+				});
+
 				$('.slider_gamme').unslider({
 					autoplay: false,
 					delay: 5000,

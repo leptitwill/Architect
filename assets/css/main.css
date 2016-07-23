@@ -473,6 +473,16 @@ form.creer {
         height: 100%;
         cursor: pointer;
         opacity: 0; }
+  form.creer .input_creer {
+    overflow: hidden;
+    margin: 0.5rem 0 2rem; }
+    form.creer .input_creer input[type="text"] {
+      width: calc(100% - 190px);
+      float: left;
+      margin: 0; }
+    form.creer .input_creer input[type="button"] {
+      width: 180px;
+      float: right; }
   form.creer table {
     margin: 0.5rem 0 2rem 0;
     width: 100%;
@@ -2247,15 +2257,7 @@ form.creer {
   .content-admin .galerie .galerie_nom {
     color: #283a47;
     font-weight: 500;
-    margin-bottom: 1rem; }
-  .content-admin .galerie .galerie_separation {
-    font-style: italic;
-    color: #999999;
-    margin-bottom: 1rem;
-    font-size: 0.8rem; }
-  .content-admin .galerie .galerie_reponse {
-    text-align: justify;
-    margin-bottom: 1rem; }
+    margin-bottom: 2.5rem; }
   .content-admin .galerie .modifier_galerie {
     position: absolute;
     top: 0;

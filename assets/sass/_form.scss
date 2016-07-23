@@ -66,6 +66,22 @@ form.creer {
 		}
 	}
 
+	.input_creer {
+		overflow: hidden;
+		margin: 0.5rem 0 2rem;
+
+		input[type="text"] {
+			width: calc(100% - 190px);
+			float: left;
+			margin: 0;
+		}
+
+		input[type="button"] {
+			width: 180px;
+			float: right;
+		}
+	}
+
 	table {
 		margin: 0.5rem 0 2rem 0;
 		width: 100%;

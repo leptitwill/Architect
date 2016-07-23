@@ -33,14 +33,20 @@
 					</div>
 
 					<p class="galerie_nom"><?= $galerie['nom'] ?></p>
-					<p class="galerie_separation">—</p>
-					<p class="galerie_reponse">prout</p>
 
 				</article>
 			
 			<?php endforeach; ?>
 
-			<a href="<?= base_url("admin/galerie/creer"); ?>"><input type="button" class="button" value="Ajouter un galerie"></a>
+			<?php echo form_open_multipart('admin/galerie/creer/', $attributs); ?>
+
+				<label>Créer une galerie</label>
+				<div class="input_creer">
+					<input id="nom_galerie" type="text" placeholder="Nom de la galerie"/>
+					<input type="button" class="button" name="submit" value="Créer la galerie" onclick="creerGalerie()" />
+				</div>
+
+			</form>
 
 		</section>
 
@@ -62,5 +68,20 @@
 					}
 				})
 			}
+
+			function creerGalerie(){
+				var nom = $("#nom_galerie").val();
+
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/galerie/creer',
+					data: {
+						nom: nom
+					},
+					success: function(data) {
+						//$('#produit_avantage').load("<?= base_url(); ?>admin/avantage/modifier/" + idAvantage + " #produit_avantage");
+			        },
+				});
+			};
 
 		</script>
