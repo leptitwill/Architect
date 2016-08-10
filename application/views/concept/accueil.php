@@ -13,27 +13,81 @@
 
 			<section class="concept_introduction">
 
-				<p><?= nl2br($concept[0]['introduction']) ?></p>
+				<ul>
+					<li>
+						<img src="<?=img_url()?>concept/1.svg" alt="" >
+						<h3>titre</h3>
+						<p>cdbhb v brg btgy byt b</p>
+					</li>
+					<li>
+						<img src="<?=img_url()?>concept/1.svg" alt="" >
+						<h3>titre</h3>
+						<p>cdbhb v brg btgy byt b</p>
+					</li>
+					<li>
+						<img src="<?=img_url()?>concept/1.svg" alt="" >
+						<h3>titre</h3>
+						<p>cdbhb v brg btgy byt b</p>
+					</li>
+					<li>
+						<img src="<?=img_url()?>concept/1.svg" alt="" >
+						<h3>titre</h3>
+						<p>cdbhb v brg btgy byt b</p>
+					</li>
+					<li>
+						<img src="<?=img_url()?>concept/1.svg" alt="" >
+						<h3>titre</h3>
+						<p>cdbhb v brg btgy byt b</p>
+					</li>
+					<li>
+						<img src="<?=img_url()?>concept/1.svg" alt="" >
+						<h3>titre</h3>
+						<p>cdbhb v brg btgy byt b</p>
+					</li>
+				</ul>
 
 			</section>
 
 			<section class="concept_membres">
 
-				<?php foreach ($membres as $membre): ?>
-				
-					<div class="concept_membre">
-						<div class="concept_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
-						<div class="concept_membre_info">
-							<p class="concept_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
-							<p class="concept_membre_role"><?= $membre['role'] ?></p>
-							<p class="concept_membre_description"><?= $membre['description'] ?></p>
-						</div>
-					</div>
+				<div class="content">
 
-				<?php endforeach; ?>
+					<h2>Notre équipe</h2>
+
+					<?php foreach ($membres as $membre): ?>
+
+						<div class="concept_membre">
+							<div class="concept_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
+							<div class="concept_membre_info">
+								<p class="concept_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
+								<p class="concept_membre_role"><?= $membre['role'] ?></p>
+							</div>
+						</div>
+
+					<?php endforeach; ?>
+				</div>
+
+			</section>
+
+			<section class="concept_membres">
+
+				<div class="content">
+
+					<h2>COMMENT NOS CUBS SONT RÉALISÉS ET INSTALLÉS ?</h2>
+
+					<?php foreach ($membres as $membre): ?>
+
+						<div class="concept_membre">
+							<div class="concept_membre_photo" style="background-image: url('<?=img_url()?>membre/<?= $membre['photo']; ?>');"></div>
+							<div class="concept_membre_info">
+								<p class="concept_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
+								<p class="concept_membre_role"><?= $membre['role'] ?></p>
+							</div>
+						</div>
+
+					<?php endforeach; ?>
+				</div>
 
 			</section>
 
 		</section>
-
-		

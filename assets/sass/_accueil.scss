@@ -2,39 +2,50 @@
 	width: 100%;
 	height: 100vh;
 	margin-top: 0px;
+	padding-top: 70px;
+	position: relative;
+	background: $noir;
+
+	.cover_texte {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		padding-top: 70px;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		text-align: center;
+		width: 80%;
+		color: white;
+
+		h2 {
+			font-size: 2rem;
+			text-transform: uppercase;
+			font-weight: 500;
+			position: relative;
+
+			&:after {
+				content:url('../img/title_bottom.svg');
+				display: block;
+				line-height: 0;
+				margin: 2rem auto;
+				width: 110px;
+			}
+
+		}
+		p {
+			font-size: 1.2rem;
+			font-weight: 300;
+		}
+	}
 
 	ul {
+		opacity: 0.5;
 
 		li {
 			background-size: cover;
 			background-position: 50% 50%;
 			background-repeat: no-repeat;
 			background-color: $gris;
-			position: relative;
-
-			.cover_texte {
-				padding-right: 4rem;
-				float: right;
-				text-align: right;
-				position: absolute;
-				right: 2rem;
-				top: 50%;
-
-				h3 {
-					color: white;
-					text-transform: uppercase;
-					background: rgba(0, 0, 0, 0.8);
-					padding: 1rem;
-					margin-bottom: 1.5rem;
-					display: inline-block;
-
-				}
-				span {
-					color: white;
-					background: rgba(51, 153, 153, 0.8);
-					padding: 1rem;
-				}
-			}
 		}
 	}
 }
@@ -442,7 +453,7 @@
 			margin-right: 0.5rem;
 			line-height: 0.8rem;
 		}
-		
+
 		&:after {
 			content: url('../img/title_bottom.svg');
 			width: 30px;
@@ -498,15 +509,19 @@
 
 @media screen and (max-width: 600px) {
 	.cover--home {
-		height: 300px;
 
-		ul {
+		.cover_texte {
+			h2 {
+				font-size: 1.5rem;
 
-			li {
-
-				.cover_texte {
-					display: none;
+				&:after {
+					margin: 1.5rem auto;
+					width: 80px;
 				}
+			}
+
+			p {
+				font-size: 1rem;
 			}
 		}
 	}
@@ -628,7 +643,7 @@
 		}
 
 		.accueil_etape {
-			
+
 			.number {
 				font-size: 4rem;
 				line-height: 5rem;

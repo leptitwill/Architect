@@ -2,68 +2,100 @@
 
 	.concept_introduction {
 		width: 100%;
-		max-width: 800px;
+		max-width: 1000px;
+		padding: 0 2rem;
 		margin: 5rem auto;
 		text-align: center;
         color: $gris-fonce;
         font-size: 1.1rem;
-	}
 
-	.concept_membres {
-		width: 100%;
-		max-width: 800px;
-		margin: 5rem auto;
-		overflow: hidden;
+		ul {
+			font-size: 0;
 
-		.concept_membre {
-			width: 47.5%;
-			border: 1px solid $gris;
-			text-align: left;
-			margin-bottom: 2rem;
-			float: left;
+			li {
+				font-size: 1rem;
+				display: inline-block;
+				width: 33.333%;
+				margin-bottom: 2rem;
 
-			&:first-of-type {
-				margin-right: 5%;
-			}
-
-			.concept_membre_photo {
-				height: 250px;
-				width: 100%;
-				background-size: cover;
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-				background-color: $gris;
-			}
-
-			.concept_membre_info {
-					padding: 1rem;
-
-				
-				.concept_membre_nom {
-					color: $vert;
-					text-transform: uppercase;
-					padding-bottom: 0.5rem;
+				img {
+					width: 50px;
+					margin-bottom: 1rem;
 				}
 
-				.concept_membre_role {
-					color: $noir;
-					font-style: italic;
+				h3 {
+					text-transform: uppercase;
+					font-weight: 500;
 					position: relative;
-					margin-bottom: 3rem;
-					font-size: 0.9rem;
 
 					&:after {
 						content:url('../img/title_bottom.svg');
-						position: absolute;
-						top: 2rem;
-						left: 0;
+						display: block;
+						margin: 1rem auto;
 						width: 80px;
 					}
 				}
 
-				.concept_membre_description {
-					text-align: left;
+				p {
 					color: $gris-fonce;
+				}
+			}
+		}
+	}
+
+	.concept_membres {
+		width: 100%;
+		background: lighten($gris, 4%);
+
+		.content {
+			max-width: 1000px;
+			width: 100%;
+			margin: auto;
+			padding: 5rem 0 3rem;
+			text-align: center;
+			color: $faux-noir;
+			font-size: 0;
+
+			.concept_membre {
+				width: 47.5%;
+				border: 1px solid $gris;
+				text-align: left;
+				margin-bottom: 2rem;
+				display: inline-block;
+				background: white;
+				vertical-align: top;
+
+				&:first-of-type {
+					margin-right: 5%;
+				}
+
+				.concept_membre_photo {
+					height: 300px;
+					width: 100%;
+					background-size: cover;
+					background-position: 50% 50%;
+					background-repeat: no-repeat;
+					background-color: $gris;
+				}
+
+				.concept_membre_info {
+					padding: 1rem;
+					text-align: center;
+					min-height: 100px;
+
+					.concept_membre_nom {
+						text-transform: uppercase;
+						padding-bottom: 1rem;
+						font-size: 1rem;
+						font-weight: 600;
+					}
+
+					.concept_membre_role {
+						color: $noir;
+						font-style: italic;
+						position: relative;
+						font-size: 0.9rem;
+					}
 				}
 			}
 		}

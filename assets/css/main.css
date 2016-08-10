@@ -60,7 +60,6 @@ header {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   z-index: 10; }
   header .header_content {
-    max-width: 1200px;
     width: 100%;
     margin: auto; }
     header .header_content .logo {
@@ -145,7 +144,6 @@ footer {
   font-size: 0;
   padding: 4rem 3rem 2rem; }
   footer .footer_content {
-    max-width: 1200px;
     margin: auto; }
     footer .footer_content .footer_bloc {
       color: #999999;
@@ -174,7 +172,8 @@ footer {
         margin-bottom: 1rem;
         color: #329899; }
       footer .footer_content .footer_bloc_newsletter form {
-        margin-top: 1rem; }
+        margin-top: 1rem;
+        max-width: 500px; }
         footer .footer_content .footer_bloc_newsletter form input {
           padding: 1rem 1.5rem;
           border: 0;
@@ -624,31 +623,42 @@ form.creer {
 .cover--home {
   width: 100%;
   height: 100vh;
-  margin-top: 0px; }
-  .cover--home ul li {
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-color: #eeeeee;
-    position: relative; }
-    .cover--home ul li .cover_texte {
-      padding-right: 4rem;
-      float: right;
-      text-align: right;
-      position: absolute;
-      right: 2rem;
-      top: 50%; }
-      .cover--home ul li .cover_texte h3 {
-        color: white;
-        text-transform: uppercase;
-        background: rgba(0, 0, 0, 0.8);
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        display: inline-block; }
-      .cover--home ul li .cover_texte span {
-        color: white;
-        background: rgba(51, 153, 153, 0.8);
-        padding: 1rem; }
+  margin-top: 0px;
+  padding-top: 70px;
+  position: relative;
+  background: #222222; }
+  .cover--home .cover_texte {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding-top: 70px;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+    width: 80%;
+    color: white; }
+    .cover--home .cover_texte h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative; }
+      .cover--home .cover_texte h2:after {
+        content: url("../img/title_bottom.svg");
+        display: block;
+        line-height: 0;
+        margin: 2rem auto;
+        width: 110px; }
+    .cover--home .cover_texte p {
+      font-size: 1.2rem;
+      font-weight: 300; }
+  .cover--home ul {
+    opacity: 0.5; }
+    .cover--home ul li {
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-color: #eeeeee; }
 
 .accueil_introduction {
   width: 100%;
@@ -970,10 +980,13 @@ form.creer {
       border-bottom: 0; } }
 
 @media screen and (max-width: 600px) {
-  .cover--home {
-    height: 300px; }
-    .cover--home ul li .cover_texte {
-      display: none; }
+  .cover--home .cover_texte h2 {
+    font-size: 1.5rem; }
+    .cover--home .cover_texte h2:after {
+      margin: 1.5rem auto;
+      width: 80px; }
+  .cover--home .cover_texte p {
+    font-size: 1rem; }
   .accueil_introduction {
     margin: 2rem 0;
     font-size: 1rem; }
@@ -2203,53 +2216,76 @@ form.creer {
 
 .content .concept_introduction {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
+  padding: 0 2rem;
   margin: 5rem auto;
   text-align: center;
   color: #999999;
   font-size: 1.1rem; }
+  .content .concept_introduction ul {
+    font-size: 0; }
+    .content .concept_introduction ul li {
+      font-size: 1rem;
+      display: inline-block;
+      width: 33.333%;
+      margin-bottom: 2rem; }
+      .content .concept_introduction ul li img {
+        width: 50px;
+        margin-bottom: 1rem; }
+      .content .concept_introduction ul li h3 {
+        text-transform: uppercase;
+        font-weight: 500;
+        position: relative; }
+        .content .concept_introduction ul li h3:after {
+          content: url("../img/title_bottom.svg");
+          display: block;
+          margin: 1rem auto;
+          width: 80px; }
+      .content .concept_introduction ul li p {
+        color: #999999; }
 
 .content .concept_membres {
   width: 100%;
-  max-width: 800px;
-  margin: 5rem auto;
-  overflow: hidden; }
-  .content .concept_membres .concept_membre {
-    width: 47.5%;
-    border: 1px solid #eeeeee;
-    text-align: left;
-    margin-bottom: 2rem;
-    float: left; }
-    .content .concept_membres .concept_membre:first-of-type {
-      margin-right: 5%; }
-    .content .concept_membres .concept_membre .concept_membre_photo {
-      height: 250px;
-      width: 100%;
-      background-size: cover;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-color: #eeeeee; }
-    .content .concept_membres .concept_membre .concept_membre_info {
-      padding: 1rem; }
-      .content .concept_membres .concept_membre .concept_membre_info .concept_membre_nom {
-        color: #329899;
-        text-transform: uppercase;
-        padding-bottom: 0.5rem; }
-      .content .concept_membres .concept_membre .concept_membre_info .concept_membre_role {
-        color: #222222;
-        font-style: italic;
-        position: relative;
-        margin-bottom: 3rem;
-        font-size: 0.9rem; }
-        .content .concept_membres .concept_membre .concept_membre_info .concept_membre_role:after {
-          content: url("../img/title_bottom.svg");
-          position: absolute;
-          top: 2rem;
-          left: 0;
-          width: 80px; }
-      .content .concept_membres .concept_membre .concept_membre_info .concept_membre_description {
-        text-align: left;
-        color: #999999; }
+  background: #f8f8f8; }
+  .content .concept_membres .content {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    padding: 5rem 0 3rem;
+    text-align: center;
+    color: #333333;
+    font-size: 0; }
+    .content .concept_membres .content .concept_membre {
+      width: 47.5%;
+      border: 1px solid #eeeeee;
+      text-align: left;
+      margin-bottom: 2rem;
+      display: inline-block;
+      background: white;
+      vertical-align: top; }
+      .content .concept_membres .content .concept_membre:first-of-type {
+        margin-right: 5%; }
+      .content .concept_membres .content .concept_membre .concept_membre_photo {
+        height: 300px;
+        width: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-color: #eeeeee; }
+      .content .concept_membres .content .concept_membre .concept_membre_info {
+        padding: 1rem;
+        text-align: center;
+        min-height: 100px; }
+        .content .concept_membres .content .concept_membre .concept_membre_info .concept_membre_nom {
+          text-transform: uppercase;
+          padding-bottom: 1rem;
+          font-size: 1rem;
+          font-weight: 600; }
+        .content .concept_membres .content .concept_membre .concept_membre_info .concept_membre_role {
+          color: #222222;
+          font-style: italic;
+          position: relative;
+          font-size: 0.9rem; }
 
 .content-admin .galerie {
   width: 100%;

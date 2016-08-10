@@ -1,13 +1,11 @@
 		<section class="cover--home slider_accueil">
+			<div class="cover_texte">
+				<h2>Créateur d'espace à vivre</h2>
+				<p>Nous sommes une petite agence d'architeture à Tourcoing</p>
+			</div>
 			<ul>
 				<?php foreach ($images as $image): ?>
-					<li class="cover--home" style="background-image: url('<?=img_url()?>galerie/<?=$image['nom']?>')">
-						<div class="cover_texte">
-							<h3>Conceptcub</h3><br>
-							<span style="background-color: rgba(0,0,0,0.8); display: inline-block; width:400px;">Conceptcub offre une réponse efficace aux vraies problématiques sociales et sociétales</span><br>
-							<span style="margin-top:2rem; display: inline-block;">Contactez-nous</span>
-						</div>
-					</li>
+					<li class="cover--home" style="background-image: url('<?=img_url()?>galerie/<?=$image['nom']?>')"></li>
 				<?php endforeach ?>
 			</ul>
 		</section>
@@ -15,13 +13,13 @@
 		<section class="content">
 
 			<section class="accueil_introduction">
-						
+
 				<?= $accueil[0]['introduction'] ?>
 
 			</section>
 
 			<section class="accueil_baseline">
-						
+
 				<div class="overlay">
 					<?= $accueil[0]['baseline'] ?>
 				</div>
@@ -42,21 +40,21 @@
 							<div class="accueil_produit_photo" style="background-image: url('<?=img_url()?>produit/<?= $produit['couverture'] ?>')"></div>
 							<div class="accueil_produit_info">
 								<h3 class="accueil_produit_nom"><?= $produit['nom'] ?></h3>
-								<div class="accueil_produit_description"><?= $produit['description'] ?></div>	
+								<div class="accueil_produit_description"><?= $produit['description'] ?></div>
 							</div>
 						</a>
-						
+
 						<div class="accueil_produit_atout">
-							<?php foreach ($avantages as $avantage): ?>	
+							<?php foreach ($avantages as $avantage): ?>
 								<div class="atout">
 									<div>
 										<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>">
 										<p class="atout_nom"><?= $avantage['nom'] ?></p>
 										<!-- <p class="atout_description"><?= $avantage['description'] ?></p> -->
 									</div>
-									
+
 								</div>
-							<?php endforeach ?>	
+							<?php endforeach ?>
 
 							<a href="<?= base_url("produit/$produit_url") ?>" class="atout">
 								<div>
@@ -66,18 +64,18 @@
 										c0,0.6,0.5,1,1,1h29.6l-7.2,7.2c-0.1,0-0.1,0.1-0.2,0.2c-0.3,0.4-0.3,1.1,0.2,1.4c0.4,0.3,1.1,0.3,1.4-0.2l8.9-8.9l0.7-0.7l-0.7-0.7
 										l-8.9-8.9c-0.2-0.2-0.4-0.3-0.6-0.3C-429.1,271.1-429.4,271.2-429.7,271.4z"/>
 									</svg>
-									<p>Voir nos <?= $produit['nom'] ?></p>	
+									<p>Voir nos <?= $produit['nom'] ?></p>
 								</div>
 							</a>
 						</div>
 					</article>
-				
+
 				<?php endforeach; ?>
 
 			</section>
 
 			<section class="accueil_etapes">
-						
+
 				<h2>Les étapes clées pour mener à bien votre projet</h2>
 
 				<div class="accueil_etape">
@@ -115,7 +113,7 @@
 			</section>
 
 			<section class="accueil_validation">
-				
+
 				<?= $accueil[0]['validation'] ?>
 
 			</section>
@@ -136,7 +134,7 @@
 							<?php endforeach; ?>
 						</ul>
 					</div>
-					
+
 				</div>
 
 			</section>
@@ -144,7 +142,7 @@
 			<section class="accueil_articles">
 
 				<h2>Les derniers articles</h2>
-				
+
 				<div class="accueil_article">
 					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-1.jpg');"></div>
 					<a href=""><h3 class="accueil_article_titre">American Gothic</h3></a>
@@ -157,7 +155,7 @@
 					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-2.jpg');"></div>
 					<a href=""><h3 class="accueil_article_titre">Le Désespéré</h3></a>
 					<p class="accueil_article_description">
-						Le Désespéré est un tableau du peintre français Gustave Courbet réalisé entre 1843 et 1845. C'est un autoportrait de l'artiste sous les traits d'un jeune homme grand, beau et brun qui regarde avec désespoir vers moi. 							
+						Le Désespéré est un tableau du peintre français Gustave Courbet réalisé entre 1843 et 1845. C'est un autoportrait de l'artiste sous les traits d'un jeune homme grand, beau et brun qui regarde avec désespoir vers moi.
 					</p>
 				</div>
 

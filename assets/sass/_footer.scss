@@ -8,7 +8,6 @@ footer {
 	padding: 4rem 3rem 2rem;
 
 	.footer_content {
-		max-width: 1200px;
 		margin: auto;
 
 		.footer_bloc {
@@ -58,6 +57,7 @@ footer {
 
 			form {
 				margin-top: 1rem;
+				max-width: 500px;
 
 				input {
 					padding: 1rem 1.5rem;
