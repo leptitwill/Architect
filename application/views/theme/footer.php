@@ -71,12 +71,12 @@
 									</a>
 							<?php endforeach; ?>
 						</ul>
-						
+
 					</div>
-					
+
 				</div>
 			</section>
-			
+
 		</footer>
 
 		<?=js('unslider.min.js')?>
@@ -131,6 +131,13 @@
 				var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 				return regex.test(email);
 			}
+
+			$('.onglet span').click(function(){
+				$('.onglet span').removeClass('actif');
+				$('.onglet span').next().slideUp('ease');
+				$(this).addClass('actif');
+				$(this).next().slideToggle('ease');
+			});
 
 		</script>
 

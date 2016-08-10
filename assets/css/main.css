@@ -2287,6 +2287,33 @@ form.creer {
           position: relative;
           font-size: 0.9rem; }
 
+.content .concept_operatoire {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  padding: 5rem 0 3rem;
+  text-align: center;
+  color: #333333;
+  text-align: left; }
+  .content .concept_operatoire p {
+    color: #999999; }
+  .content .concept_operatoire .onglet span {
+    display: block;
+    width: 100%;
+    margin: 2rem 0 0;
+    background: #eeeeee;
+    color: #222222;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer; }
+    .content .concept_operatoire .onglet span:hover, .content .concept_operatoire .onglet span.actif {
+      background: #329899;
+      color: white; }
+  .content .concept_operatoire .onglet p {
+    margin-top: 2rem;
+    display: none; }
+
 .content-admin .galerie {
   width: 100%;
   margin: 2rem 0;

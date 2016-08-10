@@ -100,4 +100,43 @@
 			}
 		}
 	}
+
+	.concept_operatoire {
+		max-width: 1000px;
+		width: 100%;
+		margin: auto;
+		padding: 5rem 0 3rem;
+		text-align: center;
+		color: $faux-noir;
+		text-align: left;
+
+		p {
+			color: $gris-fonce;
+		}
+
+		.onglet {
+
+			span {
+				display: block;
+				width: 100%;
+				margin: 2rem 0 0;
+				background: $gris;
+				color: $noir;
+				padding: 1rem 2rem;
+				text-transform: uppercase;
+				text-align: center;
+				cursor: pointer;
+
+				&:hover, &.actif {
+					background: $vert;
+					color: white;
+				}
+			}
+
+			p {
+				margin-top: 2rem;
+				display: none;
+			}
+		}
+	}
 }
