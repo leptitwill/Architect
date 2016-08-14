@@ -88,14 +88,14 @@
 
 			$(document).ready(function($) {
 				$('.slider_accueil').unslider({
-					autoplay: false,
+					autoplay: true,
 					delay: 5000,
 					infinite: true,
 					nav: false,
 				});
 
 				$('.slider-avis').unslider({
-					autoplay: false,
+					autoplay: true,
 					delay: 5000,
 					infinite: true,
 					nav: false,
@@ -133,10 +133,14 @@
 			}
 
 			$('.onglet span').click(function(){
-				$('.onglet span').removeClass('actif');
-				$('.onglet span').next().slideUp('ease');
-				$(this).addClass('actif');
-				$(this).next().slideToggle('ease');
+				if($(this).hasClass('actif')){
+
+				} else {
+					$('.onglet span').removeClass('actif');
+					$('.onglet span').next().slideUp('ease');
+					$(this).addClass('actif');
+					$(this).next().slideToggle('ease');
+				}
 			});
 
 		</script>

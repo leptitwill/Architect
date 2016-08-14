@@ -57,7 +57,7 @@ class Gamme_model extends CI_Model
 		$this->db->set('equipementOption', $equipement_option);
 		$this->db->set('url', $url);
 		$this->db->set('produit_idProduit', $produit);
-		
+
 		return $this->db->insert($this->table);
 	}
 
@@ -72,6 +72,7 @@ class Gamme_model extends CI_Model
 					'atout1' => $atout1,
 					'atout2' => $atout2,
 					'taille' => $taille,
+					'prix'=> $prix,
 					'equipementSerie' => $equipement_serie,
 					'equipementOption' => $equipement_option,
 					'url' => $url,

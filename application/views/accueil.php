@@ -1,7 +1,7 @@
 		<section class="cover--home slider_accueil">
 			<div class="cover_texte">
 				<h2>Créateur d'espace à vivre</h2>
-				<p>Nous sommes une petite agence d'architeture à Tourcoing</p>
+				<p>Nous sommes une agence d'architeture à Tourcoing</p>
 			</div>
 			<ul>
 				<?php foreach ($images as $image): ?>
