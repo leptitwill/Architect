@@ -425,36 +425,36 @@ a {
       margin: 1.5rem auto;
       width: 80px; } }
 
-form.creer {
+form.creer, .content-admin {
   text-align: left; }
-  form.creer input, form.creer textarea, form.creer select {
+  form.creer input, form.creer textarea, form.creer select, .content-admin input, .content-admin textarea, .content-admin select {
     width: 100%;
     font-size: 1rem;
     padding: 1rem;
     margin: 0.5rem 0 2rem 0;
     border: 1px solid #d5d5d5;
     outline: none; }
-  form.creer textarea {
+  form.creer textarea, .content-admin textarea {
     height: 150px;
     resize: vertical; }
-  form.creer input[type="submit"] {
+  form.creer input[type="submit"], .content-admin input[type="submit"] {
     color: white;
     cursor: pointer; }
-  form.creer select {
+  form.creer select, .content-admin select {
     background: white;
     height: 52px; }
-  form.creer .input_1-2 {
+  form.creer .input_1-2, .content-admin .input_1-2 {
     float: left;
     width: 47.5%; }
-    form.creer .input_1-2:nth-of-type(odd) {
+    form.creer .input_1-2:nth-of-type(odd), .content-admin .input_1-2:nth-of-type(odd) {
       margin-right: 5%; }
-  form.creer .input_file {
+  form.creer .input_file, .content-admin .input_file {
     overflow: hidden; }
-    form.creer .input_file input {
+    form.creer .input_file input, .content-admin .input_file input {
       width: calc(100% - 150px);
       float: left;
       border-right: 0; }
-    form.creer .input_file div {
+    form.creer .input_file div, .content-admin .input_file div {
       background: #283a47;
       text-align: center;
       border: 1px solid #283a47;
@@ -464,7 +464,7 @@ form.creer {
       float: left;
       padding: 1rem;
       margin: 0.5rem 0 2rem 0; }
-      form.creer .input_file div input {
+      form.creer .input_file div input, .content-admin .input_file div input {
         position: absolute;
         top: 0;
         right: 0;
@@ -472,38 +472,38 @@ form.creer {
         height: 100%;
         cursor: pointer;
         opacity: 0; }
-  form.creer .input_creer {
+  form.creer .input_creer, .content-admin .input_creer {
     overflow: hidden;
     margin: 0.5rem 0 2rem; }
-    form.creer .input_creer input[type="text"] {
+    form.creer .input_creer input[type="text"], .content-admin .input_creer input[type="text"] {
       width: calc(100% - 190px);
       float: left;
       margin: 0; }
-    form.creer .input_creer input[type="submit"] {
+    form.creer .input_creer input[type="submit"], .content-admin .input_creer input[type="submit"] {
       width: 180px;
       float: right; }
-  form.creer table {
+  form.creer table, .content-admin table {
     margin: 0.5rem 0 2rem 0;
     width: 100%;
     padding: 2rem;
     border-collapse: collapse; }
-    form.creer table tr:last-of-type td {
+    form.creer table tr:last-of-type td, .content-admin table tr:last-of-type td {
       width: auto !important; }
-    form.creer table tr td {
+    form.creer table tr td, .content-admin table tr td {
       border: 1px solid #d5d5d5;
       padding: 1rem;
       text-align: left;
       vertical-align: middle;
       background: white; }
-      form.creer table tr td:last-of-type {
+      form.creer table tr td:last-of-type, .content-admin table tr td:last-of-type {
         padding: 0;
         width: 120px;
         text-align: center; }
-      form.creer table tr td.form_select {
+      form.creer table tr td.form_select, .content-admin table tr td.form_select {
         padding: 1rem; }
-      form.creer table tr td img {
+      form.creer table tr td img, .content-admin table tr td img {
         height: 30px; }
-      form.creer table tr td a {
+      form.creer table tr td a, .content-admin table tr td a {
         padding: 1rem;
         display: block;
         background: #3a5568;
@@ -512,21 +512,21 @@ form.creer {
         width: 100%;
         transition: background 0.3s;
         text-align: center; }
-        form.creer table tr td a:hover {
+        form.creer table tr td a:hover, .content-admin table tr td a:hover {
           background: #446278; }
-      form.creer table tr td select {
+      form.creer table tr td select, .content-admin table tr td select {
         margin: 0;
         border: 0;
         height: auto; }
-      form.creer table tr td.supprimer {
+      form.creer table tr td.supprimer, .content-admin table tr td.supprimer {
         color: #f35f47;
         cursor: pointer; }
-        form.creer table tr td.supprimer:hover {
+        form.creer table tr td.supprimer:hover, .content-admin table tr td.supprimer:hover {
           color: #df2c0f; }
-      form.creer table tr td.ajouter {
+      form.creer table tr td.ajouter, .content-admin table tr td.ajouter {
         color: #329899;
         cursor: pointer; }
-        form.creer table tr td.ajouter:hover {
+        form.creer table tr td.ajouter:hover, .content-admin table tr td.ajouter:hover {
           color: #1f5f5f; }
 
 .erreur p {
@@ -624,7 +624,6 @@ form.creer {
   width: 100%;
   height: 100vh;
   margin-top: 0px;
-  padding-top: 70px;
   position: relative;
   background: #222222; }
   .cover--home .cover_texte {
@@ -643,7 +642,8 @@ form.creer {
       text-transform: uppercase;
       font-weight: 600;
       position: relative;
-      text-shadow: 2px 2px rgba(34, 34, 34, 0.2); }
+      text-shadow: 2px 2px rgba(34, 34, 34, 0.2);
+      color: white; }
       .cover--home .cover_texte h2:after {
         content: url("../img/title_bottom.svg");
         display: block;
@@ -2267,7 +2267,8 @@ form.creer {
       margin-bottom: 2rem;
       display: inline-block;
       background: white;
-      vertical-align: top; }
+      vertical-align: top;
+      margin-top: 1rem; }
       .content .concept_membres .content .concept_membre:first-of-type {
         margin-right: 5%; }
       .content .concept_membres .content .concept_membre .concept_membre_photo {
@@ -2300,6 +2301,8 @@ form.creer {
   text-align: center;
   color: #333333;
   text-align: left; }
+  .content .concept_operatoire h2 {
+    text-align: center; }
   .content .concept_operatoire p {
     color: #999999; }
   .content .concept_operatoire .onglet span {
@@ -2318,6 +2321,48 @@ form.creer {
   .content .concept_operatoire .onglet p {
     margin-top: 2rem;
     display: none; }
+
+.content .concept_etapes {
+  width: 100%;
+  background: #f8f8f8; }
+  .content .concept_etapes .content {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    padding: 5rem 0 3rem;
+    text-align: left;
+    color: #333333;
+    font-size: 0; }
+    .content .concept_etapes .content h2 {
+      text-align: center; }
+    .content .concept_etapes .content .concept_etape {
+      width: 50%;
+      text-align: left;
+      margin: 2rem 0;
+      display: inline-block;
+      vertical-align: top; }
+      .content .concept_etapes .content .concept_etape span {
+        color: white;
+        float: left;
+        background: #329899;
+        font-size: 2rem;
+        line-height: 80px;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        font-weight: 700;
+        text-align: center; }
+      .content .concept_etapes .content .concept_etape .etape_contenu {
+        font-size: 1rem;
+        color: #222222;
+        padding-left: 100px;
+        padding-right: 2rem; }
+        .content .concept_etapes .content .concept_etape .etape_contenu h3 {
+          padding-bottom: 1rem;
+          text-transform: uppercase;
+          font-weight: 600; }
+        .content .concept_etapes .content .concept_etape .etape_contenu p {
+          text-align: justify; }
 
 .content-admin .galerie {
   width: 100%;

@@ -14,36 +14,13 @@
 			<section class="concept_introduction">
 
 				<ul>
-					<li>
-						<img src="<?=img_url()?>concept/1.svg" alt="" >
-						<h3>titre</h3>
-						<p>cdbhb v brg btgy byt b</p>
-					</li>
-					<li>
-						<img src="<?=img_url()?>concept/1.svg" alt="" >
-						<h3>titre</h3>
-						<p>cdbhb v brg btgy byt b</p>
-					</li>
-					<li>
-						<img src="<?=img_url()?>concept/1.svg" alt="" >
-						<h3>titre</h3>
-						<p>cdbhb v brg btgy byt b</p>
-					</li>
-					<li>
-						<img src="<?=img_url()?>concept/1.svg" alt="" >
-						<h3>titre</h3>
-						<p>cdbhb v brg btgy byt b</p>
-					</li>
-					<li>
-						<img src="<?=img_url()?>concept/1.svg" alt="" >
-						<h3>titre</h3>
-						<p>cdbhb v brg btgy byt b</p>
-					</li>
-					<li>
-						<img src="<?=img_url()?>concept/1.svg" alt="" >
-						<h3>titre</h3>
-						<p>cdbhb v brg btgy byt b</p>
-					</li>
+					<?php foreach ($avantages as $avantage): ?>
+						<li>
+							<img src="<?=img_url()?>avantage/<?= $avantage['icone'] ?>" alt="<?= $avantage['nom'] ?>">
+							<h3><?= $avantage['nom'] ?></h3>
+							<p><?= nl2br($avantage['description']) ?></p>
+						</li>
+					<?php endforeach; ?>
 				</ul>
 
 			</section>
@@ -79,45 +56,31 @@
 				</p>
 
 				<div class="onglet">
-					<span>Fabrication en atelier</span>
-					<p>
-						L'ensemble de notre gamme est fabriqué en France , dans nos ateliers . Entrant dans une démarche écologique de recyclage , nos CUBS sont conçus à partir de containers ma-
-						ritimes complètement réhabilités qui proposent ainsi une architecture contemporaine et des intérieurs cosys et fonctionnels. La réalisation en atelier nous permet de réduire
+					<?php foreach ($faqs as $faq): ?>
+						<span><?= $faq['question'] ?></span>
+						<p><?= $faq['reponse'] ?></p>
+					<?php endforeach; ?>
+				</div>
 
-						au maximum le temps de fabrication et d’éviter les aléas météorologiques qui sont souvent la cause de l’allongement de la durée d’un chantier.
-					</p>
+			</section>
 
-					<span>Fabrication en atelier</span>
-					<p>
-						L'ensemble de notre gamme est fabriqué en France , dans nos ateliers . Entrant dans une démarche écologique de recyclage , nos CUBS sont conçus à partir de containers ma-
-						ritimes complètement réhabilités qui proposent ainsi une architecture contemporaine et des intérieurs cosys et fonctionnels. La réalisation en atelier nous permet de réduire
+			<section class="concept_etapes">
 
-						au maximum le temps de fabrication et d’éviter les aléas météorologiques qui sont souvent la cause de l’allongement de la durée d’un chantier.
-					</p>
+				<div class="content">
 
-					<span>Fabrication en atelier</span>
-					<p>
-						L'ensemble de notre gamme est fabriqué en France , dans nos ateliers . Entrant dans une démarche écologique de recyclage , nos CUBS sont conçus à partir de containers ma-
-						ritimes complètement réhabilités qui proposent ainsi une architecture contemporaine et des intérieurs cosys et fonctionnels. La réalisation en atelier nous permet de réduire
+					<h2>LES ÉTAPES CLÉES POUR MENER À BIEN VOTRE PROJET</h2>
 
-						au maximum le temps de fabrication et d’éviter les aléas météorologiques qui sont souvent la cause de l’allongement de la durée d’un chantier.
-					</p>
+					<?php $i = 1; foreach ($etapes as $etape): ?>
 
-					<span>Fabrication en atelier</span>
-					<p>
-						L'ensemble de notre gamme est fabriqué en France , dans nos ateliers . Entrant dans une démarche écologique de recyclage , nos CUBS sont conçus à partir de containers ma-
-						ritimes complètement réhabilités qui proposent ainsi une architecture contemporaine et des intérieurs cosys et fonctionnels. La réalisation en atelier nous permet de réduire
+						<div class="concept_etape">
+							<span><? if($i<10){echo"0".$i;};$i ?></span>
+							<div class="etape_contenu">
+								<h3><?= $etape['titre'] ?></h3>
+								<p><?= $etape['contenu'] ?></p>
+							</div>
+						</div>
 
-						au maximum le temps de fabrication et d’éviter les aléas météorologiques qui sont souvent la cause de l’allongement de la durée d’un chantier.
-					</p>
-
-					<span>Fabrication en atelier</span>
-					<p>
-						L'ensemble de notre gamme est fabriqué en France , dans nos ateliers . Entrant dans une démarche écologique de recyclage , nos CUBS sont conçus à partir de containers ma-
-						ritimes complètement réhabilités qui proposent ainsi une architecture contemporaine et des intérieurs cosys et fonctionnels. La réalisation en atelier nous permet de réduire
-
-						au maximum le temps de fabrication et d’éviter les aléas météorologiques qui sont souvent la cause de l’allongement de la durée d’un chantier.
-					</p>
+					<?php $i++; endforeach; ?>
 				</div>
 
 			</section>

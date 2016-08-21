@@ -2,7 +2,6 @@
 	width: 100%;
 	height: 100vh;
 	margin-top: 0px;
-	padding-top: 70px;
 	position: relative;
 	background: $noir;
 
@@ -23,6 +22,7 @@
 			font-weight: 600;
 			position: relative;
 			text-shadow: 2px 2px rgba($noir, 0.2);
+			color: white;
 
 			&:after {
 				content:url('../img/title_bottom.svg');

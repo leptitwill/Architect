@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-	
+
 	<head>
 		<meta charset="UTF-8">
 		<title><?= $titre ?> - Conceptcub</title>
@@ -12,9 +12,9 @@
 	</head>
 
 	<body class="body_admin">
-	
+
 		<header class="connexion_header">
-			
+
 			<a href="<?= base_url('admin'); ?>">
 				<svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="208.7 112.9 1058.2 326">
 					<style>
@@ -48,9 +48,9 @@
 					<span class="connexion_sidebar_membre_nom"><?= $utilisateur[0]['prenom'] . ' ' . $utilisateur[0]['nom'] ?></span><br>
 					<span class="connexion_sidebar_membre_role"><?= $utilisateur[0]['role'] ?></span>
 				</div>
-				
+
 			</div>
-			
+
 			<ul>
 				<a href="<?= base_url('admin/home-page'); ?>">
 					<li class="<?php if($this->uri->segment(2)=="home-page"){echo "active";}?>">
@@ -146,7 +146,7 @@
 				</span>
 
 				<span>
-					<li id="entreprise" class="<?php if($this->uri->segment(2)=="entreprise" || $this->uri->segment(2)=="membre"){echo "active";}?>">
+					<li id="entreprise" class="<?php if($this->uri->segment(2)=="entreprise" || $this->uri->segment(2)=="membre" || $this->uri->segment(2)=="concept" || $this->uri->segment(2)=="faq-operatoire" || $this->uri->segment(2)=="etape"){echo "active";}?>">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
 							    <path d="M 7.5 5 C 5.6 5 4 6.6 4 8.5 C 4 10.4 5.6 12 7.5 12 C 9.4 12 11 10.4 11 8.5 C 11 6.6 9.4 5 7.5 5 z M 16.5 5 C 14.567003 5 13 6.5670034 13 8.5 C 13 10.432997 14.567003 12 16.5 12 C 18.432997 12 20 10.432997 20 8.5 C 20 6.5670034 18.432997 5 16.5 5 z M 7.5 14 C 2.6 14 1 18 1 18 L 1 20 L 14 20 L 14 18 C 14 18 12.4 14 7.5 14 z M 16.5 14 C 15 14 13.80625 14.40625 12.90625 14.90625 C 14.30625 16.10625 14.9 17.49375 15 17.59375 L 15.09375 17.8125 L 15.09375 20 L 23.09375 20 L 23.09375 18 C 22.99375 18 21.4 14 16.5 14 z"></path>
@@ -154,8 +154,14 @@
 						</span>
 						<span>Entreprise</span>
 					</li>
-					<li id="menu_entreprise" class="sous-menu" style="<?php if($this->uri->segment(2)=="entreprise" || $this->uri->segment(2)=="membre"){echo "display: block";}else{echo "display:none";}?>">
+					<li id="menu_entreprise" class="sous-menu" style="<?php if($this->uri->segment(2)=="entreprise" || $this->uri->segment(2)=="membre" || $this->uri->segment(2)=="concept" || $this->uri->segment(2)=="faq-operatoire" || $this->uri->segment(2)=="etape"){echo "display: block";}else{echo "display:none";}?>">
 						<ul>
+							<a href="<?= base_url('admin/concept'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="concept"){echo "active";}?>">
+									<span>Concept</span>
+								</li>
+							</a>
+
 							<a href="<?= base_url('admin/entreprise'); ?>">
 								<li class="<?php if($this->uri->segment(2)=="entreprise"){echo "active";}?>">
 									<span>Informations</span>
@@ -165,6 +171,18 @@
 							<a href="<?= base_url('admin/membre'); ?>">
 								<li class="<?php if($this->uri->segment(2)=="membre"){echo "active";}?>">
 									<span>Membres</span>
+								</li>
+							</a>
+
+							<a href="<?= base_url('admin/faq-operatoire'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="faq-operatoire"){echo "active";}?>">
+									<span>Mode opératoire</span>
+								</li>
+							</a>
+
+							<a href="<?= base_url('admin/etape'); ?>">
+								<li class="<?php if($this->uri->segment(2)=="etape"){echo "active";}?>">
+									<span>Étape clées</span>
 								</li>
 							</a>
 						</ul>

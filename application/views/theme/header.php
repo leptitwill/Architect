@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-	
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -12,11 +12,11 @@
 	</head>
 
 	<body class="body">
-	
+
 		<header>
 
 			<div class="header_content">
-			
+
 				<a href="<?= base_url(); ?>">
 					<svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049.7 313.9">
 						<style>

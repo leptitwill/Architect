@@ -3,6 +3,7 @@
 class Concept_model extends CI_Model
 {
 	protected $table = 'concept';
+	protected $table_avantage = 'avantage';
 
 	public function lister_concept()
 	{
@@ -17,5 +18,14 @@ class Concept_model extends CI_Model
 				);
 
 		$this->db->update($this->table,  $data);
+	}
+
+	public function lister_avantages()
+	{
+		$this->db->select('a.*');
+		$this->db->join('concept_has_avantage ca', 'ca.avantage_idAvantage = a.idAvantage', 'inner');
+		$query = $this->db->get($this->table_avantage.' a');
+
+		return $query->result_array();
 	}
 }

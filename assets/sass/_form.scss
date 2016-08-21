@@ -1,6 +1,6 @@
-form.creer {
+form.creer, .content-admin {
 	text-align: left;
-	
+
 	input, textarea, select {
 		width: 100%;
 		font-size: 1rem;
@@ -96,7 +96,7 @@ form.creer {
 					width: auto !important;
 				}
 			}
-			
+
 			td {
 				border: 1px solid darken($gris, 10%);
 				padding: 1rem;

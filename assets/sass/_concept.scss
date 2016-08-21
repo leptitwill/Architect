@@ -64,6 +64,7 @@
 				display: inline-block;
 				background: white;
 				vertical-align: top;
+				margin-top: 1rem;
 
 				&:first-of-type {
 					margin-right: 5%;
@@ -110,6 +111,10 @@
 		color: $faux-noir;
 		text-align: left;
 
+		h2 {
+			text-align: center;
+		}
+
 		p {
 			color: $gris-fonce;
 		}
@@ -136,6 +141,63 @@
 			p {
 				margin-top: 2rem;
 				display: none;
+			}
+		}
+	}
+
+	.concept_etapes {
+		width: 100%;
+		background: lighten($gris, 4%);
+
+		.content {
+			max-width: 1000px;
+			width: 100%;
+			margin: auto;
+			padding: 5rem 0 3rem;
+			text-align: left;
+			color: $faux-noir;
+			font-size: 0;
+
+			h2 {
+				text-align: center;
+			}
+
+			.concept_etape {
+				width: 50%;
+				text-align: left;
+				margin: 2rem 0;
+				display: inline-block;
+				vertical-align: top;
+
+				span {
+					color: white;
+					float: left;
+					background: $vert;
+					font-size: 2rem;
+					line-height: 80px;
+					border-radius: 50%;
+					width: 80px;
+					height: 80px;
+					font-weight: 700;
+					text-align: center;
+				}
+
+				.etape_contenu {
+					font-size: 1rem;
+					color: $noir;
+					padding-left: 100px;
+					padding-right: 2rem;
+
+					h3 {
+						padding-bottom: 1rem;
+						text-transform: uppercase;
+						font-weight: 600;
+					}
+
+					p {
+						text-align: justify;
+					}
+				}
 			}
 		}
 	}
