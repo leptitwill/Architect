@@ -88,14 +88,14 @@
 
 			$(document).ready(function($) {
 				$('.slider_accueil').unslider({
-					autoplay: true,
+					autoplay: false,
 					delay: 5000,
 					infinite: true,
 					nav: false,
 				});
 
 				$('.slider-avis').unslider({
-					autoplay: true,
+					autoplay: false,
 					delay: 5000,
 					infinite: true,
 					nav: false,

@@ -38,6 +38,7 @@
 							<div class="concept_membre_info">
 								<p class="concept_membre_nom"><?= $membre['prenom'] . ' ' . $membre['nom']; ?></p>
 								<p class="concept_membre_role"><?= $membre['role'] ?></p>
+								<p class="concept_membre_bio"><?= nl2br($membre['description']) ?></p>
 							</div>
 						</div>
 
@@ -68,7 +69,7 @@
 
 				<div class="content">
 
-					<h2>LES ÉTAPES CLÉES POUR MENER À BIEN VOTRE PROJET</h2>
+					<h2>LES ÉTAPES CLÉES</h2>
 
 					<?php $i = 1; foreach ($etapes as $etape): ?>
 

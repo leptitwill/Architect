@@ -17,12 +17,12 @@ class Accueil extends CI_Controller
 		$this->data['entreprise'] = $this->entreprise_model->lister_entreprise();
 		$this->data['reseaux_sociaux'] = $this->reseaux_sociaux_model->lister_reseaux_sociaux();
 	}
-	
+
 	public function index()
 	{
 		$this->data['titre'] = 'Pièce à vivre, bureau de jardin et studio de jardin';
 		$this->data['produits'] = $this->produit_model->lister_produit();
-		$this->data['avantages'] = $this->avantage_model->lister_avantage();
+		
 		$this->data['avis_clients'] = $this->avis_model->lister_avis();
 		$this->data['accueil'] = $this->accueil_model->contenu_accueil();
 		$idGalerie = $this->data['accueil'][0]['galerie_idGalerie'];
@@ -36,7 +36,7 @@ class Accueil extends CI_Controller
 	public function ajouterEmail()
 	{
 		$email = $_POST['email'];
-		
+
 		$this->accueil_model->ajouter_email($email);
 
 		return $ok = TRUE;

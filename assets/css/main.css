@@ -2221,26 +2221,33 @@ form.creer, .content-admin {
 
 .content .concept_introduction {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   padding: 0 2rem;
-  margin: 5rem auto;
+  margin: 5rem auto 3rem;
   text-align: center;
   color: #999999;
   font-size: 1.1rem; }
   .content .concept_introduction ul {
     font-size: 0; }
     .content .concept_introduction ul li {
-      font-size: 1rem;
+      width: 30%;
       display: inline-block;
-      width: 33.333%;
+      font-size: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #eeeeee;
+      vertical-align: top;
       margin-bottom: 2rem; }
+      .content .concept_introduction ul li:nth-child(3n+2) {
+        margin: 0 5%; }
       .content .concept_introduction ul li img {
         width: 50px;
         margin-bottom: 1rem; }
       .content .concept_introduction ul li h3 {
         text-transform: uppercase;
         font-weight: 500;
-        position: relative; }
+        position: relative;
+        color: #222222; }
         .content .concept_introduction ul li h3:after {
           content: url("../img/title_bottom.svg");
           display: block;
@@ -2256,7 +2263,7 @@ form.creer, .content-admin {
     max-width: 1000px;
     width: 100%;
     margin: auto;
-    padding: 5rem 0 3rem;
+    padding: 5rem 2rem 3rem;
     text-align: center;
     color: #333333;
     font-size: 0; }
@@ -2292,12 +2299,21 @@ form.creer, .content-admin {
           font-style: italic;
           position: relative;
           font-size: 0.9rem; }
+          .content .concept_membres .content .concept_membre .concept_membre_info .concept_membre_role:after {
+            content: url("../img/title_bottom.svg");
+            display: block;
+            margin: 1rem auto;
+            width: 80px; }
+        .content .concept_membres .content .concept_membre .concept_membre_info .concept_membre_bio {
+          color: #999999;
+          position: relative;
+          font-size: 1rem; }
 
 .content .concept_operatoire {
   max-width: 1000px;
   width: 100%;
   margin: auto;
-  padding: 5rem 0 3rem;
+  padding: 5rem 2rem 3rem;
   text-align: center;
   color: #333333;
   text-align: left; }
@@ -2329,7 +2345,7 @@ form.creer, .content-admin {
     max-width: 1000px;
     width: 100%;
     margin: auto;
-    padding: 5rem 0 3rem;
+    padding: 5rem 2rem 3rem;
     text-align: left;
     color: #333333;
     font-size: 0; }
@@ -2363,6 +2379,76 @@ form.creer, .content-admin {
           font-weight: 600; }
         .content .concept_etapes .content .concept_etape .etape_contenu p {
           text-align: justify; }
+
+@media screen and (max-width: 1000px) {
+  .content .concept_introduction ul li {
+    width: 47.5%;
+    margin-bottom: 2rem; }
+    .content .concept_introduction ul li:nth-child(2n+1) {
+      margin-right: 5% !important; }
+    .content .concept_introduction ul li:nth-child(3n+2) {
+      margin: 0; } }
+
+@media screen and (max-width: 600px) {
+  .content .concept_introduction {
+    margin: 2rem auto 0;
+    overflow-x: scroll; }
+    .content .concept_introduction ul {
+      width: 2040px; }
+      .content .concept_introduction ul li {
+        width: 320px;
+        margin-right: 20px !important; }
+        .content .concept_introduction ul li:nth-child(2n+1) {
+          margin-right: 20px !important; }
+  .content .concept_membres .content {
+    padding: 2rem; }
+    .content .concept_membres .content .concept_membre {
+      margin: 0 0 2rem !important;
+      width: 100%; }
+      .content .concept_membres .content .concept_membre:last-of-type {
+        margin: 0 !important; }
+  .content .concept_operatoire {
+    padding: 2rem; }
+    .content .concept_operatoire .onglet span {
+      display: block;
+      width: 100%;
+      margin: 2rem 0 0;
+      background: #eeeeee;
+      color: #222222;
+      padding: 1rem;
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer; }
+      .content .concept_operatoire .onglet span:hover, .content .concept_operatoire .onglet span.actif {
+        background: #329899;
+        color: white; }
+    .content .concept_operatoire .onglet p {
+      margin-top: 2rem;
+      display: none; }
+  .content .concept_etapes .content {
+    padding: 2rem; }
+    .content .concept_etapes .content .concept_etape {
+      width: 100%;
+      margin: 0 0 2rem; }
+      .content .concept_etapes .content .concept_etape:last-of-type {
+        margin-bottom: 0; }
+      .content .concept_etapes .content .concept_etape span {
+        float: none;
+        display: block;
+        margin: 0 0 1rem;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 1.5rem; }
+      .content .concept_etapes .content .concept_etape .etape_contenu {
+        padding-left: 0;
+        padding-right: 0; }
+        .content .concept_etapes .content .concept_etape .etape_contenu h3 {
+          padding-bottom: 1rem;
+          text-transform: uppercase;
+          font-weight: 600; }
+        .content .concept_etapes .content .concept_etape .etape_contenu p {
+          text-align: justify; } }
 
 .content-admin .galerie {
   width: 100%;

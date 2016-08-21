@@ -45,6 +45,9 @@
 						</a>
 
 						<div class="accueil_produit_atout">
+							<?php
+								$avantages = $this->produit_model->selectionner_avantage_par_produit_par_id($produit['idProduit']);
+							?>
 							<?php foreach ($avantages as $avantage): ?>
 								<div class="atout">
 									<div>
