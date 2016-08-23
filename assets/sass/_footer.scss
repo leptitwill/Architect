@@ -72,10 +72,15 @@ footer {
 					button {
 						padding: 1rem 1.5rem;
 						width: 110px;
+						height: 48px;
 						text-align: center;
 						color: white;
 						background: $vert;
 						cursor: pointer;
+
+						&:hover {
+							background: lighten($vert, 5%);
+						}
 					}
 				}
 			}
@@ -109,7 +114,7 @@ footer {
 						display: inline-block;
 
 						li {
-							
+
 
 							img {
 								width: 100%;
@@ -183,7 +188,7 @@ footer {
 		padding: 2rem 3rem;
 
 		.footer_content {
-			
+
 			.footer_bloc {
 				width: 50%;
 			}
@@ -221,7 +226,7 @@ footer {
 		padding: 2rem;
 
 		.footer_content {
-			
+
 			.footer_bloc {
 				width: 100%;
 			}

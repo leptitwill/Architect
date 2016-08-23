@@ -1,45 +1,43 @@
-var gulp      = require('gulp'),
-    rename    = require('gulp-rename'),     // Renommage des fichiers
-    sass      = require('gulp-sass'),       // Conversion des SCSS en CSS
-    minifyCss = require('gulp-minify'), // Minification des CSS
-    uglify    = require('gulp-uglify'),     // Minification/Obfuscation des JS
-    plumber   = require('gulp-plumber'),    // Ne pas s'arrêter en cas d'erreurs
-    autoprefixer = require('gulp-autoprefixer'); // Ajoute autoprefixer
-    
-    
-// SCSS TASK
-gulp.task('sass', function() 
-{
-  gulp.src('assets/sass/main.scss')    // Prend en entrée les fichiers *.scss
-    .pipe(plumber())
-    .pipe(sass())                      // Compile les fichiers
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 6', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(minifyCss())                 // Minifie le CSS qui a été généré
-    .pipe(gulp.dest('./assets/css/'));  // Sauvegarde le tout dans /style
+var gulp = require('gulp'),
+    plumber = require('gulp-plumber'),
+    rename = require('gulp-rename');
+var autoprefixer = require('gulp-autoprefixer');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var minifycss = require('gulp-minify-css');
+var sass = require('gulp-sass');
+
+
+gulp.task('styles', function(){
+  gulp.src(['assets/sass/main.scss'])
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(sass())
+    .pipe(autoprefixer('last 2 versions'))
+    .pipe(gulp.dest('assets/css/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(gulp.dest('assets/css/'))
 });
 
-// JAVASCRIPT TASK
-gulp.task('js-uglify', function() 
-{
-  gulp.src('./js/*.src.js')    // Prend en entrée les fichiers *.src.js
-    .pipe(plumber())
-    .pipe(rename(function(path){
-      // Il y a différentes méthodes pour renommer les fichiers
-      // Voir ici pour plus d'infos : https://www.npmjs.org/package/gulp-rename
-      path.basename = path.basename.replace(".src", ".min");
-    }))
+gulp.task('scripts', function(){
+  return gulp.src('src/scripts/**/*.js')
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('dist/scripts/'))
+    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('dist/scripts/'))
 });
 
-
-// WATCH TASK
-gulp.task('watch', function() 
-{
-  //gulp.watch('./assets/sass/*.scss', ['css']);
-  gulp.watch('./js/*.src.js', ['js-uglify']);
-  gulp.watch('assets/sass/*.scss', ['sass']);
+gulp.task('default', function(){
+  gulp.watch("assets/sass/*.scss", ['styles']);
+  gulp.watch("src/scripts/**/*.js", ['scripts']);
 });
-
-
-gulp.task('default', ['watch']);

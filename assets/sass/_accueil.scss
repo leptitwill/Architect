@@ -160,9 +160,10 @@
 
 		.accueil_produit_atout {
 			width: 50%;
-			height: 100%;
+			height: 100vh;
+			min-height: 500px;
 			float: right;
-			overflow: auto;
+			overflow: hidden;
 			display: inline-block;
 
 			.atout {
@@ -184,6 +185,7 @@
 
 					img {
 						width: 50px;
+						height: 50px;
 						margin-bottom: 1rem;
 					}
 
@@ -213,6 +215,7 @@
 					svg {
 						fill: $vert;
 						width: 50px;
+						height: 50px;
 						margin-bottom: 1rem;
 					}
 
@@ -447,21 +450,12 @@
 		margin: 3rem 0 2rem;
 		text-transform: uppercase;
 		font-size: 0.8rem;
+		padding: 1rem 1.5rem;
+		color: white;
+		background: $vert;
 
-		&:before {
-			content: url('../img/title_bottom.svg');
-			width: 30px;
-			float: left;
-			margin-right: 0.5rem;
-			line-height: 0.8rem;
-		}
-
-		&:after {
-			content: url('../img/title_bottom.svg');
-			width: 30px;
-			float: right;
-			margin-left: 0.5rem;
-			line-height: 0.8rem;
+		&:hover {
+			background: lighten($vert, 5%);;
 		}
 	}
 }

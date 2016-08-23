@@ -24,7 +24,7 @@ class Concept extends CI_Controller
 	public function index()
 	{
 		$this->data['titre'] = 'Notre concept';
-		$this->data['sous_titre'] = 'Apprenez en plus sur conceptcub';
+		$this->data['sous_titre'] = 'Apprenez en plus sur ConceptCub';
 
 		$this->data['concept'] = $this->concept_model->lister_concept();
 		$this->data['avantages'] = $this->concept_model->lister_avantages();

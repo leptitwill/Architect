@@ -21,7 +21,7 @@
 				<div class="footer_bloc_newsletter">
 					<ul class="texte">
 						<li>Newsletter</li>
-						<li>Suivez notre actualitées en vous inscrivant à notre newsletter</li>
+						<li>Suivez notre actualité en vous inscrivant à notre newsletter</li>
 					</ul>
 					<form>
 						<input type="email" id="email_client" name="email" placeholder="Votre adresse email" required>
@@ -80,6 +80,7 @@
 		</footer>
 
 		<?=js('unslider.min.js')?>
+		<?=js('placeholder.js')?>
 		<script>
 
 			function ouvrir_menu_mobile() {

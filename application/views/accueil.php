@@ -79,7 +79,7 @@
 
 			<section class="accueil_etapes">
 
-				<h2>Les étapes clées pour mener à bien votre projet</h2>
+				<h2>Les étapes clés pour mener à bien votre projet</h2>
 
 				<div class="accueil_etape">
 					<span>Étape n°</span><br>
@@ -146,31 +146,17 @@
 
 				<h2>Les derniers articles</h2>
 
-				<div class="accueil_article">
-					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-1.jpg');"></div>
-					<a href=""><h3 class="accueil_article_titre">American Gothic</h3></a>
-					<p class="accueil_article_description">
-						American Gothic est un tableau de Grant Wood faisant partie de la collection de l'Institut d'art de Chicago. Wood a été inspiré par un chalet conçu dans le style néogothique avec une fenêtre supérieure distinctive.
-					</p>
-				</div>
+				<?php foreach ($articles as $article): ?>
 
-				<div class="accueil_article">
-					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-2.jpg');"></div>
-					<a href=""><h3 class="accueil_article_titre">Le Désespéré</h3></a>
-					<p class="accueil_article_description">
-						Le Désespéré est un tableau du peintre français Gustave Courbet réalisé entre 1843 et 1845. C'est un autoportrait de l'artiste sous les traits d'un jeune homme grand, beau et brun qui regarde avec désespoir vers moi.
-					</p>
-				</div>
+					<div class="accueil_article">
+						<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/<?= $article['couverture'] ?>');"></div>
+						<a href=""><h3 class="accueil_article_titre"><?= $article['nom'] ?></h3></a>
+						<p class="accueil_article_description"><?= $article['contenu'] ?></p>
+					</div>
 
-				<div class="accueil_article">
-					<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/article-3.jpg');"></div>
-					<a href=""><h3 class="accueil_article_titre">La nevada</h3></a>
-					<p class="accueil_article_description">
-						La nevada ou El invierno est une peinture réalisée par Francisco de Goya en 1786 et faisant partie de la cinquième série des cartons pour tapisserie destinée à la salle à manger du Prince des Asturies au Palais du Pardo.
-					</p>
-				</div>
+				<?php endforeach; ?>
 
-				<a  class="accueil_article_lien" href="#">Voir tous les articles</a>
+				<a  class="accueil_article_lien" href="<?= base_url("blog") ?>">Voir tous les articles</a>
 
 			</section>
 

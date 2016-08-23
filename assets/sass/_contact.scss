@@ -47,6 +47,10 @@
 					width: auto;
 					margin: 0;
 					padding: 1rem 2rem;
+
+					&:hover {
+						background: lighten($vert, 5%);
+					}
 				}
 
 				textarea {

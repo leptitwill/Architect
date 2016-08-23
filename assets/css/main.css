@@ -64,6 +64,7 @@ header {
     margin: auto; }
     header .header_content .logo {
       height: 70px;
+      width: 127px;
       padding: 1rem 0; }
     header .header_content .header_menu_mobile {
       display: none; }
@@ -184,10 +185,13 @@ footer {
           footer .footer_content .footer_bloc_newsletter form span button {
             padding: 1rem 1.5rem;
             width: 110px;
+            height: 48px;
             text-align: center;
             color: white;
             background: #329899;
             cursor: pointer; }
+            footer .footer_content .footer_bloc_newsletter form span button:hover {
+              background: #38abac; }
     footer .footer_content .footer_bloc_bas {
       width: 100%;
       font-size: 0;
@@ -303,8 +307,7 @@ footer {
       width: 100%;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%); }
+      transform: translate(-50%, -50%); }
       .cover .overlay .cover_titre h1 {
         font-size: 2rem;
         text-transform: uppercase;
@@ -631,8 +634,7 @@ form.creer, .content-admin {
     left: 50%;
     top: 50%;
     padding-top: 70px;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 1;
     text-align: center;
     width: 80%;
@@ -745,9 +747,10 @@ form.creer, .content-admin {
         font-weight: 300; }
   .accueil_produits .accueil_produit .accueil_produit_atout {
     width: 50%;
-    height: 100%;
+    height: 100vh;
+    min-height: 500px;
     float: right;
-    overflow: auto;
+    overflow: hidden;
     display: inline-block; }
     .accueil_produits .accueil_produit .accueil_produit_atout .atout {
       width: 50%;
@@ -760,13 +763,13 @@ form.creer, .content-admin {
         width: 100%;
         vertical-align: middle;
         position: absolute;
-        -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
         top: 50%;
         left: 50%;
         padding: 1.5rem; }
         .accueil_produits .accueil_produit .accueil_produit_atout .atout div img {
           width: 50px;
+          height: 50px;
           margin-bottom: 1rem; }
         .accueil_produits .accueil_produit .accueil_produit_atout .atout div .atout_nom {
           text-transform: uppercase;
@@ -783,6 +786,7 @@ form.creer, .content-admin {
       .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child svg {
         fill: #329899;
         width: 50px;
+        height: 50px;
         margin-bottom: 1rem; }
       .accueil_produits .accueil_produit .accueil_produit_atout .atout:last-child p {
         text-transform: uppercase;
@@ -945,19 +949,12 @@ form.creer, .content-admin {
     display: inline-block;
     margin: 3rem 0 2rem;
     text-transform: uppercase;
-    font-size: 0.8rem; }
-    .accueil_articles .accueil_article_lien:before {
-      content: url("../img/title_bottom.svg");
-      width: 30px;
-      float: left;
-      margin-right: 0.5rem;
-      line-height: 0.8rem; }
-    .accueil_articles .accueil_article_lien:after {
-      content: url("../img/title_bottom.svg");
-      width: 30px;
-      float: right;
-      margin-left: 0.5rem;
-      line-height: 0.8rem; }
+    font-size: 0.8rem;
+    padding: 1rem 1.5rem;
+    color: white;
+    background: #329899; }
+    .accueil_articles .accueil_article_lien:hover {
+      background: #38abac; }
 
 @media screen and (max-width: 1000px) {
   .accueil_produits .accueil_produit .accueil_produit_contenu {
@@ -1093,6 +1090,8 @@ form.creer, .content-admin {
       padding: 1rem 2rem;
       text-transform: uppercase;
       font-size: 0.8rem; }
+      .produit_appel div a:hover {
+        background: #38abac; }
 
 .produit_introduction {
   width: 100%;
@@ -1199,6 +1198,8 @@ form.creer, .content-admin {
         background-repeat: no-repeat;
         background-color: #eeeeee;
         position: relative; }
+        .produit_gammes .content .produit_gamme .produit_gamme_photo:hover {
+          opacity: 0.8; }
         .produit_gammes .content .produit_gamme .produit_gamme_photo .produit_gamme_nom {
           position: absolute;
           text-align: center;
@@ -1216,7 +1217,7 @@ form.creer, .content-admin {
             color: white; }
       .produit_gammes .content .produit_gamme .produit_atout {
         width: 100%;
-        overflow: auto; }
+        overflow: hidden; }
         .produit_gammes .content .produit_gamme .produit_atout .atout {
           width: 50%;
           min-height: 150px;
@@ -1228,8 +1229,7 @@ form.creer, .content-admin {
             width: 100%;
             vertical-align: middle;
             position: absolute;
-            -webkit-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             top: 50%;
             left: 50%; }
             .produit_gammes .content .produit_gamme .produit_atout .atout div p {
@@ -1523,7 +1523,8 @@ form.creer, .content-admin {
             text-align: center;
             vertical-align: middle; }
             .content .gamme .gamme_sidebar .gamme_resume table tr td svg {
-              width: 30px; }
+              width: 30px;
+              height: 30px; }
     .content .gamme .gamme_sidebar .gamme_devis {
       padding: 0 2rem 2rem; }
       .content .gamme .gamme_sidebar .gamme_devis a {
@@ -1535,10 +1536,15 @@ form.creer, .content-admin {
         padding: 1rem 2rem;
         text-transform: uppercase;
         font-size: 0.8rem; }
+        .content .gamme .gamme_sidebar .gamme_devis a:hover {
+          background: #38abac; }
     .content .gamme .gamme_sidebar .gamme_pdf {
       padding: 0 2rem 2rem; }
       .content .gamme .gamme_sidebar .gamme_pdf a {
-        color: #329899; }
+        color: #329899;
+        padding: 1rem; }
+        .content .gamme .gamme_sidebar .gamme_pdf a:hover {
+          background: #eeeeee; }
 
 .content-admin .gamme {
   width: 100%;
@@ -2067,6 +2073,8 @@ form.creer, .content-admin {
         width: auto;
         margin: 0;
         padding: 1rem 2rem; }
+        .content .contact .contact_formulaire form input[type="submit"]:hover {
+          background: #38abac; }
       .content .contact .contact_formulaire form textarea {
         width: 100%;
         border: 1px solid #eeeeee;
@@ -2392,19 +2400,22 @@ form.creer, .content-admin {
 @media screen and (max-width: 600px) {
   .content .concept_introduction {
     margin: 2rem auto 0;
+    padding: 0 1rem;
     overflow-x: scroll; }
     .content .concept_introduction ul {
-      width: 2040px; }
+      width: 1800px; }
       .content .concept_introduction ul li {
-        width: 320px;
-        margin-right: 20px !important; }
+        width: 290px;
+        margin-right: 10px !important;
+        padding: 1rem; }
         .content .concept_introduction ul li:nth-child(2n+1) {
-          margin-right: 20px !important; }
+          margin-right: 10px !important; }
   .content .concept_membres .content {
-    padding: 2rem; }
+    padding: 2rem 0; }
     .content .concept_membres .content .concept_membre {
-      margin: 0 0 2rem !important;
-      width: 100%; }
+      margin: 0 !important;
+      width: 100%;
+      border: 0; }
       .content .concept_membres .content .concept_membre:last-of-type {
         margin: 0 !important; }
   .content .concept_operatoire {
@@ -2598,8 +2609,7 @@ form.creer, .content-admin {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%); }
     .connexion .connexion_content .connexion_logo {
       width: 300px;
       margin-bottom: 2rem; }

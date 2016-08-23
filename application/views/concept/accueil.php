@@ -69,7 +69,7 @@
 
 				<div class="content">
 
-					<h2>LES ÉTAPES CLÉES</h2>
+					<h2>LES ÉTAPES CLÉS</h2>
 
 					<?php $i = 1; foreach ($etapes as $etape): ?>
 

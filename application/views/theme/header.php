@@ -6,7 +6,7 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<title><?= $titre ?> - Conceptcub</title>
 		<link rel="icon" type="image/png" href="<?=img_url()?>favicon.png" />
-		<?=css('main.css')?>
+		<?=css('main.min.css')?>
 		<?=css('unslider.css')?>
 		<?=js('jquery.min.js')?>
 	</head>
@@ -49,6 +49,7 @@
 
 						<?php endforeach; ?>
 						<a href="<?= base_url("concept") ?>"><li class="<?php if($this->uri->segment(1)=="concept"){echo "active";}?>">Concept</li></a>
+						<a href="<?= base_url("blog") ?>"><li class="<?php if($this->uri->segment(1)=="blog"){echo "active";}?>">Blog</li></a>
 						<a href="<?= base_url("contact") ?>"><li class="<?php if($this->uri->segment(1)=="contact"){echo "active";}?>">Contact</li></a>
 					</ul>
 				</nav>

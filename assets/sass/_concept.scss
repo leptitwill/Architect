@@ -253,17 +253,19 @@
 	.content {
 		.concept_introduction {
 			margin: 2rem auto 0;
+			padding: 0 1rem;
 			overflow-x: scroll;
 
 			ul {
-				width: 2040px;
+				width: 1800px;
 
 				li {
-					width: 320px;
-					margin-right: 20px !important;
+					width: 290px;
+					margin-right: 10px !important;
+					padding: 1rem;
 
 					&:nth-child(2n+1) {
-						margin-right: 20px !important;
+						margin-right: 10px !important;
 					}
 				}
 			}
@@ -272,11 +274,12 @@
 		.concept_membres {
 
 			.content {
-				padding: 2rem;
+				padding: 2rem 0;
 
 				.concept_membre {
-					margin: 0 0 2rem !important;
+					margin: 0 !important;
 					width: 100%;
+					border: 0;
 
 					&:last-of-type {
 						margin: 0 !important;
