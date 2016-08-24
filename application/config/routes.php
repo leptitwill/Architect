@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = TRUE;
 
 $route['produit/(:any)'] = 'produit/index/$1';
 
+$route['blog/(:any)'] = 'blog/index/$1';
+
 $route['produit/(:any)/(:any)'] = 'gamme/index/$1/$2';
 
 $route['mentions-legales'] = 'mentions';
@@ -69,4 +71,3 @@ $route['admin/(:any)'] = 'admin/$1';
 $route['admin/gamme/(:num)'] = 'admin/gamme/index/$1';
 $route['admin/avantage/(:num)'] = 'admin/avantage/index/$1';
 $route['admin/solution/(:num)'] = 'admin/solution/index/$1';
-

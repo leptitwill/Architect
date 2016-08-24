@@ -28,7 +28,7 @@ class Accueil extends CI_Controller
 		$this->data['accueil'] = $this->accueil_model->contenu_accueil();
 		$idGalerie = $this->data['accueil'][0]['galerie_idGalerie'];
 		$this->data['images'] = $this->galerie_model->selectionner_image_par_galerie($idGalerie);
-		$this->data['articles'] = $this->blog_model->lister_article();
+		$this->data['articles'] = $this->blog_model->lister_article(3);
 
 		$this->load->view('theme/header', $this->data);
 		$this->load->view('accueil', $this->data);

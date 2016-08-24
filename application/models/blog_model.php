@@ -4,10 +4,11 @@ class Blog_model extends CI_Model
 {
 	protected $table = 'article';
 
-	public function lister_article()
+	public function lister_article($limit = NULL)
 	{
 		$this->db->where('estSupprime', 0);
-		$query = $this->db->get($this->table);
+		$this->db->order_by('date', 'DESC');
+		$query = $this->db->get($this->table, $limit);
         return $query->result_array();
 	}
 

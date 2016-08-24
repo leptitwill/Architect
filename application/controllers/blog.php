@@ -20,26 +20,33 @@ class Blog extends CI_Controller
 	public function index($url = NULL)
 	{
 		$this->data['articles'] = $this->blog_model->lister_article();
+		$this->data['sb_articles'] = $this->blog_model->lister_article(4);
 		$this->data['article'] = $this->blog_model->selectionner_article($url);
-		$this->data['titre'] = str_replace("-"," ",$url);
-		$this->data['titre'] = ucfirst($this->data['titre']);
+		// $this->data['titre'] = str_replace("-"," ",$url);
+		// $this->data['titre'] = ucfirst($this->data['titre']);
 
 		if ($url == NULL)
 		{
+			$this->data['titre'] = 'Le blog';
+			$this->data['sous_titre'] = 'Retez inspirez grâce à nos articles';
+
 			$this->load->view('theme/header', $this->data);
 			$this->load->view('blog/accueil', $this->data);
 			$this->load->view('theme/footer', $this->data);
 		}
 
-		elseif (empty($this->data['produit']))
+		elseif (empty($this->data['article']))
 		{
 			show_404();
 		}
 
 		else
 		{
+			$this->data['titre'] = str_replace("-"," ",$url);
+			$this->data['titre'] = ucfirst($this->data['titre']);
+
 			$this->load->view('theme/header', $this->data);
-			$this->load->view('produit/modele', $this->data);
+			$this->load->view('blog/modele', $this->data);
 			$this->load->view('theme/footer', $this->data);
 		}
 	}

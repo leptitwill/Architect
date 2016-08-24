@@ -149,8 +149,11 @@
 				<?php foreach ($articles as $article): ?>
 
 					<div class="accueil_article">
-						<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/<?= $article['couverture'] ?>');"></div>
-						<a href=""><h3 class="accueil_article_titre"><?= $article['nom'] ?></h3></a>
+						<a href="<?= base_url('blog').'/'.$article['url'] ?>">
+							<div class="accueil_article_photo" style="background-image: url('<?=img_url()?>blog/<?= $article['couverture'] ?>');"></div>
+						</a>
+						<h3 class="accueil_article_titre"><?= $article['nom'] ?></h3>
+						<span class="article_info"><?= $article['auteur'] . ', le ' . $article['date'] ?></span>
 						<p class="accueil_article_description"><?= $article['contenu'] ?></p>
 					</div>
 
