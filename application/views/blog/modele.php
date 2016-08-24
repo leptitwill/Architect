@@ -1,5 +1,32 @@
 <div class="container_article">
+
+	<div class="article_bloc">
+		<section class="cover" style="background-image: url('<?=img_url()?>blog/<?= $article[0]['couverture']?>')">
+
+			<div class="overlay">
+				<div class="cover_titre">
+					<h1><?= $article[0]['nom'] ?></h1>
+					<h3><?= $article[0]['auteur'] . ', le ' . $article[0]['date'] ?></h3>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="content">
+
+			<div class="article_contenu">
+				<p class="article_description"><?= nl2br($article[0]['contenu']) ?></p>
+			</div>
+
+		</section>
+
+	</div>
+
+
 	<section class="article_sidebar">
+
+		<h2>Les derniers articles</h2>
+
 		<?php foreach ($sb_articles as $sb_article): ?>
 
 			<?php
@@ -18,24 +45,8 @@
 			<?php } ?>
 
 		<?php endforeach; ?>
-	</section>
 
-	<section class="cover cover-article" style="background-image: url('<?=img_url()?>blog/<?= $article[0]['couverture']?>')">
-
-		<div class="overlay">
-			<div class="cover_titre">
-				<h1><?= $article[0]['nom'] ?></h1>
-				<h3><?= $article[0]['auteur'] . ', le ' . $article[0]['date'] ?></h3>
-			</div>
-		</div>
-
-	</section>
-
-	<section class="content">
-
-		<div class="article_contenu">
-			<p class="article_description"><?= nl2br($article[0]['contenu']) ?></p>
-		</div>
+		<a  class="article_lien" href="<?= base_url("blog") ?>">Voir tous les articles</a>
 
 	</section>
 	<div class="clear"></div>

@@ -101,6 +101,17 @@
 					</li>
 				</span>
 
+				<a href="<?= base_url('admin/blog'); ?>">
+					<li class="<?php if($this->uri->segment(2)=="blog"){echo "active";}?>">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+							    <path d="M 15 3 L 15 4 L 15 19.9375 L 19 17.90625 L 23 20 L 23 4 L 23 3 L 15 3 z M 11 6 C 7.636 6 5 8.636 5 12 L 5 33 C 5 36.364 7.636 39 11 39 L 12 39 L 12 47.21875 L 21.375 39 L 25.40625 39 L 40 39 C 43.364 39 46 36.364 46 33 L 46 30 L 46 12 C 46 8.636 43.364 6 40 6 L 25 6 L 25 21 L 25 22.375 L 19 30 L 13 22.375 L 13 21 L 13 6 L 11 6 z M 19 20.09375 L 15.28125 21.96875 L 17.65625 25 L 20.3125 25 L 22.65625 22 L 19 20.09375 z M 19.125 30 L 44 30 L 44 33 C 44 35.243 42.243 37 40 37 L 23.53125 37 L 19.125 30 z"></path>
+							</svg>
+						</span>
+						<span>Blog</span>
+					</li>
+				</a>
+
 				<span>
 					<li id="social" class="<?php if($this->uri->segment(2)=="reseaux_sociaux" || $this->uri->segment(2)=="partenaire" || $this->uri->segment(2)=="faq" || $this->uri->segment(2)=="avis" || $this->uri->segment(2)=="email_client") {echo "active";}?>">
 						<span>
