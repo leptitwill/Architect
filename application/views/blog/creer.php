@@ -5,13 +5,13 @@
 			<div class="succes">
 				<?php echo $succes;?>
 			</div>
-			
+
 			<div class="erreur">
 				<?php echo validation_errors(); ?>
 				<?php echo $error;?>
 			</div>
-				
-			<?php echo form_open_multipart('admin/produit/upload', $attributs); ?>
+
+			<?php echo form_open_multipart('admin/blog/upload', $attributs); ?>
 
 				<div class="produit_couverture_preview">
 					<input id="my-file" type="file" name="userfile" onchange="readURL(this);">
@@ -19,19 +19,13 @@
 					<br><p>Cliquer ci-dessus pour ajouter une image</p>
 				</div><br>
 
-				<label for="nom">Nom du produit</label>
-				<input type="text" name="nom" placeholder="Studio de jardin" value="<?= set_value('nom') ?>"/><br />
+				<label for="nom">Nom de l'article</label>
+				<input type="text" name="nom" placeholder="Les 5 raison d'acheter un Cub" value="<?= set_value('nom') ?>"/><br />
 
-				<label for="description">Description du produit</label>
-				<textarea name="description" placeholder="​Une combinaison efficace pour optimiser votre espace au meilleur prix. C'est un espace de travail compact ..." ><?= set_value('description') ?></textarea><br />
+				<label for="contenu">Contenu de l'article</label>
+				<textarea name="contenu" placeholder="​PArchitecture vous propose ses services pour des projets de réhabilitation. Réhabilitation d'une maison, centre ville d' Arras. ..." ><?= set_value('contenu') ?></textarea><br />
 
-				<label for="titre">Titre sur l'image de couverture</label>
-				<input type="text" name="titre" placeholder="Nos studio de jardin" value="<?= set_value('titre') ?>"/><br />
-
-				<label for="sous_titre">Sous titre sur l'image de couverture</label>
-				<input type="text" name="sous_titre" placeholder="Offrir une réponse efficace aux vraies problématiques sociétales" value="<?= set_value('sous_titre') ?>"/><br />
-
-				<input type="submit" class="button" name="submit" value="Créer un nouveau produit" />
+				<input type="submit" class="button" name="submit" value="Créer un nouveau article" />
 
 			</form>
 

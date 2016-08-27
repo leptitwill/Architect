@@ -16,8 +16,9 @@
 			tinymce.init({
 				selector:'.tiny',
 				language: 'fr_FR',
+				plugins: "image",
 				menubar: false,
-				toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify'
+				toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | image'
 			});
 
 			$("#social").click(function(){

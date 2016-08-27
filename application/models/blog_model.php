@@ -21,18 +21,19 @@ class Blog_model extends CI_Model
 
 	public function selectionner_article_par_id($id)
 	{
-		$this->db->where('idProduit',$id);
+		$this->db->where('idArticle',$id);
 		$query = $this->db->get($this->table);
 		return $query->result_array();
 	}
 
-	public function ajouter_article($nom, $description, $couverture, $url)
+	public function ajouter_article($nom, $contenu, $couverture, $url, $auteur, $date)
 	{
 		$this->db->set('nom', $nom);
 		$this->db->set('contenu', $contenu);
 		$this->db->set('couverture', $couverture);
 		$this->db->set('url', $url);
-		$this->db->set('date', date(d-M-Y));
+		$this->db->set('auteur', $auteur);
+		$this->db->set('date', $date);
 
 		return $this->db->insert($this->table);
 	}
@@ -56,7 +57,7 @@ class Blog_model extends CI_Model
 					'estSupprime' => 1
 				);
 
-		$this->db->where('idproduit',$id);
+		$this->db->where('idArticle',$id);
 		$this->db->update($this->table,  $data);
 	}
 }

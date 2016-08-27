@@ -13,14 +13,14 @@
 
 	<div class="articles">
 
-		<?php foreach ($articles as $article): ?>
+		<?php foreach ($articles as $article): $date = strtotime($article['date']); $date = date( 'd-m-Y', $date );?>
 
 			<div class="article">
 				<a href="<?= base_url('blog').'/'.$article['url'] ?>">
 					<div class="article_photo" style="background-image: url('<?=img_url()?>blog/<?= $article['couverture'] ?>');"></div>
 				</a>
 				<h3 class="article_titre"><?= $article['nom'] ?></h3>
-				<span class="article_info"><?= $article['auteur'] . ', le ' . $article['date'] ?></span>
+				<span class="article_info"><?= $article['auteur'] . ', le ' . $date ?></span>
 				<p class="article_description"><?= $article['contenu'] ?></p>
 			</div>
 

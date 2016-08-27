@@ -20,7 +20,7 @@ class Blog extends CI_Controller
 	public function index($url = NULL)
 	{
 		$this->data['articles'] = $this->blog_model->lister_article();
-		$this->data['sb_articles'] = $this->blog_model->lister_article(5);
+		$this->data['sb_articles'] = $this->blog_model->lister_article(3);
 		$this->data['article'] = $this->blog_model->selectionner_article($url);
 
 		if ($url == NULL)
