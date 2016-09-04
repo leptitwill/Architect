@@ -112,15 +112,13 @@
 		max-width: 1032px;
 		margin: 5rem auto 3rem;
 		padding: 0 2rem;
-		overflow: auto;
+		display: flex;
+  		flex-wrap: wrap;
 
 		.article {
 			width: 30%;
-			height: 100%;
 			margin-bottom: 3rem;
-			float: left;
 			text-align: left;
-			display: inline-block;
 			border: 1px solid $gris;
 			padding-bottom: 1rem;
 
@@ -215,7 +213,7 @@
 				margin-bottom: 2rem;
 
 				&:nth-of-type(odd) {
-					margin-right: 5%;
+					margin-right: 5% !important;
 				}
 
 				&:nth-of-type(3n+2) {
@@ -262,7 +260,7 @@
 				margin-bottom: 2rem;
 
 				&:nth-of-type(odd) {
-					margin-right: 0;
+					margin-right: 0 !important;
 				}
 			}
 		}
